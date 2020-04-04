@@ -1,4 +1,4 @@
-package com.example.autobrary.signUp;
+package com.example.autobrary.auth;
 
 import com.example.autobrary.encryption.PBKDF2_Encryption;
 
@@ -84,7 +84,6 @@ public class SignUpInfo {
         try {
             this.mem_pw = PBKDF2_Encryption.createHash(mem_pw);
         } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         };
     }

@@ -1,4 +1,4 @@
-package com.example.autobrary.login;
+package com.example.autobrary.auth;
 
 import androidx.appcompat.app.AppCompatActivity;
 
