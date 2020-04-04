@@ -10,14 +10,16 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 public class URLConnector extends Thread {
+    private final String HOST = "http://ec2-13-209-67-233.ap-northeast-2.compute.amazonaws.com:8080/";
     private String result;
     private String URL;
 
     public URLConnector(String url){
-        URL = url;
+        URL = HOST + url;
     }
 
-    public void run(){
+    @Override
+    public void run() {
         final String output = request(URL);
         result = output;
     }
@@ -28,34 +30,36 @@ public class URLConnector extends Thread {
 
     private String request(String urlStr) {
         StringBuilder output = new StringBuilder();
-        try{
+        try {
             URL url = new URL(urlStr);
             HttpURLConnection conn = (HttpURLConnection)url.openConnection();
-            if(conn != null){
+            if (conn != null) {
                 conn.setConnectTimeout(10000);
                 conn.setRequestMethod("GET");
                 conn.setDoInput(true);
                 conn.setDoOutput(true);
 
                 int resCode = conn.getResponseCode();
-                if (resCode == HttpURLConnection.HTTP_OK){
-                    BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                if (resCode == HttpURLConnection.HTTP_OK) {
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream())) ;
                     String line = null;
-                    while(true){
+                    while(true) {
                         line = reader.readLine();
-                        if(line == null){
+                        if (line == null) {
                             break;
                         }
                         output.append(line + "\n");
                     }
+
                     reader.close();
                     conn.disconnect();
                 }
             }
-        } catch (IOException e) {
-            Log.e("SampleHTTP","Exception in processing response.",e);
-            e.printStackTrace();
+        } catch(Exception ex) {
+            Log.e("SampleHTTP", "Exception in processing response.", ex);
+            ex.printStackTrace();
         }
+
         return output.toString();
     }
 }

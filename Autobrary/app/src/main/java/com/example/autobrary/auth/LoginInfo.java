@@ -1,4 +1,4 @@
-package com.example.autobrary.login;
+package com.example.autobrary.auth;
 
 public class LoginInfo {
     private String loginId;
