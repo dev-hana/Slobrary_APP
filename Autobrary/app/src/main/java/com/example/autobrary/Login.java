@@ -1,10 +1,12 @@
 package com.example.autobrary;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-
-import androidx.appcompat.app.AppCompatActivity;
+import android.widget.Toast;
 
 public class Login extends AppCompatActivity {
     EditText edtId, edtPw;
@@ -15,7 +17,8 @@ public class Login extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login);
+        setContentView(R.layout.activity_login);
+
         task = new URLConnector(POST);
 
         task.start();
@@ -31,5 +34,16 @@ public class Login extends AppCompatActivity {
 
         System.out.println(result);
 
+        Button loginButton = (Button)findViewById(R.id.btnLog);
+        loginButton.setOnClickListener(new Button.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                EditText idField = (EditText)findViewById(R.id.edtId);
+                EditText pwField = (EditText)findViewById(R.id.edtPw);
+                if(idField.getText().toString().getBytes().length <= 0 || pwField.getText().toString().getBytes().length <= 0){
+                    Toast.makeText(Login.this, "아이디 와 비밀번호 모두 입력해주세요.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 }
