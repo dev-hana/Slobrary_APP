@@ -44,7 +44,7 @@
 
         <Button
             android:text="로그인"
-            android:id="@+id/btnLog"
+            android:id="@+id/btnLogIn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 

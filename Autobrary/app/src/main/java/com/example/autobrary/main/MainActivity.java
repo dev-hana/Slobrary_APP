@@ -1,6 +1,7 @@
 package com.example.autobrary.main;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
 

@@ -13,7 +13,7 @@ import com.example.autobrary.database.URLConnector;
 
 public class Login extends AppCompatActivity {
     EditText edtId, edtPw;
-    Button btnLog;
+    Button btnLogIn, btnSUp;
     String POST = "http://localhost/MediumServer/SelectAllPost.php";
     URLConnector task;
 
@@ -37,7 +37,7 @@ public class Login extends AppCompatActivity {
 
         System.out.println(result);
 
-        Button loginButton = (Button)findViewById(R.id.btnLog);
+        Button loginButton = (Button)findViewById(R.id.btnLogIn);
         loginButton.setOnClickListener(new Button.OnClickListener(){
             @Override
             public void onClick(View v) {
