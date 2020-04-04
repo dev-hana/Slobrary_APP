@@ -1,8 +1,10 @@
-package com.example.autobrary;
+package com.example.autobrary.main;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.autobrary.R;
 
 public class MainActivity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.example.autobrary;
+package com.example.autobrary.encryption;
 
 import java.security.SecureRandom;
 import javax.crypto.spec.PBEKeySpec;
