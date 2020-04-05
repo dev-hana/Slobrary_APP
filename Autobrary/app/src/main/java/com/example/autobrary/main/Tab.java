@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.TabHost;
 
 import com.example.autobrary.R;
+import com.google.android.material.tabs.TabLayout;
 
 public class Tab extends AppCompatActivity {
     Button tbtnLog;
