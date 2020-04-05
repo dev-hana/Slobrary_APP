@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#FBFF00"
+    android:background="#9FD4DC"
     tools:context=".main.MainMenu">
 
     <LinearLayout
@@ -20,22 +20,35 @@
 
         <Button
             android:id="@+id/btnLog"
-            android:textSize="18sp"
+            android:textSize="18dp"
             android:background="#00ff0000"
             android:text="로그인"
+            android:textColor="@android:color/white"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/baseLayout"
-        android:background="@android:color/holo_blue_bright"
         android:orientation="vertical"
+        android:background="@android:color/white"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:ignore="InvalidId">
+        android:layout_weight="1">
 
-
+        <TextView
+            android:text="환영합니다!"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
     </LinearLayout>
+
+    <fragment
+        android:name="com.example.autobrary.main.TabFrag_1"
+        android:id="@+id/frags"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </fragment>
 
 </LinearLayout>

@@ -1,9 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".main.Bsearch">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- 검색 -->
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:layout_marginLeft="5dp"
+            android:hint="도서명 또는 저자명"
+            android:layout_width="350dp"
+            android:layout_height="50dp"/>
+        <ImageButton
+            android:id="@+id/btnsch"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:background="@android:color/white"
+            android:src="@drawable/search"
+            android:layout_width="50dp"
+            android:layout_height="50dp"/>
+    </LinearLayout>
+    <TextView
+        android:layout_margin="10dp"
+        android:text="분류"
+        android:textSize="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <Spinner
+        android:id="@+id/spin1"
+        android:layout_marginBottom="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"/>
+    <Spinner
+        android:id="@+id/spin2"
+        android:layout_marginBottom="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"/>
+    <Spinner
+        android:id="@+id/spin3"
+        android:layout_marginBottom="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+        <Button
+            android:text="RESET"
+            android:id="@+id/sBtnReset"
+            android:textColor="@android:color/black"
+            android:background="@android:color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:text="SEARCH"
+            android:id="@+id/sBtnSearch"
+            android:textColor="@android:color/white"
+            android:background="#A683D2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+</LinearLayout>

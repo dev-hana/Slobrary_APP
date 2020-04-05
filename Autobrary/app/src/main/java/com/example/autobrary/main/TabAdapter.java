@@ -19,10 +19,10 @@ public class TabAdapter extends FragmentPagerAdapter {
                 TabFrag_1 tab1 = new TabFrag_1();
                 return tab1;
             case 1:
-                TabFlag_2 tab2 = new TabFlag_2();
+                TabFrag_2 tab2 = new TabFrag_2();
                 return tab2;
             case 2:
-                TabFlag_3 tab3 = new TabFlag_3();
+                TabFrag_3 tab3 = new TabFrag_3();
                 return tab3;
             default:
                 return null;

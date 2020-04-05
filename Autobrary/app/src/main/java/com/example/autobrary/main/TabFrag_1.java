@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 import com.example.autobrary.R;
 
@@ -16,15 +18,12 @@ import com.example.autobrary.R;
  */
 public class TabFrag_1 extends Fragment {
 
-    public TabFrag_1() {
-        // Required empty public constructor
-    }
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_tab_frag_1, container, false);
     }
+
 }
