@@ -13,7 +13,7 @@ public class SignUpInfo {
     private String mem_gender;
     private String mem_phone;
     private String mem_birth;
-    private String mem_adress;
+    private String mem_address;
     private String mem_mail;
     private String loan_status;
     private String mem_date;
@@ -53,11 +53,11 @@ public class SignUpInfo {
     public void setMem_birth(String mem_birth) {
         this.mem_birth = mem_birth;
     }
-    public String getMem_adress() {
-        return mem_adress;
+    public String getMem_address() {
+        return mem_address;
     }
-    public void setMem_adress(String mem_adress) {
-        this.mem_adress = mem_adress;
+    public void setMem_address(String mem_address) {
+        this.mem_address = mem_address;
     }
     public String getMem_mail() {
         return mem_mail;

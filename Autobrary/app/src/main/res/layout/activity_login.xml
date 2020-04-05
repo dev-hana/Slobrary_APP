@@ -12,12 +12,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
-            android:text="아이디 : "
+            android:text="@string/idLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <EditText
             android:id="@+id/edtId"
-            android:hint="아이디를 입력하세요"
+            android:hint="@string/insertID"
             android:layout_width="300dp"
             android:layout_height="wrap_content"/>
     </LinearLayout>
@@ -27,11 +27,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
-            android:text="비밀번호 : "
+            android:text="@string/pwLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <EditText
-            android:hint="비밀번호를 입력하세요"
+            android:hint="@string/insertPW"
             android:id="@+id/edtPw"
             android:layout_width="300dp"
             android:layout_height="wrap_content"/>
