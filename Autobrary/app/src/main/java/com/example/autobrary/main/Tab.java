@@ -34,7 +34,4 @@ public class Tab extends AppCompatActivity {
         tabs.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(viewpager));
         viewpager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabs));
     }
-/*
-?
- */
 }
