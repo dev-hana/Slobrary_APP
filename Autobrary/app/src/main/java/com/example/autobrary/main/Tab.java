@@ -3,26 +3,24 @@ package com.example.autobrary.main;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.widget.Button;
-import android.widget.TabHost;
 
 import com.example.autobrary.R;
 import com.google.android.material.tabs.TabLayout;
+
 
 public class Tab extends AppCompatActivity {
     Button tbtnLog;
     TabLayout tabs;
 
-    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tab);
 
         tbtnLog = findViewById(R.id.tbtnLog);
-        tabs = findViewById(R.id.tabs);
+        tabs = findViewById(R.id.tab);
 
         tabs.addTab(tabs.newTab().setText("도서검색"));
         tabs.addTab(tabs.newTab().setText("공지사항"));
@@ -36,5 +34,7 @@ public class Tab extends AppCompatActivity {
         tabs.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(viewpager));
         viewpager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabs));
     }
-
+/*
+?
+ */
 }

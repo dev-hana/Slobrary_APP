@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/bSearch"
+        android:title="도서검색"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/bNotice"
+        android:title="공지사항"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/bRequest"
+        android:title="희망도서신청"
+        app:showAsAction="always"/>
+</menu>
