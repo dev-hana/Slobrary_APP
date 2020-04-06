@@ -2,25 +2,27 @@ package com.example.autobrary.main;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
-import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.FrameLayout;
-import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.example.autobrary.R;
 
-import java.util.BitSet;
-
 public class MainMenu extends AppCompatActivity {
     Button btnLog;
-    //LinearLayout baseLayout;
-    //FrameLayout fLayout;
+    Fragment frag1, frag2, frag3;
+    FrameLayout fram;
+
+    FragmentManager fragman;
+    FragmentTransaction tran;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,10 +30,21 @@ public class MainMenu extends AppCompatActivity {
         setContentView(R.layout.activity_main_menu);
 
         //getSupportActionBar().setBackgroundDrawable(new ColorDrawable(0xFF339999));
+        //메뉴 바 색 지정
+
+        fragman = getSupportFragmentManager();
+        tran = fragman.beginTransaction();
 
         btnLog = findViewById(R.id.btnLog);
-        //baseLayout = findViewById(R.id.baseLayout);
-        //fLayout = findViewById(R.id.fLayout);
+        frag1 = new Frag1(); //프래그먼트 객체 생성
+        frag2 = new Frag2();
+        frag3 = new Frag3();
+        fram = findViewById(R.id.view);
+
+        tran.add(R.id.view, frag1);
+        //tran.replace(R.id.view, frag1);
+        tran.commit();
+
     }
 
     @Override
@@ -48,15 +61,15 @@ public class MainMenu extends AppCompatActivity {
 
         switch(item.getItemId()){
             case R.id.bSearch:
-//                Intent intent = new Intent(MainMenu.this, Bsearch.class);
-//                startActivity(intent);
-                //getFragmentManager().beginTransaction().replace(R.id.frags,new TabFrag_1()).commit();
+                tran.replace(R.id.view, frag1);
+                tran.commit();
                 break;
             case R.id.bNotice:
-                //baseLayout.setBackgroundColor(Color.GREEN);
+                Toast.makeText(getApplicationContext(), "공지사항", Toast.LENGTH_LONG).show();
                 break;
             case R.id.bRequest:
-                //baseLayout.setBackgroundColor(Color.WHITE);
+                tran.replace(R.id.view, frag3);
+                tran.commit();
                 break;
         }
         return true;

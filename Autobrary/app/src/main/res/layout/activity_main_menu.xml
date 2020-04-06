@@ -28,27 +28,11 @@
             android:layout_height="wrap_content"/>
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/baseLayout"
-        android:orientation="vertical"
-        android:background="@android:color/white"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1">
-
-        <TextView
-            android:text="환영합니다!"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
-    </LinearLayout>
-
-    <fragment
-        android:name="com.example.autobrary.main.TabFrag_1"
-        android:id="@+id/frags"
+    <FrameLayout
+        android:id="@+id/view"
         android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-    </fragment>
+    </FrameLayout>
 
 </LinearLayout>

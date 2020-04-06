@@ -39,30 +39,30 @@ public class Bsearch extends AppCompatActivity {
         spin3.setAdapter(adap3);
     }
 
-//    @Override
-//    public boolean onCreateOptionsMenu(android.view.Menu menu) {
-//        super.onCreateOptionsMenu(menu);
-//        MenuInflater mInflate = this.getMenuInflater();
-//        mInflate.inflate(R.menu.menu, menu);
-//        return true;
-//    }
-//
-//    @Override
-//    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-//        super.onOptionsItemSelected(item);
-//
-//        switch(item.getItemId()){
-//            case R.id.bSearch:
-//                Intent intent = new Intent(Bsearch.this, Bsearch.class);
-//                startActivity(intent);
-//                break;
-//            case R.id.bNotice:
-//
-//                break;
-//            case R.id.bRequest:
-//
-//                break;
-//        }
-//        return true;
-//    }
+    @Override
+    public boolean onCreateOptionsMenu(android.view.Menu menu) {
+        super.onCreateOptionsMenu(menu);
+        MenuInflater mInflate = this.getMenuInflater();
+        mInflate.inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        super.onOptionsItemSelected(item);
+
+        switch(item.getItemId()){
+            case R.id.bSearch:
+                Intent intent = new Intent(Bsearch.this, Bsearch.class);
+                startActivity(intent);
+                break;
+            case R.id.bNotice:
+
+                break;
+            case R.id.bRequest:
+
+                break;
+        }
+        return true;
+    }
 }

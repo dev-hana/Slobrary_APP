@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/darker_gray"
-    tools:context=".main.TabFrag_1">
+    android:background="#009688"
+    tools:context=".main.Frag1">
     <!-- 검색 -->
     <LinearLayout
         android:orientation="vertical"
@@ -16,12 +16,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <EditText
+                android:id="@+id/edtSch"
                 android:layout_marginLeft="5dp"
                 android:hint="도서명 또는 저자명"
                 android:layout_width="350dp"
                 android:layout_height="50dp"/>
             <ImageButton
-                android:id="@+id/btnsch"
+                android:id="@+id/btnSch"
                 android:adjustViewBounds="true"
                 android:scaleType="fitXY"
                 android:background="@android:color/white"
@@ -61,12 +62,14 @@
                 android:layout_weight="1"/>
             <Button
                 android:text="RESET"
+                android:id="@+id/btnRe"
                 android:textColor="@android:color/black"
                 android:background="@android:color/white"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <Button
                 android:text="SEARCH"
+                android:id="@+id/btnS"
                 android:textColor="@android:color/white"
                 android:background="#A683D2"
                 android:layout_width="wrap_content"
