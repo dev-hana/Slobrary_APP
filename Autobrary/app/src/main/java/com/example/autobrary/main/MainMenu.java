@@ -58,7 +58,7 @@ public class MainMenu extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         super.onOptionsItemSelected(item);
-
+        tran = fragman.beginTransaction();
         switch(item.getItemId()){
             case R.id.bSearch:
                 tran.replace(R.id.view, frag1);
