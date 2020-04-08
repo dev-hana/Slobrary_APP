@@ -1,6 +1,7 @@
 package com.example.autobrary.auth;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -22,6 +23,9 @@ public class SignUpActivity extends AppCompatActivity {
         signUpBt.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Vector<EditText> allField = new Vector<EditText>();
+                SignUpInfo infoOfUser = new SignUpInfo();
+
                 EditText id = (EditText) findViewById(R.id.edtId);
                 EditText pw = (EditText) findViewById(R.id.edtPw);
                 EditText reEnterPw = (EditText) findViewById(R.id.edtReEnterPw);
@@ -29,10 +33,15 @@ public class SignUpActivity extends AppCompatActivity {
                 EditText phoneNv = (EditText) findViewById(R.id.phoneNv);
                 EditText homeAddr= (EditText) findViewById(R.id.homeAddr);
                 EditText mail= (EditText) findViewById(R.id.email);
-
-                // 빈칸 무결성 체크
+                infoOfUser.setMem_id(id.getText().toString());
+                infoOfUser.setMem_pw(pw.getText().toString());
+                infoOfUser.setMem_name(userName.getText().toString());
+                infoOfUser.setMem_phone(phoneNv.getText().toString());
+                infoOfUser.setMem_address(homeAddr.getText().toString());
+                infoOfUser.setMem_mail(mail.getText().toString());
+                // Log.i("PBKDF2 RESULT", infoOfUser.getMem_pw());
+              // 빈칸 무결성 체크
                 // TODO : 라디오박스 추가해야함, 각각 세분화된 로직이 필요함. 또한 signup으로 넘어가는 로직 추가해야함. => 이 함수는 미완성
-                Vector<EditText> allField = new Vector<EditText>();
                 allField.add(id);
                 allField.add(pw);
                 allField.add(reEnterPw);
