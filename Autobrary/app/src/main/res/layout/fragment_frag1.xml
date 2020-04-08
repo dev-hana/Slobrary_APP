@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#009688"
     tools:context=".main.Frag1">
     <!-- 검색 -->
     <LinearLayout
@@ -36,21 +35,122 @@
             android:textSize="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
-        <Spinner
-            android:id="@+id/spin1"
-            android:layout_marginBottom="10dp"
+        <TextView
+            android:layout_margin="10dp"
+            android:textSize="18dp"
+            android:text="도서분류"
             android:layout_width="match_parent"
-            android:layout_height="35dp"/>
-        <Spinner
-            android:id="@+id/spin2"
-            android:layout_marginBottom="10dp"
+            android:layout_height="wrap_content"/>
+        <LinearLayout
+            android:layout_margin="10dp"
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="35dp"/>
-        <Spinner
-            android:id="@+id/spin3"
-            android:layout_marginBottom="10dp"
+            android:layout_height="wrap_content">
+            <CheckBox
+                android:layout_margin="5dp"
+                android:id="@+id/chk1"
+                android:text="층류"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <CheckBox
+                android:layout_margin="5dp"
+                android:id="@+id/chk2"
+                android:text="철학"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <CheckBox
+                android:layout_margin="5dp"
+                android:id="@+id/chk3"
+                android:text="종교"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <CheckBox
+                android:layout_margin="5dp"
+                android:id="@+id/chk4"
+                android:text="사회과학"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <CheckBox
+                android:layout_margin="5dp"
+                android:id="@+id/chk5"
+                android:text="자연과학"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_margin="10dp"
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="35dp"/>
+            android:layout_height="wrap_content">
+            <CheckBox
+                android:layout_margin="5dp"
+                android:id="@+id/chk6"
+                android:text="기술과학"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <CheckBox
+                android:layout_margin="5dp"
+                android:id="@+id/chk7"
+                android:text="예술"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <CheckBox
+                android:layout_margin="5dp"
+                android:id="@+id/chk8"
+                android:text="언어"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <CheckBox
+                android:layout_margin="5dp"
+                android:id="@+id/chk9"
+                android:text="문학"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <CheckBox
+                android:layout_margin="5dp"
+                android:id="@+id/chk10"
+                android:text="역사"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <TextView
+            android:text="국내외 분류"
+            android:textSize="18dp"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:layout_margin="10dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RadioGroup
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RadioButton
+                    android:id="@+id/rd1"
+                    android:text="전체"
+                    android:layout_margin="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <RadioButton
+                    android:id="@+id/rd2"
+                    android:text="국내도서"
+                    android:layout_margin="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <RadioButton
+                    android:id="@+id/rd3"
+                    android:text="국외도서"
+                    android:layout_margin="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </RadioGroup>
+        </LinearLayout>
 
         <LinearLayout
             android:orientation="horizontal"

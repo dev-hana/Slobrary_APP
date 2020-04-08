@@ -9,17 +9,16 @@
         android:roundIcon="@drawable/icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".main.Bsearch"></activity>
-        <activity android:name=".main.MainMenu" >
+        <activity android:name=".main.Mypage"></activity>
+        <activity android:name=".main.Bsearch" />
+        <activity android:name=".main.MainMenu">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".main.Tab">
-
-        </activity>
+        <activity android:name=".main.Tab"></activity>
         <activity android:name=".auth.LoginActivity" />
         <activity android:name=".auth.SignUpActivity" />
         <activity android:name=".main.MainActivity" />
