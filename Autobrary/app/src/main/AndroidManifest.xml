@@ -20,7 +20,7 @@
         <activity android:name=".main.Tab">
 
         </activity>
-        <activity android:name=".auth.Login" />
+        <activity android:name=".auth.LoginActivity" />
         <activity android:name=".auth.SignUpActivity" />
         <activity android:name=".main.MainActivity" />
     </application>

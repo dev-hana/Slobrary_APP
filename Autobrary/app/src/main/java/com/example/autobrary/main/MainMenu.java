@@ -6,15 +6,17 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.graphics.Color;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import com.example.autobrary.R;
+import com.example.autobrary.auth.LoginActivity;
 
 public class MainMenu extends AppCompatActivity {
     Button btnLog;
@@ -44,7 +46,14 @@ public class MainMenu extends AppCompatActivity {
         tran.add(R.id.view, frag1);
         //tran.replace(R.id.view, frag1);
         tran.commit();
-
+        Button loginBt = (Button) findViewById(R.id.btnLog);
+        loginBt.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent loginAct = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(loginAct);
+            }
+        });
     }
 
     @Override

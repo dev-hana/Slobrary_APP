@@ -2,6 +2,8 @@ package com.example.autobrary.auth;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,7 +13,7 @@ import android.widget.Toast;
 import com.example.autobrary.R;
 import com.example.autobrary.database.URLConnector;
 
-public class Login extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
     EditText edtId, edtPw;
     Button btnLogIn, btnSUp;
     String POST = "http://localhost/MediumServer/SelectAllPost.php";
@@ -44,9 +46,19 @@ public class Login extends AppCompatActivity {
                 EditText idField = (EditText)findViewById(R.id.edtId);
                 EditText pwField = (EditText)findViewById(R.id.edtPw);
                 if(idField.getText().toString().getBytes().length <= 0 || pwField.getText().toString().getBytes().length <= 0){
-                    Toast.makeText(Login.this, "아이디 와 비밀번호 모두 입력해주세요.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "아이디와 비밀번호 모두 입력해주세요.", Toast.LENGTH_SHORT).show();
                 }
             }
         });
+        Button signUp = (Button) findViewById(R.id.btnSUp);
+        signUp.setOnClickListener(new Button.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                Intent signUpAct = new Intent(getApplicationContext(), SignUpActivity.class);
+                startActivity(signUpAct);
+            }
+        });
+
     }
 }
