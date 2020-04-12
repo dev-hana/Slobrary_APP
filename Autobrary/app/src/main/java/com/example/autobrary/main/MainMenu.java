@@ -64,7 +64,7 @@ public class MainMenu extends AppCompatActivity {
         return true;
     }
 
-    @Override
+    /*@Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         super.onOptionsItemSelected(item);
         tran = fragman.beginTransaction();
@@ -82,6 +82,6 @@ public class MainMenu extends AppCompatActivity {
                 break;
         }
         return true;
-    }
+    }*/
 
 }
