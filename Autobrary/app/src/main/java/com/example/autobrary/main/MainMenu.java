@@ -38,13 +38,10 @@ public class MainMenu extends AppCompatActivity {
         tran = fragman.beginTransaction();
 
         btnLog = findViewById(R.id.btnLog);
-        frag1 = new Frag1(); //프래그먼트 객체 생성
-        frag2 = new Frag2();
-        frag3 = new Frag3();
+
         fram = findViewById(R.id.view);
 
-        tran.add(R.id.view, frag1);
-        //tran.replace(R.id.view, frag1);
+        //tran.add(R.id.view, frag1);
         tran.commit();
         Button loginBt = (Button) findViewById(R.id.btnLog);
         loginBt.setOnClickListener(new Button.OnClickListener() {

@@ -10,15 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".main.Mypage" />
-        <activity android:name=".main.Bsearch" />
         <activity android:name=".main.MainMenu">
+        </activity>
+        <activity android:name=".main.Rpage">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".main.Tab"></activity>
         <activity android:name=".auth.LoginActivity" />
         <activity android:name=".auth.SignUpActivity" />
         <activity android:name=".main.MainActivity" />
