@@ -16,10 +16,10 @@
             android:layout_width="0dp"
             android:layout_height="0dp"/>
         <TextView
-            android:layout_marginRight="20dp"
+            android:layout_marginRight="10dp"
             android:text="SignIn"
             android:id="@+id/signIn"
-            android:textSize="20dp"
+            android:textSize="15dp"
             android:clickable="true"
             android:focusable="true"
             android:foreground="?android:attr/selectableItemBackground"
@@ -27,10 +27,10 @@
             android:layout_height="wrap_content"/>
 
         <TextView
-            android:layout_marginRight="20dp"
+            android:layout_marginRight="15dp"
             android:text="SignUp"
             android:id="@+id/signUp"
-            android:textSize="20dp"
+            android:textSize="15dp"
             android:clickable="true"
             android:focusable="true"
             android:foreground="?android:attr/selectableItemBackground"
