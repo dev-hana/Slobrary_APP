@@ -10,7 +10,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 public class URLConnector extends Thread {
-    private final String HOST = "http://ec2-13-209-67-233.ap-northeast-2.compute.amazonaws.com:8080/";
+    private final String HOST = "https://www.slobrary.com/";
     private String result;
     private String URL;
 

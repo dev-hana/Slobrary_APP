@@ -18,7 +18,7 @@ public class SignUp{
      * TODO : 매 요청에 따른 요청 주소의 편집이 필요함.
      * */
     private String insertDatabase(){
-        URLConnector task = new URLConnector("insertMember.php");
+        URLConnector task = new URLConnector("insertMember.do");
         task.start();
         try{
             task.join();
