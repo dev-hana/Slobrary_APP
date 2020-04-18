@@ -33,14 +33,14 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new Button.OnClickListener(){
             @Override
             public void onClick(View v) {
+                LoginInfo info = new LoginInfo();
                 EditText idField = (EditText)findViewById(R.id.edtId);
                 EditText pwField = (EditText)findViewById(R.id.edtPw);
-                if(idField.getText().toString().getBytes().length <= 0 || pwField.getText().toString().getBytes().length <= 0){
+                info.setLoginId(idField.getText().toString());
+                info.setLoginPw(pwField.getText().toString());
+                if(info.getLoginId().getBytes().length <= 0 || info.getLoginPw().getBytes().length <= 0){
                     Toast.makeText(LoginActivity.this, "아이디와 비밀번호 모두 입력해주세요.", Toast.LENGTH_SHORT).show();
                 }else{
-                    LoginInfo info = new LoginInfo();
-                    info.setLoginId(idField.getText().toString());
-                    info.setLoginPw(pwField.getText().toString());
                     Login login = new Login(info);
                     String result = null;
                     try {
