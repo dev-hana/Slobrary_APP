@@ -36,6 +36,7 @@ public class Login  {
         HttpEntity rawData = null;
         BufferedInputStream bis = null;
         String result = "false";
+        boolean validateResult = false;
         try {
             URLConnector task = new URLConnector(REQUEST_PAGE, param);
             task.start();
@@ -43,7 +44,10 @@ public class Login  {
             HttpResponse resp = task.getResult();
             rawData = resp.getEntity();
             result = EntityUtils.toString(rawData);
-        }catch (Exception e){
+            if (PBKDF2_Encryption.validatePassword(info.getLoginPw(), result)) {
+                validateResult = true;
+            }
+        } catch (NullPointerException | InterruptedException | NumberFormatException e) {
             e.printStackTrace();
         }finally {
             try{
@@ -52,11 +56,6 @@ public class Login  {
                 e2.printStackTrace();
             }
         }
-        if(PBKDF2_Encryption.validatePassword(info.getLoginPw(),result)){
-            return true;
-        }else{
-            return false;
-        }
-
+        return validateResult;
     }
 }
