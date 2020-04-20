@@ -9,6 +9,8 @@
         android:minSdkVersion="23"
         android:targetSdkVersion="29" />
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -24,13 +26,14 @@
         <activity android:name="com.example.autobrary.main.MainMenu" >
         </activity>
         <activity android:name="com.example.autobrary.main.Rpage" >
+        </activity>
+        <activity android:name="com.example.autobrary.auth.LoginActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.autobrary.auth.LoginActivity" />
         <activity android:name="com.example.autobrary.auth.SignUpActivity" />
         <activity android:name="com.example.autobrary.main.MainActivity" />
 
