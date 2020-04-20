@@ -1,15 +1,13 @@
 package com.example.autobrary.auth;
 
-import android.os.AsyncTask;
-import android.os.Debug;
-import android.util.Log;
-
 import com.example.autobrary.database.URLConnector;
 import com.example.autobrary.encryption.PBKDF2_Encryption;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.BufferedInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.util.HashMap;
@@ -27,7 +25,7 @@ public class Login  {
 
     public boolean execute() throws IOException, InvalidKeySpecException, NoSuchAlgorithmException {
 
-        String REQUEST_PAGE = "Login.do";
+        String REQUEST_PAGE = "Login.php";
         HashMap<String, String> param = new HashMap<>();
 
         // 파라미터 입력
@@ -44,10 +42,10 @@ public class Login  {
             HttpResponse resp = task.getResult();
             rawData = resp.getEntity();
             result = EntityUtils.toString(rawData);
-            if (PBKDF2_Encryption.validatePassword(info.getLoginPw(), result)) {
+            if (PBKDF2_Encryption.validatePassword(info.getLoginPw(), new JSONObject(result).getString("PASSWD"))) {
                 validateResult = true;
             }
-        } catch (NullPointerException | InterruptedException | NumberFormatException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }finally {
             try{

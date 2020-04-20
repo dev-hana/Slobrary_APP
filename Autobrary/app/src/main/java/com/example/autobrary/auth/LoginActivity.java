@@ -19,11 +19,6 @@ import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 
 public class LoginActivity extends AppCompatActivity {
-    EditText edtId, edtPw;
-    Button btnLogIn, btnSUp;
-    String POST = "http://localhost/MediumServer/SelectAllPost.php";
-    URLConnector task;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
