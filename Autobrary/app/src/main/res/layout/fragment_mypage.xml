@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="10dp"
     tools:context=".main.MypageFragment">
 
     <LinearLayout
@@ -50,12 +51,6 @@
             </LinearLayout>
         </LinearLayout>
 
-        <!--View
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:background="@color/colorPrimary"
-            android:layout_width="match_parent"
-            android:layout_height="2dp"/-->
         <TextView
             android:text="대출 도서"
             android:layout_marginTop="20dp"
@@ -96,20 +91,6 @@
                 android:layout_height="wrap_content" />
         </LinearLayout>
 
-        <!--View
-            android:layout_marginRight="5dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginBottom="20dp"
-            android:background="@drawable/borderMp"
-            android:layout_width="match_parent"
-            android:layout_height="20dp"/-->
-
-        <!--View
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:background="@color/colorPrimary"
-            android:layout_width="match_parent"
-            android:layout_height="2dp"/-->
 
         <LinearLayout
             android:layout_marginTop="20dp"

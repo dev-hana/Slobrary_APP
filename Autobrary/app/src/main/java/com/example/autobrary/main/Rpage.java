@@ -32,13 +32,14 @@ public class Rpage extends AppCompatActivity {
 
     RelativeLayout lay;
     View layout;
+    LayoutInflater inflater;
 
 //    Fragment fmain, fmy, fno;//, fin, fre, fho, fq, fs;
 //
 //    FragmentManager fragman;
 //    FragmentTransaction tran;
 
-    LayoutInflater inflater;
+
 
 //    private AppBarConfiguration mAppBarConfiguration;
 

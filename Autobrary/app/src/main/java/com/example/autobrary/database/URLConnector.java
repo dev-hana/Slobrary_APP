@@ -1,65 +1,84 @@
 package com.example.autobrary.database;
 
+import android.os.AsyncTask;
 import android.util.Log;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
 
-public class URLConnector extends Thread {
-    private final String HOST = "http://ec2-13-209-67-233.ap-northeast-2.compute.amazonaws.com:8080/";
-    private String result;
-    private String URL;
+import cz.msebera.android.httpclient.HttpResponse;
+import cz.msebera.android.httpclient.NameValuePair;
+import cz.msebera.android.httpclient.client.ClientProtocolException;
+import cz.msebera.android.httpclient.client.HttpClient;
+import cz.msebera.android.httpclient.client.entity.UrlEncodedFormEntity;
+import cz.msebera.android.httpclient.client.methods.HttpPost;
+import cz.msebera.android.httpclient.impl.client.DefaultHttpClient;
+import cz.msebera.android.httpclient.message.BasicNameValuePair;
 
-    public URLConnector(String url){
-        URL = HOST + url;
-    }
 
-    @Override
-    public void run() {
-        final String output = request(URL);
-        result = output;
-    }
+public class URLConnector extends Thread{
 
-    public String getResult(){
+    private final String HOST = "https://www.slobrary.com/android/";
+
+    public HttpResponse getResult() {
         return result;
     }
 
-    private String request(String urlStr) {
-        StringBuilder output = new StringBuilder();
+    private HttpResponse result;
+    private String URL;
+    private HashMap<String, String> param = new HashMap<String, String>();
+
+    public URLConnector(String url, HashMap param){
+        URL = HOST + url;
+        this.param = param;
+    }
+
+    public String getURL() {
+        return URL;
+    }
+
+    public void setURL(String URL) {
+        this.URL = HOST + URL;
+    }
+
+    public HashMap<String, String> getParam() {
+        return param;
+    }
+
+    public void setParam(HashMap<String, String> param) {
+        this.param = param;
+    }
+
+
+    public void run() {
+        final HttpClient httpclient = new DefaultHttpClient();
+        HttpResponse reps = null;
+        final HttpPost httppost = new HttpPost(URL);
+
         try {
-            URL url = new URL(urlStr);
-            HttpURLConnection conn = (HttpURLConnection)url.openConnection();
-            if (conn != null) {
-                conn.setConnectTimeout(10000);
-                conn.setRequestMethod("GET");
-                conn.setDoInput(true);
-                conn.setDoOutput(true);
+            List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(param.size());
 
-                int resCode = conn.getResponseCode();
-                if (resCode == HttpURLConnection.HTTP_OK) {
-                    BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream())) ;
-                    String line = null;
-                    while(true) {
-                        line = reader.readLine();
-                        if (line == null) {
-                            break;
-                        }
-                        output.append(line + "\n");
-                    }
-
-                    reader.close();
-                    conn.disconnect();
-                }
+            // 파라미터 추가
+            Set key = param.keySet();
+            for (Iterator it = key.iterator(); it.hasNext(); ) {
+                String keyName = (String) it.next();
+                String valueName = (String) param.get(keyName);
+                nameValuePairs.add(new BasicNameValuePair(keyName, valueName));
             }
-        } catch(Exception ex) {
-            Log.e("SampleHTTP", "Exception in processing response.", ex);
-            ex.printStackTrace();
-        }
 
-        return output.toString();
+            httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+            // Execute HTTP Post Request
+
+            reps = httpclient.execute(httppost);
+        } catch (ClientProtocolException e) {
+            // TODO Auto-generated catch block
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+        }
+        this.result = reps;
     }
 }
