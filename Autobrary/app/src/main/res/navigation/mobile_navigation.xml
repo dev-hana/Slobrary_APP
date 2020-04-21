@@ -8,12 +8,9 @@
     <fragment
         android:id="@+id/nav_home"
         android:name="com.example.autobrary.main.HomeFragment"
-        android:label="@string/menu_home"
+        android:label="Home"
         tools:layout="@layout/fragment_home">
 
-        <!--action
-            android:id="@+id/action_HomeFragment_to_HomeSecondFragment"
-            app:destination="@id/nav_home_second" /-->
     </fragment>
     <!--fragment
         android:id="@+id/nav_home_second"
@@ -30,14 +27,42 @@
     </fragment-->
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.example.autobrary.main.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:id="@+id/nav_Mypage"
+        android:name="com.example.autobrary.main.MypageFragment"
+        android:label="mypage"
+        tools:layout="@layout/fragment_mypage" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.example.autobrary.main.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:id="@+id/nav_Notice"
+        android:name="com.example.autobrary.main.NoticeFragment"
+        android:label="Notice"
+        tools:layout="@layout/fragment_notice" />
+
+    <fragment
+        android:id="@+id/nav_Info"
+        android:name="com.example.autobrary.main.MypageFragment"
+        android:label="mypage"
+        tools:layout="@layout/fragment_mypage" />
+
+    <fragment
+        android:id="@+id/nav_Reco"
+        android:name="com.example.autobrary.main.NoticeFragment"
+        android:label="Notice"
+        tools:layout="@layout/fragment_notice" />
+    <fragment
+        android:id="@+id/nav_Hope"
+        android:name="com.example.autobrary.main.MypageFragment"
+        android:label="mypage"
+        tools:layout="@layout/fragment_mypage" />
+
+    <fragment
+        android:id="@+id/nav_QnA"
+        android:name="com.example.autobrary.main.NoticeFragment"
+        android:label="Notice"
+        tools:layout="@layout/fragment_notice" />
+    <fragment
+        android:id="@+id/nav_Slo"
+        android:name="com.example.autobrary.main.MypageFragment"
+        android:label="mypage"
+        tools:layout="@layout/fragment_mypage" />
 </navigation>

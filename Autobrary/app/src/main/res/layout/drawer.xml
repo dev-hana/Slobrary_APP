@@ -2,35 +2,134 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/drawer"
-    android:layout_width="135dp"
+    android:layout_width="200dp"
     android:layout_height="match_parent"
     android:layout_gravity="left"
     android:orientation="vertical"
-    android:padding="5dp"
+    android:background="@color/colorAccent"
     >
-    <Button
+    <LinearLayout
+        android:background="@color/colorPrimaryDark"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="65dp"
-        android:text="Home"
-        android:id="@+id/home"
-        android:textSize="16dp"
-        android:textAlignment="center"
-        />
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="65dp"
-        android:id="@+id/project"
-        android:text="Project"
-        android:textSize="16dp"
-        android:textAlignment="center"
-        />
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="65dp"
-        android:id="@+id/contect"
-        android:text="Contect"
-        android:textSize="16dp"
-        android:textAlignment="center"
-        />
+        android:layout_height="100dp">
+        <View
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"/>
+        <TextView
+            android:id="@+id/mName"
+            android:text="이름이름"
+            android:textSize="18dp"
+            android:layout_marginBottom="10dp"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
+        <LinearLayout
+            android:id="@+id/noLogHide"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <View
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="0dp"/>
+            <TextView
+                android:text="현재 대출 도서 : "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/mNum"
+                android:text="ㅌㅌ권"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <View
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="0dp"/>
+        </LinearLayout>
+        <View
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"/>
+    </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:text="HOME"
+        android:id="@+id/mHome"
+        android:textSize="20dp"
+        style="?android:attr/borderlessButtonStyle"
+        android:background="@color/colorAccent"
+        android:textAlignment="center" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:text="마이페이지"
+        android:id="@+id/mMypage"
+        android:textSize="20dp"
+        style="?android:attr/borderlessButtonStyle"
+        android:background="@color/colorAccent"
+        android:textAlignment="center" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:text="공지사항"
+        android:id="@+id/mNotice"
+        android:textSize="20dp"
+        style="?android:attr/borderlessButtonStyle"
+        android:background="@color/colorAccent"
+        android:textAlignment="center" />
+    <View
+        android:background="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:text="이용안내"
+        android:id="@+id/mInfo"
+        android:textSize="20dp"
+        style="?android:attr/borderlessButtonStyle"
+        android:background="@color/colorAccent"
+        android:textAlignment="center" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:text="추천도서"
+        android:id="@+id/mReco"
+        android:textSize="20dp"
+        style="?android:attr/borderlessButtonStyle"
+        android:background="@color/colorAccent"
+        android:textAlignment="center" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:text="희망도서"
+        android:id="@+id/mHope"
+        android:textSize="20dp"
+        style="?android:attr/borderlessButtonStyle"
+        android:background="@color/colorAccent"
+        android:textAlignment="center" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:text="자주하는 질문"
+        android:id="@+id/mQnA"
+        android:textSize="20dp"
+        style="?android:attr/borderlessButtonStyle"
+        android:background="@color/colorAccent"
+        android:textAlignment="center" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:text="Slobrary"
+        android:id="@+id/mSlo"
+        android:textSize="20dp"
+        style="?android:attr/borderlessButtonStyle"
+        android:background="@color/colorAccent"
+        android:textAlignment="center" />
 </LinearLayout>

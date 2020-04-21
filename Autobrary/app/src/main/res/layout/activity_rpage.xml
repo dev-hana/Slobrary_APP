@@ -10,20 +10,60 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         >
-    <ImageView
-        android:id="@+id/open"
-        android:layout_width="38dp"
-        android:layout_height="38dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:src="@drawable/menu_bt" />
-    <include
-        layout="@layout/app_bar_main"
+        <ImageView
+            android:id="@+id/open"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/menu_bt" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <View
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="0dp"/>
+            <TextView
+                android:layout_marginRight="10dp"
+                android:text="SignIn"
+                android:id="@+id/signIn"
+                android:textSize="20dp"
+                android:padding="5dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_marginRight="15dp"
+                android:text="SignUp"
+                android:id="@+id/signUp"
+                android:padding="5dp"
+                android:textSize="20dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/lay"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent">
+        <include
+            layout="@layout/app_bar_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
     </RelativeLayout>
     
     <include
+        android:id="@+id/nav_view"
         layout="@layout/drawer" />
 
 </androidx.drawerlayout.widget.DrawerLayout>
