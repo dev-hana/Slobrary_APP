@@ -29,8 +29,8 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 LoginInfo info = new LoginInfo();
-                EditText idField = (EditText)findViewById(R.id.edtId);
-                EditText pwField = (EditText)findViewById(R.id.edtPw);
+                EditText idField = (EditText)findViewById(R.id.entId);
+                EditText pwField = (EditText)findViewById(R.id.entPw);
                 info.setLoginId(idField.getText().toString());
                 info.setLoginPw(pwField.getText().toString());
                 if(info.getLoginId().getBytes().length <= 0 || info.getLoginPw().getBytes().length <= 0){

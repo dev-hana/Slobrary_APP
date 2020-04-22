@@ -9,6 +9,7 @@ public class SignUpInfo {
     private String RFID;
     private String mem_id;
     private String mem_pw;
+    private String mem_pw_r;
     private String mem_name;
     private String mem_gender;
     private String mem_phone;
@@ -59,10 +60,10 @@ public class SignUpInfo {
     public void setMem_address(String mem_address) {
         this.mem_address = mem_address;
     }
-    public String getMem_mail() {
+    public String getMem_email() {
         return mem_mail;
     }
-    public void setMem_mail(String mem_mail) {
+    public void setMem_email(String mem_mail) {
         this.mem_mail = mem_mail;
     }
     public String getLoan_status() {
@@ -77,6 +78,7 @@ public class SignUpInfo {
     public void setMem_date(String mem_date) {
         this.mem_date = mem_date;
     }
+
     public String getMem_pw() {
         return mem_pw;
     }
@@ -88,5 +90,10 @@ public class SignUpInfo {
         };
     }
 
-
+    public String getMem_pw_r() {
+        return mem_pw_r;
+    }
+    public void setMem_pw_r(String mem_pw_r) {
+        this.mem_pw_r = mem_pw_r;
+    }
 }

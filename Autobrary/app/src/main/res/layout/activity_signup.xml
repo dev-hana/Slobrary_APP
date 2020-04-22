@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" >
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -24,7 +27,7 @@
             android:layout_width="90dp"
             android:layout_height="wrap_content"/>
         <EditText
-            android:id="@+id/edtId"
+            android:id="@+id/entId"
             android:hint="@string/insertID"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
@@ -43,7 +46,7 @@
             android:layout_height="wrap_content"/>
         <EditText
             android:hint="@string/insertPW"
-            android:id="@+id/edtPw"
+            android:id="@+id/entPw"
             android:inputType="textPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
@@ -62,7 +65,7 @@
             android:layout_height="wrap_content"/>
         <EditText
             android:hint="@string/reInsertPW"
-            android:id="@+id/edtReEnterPw"
+            android:id="@+id/entPw_re"
             android:inputType="textPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
@@ -81,7 +84,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/userName"
+            android:id="@+id/entName"
             android:hint="@string/insertName"
             />
     </LinearLayout>
@@ -103,17 +106,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:id="@+id/entGender"
             >
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/male"
+                android:id="@+id/g_man"
                 />
 
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/female"
+                android:id="@+id/g_woman"
                 />
 
         </RadioGroup>
@@ -132,7 +138,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/phoneNv"
+            android:id="@+id/entPhone"
             android:hint="@string/insertPhone"
             android:inputType="phone"
             />
@@ -151,7 +157,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/homeAddr"
+            android:id="@+id/entAddr"
             android:hint="@string/insertHomeAddr"
             />
     </LinearLayout>
@@ -169,7 +175,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/email"
+            android:id="@+id/entEmail"
             android:hint="@string/insertMail"
             android:inputType="textEmailAddress"
             />
@@ -187,3 +193,4 @@
         android:layout_height="0dp"/>
 
 </LinearLayout>
+</ScrollView>

@@ -1221,10 +1221,16 @@ id drawer
 id edit_query
 id edtId
 id edtPw
-id edtReEnterPw
-id email
 id end
 id end_padder
+id entAddr
+id entEmail
+id entGender
+id entId
+id entName
+id entPhone
+id entPw
+id entPw_re
 id enterAlways
 id enterAlwaysCollapsed
 id exitUntilCollapsed
@@ -1236,12 +1242,13 @@ id fill_vertical
 id filled
 id fixed
 id forever
+id g_man
+id g_woman
 id ghost_view
 id gone
 id group_divider
 id groups
 id home
-id homeAddr
 id homeAsUp
 id icon
 id icon_group
@@ -1325,7 +1332,6 @@ id parent
 id parentPanel
 id parent_matrix
 id percent
-id phoneNv
 id pin
 id prebtn
 id progress_circular
@@ -1419,7 +1425,6 @@ id uniform
 id unlabeled
 id up
 id useLogo
-id userName
 id view
 id view_offset_helper
 id visible
@@ -1481,7 +1486,6 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_login
-layout activity_main
 layout activity_main_menu
 layout activity_mypage
 layout activity_rpage

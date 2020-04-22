@@ -34,7 +34,6 @@
         <activity android:name="com.example.autobrary.auth.LoginActivity" >
         </activity>
         <activity android:name="com.example.autobrary.auth.SignUpActivity" />
-        <activity android:name="com.example.autobrary.main.MainActivity" />
 
         <provider
             android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
