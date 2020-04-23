@@ -58,7 +58,6 @@ public class SignUpActivity extends AppCompatActivity {
                 EditText email= (EditText) findViewById(R.id.entEmail);
                 infoOfUser.setMem_id(id.getText().toString());
                 infoOfUser.setMem_pw(entPw.getText().toString());
-                infoOfUser.setMem_pw_r(entPw_r.getText().toString());
                 infoOfUser.setMem_name(name.getText().toString());
                 infoOfUser.setMem_phone(phone.getText().toString());
                 infoOfUser.setMem_address(addr.getText().toString());
@@ -90,33 +89,28 @@ public class SignUpActivity extends AppCompatActivity {
                 allField.add(addr);
                 allField.add(email);
 
-
+                //하단의 코드 순서는 바뀌면 안됨.
                 for(int i = 0; i < allField.size(); i++){
                     if(allField.get(i).getText().toString().getBytes().length <= 0){
-
                         Toast.makeText(SignUpActivity.this, "빈칸을 모두 입력해주세요.", Toast.LENGTH_SHORT).show();
-                        break;
+                        return;
                     }
                 }
 
                 if(!entPw.getText().toString().equals(entPw_r.getText().toString())){
                     Toast.makeText(SignUpActivity.this, "비밀번호가 서로 다릅니다.", Toast.LENGTH_SHORT).show();
+                    return;
                 }
 
-
-//                for(int i = 0; i < allField.size(); i++){
-//                    if(allField.get(i).getText().toString().getBytes().length <= 0){
-//                        Toast.makeText(SignUpActivity.this, "빈칸을 모두 입력해주세요.", Toast.LENGTH_SHORT).show();
-//                        break;
-//                    }
-//                }
-//                if(pw.getText() != reEnterPw.getText()){
-//                    Toast.makeText(SignUpActivity.this, "비밀번호가 서로 다릅니다.", Toast.LENGTH_SHORT).show();
-//                }
+                //위에서 return이 일어나지 않을경우 (이상없음)
+                if(new SignUp(infoOfUser).toString().equals("false")){
+                    Toast.makeText(SignUpActivity.this, "회원가입 도중 오류가 발생하였습니다. 인터넷 연결상태 확인 및 나중에 다시 시도해주세요.", Toast.LENGTH_SHORT).show();
+                    return;
+                }else {
+                    //TODO : 회원가입 성공시 로직 입력
+                }
             }
         });
-
-
     }
 
 }

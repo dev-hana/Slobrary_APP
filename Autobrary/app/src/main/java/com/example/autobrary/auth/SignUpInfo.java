@@ -9,7 +9,6 @@ public class SignUpInfo {
     private String RFID;
     private String mem_id;
     private String mem_pw;
-    private String mem_pw_r;
     private String mem_name;
     private String mem_gender;
     private String mem_phone;
@@ -90,10 +89,4 @@ public class SignUpInfo {
         };
     }
 
-    public String getMem_pw_r() {
-        return mem_pw_r;
-    }
-    public void setMem_pw_r(String mem_pw_r) {
-        this.mem_pw_r = mem_pw_r;
-    }
 }
