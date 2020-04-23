@@ -11,6 +11,10 @@ import android.widget.Toast;
 import androidx.annotation.IdRes;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.autobrary.R;
+
+import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 import java.util.Vector;
 
 public class SignUpActivity extends AppCompatActivity {
@@ -103,11 +107,20 @@ public class SignUpActivity extends AppCompatActivity {
                 }
 
                 //위에서 return이 일어나지 않을경우 (이상없음)
-                if(new SignUp(infoOfUser).toString().equals("false")){
-                    Toast.makeText(SignUpActivity.this, "회원가입 도중 오류가 발생하였습니다. 인터넷 연결상태 확인 및 나중에 다시 시도해주세요.", Toast.LENGTH_SHORT).show();
-                    return;
-                }else {
-                    //TODO : 회원가입 성공시 로직 입력
+                SignUp register = new SignUp(infoOfUser);
+                try {
+                    if(register.execute()){
+                        //TODO : 회원가입 성공시 로직 입력
+                    }else {
+                        Toast.makeText(SignUpActivity.this, "회원가입 도중 오류가 발생하였습니다. 인터넷 연결상태 확인 및 나중에 다시 시도해주세요.", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (InvalidKeySpecException e) {
+                    e.printStackTrace();
+                } catch (NoSuchAlgorithmException e) {
+                    e.printStackTrace();
                 }
             }
         });
