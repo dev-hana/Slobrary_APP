@@ -1,18 +1,13 @@
-package com.example.autobrary.auth;
+package com.example.autobrary.notice;
 
 import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-
-import com.example.autobrary.R;
 
 import java.util.List;
 
 public class NoticeAdapter {
     private Context context;
-    private List<Notice> noticeList;
-    public NoticeAdapter(Context context, List<Notice> noticeList){
+    private List<NoticeInfo> noticeList;
+    public NoticeAdapter(Context context, List<NoticeInfo> noticeList){
         this.context = context;
         this.noticeList = noticeList;
     }
