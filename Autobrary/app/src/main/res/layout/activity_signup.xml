@@ -93,6 +93,59 @@
         android:layout_marginRight="8dp"
         android:layout_marginLeft="8dp"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:text="생년월일"
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            />
+        <Spinner
+            android:id="@+id/spinner_year"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="년"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"/>
+        <Spinner
+            android:id="@+id/spinner_month"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="월"/>
+
+        <Spinner
+            android:id="@+id/spinner_day"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="일"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_width="match_parent"
         android:orientation="horizontal"
         android:layout_height="wrap_content">
 
@@ -113,6 +166,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/male"
                 android:id="@+id/g_man"
+                android:buttonTint="#003399"
+                android:checked="true"
                 />
 
             <RadioButton
@@ -120,6 +175,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/female"
                 android:id="@+id/g_woman"
+                android:buttonTint="#003399"
                 />
 
         </RadioGroup>

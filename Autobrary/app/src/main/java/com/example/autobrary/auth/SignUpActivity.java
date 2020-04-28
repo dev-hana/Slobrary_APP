@@ -3,10 +3,12 @@ package com.example.autobrary.auth;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.Toast;
 import androidx.annotation.IdRes;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,6 +27,22 @@ public class SignUpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
         Button signUpBt = (Button) findViewById(R.id.signUp);
+
+        // Spinner
+        Spinner yearSpinner = (Spinner)findViewById(R.id.spinner_year);
+        ArrayAdapter yearAdapter = ArrayAdapter.createFromResource(this, R.array.date_year, android.R.layout.simple_spinner_item);
+        yearAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        yearSpinner.setAdapter(yearAdapter);
+
+        Spinner monthSpinner = (Spinner)findViewById(R.id.spinner_month);
+        ArrayAdapter monthAdapter = ArrayAdapter.createFromResource(this, R.array.date_month, android.R.layout.simple_spinner_item);
+        monthAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        monthSpinner.setAdapter(monthAdapter);
+
+        Spinner daySpinner = (Spinner)findViewById(R.id.spinner_day);
+        ArrayAdapter dayAdapter = ArrayAdapter.createFromResource(this, R.array.date_day, android.R.layout.simple_spinner_item);
+        dayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        daySpinner.setAdapter(dayAdapter);
 
         //라디오 버튼 클릭 리스너
         final RadioButton.OnClickListener radioButtonClickListener = new RadioButton.OnClickListener(){
