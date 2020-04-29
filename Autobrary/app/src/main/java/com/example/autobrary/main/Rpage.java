@@ -60,6 +60,8 @@ public class Rpage extends AppCompatActivity {
 
         lay = findViewById(R.id.lay);
 
+        drawer = (DrawerLayout) findViewById(R.id.drawer);
+
 //        fmain = new HomeFragment();
 //        fmy = new MypageFragment();
 //        fno = new NoticeFragment();
@@ -73,7 +75,6 @@ public class Rpage extends AppCompatActivity {
         open.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View v) {
-                drawer = (DrawerLayout) findViewById(R.id.drawer);
                 if (!drawer.isDrawerOpen(Gravity.LEFT)) {
                     drawer.openDrawer(Gravity.LEFT);
                 }
@@ -102,6 +103,9 @@ public class Rpage extends AppCompatActivity {
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (drawer.isDrawerOpen(Gravity.LEFT)) {
+                    drawer.closeDrawer(Gravity.LEFT);
+                }
                 Toast.makeText(getApplicationContext(), "HOME", Toast.LENGTH_LONG).show();
                 inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 layout = inflater.inflate(R.layout.fragment_home, null);
@@ -113,6 +117,9 @@ public class Rpage extends AppCompatActivity {
         myPage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (drawer.isDrawerOpen(Gravity.LEFT)) {
+                    drawer.closeDrawer(Gravity.LEFT);
+                }
                 Toast.makeText(getApplicationContext(), "마이페이지", Toast.LENGTH_LONG).show();
                 inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 layout = inflater.inflate(R.layout.fragment_mypage, null);
