@@ -28,7 +28,7 @@
                 android:layout_height="0dp"/>
             <TextView
                 android:layout_marginRight="10dp"
-                android:text="SignIn"
+                android:text="로그인"
                 android:id="@+id/signIn"
                 android:textSize="20dp"
                 android:padding="5dp"
@@ -40,7 +40,7 @@
 
             <TextView
                 android:layout_marginRight="15dp"
-                android:text="SignUp"
+                android:text="회원가입"
                 android:id="@+id/signUp"
                 android:padding="5dp"
                 android:textSize="20dp"

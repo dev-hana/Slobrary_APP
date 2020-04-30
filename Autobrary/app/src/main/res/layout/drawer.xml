@@ -109,7 +109,7 @@
         android:layout_width="match_parent"
         android:layout_height="65dp"
         android:text="희망도서"
-        android:id="@+id/mHope"
+        android:id="@+id/mWish"
         android:textSize="20dp"
         style="?android:attr/borderlessButtonStyle"
         android:background="@color/colorAccent"

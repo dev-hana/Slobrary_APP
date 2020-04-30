@@ -28,20 +28,12 @@ import com.example.autobrary.auth.SignUpActivity;
 public class Rpage extends AppCompatActivity {
     DrawerLayout drawer;
     TextView signIn, signUp;
-    Button home, myPage, notice, info, reco, hope, qna, slo;
+    Button home, myPage, notice, info, reco, wish, qna, slo;
 
     RelativeLayout lay;
     View layout;
     LayoutInflater inflater;
 
-//    Fragment fmain, fmy, fno;//, fin, fre, fho, fq, fs;
-//
-//    FragmentManager fragman;
-//    FragmentTransaction tran;
-
-
-
-//    private AppBarConfiguration mAppBarConfiguration;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +46,7 @@ public class Rpage extends AppCompatActivity {
         notice = findViewById(R.id.mNotice);
         info = findViewById(R.id.mInfo);
         reco = findViewById(R.id.mReco);
-        hope = findViewById(R.id.mHope);
+        wish = findViewById(R.id.mWish);
         qna = findViewById(R.id.mQnA);
         slo = findViewById(R.id.mSlo);
 
@@ -62,15 +54,6 @@ public class Rpage extends AppCompatActivity {
 
         drawer = (DrawerLayout) findViewById(R.id.drawer);
 
-//        fmain = new HomeFragment();
-//        fmy = new MypageFragment();
-//        fno = new NoticeFragment();
-//
-//        fragman = getSupportFragmentManager();
-//        tran = fragman.beginTransaction();
-//
-//        tran.add(R.id.lay, fmain);
-//        tran.commit();
 
         open.setOnClickListener(new Button.OnClickListener() {
             @Override
@@ -128,11 +111,32 @@ public class Rpage extends AppCompatActivity {
             }
         });
 
-//        mAppBarConfiguration = new AppBarConfiguration.Builder(
-//                R.id.nav_Mypage, R.id.nav_Notice, R.id.nav_Info, R.id.nav_Reco, R.id.nav_Hope, R.id.nav_QnA, R.id.nav_Slo)
-//                .setDrawerLayout(drawer)
-//                .build();
-//        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        notice.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (drawer.isDrawerOpen(Gravity.LEFT)) {
+                    drawer.closeDrawer(Gravity.LEFT);
+                }
+                Toast.makeText(getApplicationContext(), "공지사항", Toast.LENGTH_LONG).show();
+                inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                layout = inflater.inflate(R.layout.fragment_notice, null);
+                lay.removeAllViews();
+                lay.addView(layout);
+            }
+        });
 
+        wish.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (drawer.isDrawerOpen(Gravity.LEFT)) {
+                    drawer.closeDrawer(Gravity.LEFT);
+                }
+                Toast.makeText(getApplicationContext(), "도서 신청", Toast.LENGTH_LONG).show();
+                inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                layout = inflater.inflate(R.layout.fragment_wish, null);
+                lay.removeAllViews();
+                lay.addView(layout);
+            }
+        });
     }
 }

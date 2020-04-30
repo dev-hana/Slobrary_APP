@@ -5,6 +5,7 @@ import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -12,55 +13,63 @@ import com.example.autobrary.R;
 
 import java.util.ArrayList;
 
-public class BAdapter {
-    private ArrayList<BItem> bItems = new ArrayList<>();
+public class BAdapter extends BaseAdapter {
+    private ArrayList<BItem> bItems = new ArrayList<BItem>();
 
     public int getCount(){
         return bItems.size();
     }
 
+    // 지정한 위치(position)에 있는 데이터 리턴 : 필수 구현
     public BItem getItem(int position){
         return bItems.get(position);
     }
 
+    // 지정한 위치(position)에 있는 데이터와 관계된 아이템(row)의 ID를 리턴. : 필수 구현
     public long getItemId(int position){
-        return 0;
+        return position;
+    }
+
+    public BAdapter(){
+
     }
 
     public View getView(int position, View convertView, ViewGroup parent) {
-        Context context = parent.getContext();
+        final int pos = position;
+        final Context context = parent.getContext();
 
         if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.listview_custom, parent, false);
         }
 
-        ImageView bImage = convertView.findViewById(R.id.bImage);
+        //ImageView bCover = convertView.findViewById(R.id.bCover);
         TextView bTitle = convertView.findViewById(R.id.bTitle);
         TextView bAuth = convertView.findViewById(R.id.bAuth);
-        TextView bPos = convertView.findViewById(R.id.bPos);
-        TextView bLoan = convertView.findViewById(R.id.bLoan);
+        TextView bPub = convertView.findViewById(R.id.bPub);
+        TextView bDate = convertView.findViewById(R.id.bDate);
 
-        BItem bItem = getItem(position);
+        BItem bItem = bItems.get(position);
 
-        bImage.setImageDrawable(bItem.getCover());
+        //bCover.setImageDrawable(bItem.getCover());
         bTitle.setText(bItem.getTitle());
         bAuth.setText(bItem.getAuth());
-        bPos.setText(bItem.getPos());
-        bLoan.setText(bItem.getLoan());
+        bPub.setText(bItem.getPublish());
+        bDate.setText(bItem.getDate());
 
         /*위젯에 대한 이벤트리스너를 지정하려면 여기*/
         return convertView;
     }
 
-    public void addItem(Drawable cover, String title, String auth, String pos, String loan){
+    //public void addItem(Drawable cover, String title, String auth, String pub, String wdate){
+    public void addItem(String title, String auth, String pub, String wdate){
         BItem bItem = new BItem();
 
-        bItem.setCover(cover);
+        //bItem.setCover(cover);
         bItem.setTitle(title);
         bItem.setAuth(auth);
-        bItem.setPos(pos);
-        bItem.setLoan(loan);
+        bItem.setPublish(pub);
+        bItem.setDate(wdate);
 
         bItems.add(bItem);
     }

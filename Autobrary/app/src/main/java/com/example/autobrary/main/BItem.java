@@ -3,19 +3,19 @@ package com.example.autobrary.main;
 import android.graphics.drawable.Drawable;
 
 public class BItem {
-    Drawable cover;
-    String title;
-    String auth;
-    String pos;
-    String loan;
+    //private Drawable cover;
+    private String title;
+    private String auth;
+    private String publish;
+    private String date;
 
-    public Drawable getCover() {
-        return cover;
-    }
-
-    public void setCover(Drawable cover) {
-        this.cover = cover;
-    }
+//    public Drawable getCover() {
+//        return cover;
+//    }
+//
+//    public void setCover(Drawable cover) {
+//        this.cover = cover;
+//    }
 
     public String getTitle() {
         return title;
@@ -33,19 +33,19 @@ public class BItem {
         this.auth = auth;
     }
 
-    public String getPos() {
-        return pos;
+    public String getPublish() {
+        return publish;
     }
 
-    public void setPos(String pos) {
-        this.pos = pos;
+    public void setPublish(String publish) {
+        this.publish = publish;
     }
 
-    public String getLoan() {
-        return loan;
+    public String getDate() {
+        return date;
     }
 
-    public void setLoan(String loan) {
-        this.loan = loan;
+    public void setDate(String date) {
+        this.date = date;
     }
 }
