@@ -21,6 +21,7 @@ import java.util.Vector;
 public class SignUpActivity extends AppCompatActivity {
     private RadioButton g_man, g_woman;
     private RadioGroup entGender;
+    private boolean validateIdFlag = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,7 +64,33 @@ public class SignUpActivity extends AppCompatActivity {
                 }
             }
         };
+        final Button btnIdCheck = findViewById(R.id.btnIdCheck);
+        btnIdCheck.setOnClickListener(new Button.OnClickListener(){
 
+            @Override
+            public void onClick(View v) {
+                ValidateId chkId = new ValidateId();
+                EditText idField = findViewById(R.id.entId);
+                try {
+                    if(chkId.IdCheck(idField.getText().toString())){
+                        validateIdFlag = false;
+                        Toast.makeText(SignUpActivity.this, "이미 있는 아이디입니다.", Toast.LENGTH_SHORT).show();
+                    }else{
+                        validateIdFlag = true;
+                        Toast.makeText(SignUpActivity.this, "사용가능한 아이디입니다.", Toast.LENGTH_SHORT).show();
+                        findViewById(R.id.entId).setEnabled(false);
+                        btnIdCheck.setEnabled(false);
+                    }
+
+                } catch (InvalidKeySpecException e) {
+                    e.printStackTrace();
+                } catch (NoSuchAlgorithmException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
         signUpBt.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -126,11 +153,15 @@ public class SignUpActivity extends AppCompatActivity {
                 //위에서 return이 일어나지 않을경우 (이상없음)
                 SignUp register = new SignUp(infoOfUser);
                 try {
-                    if(register.execute()){
-                        //TODO : 회원가입 성공시 로직 입력
-                    }else {
-                        Toast.makeText(SignUpActivity.this, "회원가입 도중 오류가 발생하였습니다. 인터넷 연결상태 확인 및 나중에 다시 시도해주세요.", Toast.LENGTH_SHORT).show();
-                        return;
+                    if(validateIdFlag) {
+                        if (register.execute()) {
+                            //TODO : 회원가입 성공시 로직 입력
+                        } else {
+                            Toast.makeText(SignUpActivity.this, "회원가입 도중 오류가 발생하였습니다. 인터넷 연결상태 확인 및 나중에 다시 시도해주세요.", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+                    }else{
+                        Toast.makeText(SignUpActivity.this, "아이디 중복확인을 해주세요.", Toast.LENGTH_SHORT).show();
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
