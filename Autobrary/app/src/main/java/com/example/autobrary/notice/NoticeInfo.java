@@ -5,14 +5,24 @@ public class NoticeInfo {
     String date; //날짜
     String name; //작성자
 
+
+
+    String contents;
     /* 공지사항 관련 */
 
-    public NoticeInfo(String title, String date, String name){
+    public NoticeInfo(String title, String date, String name, String contents){
         this.title = title;
         this.date = date;
         this.name = name;
+        this.contents = contents;
+    }
+    public String getContents() {
+        return contents;
     }
 
+    public void setContents(String contents) {
+        this.contents = contents;
+    }
     public String getTitle() {
         return title;
     }
