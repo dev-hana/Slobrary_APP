@@ -11,7 +11,7 @@
         android:background="@drawable/border"
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="200dp">
 
         <ImageView
             android:id="@+id/bCover"
@@ -41,13 +41,63 @@
                 android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
-            <TextView
-                android:gravity="center_vertical"
-                android:id="@+id/bPub"
-                android:hint="출판사정보입니다."
+            <LinearLayout
+                android:orientation="horizontal"
                 android:layout_weight="1"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent">
+                <TextView
+                    android:gravity="center_vertical"
+                    android:text="출판사"
+                    android:layout_weight="3.5"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+                <TextView
+                    android:gravity="center_vertical"
+                    android:id="@+id/bPub"
+                    android:hint="출판사"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:gravity="center_vertical"
+                    android:text="출판연도"
+                    android:layout_weight="3.5"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+                <TextView
+                    android:gravity="center_vertical"
+                    android:id="@+id/bPubY"
+                    android:hint="출판연도"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:gravity="center_vertical"
+                    android:text="ISBN"
+                    android:layout_weight="3.5"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+                <TextView
+                    android:gravity="center_vertical"
+                    android:id="@+id/bIsbn"
+                    android:hint="ISBN"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+            </LinearLayout>
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
