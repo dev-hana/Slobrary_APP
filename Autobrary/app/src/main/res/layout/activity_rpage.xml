@@ -50,18 +50,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
         </LinearLayout>
-
-        <include
-            layout="@layout/content_main"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
     </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/lay"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="38dp"></RelativeLayout>
+        android:layout_marginTop="38dp">
+        <include
+            layout="@layout/content_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </RelativeLayout>
 
     <!-- layout="@layout/app_bar_main" 이었음. content_main 전에에 -->
 
