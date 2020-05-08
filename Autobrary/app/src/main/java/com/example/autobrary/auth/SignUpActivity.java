@@ -71,6 +71,10 @@ public class SignUpActivity extends AppCompatActivity {
             public void onClick(View v) {
                 ValidateId chkId = new ValidateId();
                 EditText idField = findViewById(R.id.entId);
+                if(idField.getText().toString().getBytes().length <= 0) {
+                    Toast.makeText(SignUpActivity.this, "아이디를 입력해주세요.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 try {
                     if(chkId.IdCheck(idField.getText().toString())){
                         validateIdFlag = false;
@@ -110,7 +114,6 @@ public class SignUpActivity extends AppCompatActivity {
                 infoOfUser.setMem_phone(phone.getText().toString());
                 infoOfUser.setMem_address(addr.getText().toString());
                 infoOfUser.setMem_email(email.getText().toString());
-
 
                 // Log.i("PBKDF2 RESULT", infoOfUser.getMem_pw());
                 // 빈칸 무결성 체크

@@ -4,13 +4,16 @@ public class NoticeInfo {
     String title; //제목
     String date; //날짜
     String name; //작성자
+    String id; // 게시글 번호
+
 
 
 
     String contents;
     /* 공지사항 관련 */
 
-    public NoticeInfo(String title, String date, String name, String contents){
+    public NoticeInfo(String id, String title, String date, String name, String contents){
+        this.id = id;
         this.title = title;
         this.date = date;
         this.name = name;
@@ -18,6 +21,13 @@ public class NoticeInfo {
     }
     public String getContents() {
         return contents;
+    }
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public void setContents(String contents) {

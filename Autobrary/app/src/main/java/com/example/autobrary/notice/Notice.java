@@ -50,7 +50,7 @@ public class Notice {
                     String date = new JSONObject(jsonResult.getString(Integer.toString(j))).getString("date");
                     String owner = new JSONObject(jsonResult.getString(Integer.toString(j))).getString("admin_id");
                     String content = new JSONObject(jsonResult.getString(Integer.toString(j))).getString("content");
-                    NoticeInfo fetchNotice = new NoticeInfo(title, date, owner, content);
+                    NoticeInfo fetchNotice = new NoticeInfo(Integer.toString(j), title, date, owner, content);
                     notice.add(fetchNotice);
                 }
             }else{
