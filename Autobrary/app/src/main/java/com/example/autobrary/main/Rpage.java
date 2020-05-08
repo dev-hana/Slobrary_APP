@@ -127,6 +127,20 @@ public class Rpage extends AppCompatActivity {
             }
         });
 
+        info.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (drawer.isDrawerOpen(Gravity.LEFT)) {
+                    drawer.closeDrawer(Gravity.LEFT);
+                }
+                Toast.makeText(getApplicationContext(), "이용안내", Toast.LENGTH_LONG).show();
+                inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                layout = inflater.inflate(R.layout.fragment_info, null);
+                lay.removeAllViews();
+                lay.addView(layout);
+            }
+        });
+
         reco.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

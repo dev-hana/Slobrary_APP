@@ -7,7 +7,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".main.Notice2Fragment">
+    tools:context=".main.Qna2Fragment">
 
     <LinearLayout
         android:orientation="vertical"
@@ -24,7 +24,7 @@
         <TextView
             android:id="@+id/noTitle"
             android:padding="10dp"
-            android:text="공지사항 제목"
+            android:text="자주하는 질문 제목"
             android:textSize="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
@@ -51,7 +51,7 @@
                 android:layout_height="0dp"/>
             <TextView
                 android:id="@+id/noCal"
-                android:text="2020 - 04 - 21"
+                android:text="2020 - 05 - 08"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"/>
         </LinearLayout>
@@ -62,7 +62,7 @@
             android:layout_width="match_parent"
             android:layout_height="450dp">
             <TextView
-                android:text="공지사항 내용이 들어갈 부분. 일단은 LinearLayout"
+                android:text="자주하는 질문 내용이 들어갈 부분. 일단은 LinearLayout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
         </LinearLayout>
