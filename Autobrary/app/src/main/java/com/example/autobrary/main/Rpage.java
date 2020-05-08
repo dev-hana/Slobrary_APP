@@ -14,12 +14,12 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
+//import androidx.fragment.app.Fragment;
+//import androidx.fragment.app.FragmentManager;
+//import androidx.fragment.app.FragmentTransaction;
+//import androidx.navigation.NavController;
+//import androidx.navigation.Navigation;
+//import androidx.navigation.ui.AppBarConfiguration;
 
 import com.example.autobrary.R;
 import com.example.autobrary.auth.LoginActivity;
@@ -34,12 +34,14 @@ public class Rpage extends AppCompatActivity {
     View layout;
     LayoutInflater inflater;
 
+    ImageView open;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rpage);
-        ImageView open = findViewById(R.id.open);
+        open = findViewById(R.id.open);
 
         home = findViewById(R.id.mHome);
         myPage = findViewById(R.id.mMypage);
@@ -120,6 +122,20 @@ public class Rpage extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "공지사항", Toast.LENGTH_LONG).show();
                 inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 layout = inflater.inflate(R.layout.fragment_notice, null);
+                lay.removeAllViews();
+                lay.addView(layout);
+            }
+        });
+
+        reco.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (drawer.isDrawerOpen(Gravity.LEFT)) {
+                    drawer.closeDrawer(Gravity.LEFT);
+                }
+                Toast.makeText(getApplicationContext(), "추천도서", Toast.LENGTH_LONG).show();
+                inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                layout = inflater.inflate(R.layout.fragment_reco, null);
                 lay.removeAllViews();
                 lay.addView(layout);
             }

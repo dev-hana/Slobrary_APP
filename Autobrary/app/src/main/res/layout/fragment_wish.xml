@@ -5,10 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="10dp"
-    tools:context=".main.NoticeFragment">
+    tools:context=".main.WishFragment">
 
     <LinearLayout
         android:padding="10dp"
+        android:id="@+id/wishF"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
