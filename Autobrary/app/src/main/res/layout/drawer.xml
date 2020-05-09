@@ -12,7 +12,7 @@
         android:background="@color/colorPrimaryDark"
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="100dp">
+        android:layout_height="80dp">
         <View
             android:layout_weight="1"
             android:layout_width="0dp"
@@ -58,7 +58,7 @@
 
     <Button
         android:layout_width="match_parent"
-        android:layout_height="65dp"
+        android:layout_height="60dp"
         android:text="HOME"
         android:id="@+id/mHome"
         android:textSize="20dp"
@@ -67,7 +67,7 @@
         android:textAlignment="center" />
     <Button
         android:layout_width="match_parent"
-        android:layout_height="65dp"
+        android:layout_height="60dp"
         android:text="마이페이지"
         android:id="@+id/mMypage"
         android:textSize="20dp"
@@ -76,7 +76,7 @@
         android:textAlignment="center" />
     <Button
         android:layout_width="match_parent"
-        android:layout_height="65dp"
+        android:layout_height="60dp"
         android:text="공지사항"
         android:id="@+id/mNotice"
         android:textSize="20dp"
@@ -89,7 +89,7 @@
         android:layout_height="1dp"/>
     <Button
         android:layout_width="match_parent"
-        android:layout_height="65dp"
+        android:layout_height="60dp"
         android:text="이용안내"
         android:id="@+id/mInfo"
         android:textSize="20dp"
@@ -98,7 +98,7 @@
         android:textAlignment="center" />
     <Button
         android:layout_width="match_parent"
-        android:layout_height="65dp"
+        android:layout_height="60dp"
         android:text="추천도서"
         android:id="@+id/mReco"
         android:textSize="20dp"
@@ -107,7 +107,7 @@
         android:textAlignment="center" />
     <Button
         android:layout_width="match_parent"
-        android:layout_height="65dp"
+        android:layout_height="60dp"
         android:text="희망도서"
         android:id="@+id/mWish"
         android:textSize="20dp"
@@ -116,7 +116,7 @@
         android:textAlignment="center" />
     <Button
         android:layout_width="match_parent"
-        android:layout_height="65dp"
+        android:layout_height="60dp"
         android:text="자주하는 질문"
         android:id="@+id/mQnA"
         android:textSize="20dp"
@@ -125,7 +125,7 @@
         android:textAlignment="center" />
     <Button
         android:layout_width="match_parent"
-        android:layout_height="65dp"
+        android:layout_height="60dp"
         android:text="Slobrary"
         android:id="@+id/mSlo"
         android:textSize="20dp"
