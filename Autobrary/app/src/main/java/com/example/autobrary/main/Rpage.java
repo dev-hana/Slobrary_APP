@@ -168,5 +168,33 @@ public class Rpage extends AppCompatActivity {
                 lay.addView(layout);
             }
         });
+
+        qna.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (drawer.isDrawerOpen(Gravity.LEFT)) {
+                    drawer.closeDrawer(Gravity.LEFT);
+                }
+                Toast.makeText(getApplicationContext(), "도서 신청", Toast.LENGTH_LONG).show();
+                inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                layout = inflater.inflate(R.layout.fragment_wish, null);
+                lay.removeAllViews();
+                lay.addView(layout);
+            }
+        });
+
+        slo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (drawer.isDrawerOpen(Gravity.LEFT)) {
+                    drawer.closeDrawer(Gravity.LEFT);
+                }
+                Toast.makeText(getApplicationContext(), "도서 신청", Toast.LENGTH_LONG).show();
+                inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                layout = inflater.inflate(R.layout.fragment_wish, null);
+                lay.removeAllViews();
+                lay.addView(layout);
+            }
+        });
     }
 }

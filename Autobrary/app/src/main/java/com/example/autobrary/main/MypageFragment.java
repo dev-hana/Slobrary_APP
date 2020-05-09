@@ -2,10 +2,14 @@ package com.example.autobrary.main;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 
 import androidx.annotation.NonNull;
@@ -15,12 +19,16 @@ import com.example.autobrary.R;
 
 
 public class MypageFragment extends Fragment {
-    Button bMore1, bMore2;
+    TextView bMore1, bMore2;
+    RelativeLayout lay;
+    View layout;
     LayoutInflater inf;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_mypage, container, false);
+
+        lay = root.findViewById(R.id.lay);
 
         getFragmentManager().beginTransaction().add(R.id.mypageF, new MypageFragment()).commit();
 
@@ -33,7 +41,6 @@ public class MypageFragment extends Fragment {
                 getFragmentManager().beginTransaction().add(R.id.mypageF, new Mypage2Fragment()).commit();
             }
         });
-
         bMore2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

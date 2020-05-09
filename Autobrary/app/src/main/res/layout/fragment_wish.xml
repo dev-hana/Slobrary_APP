@@ -23,6 +23,7 @@
 
         <Button
             android:text="희망도서 신청"
+            android:id="@+id/wishbtn"
             android:textSize="20dp"
             android:textColor="@color/colorPrimary"
             android:layout_margin="20dp"
