@@ -175,9 +175,9 @@ public class Rpage extends AppCompatActivity {
                 if (drawer.isDrawerOpen(Gravity.LEFT)) {
                     drawer.closeDrawer(Gravity.LEFT);
                 }
-                Toast.makeText(getApplicationContext(), "도서 신청", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "QnA", Toast.LENGTH_LONG).show();
                 inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                layout = inflater.inflate(R.layout.fragment_wish, null);
+                layout = inflater.inflate(R.layout.fragment_qna, null);
                 lay.removeAllViews();
                 lay.addView(layout);
             }
@@ -189,9 +189,9 @@ public class Rpage extends AppCompatActivity {
                 if (drawer.isDrawerOpen(Gravity.LEFT)) {
                     drawer.closeDrawer(Gravity.LEFT);
                 }
-                Toast.makeText(getApplicationContext(), "도서 신청", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "SLO", Toast.LENGTH_LONG).show();
                 inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                layout = inflater.inflate(R.layout.fragment_wish, null);
+                layout = inflater.inflate(R.layout.fragment_slo, null);
                 lay.removeAllViews();
                 lay.addView(layout);
             }
