@@ -71,13 +71,13 @@ public class SignUpActivity extends AppCompatActivity {
                                 int rand = generator.nextInt(999999);
                                 randResult = first + rand;
                                 String title = "SL:O 회원가입 이메일 인증번호 입니다.";
-                                String content = name.getText() + "사용자님, <br>" +
+                                String content = name.getText() + " 사용자님, <br>" +
                                         "귀하의 이메일 주소를 사용해 SL:O 회원가입 요청을 하였습니다. <br>" +
                                         name.getText() + "님의 인증번호는 다음과 같습니다. <br>" +
                                         "<h1>" + randResult + "</h1>" +
                                         "<br>회원가입을 요청하지 않았다면, 이 메일은 무시하셔도 됩니다.<br>" +
                                         "<b>누구에게도 이 인증번호를 알려주면 안됩니다.</b><br>" +
-                                        "다른 궁금한 사항이 있을경우 하단의 메일로 연락을 취해주시기 바랍니다.<br>" +
+                                        "다른 궁금한 사항이 있을경우 하단의 메일로 연락 주세요.<br>" +
                                         "SL:O 팀";
                                 new Sender(title, content, email.getText().toString());
                                 Toast.makeText(SignUpActivity.this, "입력하신 메일로 인증번호가 발송되었습니다.", Toast.LENGTH_SHORT).show();
