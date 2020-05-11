@@ -24,6 +24,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.example.autobrary.R;
 import com.example.autobrary.auth.LoginActivity;
 import com.example.autobrary.auth.SignUpActivity;
+import com.example.autobrary.mail.Sender;
 
 public class Rpage extends AppCompatActivity {
     DrawerLayout drawer;
@@ -133,6 +134,7 @@ public class Rpage extends AppCompatActivity {
                 if (drawer.isDrawerOpen(Gravity.LEFT)) {
                     drawer.closeDrawer(Gravity.LEFT);
                 }
+                new Sender("test","ttteestt","dev_sang@naver.com");
                 Toast.makeText(getApplicationContext(), "이용안내", Toast.LENGTH_LONG).show();
                 inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 layout = inflater.inflate(R.layout.fragment_info, null);

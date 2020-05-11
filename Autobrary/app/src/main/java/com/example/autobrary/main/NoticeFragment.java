@@ -30,9 +30,11 @@ import java.util.Vector;
 public class NoticeFragment extends ListFragment {
     NoticeAdapter adapter ;
 
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater,
+                             ViewGroup container, Bundle savedInstanceState) {
 //        super.onCreate(savedInstanceState);
 //        setContentView(R.layout.fragment_notice);
+
         adapter = new NoticeAdapter() ;
         setListAdapter(adapter) ;
         try {
