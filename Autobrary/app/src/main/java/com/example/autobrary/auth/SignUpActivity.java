@@ -1,5 +1,6 @@
 package com.example.autobrary.auth;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Debug;
 import android.util.Log;
@@ -16,6 +17,7 @@ import androidx.annotation.IdRes;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.autobrary.R;
 import com.example.autobrary.mail.Sender;
+import com.example.autobrary.main.Rpage;
 
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
@@ -237,8 +239,6 @@ public class SignUpActivity extends AppCompatActivity {
                 Log.i("pass", infoOfUser.getMem_birth() + infoOfUser.getMem_gender() + infoOfUser.getMem_id() + infoOfUser.getMem_pw() + infoOfUser.getMem_name() + infoOfUser.getMem_phone() + infoOfUser.getMem_address() + infoOfUser.getMem_email());
                 // Log.i("PBKDF2 RESULT", infoOfUser.getMem_pw());
                 // 빈칸 무결성 체크
-                // TODO : 라디오박스 추가해야함, 각각 세분화된 로직이 필요함. 또한 signup으로 넘어가는 로직 추가해야함. => 이 함수는 미완성
-                // activity_signup에서 라디오 그룹의 데이터 값을 받아서 allfield에 넣어줘야함
 
                 // 라디오 버튼 설정
                 g_man = (RadioButton) findViewById(R.id.g_man);
@@ -289,9 +289,8 @@ public class SignUpActivity extends AppCompatActivity {
 
                     if(validateIdFlag) {
                         if (register.execute()) {
-                            //TODO : 회원가입 성공시 로직 입력
-                            Toast.makeText(SignUpActivity.this, "pass", Toast.LENGTH_SHORT).show();
-
+                            Intent mainAct = new Intent(getApplicationContext(), Rpage.class);
+                            startActivity(mainAct);
                         } else {
                             Toast.makeText(SignUpActivity.this, "회원가입 도중 오류가 발생하였습니다. 인터넷 연결상태 확인 및 나중에 다시 시도해주세요.", Toast.LENGTH_SHORT).show();
                             return;
@@ -321,6 +320,6 @@ public class SignUpActivity extends AppCompatActivity {
         return Pattern.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{8,}$").matcher(password).matches();
     }
     private  boolean isValidPhoneNv(String number){
-        return Pattern.compile("^\\d{3}-\\d{4}-\\d{4}$").matcher(number).matches();
+        return Pattern.compile("^\\d{3}\\d{4}\\d{4}$").matcher(number).matches();
     }
 }
