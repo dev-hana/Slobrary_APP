@@ -25,10 +25,11 @@ import com.example.autobrary.R;
 import com.example.autobrary.auth.LoginActivity;
 import com.example.autobrary.auth.SignUpActivity;
 import com.example.autobrary.mail.Sender;
+import com.example.autobrary.session.SessionManager;
 
 public class Rpage extends AppCompatActivity {
     DrawerLayout drawer;
-    TextView signIn, signUp;
+    TextView signIn, signUp, name;
     Button home, myPage, notice, info, reco, wish, qna, slo;
 
     RelativeLayout lay;
@@ -43,7 +44,7 @@ public class Rpage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rpage);
         open = findViewById(R.id.open);
-
+        name = findViewById(R.id.mName);
         home = findViewById(R.id.mHome);
         myPage = findViewById(R.id.mMypage);
         notice = findViewById(R.id.mNotice);
@@ -56,6 +57,12 @@ public class Rpage extends AppCompatActivity {
         lay = findViewById(R.id.lay);
 
         drawer = (DrawerLayout) findViewById(R.id.drawer);
+
+        if(SessionManager.getAttribute("login") == null){
+            name.setText("SL:O");
+        }else{
+            name.setText(SessionManager.getAttribute("login") + "님 안녕하세요.");
+        }
 
 
         open.setOnClickListener(new Button.OnClickListener() {
@@ -134,7 +141,6 @@ public class Rpage extends AppCompatActivity {
                 if (drawer.isDrawerOpen(Gravity.LEFT)) {
                     drawer.closeDrawer(Gravity.LEFT);
                 }
-                new Sender("test","ttteestt","dev_sang@naver.com");
                 Toast.makeText(getApplicationContext(), "이용안내", Toast.LENGTH_LONG).show();
                 inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 layout = inflater.inflate(R.layout.fragment_info, null);

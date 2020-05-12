@@ -72,7 +72,7 @@ public class SessionManager {
 
     private static boolean validSessionTime(){
         boolean result = false;
-        if(makeDate + sessionTime > System.currentTimeMillis ()){
+        if(makeDate + sessionTime >= System.currentTimeMillis ()){
             result = true;
         }
         return result;

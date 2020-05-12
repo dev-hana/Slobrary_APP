@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.example.autobrary.R;
 import com.example.autobrary.database.URLConnector;
 import com.example.autobrary.encryption.PBKDF2_Encryption;
+import com.example.autobrary.main.Rpage;
 import com.example.autobrary.session.SessionManager;
 
 import java.io.IOException;
@@ -40,8 +41,9 @@ public class LoginActivity extends AppCompatActivity {
                     Login login = new Login(info);
                     try {
                         if(login.execute()){
-                            Toast.makeText(LoginActivity.this, "pass", Toast.LENGTH_SHORT).show();
                             SessionManager.setAttribute("login", info.getLoginId());
+                            Intent mainAct = new Intent(getApplicationContext(), Rpage.class);
+                            startActivity(mainAct);
                         }else{
                             Toast.makeText(LoginActivity.this, "아이디 혹은 비밀번호가 틀립니다.", Toast.LENGTH_SHORT).show();
                     }
