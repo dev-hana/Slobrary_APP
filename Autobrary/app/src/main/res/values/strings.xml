@@ -14,7 +14,7 @@
     <string name="female">여</string>
     <string name="gender">성별</string>
     <string name="phone">핸드폰번호 :</string>
-    <string name="insertPhone">핸드폰 번호를 입력하세요.</string>
+    <string name="insertPhone">010-0000-0000 </string>
     <string name="homeAddr">집주소 :</string>
     <string name="insertHomeAddr">주소를 입력하세요.</string>
     <string name="mail">이메일주소 :</string>

@@ -21,6 +21,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.util.Random;
 import java.util.Vector;
+import java.util.regex.Pattern;
 
 public class SignUpActivity extends AppCompatActivity {
     private RadioButton g_man, g_woman;
@@ -102,7 +103,7 @@ public class SignUpActivity extends AppCompatActivity {
                 try {
                     if(email.getText().toString().getBytes().length <= 0){
                         Toast.makeText(SignUpActivity.this, "이메일을 입력해주세요.", Toast.LENGTH_SHORT).show();
-                    }else {
+                    }else if(isValidEmailId(email.getText().toString())) {
                         if (new ValidateEmail().ValidateEmail(email.getText().toString())) {
                             Toast.makeText(SignUpActivity.this, "이미 가입되어있는 이메일입니다.", Toast.LENGTH_SHORT).show();
                         } else {
@@ -127,6 +128,8 @@ public class SignUpActivity extends AppCompatActivity {
                                 Toast.makeText(SignUpActivity.this, "입력하신 메일로 인증번호가 발송되었습니다.", Toast.LENGTH_SHORT).show();
                             }
                         }
+                    }else {
+                        Toast.makeText(SignUpActivity.this, "이메일형식으로 입력해주세요.", Toast.LENGTH_SHORT).show();
                     }
                 } catch (InvalidKeySpecException e) {
                     e.printStackTrace();
@@ -262,8 +265,16 @@ public class SignUpActivity extends AppCompatActivity {
                     }
                 }
 
+                if(!isValidPhoneNv(phone.getText().toString())){
+                    Toast.makeText(SignUpActivity.this, "핸드폰번호가 형식에 맞지 않습니다.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 if(!entPw.getText().toString().equals(entPw_r.getText().toString())){
                     Toast.makeText(SignUpActivity.this, "비밀번호가 서로 다릅니다.", Toast.LENGTH_SHORT).show();
+                    return;
+                }else if(!isValidPassword(entPw.getText().toString())){
+                    Toast.makeText(SignUpActivity.this, "비밀번호는 숫자, 대/소문자 포함 8글자 이상 입력해야합니다.", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -294,5 +305,18 @@ public class SignUpActivity extends AppCompatActivity {
             }
         });
     }
-
+    private boolean isValidEmailId(String email){
+        return Pattern.compile("^(([\\w-]+\\.)+[\\w-]+|([a-zA-Z]{1}|[\\w-]{2,}))@"
+                + "((([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]?"
+                + "[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\."
+                + "([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]?"
+                + "[0-9]{1,2}|25[0-5]|2[0-4][0-9])){1}|"
+                + "([a-zA-Z]+[\\w-]+\\.)+[a-zA-Z]{2,4})$").matcher(email).matches();
+    }
+    private boolean isValidPassword(String password){
+        return Pattern.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{8,}$").matcher(password).matches();
+    }
+    private  boolean isValidPhoneNv(String number){
+        return Pattern.compile("^\\d{3}-\\d{4}-\\d{4}$").matcher(number).matches();
+    }
 }
