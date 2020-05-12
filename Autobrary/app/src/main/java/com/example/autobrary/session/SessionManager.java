@@ -8,7 +8,7 @@ public class SessionManager {
     private static String sessionId = "";
     private static int sessionTime = 30 * 60000; //ms 단위 -> (분 * 60000) = ms단위 변환
     private static long makeDate;
-    private static HashMap<String, Object> attribute = new HashMap<String, Object>();
+    private static HashMap<String, String> attribute = new HashMap<String, String>();
     public static boolean validSession(String sessionId){ //존재하는 세션확인
         boolean result = false;
         if(validSessionTime()) { //세션시간이 유효하면
@@ -43,7 +43,7 @@ public class SessionManager {
         makeDate = System.currentTimeMillis ();
     }
 
-    public static void setAttribute(String key, Object data){
+    public static void setAttribute(String key, String data){
         if(sessionId.getBytes().length <= 0){ //세션이 없을경우
             makeSession();
         }
@@ -57,7 +57,7 @@ public class SessionManager {
         }
     }
 
-    public static Object getAttribute(String key){
+    public static String getAttribute(String key){
         if(sessionId.getBytes().length <= 0){ //세션이 없을경우
             return null;
         }

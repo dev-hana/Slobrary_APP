@@ -41,7 +41,7 @@ public class LoginActivity extends AppCompatActivity {
                     try {
                         if(login.execute()){
                             Toast.makeText(LoginActivity.this, "pass", Toast.LENGTH_SHORT).show();
-                            SessionManager.setAttribute("login", info);
+                            SessionManager.setAttribute("login", info.getLoginId());
                         }else{
                             Toast.makeText(LoginActivity.this, "아이디 혹은 비밀번호가 틀립니다.", Toast.LENGTH_SHORT).show();
                     }
