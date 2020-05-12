@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.example.autobrary.R;
 import com.example.autobrary.database.URLConnector;
 import com.example.autobrary.encryption.PBKDF2_Encryption;
+import com.example.autobrary.session.SessionManager;
 
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
@@ -40,7 +41,7 @@ public class LoginActivity extends AppCompatActivity {
                     try {
                         if(login.execute()){
                             Toast.makeText(LoginActivity.this, "pass", Toast.LENGTH_SHORT).show();
-                            //TODO : 로그인 성공 로직 입력.
+                            SessionManager.setAttribute("login", info);
                         }else{
                             Toast.makeText(LoginActivity.this, "아이디 혹은 비밀번호가 틀립니다.", Toast.LENGTH_SHORT).show();
                     }
