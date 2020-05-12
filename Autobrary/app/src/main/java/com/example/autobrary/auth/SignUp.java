@@ -32,7 +32,7 @@ public class SignUp{
         param.put("gender", info.getMem_gender());
         param.put("phone", info.getMem_phone());
         param.put("birth", info.getMem_birth());
-        param.put("address", info.getMem_address());
+        param.put("adress", info.getMem_address());
         param.put("email", info.getMem_email());
 
         HttpEntity rawData = null;

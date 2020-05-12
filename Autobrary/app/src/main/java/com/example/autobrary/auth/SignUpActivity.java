@@ -3,6 +3,7 @@ package com.example.autobrary.auth;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -25,7 +26,15 @@ public class SignUpActivity extends AppCompatActivity {
     private RadioButton g_man, g_woman;
     private RadioGroup entGender;
     private boolean validateIdFlag = false;
+    private boolean validateEmailFlag = false;
     private String randResult;
+    private String gender;
+
+    // 생일 스피너 임시저장 변수
+    private String birthYear = "";
+    private String birthMonth = "";
+    private String birthDay = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,21 +42,56 @@ public class SignUpActivity extends AppCompatActivity {
         Button signUpBt = (Button) findViewById(R.id.signUp);
         final Button emailSend = (Button) findViewById(R.id.emailSend);
         final Button emailChButton = (Button) findViewById(R.id.emailCheck);
+
+
+
         // Spinner
         Spinner yearSpinner = (Spinner)findViewById(R.id.spinner_year);
         ArrayAdapter yearAdapter = ArrayAdapter.createFromResource(this, R.array.date_year, android.R.layout.simple_spinner_item);
         yearAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         yearSpinner.setAdapter(yearAdapter);
+        yearSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                birthYear = parent.getItemAtPosition(position).toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
 
         Spinner monthSpinner = (Spinner)findViewById(R.id.spinner_month);
         ArrayAdapter monthAdapter = ArrayAdapter.createFromResource(this, R.array.date_month, android.R.layout.simple_spinner_item);
         monthAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         monthSpinner.setAdapter(monthAdapter);
+        monthSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                birthMonth = parent.getItemAtPosition(position).toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
 
         Spinner daySpinner = (Spinner)findViewById(R.id.spinner_day);
         ArrayAdapter dayAdapter = ArrayAdapter.createFromResource(this, R.array.date_day, android.R.layout.simple_spinner_item);
         dayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         daySpinner.setAdapter(dayAdapter);
+        daySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                birthDay = parent.getItemAtPosition(position).toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+
+
 
         emailSend.setOnClickListener(new Button.OnClickListener(){
 
@@ -107,6 +151,7 @@ public class SignUpActivity extends AppCompatActivity {
                     email.setEnabled(false);
                     emailValidate.setEnabled(false);
                     name.setEnabled(false);
+                    validateEmailFlag = true;
                     Toast.makeText(SignUpActivity.this, "확인 되었습니다.", Toast.LENGTH_SHORT).show();
                 }else{
                     Toast.makeText(SignUpActivity.this, "인증번호가 다릅니다 인증번호를 확인 해주세요.", Toast.LENGTH_SHORT).show();
@@ -125,10 +170,10 @@ public class SignUpActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, @IdRes int i) {
                 if(i == R.id.g_man){
-
+                    gender = "M";
                 }
                 else if(i == R.id.g_woman){
-
+                    gender = "F";
                 }
             }
         };
@@ -176,6 +221,9 @@ public class SignUpActivity extends AppCompatActivity {
                 EditText phone = (EditText) findViewById(R.id.entPhone);
                 EditText addr= (EditText) findViewById(R.id.entAddr);
                 EditText email= (EditText) findViewById(R.id.entEmail);
+
+                infoOfUser.setMem_birth(birthYear + birthMonth + birthDay);
+                infoOfUser.setMem_gender(gender);
                 infoOfUser.setMem_id(id.getText().toString());
                 infoOfUser.setMem_pw(entPw.getText().toString());
                 infoOfUser.setMem_name(name.getText().toString());
@@ -197,8 +245,6 @@ public class SignUpActivity extends AppCompatActivity {
                 // 라디오 그룹 설정
                 entGender = (RadioGroup) findViewById(R.id.entGender);
                 entGender.setOnCheckedChangeListener(radioGroupButtonChangeListener);
-
-
 
                 allField.add(id);
                 allField.add(entPw);
@@ -227,10 +273,14 @@ public class SignUpActivity extends AppCompatActivity {
                     if(validateIdFlag) {
                         if (register.execute()) {
                             //TODO : 회원가입 성공시 로직 입력
+                            Toast.makeText(SignUpActivity.this, "pass", Toast.LENGTH_SHORT).show();
+
                         } else {
                             Toast.makeText(SignUpActivity.this, "회원가입 도중 오류가 발생하였습니다. 인터넷 연결상태 확인 및 나중에 다시 시도해주세요.", Toast.LENGTH_SHORT).show();
                             return;
                         }
+                    }else if(!validateEmailFlag){
+                        Toast.makeText(SignUpActivity.this, "이메일을 인증해주세요.", Toast.LENGTH_SHORT).show();
                     }else{
                         Toast.makeText(SignUpActivity.this, "아이디 중복확인을 해주세요.", Toast.LENGTH_SHORT).show();
                     }
