@@ -57,6 +57,18 @@ public class SessionManager {
         }
     }
 
+    public static void removeAttribute(String key){
+        if(sessionId.getBytes().length <= 0){ //세션이 없을경우
+            makeSession();
+        }
+        if(validSessionTime()) { //세션시간이 유효하면
+            refreshSession(); //세션시간 갱신
+            attribute.remove(key);
+        }else{ //세션시간이 지났다면
+            attribute.clear(); //속성값 초기화
+        }
+    }
+
     public static String getAttribute(String key){
         if(sessionId.getBytes().length <= 0){ //세션이 없을경우
             return null;
