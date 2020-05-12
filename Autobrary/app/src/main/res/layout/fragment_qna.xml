@@ -23,14 +23,44 @@
 
         <TextView
             android:text="자주하는 질문"
-            android:textSize="20dp"
+            android:textSize="30dp"
             android:layout_marginBottom="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:orientation="horizontal">
+                <Button
+                    android:text="회원문의"
+                    android:textSize="10dp"
+                    android:id="@+id/btnMemQ"
+                    android:layout_width="80dp"
+                    android:layout_height="32dp"
+                    android:background="#FFFFFF"/>
+                <Button
+                    android:text="자료이용문의"
+                    android:textSize="10dp"
+                    android:id="@+id/btnBookQ"
+                    android:layout_width="80dp"
+                    android:layout_height="32dp"
+                    android:background="#FFFFFF"/>
+                <Button
+                    android:text="시설 및 기타"
+                    android:textSize="10dp"
+                    android:id="@+id/btnFacilityEtcQ"
+                    android:layout_width="80dp"
+                    android:layout_height="32dp"
+                    android:background="#FFFFFF"/>
 
+            </LinearLayout>
+        <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
         <ListView
             android:id="@+id/noticeList"
             android:layout_width="match_parent"
             android:layout_height="500dp"/>
+        </ScrollView>
     </LinearLayout>
 </RelativeLayout>
