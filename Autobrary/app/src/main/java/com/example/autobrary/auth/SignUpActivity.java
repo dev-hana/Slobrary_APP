@@ -128,6 +128,7 @@ public class SignUpActivity extends AppCompatActivity {
                                         "다른 궁금한 사항이 있을경우 하단의 메일로 연락 주세요.<br>" +
                                         "SL:O 팀";
                                 new Sender(title, content, email.getText().toString());
+                                email.setEnabled(false);
                                 Toast.makeText(SignUpActivity.this, "입력하신 메일로 인증번호가 발송되었습니다.", Toast.LENGTH_SHORT).show();
                             }
                         }
@@ -236,7 +237,7 @@ public class SignUpActivity extends AppCompatActivity {
                 infoOfUser.setMem_phone(phone.getText().toString());
                 infoOfUser.setMem_address(addr.getText().toString());
                 infoOfUser.setMem_email(email.getText().toString());
-                Log.i("pass", infoOfUser.getMem_birth() + infoOfUser.getMem_gender() + infoOfUser.getMem_id() + infoOfUser.getMem_pw() + infoOfUser.getMem_name() + infoOfUser.getMem_phone() + infoOfUser.getMem_address() + infoOfUser.getMem_email());
+                // Log.i("pass", infoOfUser.getMem_birth() + infoOfUser.getMem_gender() + infoOfUser.getMem_id() + infoOfUser.getMem_pw() + infoOfUser.getMem_name() + infoOfUser.getMem_phone() + infoOfUser.getMem_address() + infoOfUser.getMem_email());
                 // Log.i("PBKDF2 RESULT", infoOfUser.getMem_pw());
                 // 빈칸 무결성 체크
 
@@ -289,6 +290,7 @@ public class SignUpActivity extends AppCompatActivity {
 
                     if(validateIdFlag) {
                         if (register.execute()) {
+                            Toast.makeText(SignUpActivity.this, "회원가입이 완료되었습니다.", Toast.LENGTH_SHORT).show();
                             Intent mainAct = new Intent(getApplicationContext(), Rpage.class);
                             startActivity(mainAct);
                         } else {
