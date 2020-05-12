@@ -1,6 +1,7 @@
 package com.example.autobrary.auth;
 
 import android.os.Bundle;
+import android.os.Debug;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -29,7 +30,7 @@ public class SignUpActivity extends AppCompatActivity {
     private boolean validateIdFlag = false;
     private boolean validateEmailFlag = false;
     private String randResult;
-    private String gender;
+    private String gender = "M";
 
     // 생일 스피너 임시저장 변수
     private String birthYear = "";
@@ -233,7 +234,7 @@ public class SignUpActivity extends AppCompatActivity {
                 infoOfUser.setMem_phone(phone.getText().toString());
                 infoOfUser.setMem_address(addr.getText().toString());
                 infoOfUser.setMem_email(email.getText().toString());
-
+                Log.i("pass", infoOfUser.getMem_birth() + infoOfUser.getMem_gender() + infoOfUser.getMem_id() + infoOfUser.getMem_pw() + infoOfUser.getMem_name() + infoOfUser.getMem_phone() + infoOfUser.getMem_address() + infoOfUser.getMem_email());
                 // Log.i("PBKDF2 RESULT", infoOfUser.getMem_pw());
                 // 빈칸 무결성 체크
                 // TODO : 라디오박스 추가해야함, 각각 세분화된 로직이 필요함. 또한 signup으로 넘어가는 로직 추가해야함. => 이 함수는 미완성
@@ -277,10 +278,15 @@ public class SignUpActivity extends AppCompatActivity {
                     Toast.makeText(SignUpActivity.this, "비밀번호는 숫자, 대/소문자 포함 8글자 이상 입력해야합니다.", Toast.LENGTH_SHORT).show();
                     return;
                 }
+                if(!validateEmailFlag) {
+                    Toast.makeText(SignUpActivity.this, "이메일을 인증해주세요.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
                 //위에서 return이 일어나지 않을경우 (이상없음)
                 SignUp register = new SignUp(infoOfUser);
                 try {
+
                     if(validateIdFlag) {
                         if (register.execute()) {
                             //TODO : 회원가입 성공시 로직 입력
@@ -290,8 +296,6 @@ public class SignUpActivity extends AppCompatActivity {
                             Toast.makeText(SignUpActivity.this, "회원가입 도중 오류가 발생하였습니다. 인터넷 연결상태 확인 및 나중에 다시 시도해주세요.", Toast.LENGTH_SHORT).show();
                             return;
                         }
-                    }else if(!validateEmailFlag){
-                        Toast.makeText(SignUpActivity.this, "이메일을 인증해주세요.", Toast.LENGTH_SHORT).show();
                     }else{
                         Toast.makeText(SignUpActivity.this, "아이디 중복확인을 해주세요.", Toast.LENGTH_SHORT).show();
                     }
