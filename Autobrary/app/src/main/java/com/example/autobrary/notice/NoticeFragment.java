@@ -1,10 +1,12 @@
 package com.example.autobrary.notice;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
@@ -12,6 +14,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.autobrary.R;
+import com.example.autobrary.main.HomeFragment;
+import com.example.autobrary.main.MainMenu;
 import com.example.autobrary.main.Rpage;
 
 import java.io.IOException;
@@ -24,6 +28,7 @@ public class NoticeFragment extends Fragment {
     NoticeAdapter adapter ;
     Rpage activity;
     ListView listView;
+    Vector<NoticeInfo> getNotice;
     public static NoticeFragment newInstance() {
         return new NoticeFragment();
     }
@@ -45,6 +50,18 @@ public class NoticeFragment extends Fragment {
         adapter = new NoticeAdapter();
         listView = (ListView) rootView.findViewById(R.id.noticeList);
         listView.setAdapter(adapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Bundle bundle = new Bundle();
+                bundle.putString("title", getNotice.get(position).getTitle());
+                bundle.putString("id", getNotice.get(position).getId());
+                bundle.putString("owner", getNotice.get(position).getName());
+                bundle.putString("contents", getNotice.get(position).getContents());
+                bundle.putString("date", getNotice.get(position).getDate());
+                ((Rpage)getActivity()).replaceFragment(Notice2Fragment.newInstance(), bundle);
+            }
+        });
         try {
             Initialize();
         } catch (InvalidKeySpecException e) {
@@ -56,11 +73,12 @@ public class NoticeFragment extends Fragment {
         }
         adapter.notifyDataSetChanged();
         return rootView;
+
     }
 
     public void Initialize() throws InvalidKeySpecException, NoSuchAlgorithmException, IOException {
         Notice notice = new Notice();
-        Vector<NoticeInfo> getNotice = notice.execute();
+        getNotice = notice.execute();
         for (NoticeInfo info : getNotice){
             adapter.addItem(info);
         }

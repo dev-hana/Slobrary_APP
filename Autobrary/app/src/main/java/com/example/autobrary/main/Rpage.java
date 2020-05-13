@@ -14,12 +14,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
-//import androidx.fragment.app.Fragment;
-//import androidx.fragment.app.FragmentManager;
-//import androidx.fragment.app.FragmentTransaction;
-//import androidx.navigation.NavController;
-//import androidx.navigation.Navigation;
-//import androidx.navigation.ui.AppBarConfiguration;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.autobrary.R;
 import com.example.autobrary.auth.LoginActivity;
@@ -204,5 +201,16 @@ public class Rpage extends AppCompatActivity {
                 lay.addView(layout);
             }
         });
+    }
+    public void replaceFragment(Fragment fragment) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.lay, fragment).commit();
+    }
+    public void replaceFragment(Fragment fragment, Bundle bundle) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragment.setArguments(bundle);
+        fragmentTransaction.replace(R.id.lay, fragment).commit();
     }
 }
