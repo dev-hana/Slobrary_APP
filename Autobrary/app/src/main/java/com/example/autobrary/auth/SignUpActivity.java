@@ -300,11 +300,7 @@ public class SignUpActivity extends AppCompatActivity {
                     }else{
                         Toast.makeText(SignUpActivity.this, "아이디 중복확인을 해주세요.", Toast.LENGTH_SHORT).show();
                     }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                } catch (InvalidKeySpecException e) {
-                    e.printStackTrace();
-                } catch (NoSuchAlgorithmException e) {
+                } catch (Exception e){
                     e.printStackTrace();
                 }
             }

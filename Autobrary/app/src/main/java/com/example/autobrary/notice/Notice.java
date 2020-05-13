@@ -59,6 +59,7 @@ public class Notice {
         } catch (Exception e) {
             e.printStackTrace();
             Log.e("Notice Error", "Notice fetch failed");
+            notice.clear();
         }finally {
             try{
                 if(bis != null) bis.close();
