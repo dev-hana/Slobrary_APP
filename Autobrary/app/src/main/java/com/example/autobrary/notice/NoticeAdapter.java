@@ -15,12 +15,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class NoticeAdapter extends BaseAdapter {
-    ArrayList<NoticeInfo> sample;
     private ArrayList<NoticeInfo> listViewItemList = new ArrayList<NoticeInfo>() ;
 
     @Override
     public int getCount() {
-        return sample.size();
+        return listViewItemList.size();
     }
 
     @Override
@@ -30,7 +29,7 @@ public class NoticeAdapter extends BaseAdapter {
 
     @Override
     public NoticeInfo getItem(int position) {
-        return sample.get(position);
+        return listViewItemList.get(position);
     }
 
     @Override
@@ -46,9 +45,9 @@ public class NoticeAdapter extends BaseAdapter {
         TextView notiveTitle = (TextView)convertView.findViewById(R.id.contentTitle);
         TextView noticeData = (TextView)convertView.findViewById(R.id.contentDate);
 
-        contentNv.setText(sample.get(position).getId());
-        notiveTitle.setText(sample.get(position).getTitle());
-        noticeData.setText(sample.get(position).getDate());
+        contentNv.setText(listViewItemList.get(position).getId());
+        notiveTitle.setText(listViewItemList.get(position).getTitle());
+        noticeData.setText(listViewItemList.get(position).getDate());
         return convertView;
     }
     public void addItem(NoticeInfo info) {

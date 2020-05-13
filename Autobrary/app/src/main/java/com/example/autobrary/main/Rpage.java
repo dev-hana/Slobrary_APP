@@ -24,7 +24,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.example.autobrary.R;
 import com.example.autobrary.auth.LoginActivity;
 import com.example.autobrary.auth.SignUpActivity;
-import com.example.autobrary.mail.Sender;
+import com.example.autobrary.notice.NoticeFragment;
 import com.example.autobrary.session.SessionManager;
 
 public class Rpage extends AppCompatActivity {
@@ -38,7 +38,8 @@ public class Rpage extends AppCompatActivity {
 
     ImageView open;
 
-
+    NoticeFragment noticeFrag;
+    HomeFragment MainFrag;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,7 +56,8 @@ public class Rpage extends AppCompatActivity {
         slo = findViewById(R.id.mSlo);
 
         lay = findViewById(R.id.lay);
-
+        noticeFrag = new NoticeFragment();
+        MainFrag = new HomeFragment();
         drawer = (DrawerLayout) findViewById(R.id.drawer);
 
         if(SessionManager.getAttribute("login") == null){
@@ -64,6 +66,10 @@ public class Rpage extends AppCompatActivity {
             name.setText(SessionManager.getAttribute("login") + "님 안녕하세요.");
         }
 
+        //************* 기본 레이아웃 설정 *****************//
+        lay.removeAllViews(); //보이는 레이아웃 초기화
+        getSupportFragmentManager().beginTransaction().replace(R.id.lay, MainFrag).commit(); //기본화면 설정
+        ///////////////////////////////////////////////////////
 
         open.setOnClickListener(new Button.OnClickListener() {
             @Override
@@ -100,10 +106,7 @@ public class Rpage extends AppCompatActivity {
                     drawer.closeDrawer(Gravity.LEFT);
                 }
                 Toast.makeText(getApplicationContext(), "HOME", Toast.LENGTH_LONG).show();
-                inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                layout = inflater.inflate(R.layout.fragment_home, null);
-                lay.removeAllViews();
-                lay.addView(layout);
+                getSupportFragmentManager().beginTransaction().replace(R.id.lay, MainFrag).commit();
             }
         });
 
@@ -128,10 +131,7 @@ public class Rpage extends AppCompatActivity {
                     drawer.closeDrawer(Gravity.LEFT);
                 }
                 Toast.makeText(getApplicationContext(), "공지사항", Toast.LENGTH_LONG).show();
-                inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                layout = inflater.inflate(R.layout.fragment_notice, null);
-                lay.removeAllViews();
-                lay.addView(layout);
+                getSupportFragmentManager().beginTransaction().replace(R.id.lay, noticeFrag).commit();
             }
         });
 

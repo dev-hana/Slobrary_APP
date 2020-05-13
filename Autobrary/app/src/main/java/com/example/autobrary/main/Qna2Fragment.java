@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.example.autobrary.R;
+import com.example.autobrary.notice.NoticeFragment;
 
 
 public class Qna2Fragment extends Fragment {

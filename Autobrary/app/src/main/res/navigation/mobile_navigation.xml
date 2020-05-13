@@ -33,7 +33,7 @@
 
     <fragment
         android:id="@+id/nav_Notice"
-        android:name="com.example.autobrary.main.NoticeFragment"
+        android:name="com.example.autobrary.notice.NoticeFragment"
         android:label="Notice"
         tools:layout="@layout/fragment_notice" />
 
@@ -45,7 +45,7 @@
 
     <fragment
         android:id="@+id/nav_Reco"
-        android:name="com.example.autobrary.main.NoticeFragment"
+        android:name="com.example.autobrary.notice.NoticeFragment"
         android:label="Notice"
         tools:layout="@layout/fragment_notice" />
     <fragment
@@ -56,7 +56,7 @@
 
     <fragment
         android:id="@+id/nav_QnA"
-        android:name="com.example.autobrary.main.NoticeFragment"
+        android:name="com.example.autobrary.notice.NoticeFragment"
         android:label="Notice"
         tools:layout="@layout/fragment_notice" />
     <fragment
