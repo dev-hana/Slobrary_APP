@@ -48,11 +48,9 @@ public class NoticeAdapter extends BaseAdapter {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.listview_notice_item, parent, false);
         }
-        TextView contentNv = (TextView)convertView.findViewById(R.id.contentId);
         TextView notiveTitle = (TextView)convertView.findViewById(R.id.contentTitle);
         TextView noticeData = (TextView)convertView.findViewById(R.id.contentDate);
 
-        contentNv.setText(listViewItemList.get(position).getId());
         notiveTitle.setText(listViewItemList.get(position).getTitle());
         noticeData.setText(listViewItemList.get(position).getDate());
         return convertView;

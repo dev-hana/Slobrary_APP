@@ -6,10 +6,11 @@
     android:layout_height="match_parent"
     android:layout_gravity="left"
     android:orientation="vertical"
-    android:background="@color/colorAccent"
+    android:background="#ffff"
+
     >
     <LinearLayout
-        android:background="@color/colorPrimaryDark"
+        android:background="@color/drawerLay"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="80dp">
@@ -63,7 +64,6 @@
         android:id="@+id/mHome"
         android:textSize="20dp"
         style="?android:attr/borderlessButtonStyle"
-        android:background="@color/colorAccent"
         android:textAlignment="center" />
     <Button
         android:layout_width="match_parent"
@@ -72,7 +72,6 @@
         android:id="@+id/mMypage"
         android:textSize="20dp"
         style="?android:attr/borderlessButtonStyle"
-        android:background="@color/colorAccent"
         android:textAlignment="center" />
     <Button
         android:layout_width="match_parent"
@@ -81,12 +80,12 @@
         android:id="@+id/mNotice"
         android:textSize="20dp"
         style="?android:attr/borderlessButtonStyle"
-        android:background="@color/colorAccent"
         android:textAlignment="center" />
     <View
-        android:background="@color/colorPrimary"
         android:layout_width="match_parent"
-        android:layout_height="1dp"/>
+        android:layout_height="1dp"
+        android:background="@color/colorAccent"
+        />
     <Button
         android:layout_width="match_parent"
         android:layout_height="60dp"
@@ -94,7 +93,6 @@
         android:id="@+id/mInfo"
         android:textSize="20dp"
         style="?android:attr/borderlessButtonStyle"
-        android:background="@color/colorAccent"
         android:textAlignment="center" />
     <Button
         android:layout_width="match_parent"
@@ -103,7 +101,6 @@
         android:id="@+id/mReco"
         android:textSize="20dp"
         style="?android:attr/borderlessButtonStyle"
-        android:background="@color/colorAccent"
         android:textAlignment="center" />
     <Button
         android:layout_width="match_parent"
@@ -112,7 +109,6 @@
         android:id="@+id/mWish"
         android:textSize="20dp"
         style="?android:attr/borderlessButtonStyle"
-        android:background="@color/colorAccent"
         android:textAlignment="center" />
     <Button
         android:layout_width="match_parent"
@@ -121,7 +117,6 @@
         android:id="@+id/mQnA"
         android:textSize="20dp"
         style="?android:attr/borderlessButtonStyle"
-        android:background="@color/colorAccent"
         android:textAlignment="center" />
     <Button
         android:layout_width="match_parent"
@@ -130,6 +125,5 @@
         android:id="@+id/mSlo"
         android:textSize="20dp"
         style="?android:attr/borderlessButtonStyle"
-        android:background="@color/colorAccent"
         android:textAlignment="center" />
 </LinearLayout>

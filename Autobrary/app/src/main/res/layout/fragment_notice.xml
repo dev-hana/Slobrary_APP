@@ -13,47 +13,41 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
-            android:src="@drawable/logo22"
-            android:layout_marginTop="40dp"
-            android:layout_marginBottom="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="100dp"/>
-
-        <TextView
-            android:text="공지사항"
-            android:textSize="30dp"
-            android:layout_marginBottom="15dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <View
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="0dp"/>
+            <ImageView
+                android:src="@drawable/logo22"
+                android:layout_width="200dp"
+                android:layout_height="180dp"/>
+            <View
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="0dp"/>
+        </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="25dp"
-            android:orientation="horizontal">
-            <TextView
+            android:layout_height="wrap_content">
+            <Spinner
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="17dp"
-                android:text="     번호"/>
-            <TextView
-                android:layout_width="wrap_content"
+                android:entries="@array/noticeSearchOption"
+                />
+            <EditText
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:textSize="17dp"
-                android:text="          제목"/>
-            <TextView
-                android:layout_width="wrap_content"
+                />
+            <Button
+                android:layout_width="70dp"
                 android:layout_height="wrap_content"
-                android:textSize="17dp"
-                android:text="                                               날짜"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="17dp"
-                android:text="   조회수"/>
+                android:text="검색"
+                />
         </LinearLayout>
-        <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content" >
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="500dp">
@@ -62,7 +56,5 @@
                     android:layout_width="match_parent"
                     android:layout_height="500dp"></ListView>
             </LinearLayout>
-
-        </ScrollView>
     </LinearLayout>
 </RelativeLayout>

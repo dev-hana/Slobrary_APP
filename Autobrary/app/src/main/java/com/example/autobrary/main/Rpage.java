@@ -26,7 +26,7 @@ import com.example.autobrary.session.SessionManager;
 
 public class Rpage extends AppCompatActivity {
     DrawerLayout drawer;
-    TextView signIn, signUp, name;
+    TextView signIn, signUp, name, title;
     Button home, myPage, notice, info, reco, wish, qna, slo;
 
     RelativeLayout lay;
@@ -51,6 +51,7 @@ public class Rpage extends AppCompatActivity {
         wish = findViewById(R.id.mWish);
         qna = findViewById(R.id.mQnA);
         slo = findViewById(R.id.mSlo);
+        title = findViewById(R.id.titleBar);
 
         lay = findViewById(R.id.lay);
         noticeFrag = new NoticeFragment();
@@ -102,6 +103,7 @@ public class Rpage extends AppCompatActivity {
                 if (drawer.isDrawerOpen(Gravity.LEFT)) {
                     drawer.closeDrawer(Gravity.LEFT);
                 }
+                title.setText("");
                 Toast.makeText(getApplicationContext(), "HOME", Toast.LENGTH_LONG).show();
                 getSupportFragmentManager().beginTransaction().replace(R.id.lay, MainFrag).commit();
             }
@@ -127,8 +129,10 @@ public class Rpage extends AppCompatActivity {
                 if (drawer.isDrawerOpen(Gravity.LEFT)) {
                     drawer.closeDrawer(Gravity.LEFT);
                 }
+                title.setText("공지사항");
                 Toast.makeText(getApplicationContext(), "공지사항", Toast.LENGTH_LONG).show();
                 getSupportFragmentManager().beginTransaction().replace(R.id.lay, noticeFrag).commit();
+
             }
         });
 

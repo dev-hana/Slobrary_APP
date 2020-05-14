@@ -16,14 +16,16 @@
         android:src="@drawable/logo22"
         android:layout_marginTop="40dp"
         android:layout_marginBottom="40dp"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="100dp"/>
 
     <LinearLayout
         android:layout_margin="10dp"
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        >
         <TextView
             android:text="@string/idLabel"
             android:layout_width="90dp"
@@ -41,7 +43,9 @@
         android:layout_margin="10dp"
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        >
         <TextView
             android:text="@string/pwLabel"
             android:layout_width="90dp"

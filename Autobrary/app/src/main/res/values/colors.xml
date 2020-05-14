@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#003399</color>
-    <color name="colorPrimaryDark">#EBEBEB</color>
-    <color name="colorAccent">#FFFFFF</color>
+    <color name="drawerLay">#EBEBEB</color>
+    <color name="colorPrimaryDark">#003399</color>
+    <color name="colorAccent">#003399</color>
 </resources>
