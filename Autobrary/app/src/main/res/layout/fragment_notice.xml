@@ -8,53 +8,71 @@
     tools:context=".notice.NoticeFragment">
 
     <LinearLayout
+        android:layout_marginTop="3dp"
         android:orientation="vertical"
-        android:id="@+id/noticeF"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <View
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="0dp"/>
-            <ImageView
-                android:src="@drawable/logo22"
-                android:layout_width="200dp"
-                android:layout_height="180dp"/>
-            <View
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="0dp"/>
-        </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <Spinner
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
                 android:entries="@array/noticeSearchOption"
                 />
             <EditText
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                />
-            <Button
-                android:layout_width="70dp"
-                android:layout_height="wrap_content"
-                android:text="검색"
-                />
+                android:layout_width="220dp"
+                android:layout_height="40dp"
+                android:layout_marginRight="20dp"
+                android:hint="검색어를 입력하세요"
+                android:cursorVisible="true" />
+            <ImageView
+                android:src="@drawable/zoom"
+                android:layout_marginTop="5dp"
+                android:layout_width="25dp"
+                android:layout_height="25dp"/>
         </LinearLayout>
-            <LinearLayout
+        <LinearLayout
+            android:layout_marginTop="7dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:text="번호"
+                android:textSize="15dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:text="제목"
+                android:textSize="15dp"
+                android:layout_marginLeft="60dp"
+                android:layout_marginRight="60dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:text="작성자"
+                android:textSize="15dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:text="작성일"
+                android:textSize="15dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="500dp">
+            <ListView
+                android:id="@+id/noticeList"
                 android:layout_width="match_parent"
-                android:layout_height="500dp">
-                <ListView
-                    android:id="@+id/noticeList"
-                    android:layout_width="match_parent"
-                    android:layout_height="500dp"></ListView>
-            </LinearLayout>
+                android:layout_height="500dp"/>
+        </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

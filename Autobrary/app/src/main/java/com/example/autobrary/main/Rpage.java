@@ -129,7 +129,7 @@ public class Rpage extends AppCompatActivity {
                 if (drawer.isDrawerOpen(Gravity.LEFT)) {
                     drawer.closeDrawer(Gravity.LEFT);
                 }
-                title.setText("공지사항");
+                title.setText("");
                 Toast.makeText(getApplicationContext(), "공지사항", Toast.LENGTH_LONG).show();
                 getSupportFragmentManager().beginTransaction().replace(R.id.lay, noticeFrag).commit();
 
