@@ -8,7 +8,7 @@
     tools:context=".notice.NoticeFragment">
 
     <LinearLayout
-        android:layout_marginTop="3dp"
+        android:layout_marginTop="13dp"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -33,7 +33,7 @@
                 android:layout_height="25dp"/>
         </LinearLayout>
         <LinearLayout
-            android:layout_marginTop="7dp"
+            android:layout_marginTop="17dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
