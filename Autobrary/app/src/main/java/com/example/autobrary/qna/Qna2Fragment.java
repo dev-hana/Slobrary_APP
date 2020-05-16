@@ -1,4 +1,4 @@
-package com.example.autobrary.main;
+package com.example.autobrary.qna;
 
 import android.content.Intent;
 import android.os.Bundle;

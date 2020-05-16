@@ -1,11 +1,10 @@
-package com.example.autobrary.main;
+package com.example.autobrary.wish;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
@@ -13,6 +12,9 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.example.autobrary.R;
+import com.example.autobrary.main.BAdapter;
+import com.example.autobrary.main.BItem;
+import com.example.autobrary.mypage.MypageFragment;
 
 
 public class WishFragment extends Fragment {

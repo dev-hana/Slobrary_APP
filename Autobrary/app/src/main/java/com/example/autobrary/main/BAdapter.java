@@ -38,7 +38,7 @@ public class BAdapter extends BaseAdapter {
 
         if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.listview_customw, parent, false);
+            convertView = inflater.inflate(R.layout.listview_wish_item, parent, false);
         }
 
         //ImageView bCover = convertView.findViewById(R.id.bCover);

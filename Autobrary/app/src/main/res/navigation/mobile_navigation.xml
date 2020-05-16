@@ -27,7 +27,7 @@
 
     <fragment
         android:id="@+id/nav_Mypage"
-        android:name="com.example.autobrary.main.MypageFragment"
+        android:name="com.example.autobrary.mypage.MypageFragment"
         android:label="mypage"
         tools:layout="@layout/fragment_mypage" />
 
@@ -39,7 +39,7 @@
 
     <fragment
         android:id="@+id/nav_Info"
-        android:name="com.example.autobrary.main.MypageFragment"
+        android:name="com.example.autobrary.mypage.MypageFragment"
         android:label="mypage"
         tools:layout="@layout/fragment_mypage" />
 
@@ -50,7 +50,7 @@
         tools:layout="@layout/fragment_notice" />
     <fragment
         android:id="@+id/nav_Hope"
-        android:name="com.example.autobrary.main.MypageFragment"
+        android:name="com.example.autobrary.mypage.MypageFragment"
         android:label="mypage"
         tools:layout="@layout/fragment_mypage" />
 
@@ -61,7 +61,7 @@
         tools:layout="@layout/fragment_notice" />
     <fragment
         android:id="@+id/nav_Slo"
-        android:name="com.example.autobrary.main.MypageFragment"
+        android:name="com.example.autobrary.mypage.MypageFragment"
         android:label="mypage"
         tools:layout="@layout/fragment_mypage" />
 </navigation>

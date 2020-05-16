@@ -61,24 +61,5 @@ public class MainMenu extends AppCompatActivity {
         return true;
     }
 
-    /*@Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        super.onOptionsItemSelected(item);
-        tran = fragman.beginTransaction();
-        switch(item.getItemId()){
-            case R.id.bSearch:
-                tran.replace(R.id.view, frag1);
-                tran.commit();
-                break;
-            case R.id.bNotice:
-                Toast.makeText(getApplicationContext(), "공지사항", Toast.LENGTH_LONG).show();
-                break;
-            case R.id.bRequest:
-                tran.replace(R.id.view, frag3);
-                tran.commit();
-                break;
-        }
-        return true;
-    }*/
 
 }

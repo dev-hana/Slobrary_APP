@@ -1,4 +1,4 @@
-package com.example.autobrary.main;
+package com.example.autobrary.mypage;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,11 +11,14 @@ import androidx.fragment.app.Fragment;
 import com.example.autobrary.R;
 
 
-public class QnaFragment extends Fragment {
+public class Mypage2Fragment extends Fragment {
+
+
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_qna, container, false);
+        View root = inflater.inflate(R.layout.fragment_mypage2, container, false);
 
 
 

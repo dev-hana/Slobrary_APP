@@ -1,4 +1,4 @@
-package com.example.autobrary.main;
+package com.example.autobrary.reco;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,6 +11,8 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.example.autobrary.R;
+import com.example.autobrary.main.BAdapter;
+import com.example.autobrary.main.BItem;
 
 
 public class RecoFragment extends Fragment {
