@@ -19,8 +19,7 @@
         android:id="@+id/contentTitle"
         android:text="이것은 공지사항인가 사항공지인가."
         android:layout_marginLeft="20dp"
-        android:textSize="20dp"
+        android:textSize="15dp"
+        android:textColor="#000"
         />
-
-
 </LinearLayout>
