@@ -39,14 +39,25 @@
                 android:entries="@array/noticeSearchOption"
                 android:layout_weight="2"
                 />
-            <EditText
+<!--            <EditText-->
+<!--                android:layout_width="220dp"-->
+<!--                android:layout_height="40dp"-->
+<!--                android:layout_marginRight="20dp"-->
+<!--                android:hint="검색어를 입력하세요"-->
+<!--                android:cursorVisible="true"-->
+<!--                android:layout_weight="5"-->
+<!--                />-->
+
+            <com.beardedhen.androidbootstrap.BootstrapEditText
                 android:layout_width="220dp"
                 android:layout_height="40dp"
                 android:layout_marginRight="20dp"
                 android:hint="검색어를 입력하세요"
-                android:cursorVisible="true"
                 android:layout_weight="5"
+                app:bootstrapSize="md"
+                app:bootstrapBrand="info"
                 />
+
             <ImageView
                 android:src="@drawable/zoom"
                 android:layout_marginTop="5dp"

@@ -24,7 +24,6 @@ android {
 }
 
 dependencies {
-    compile 'cz.msebera.android:httpclient:4.4.1.1'
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:design:29.0.0'
     implementation 'androidx.appcompat:appcompat:1.1.0'
@@ -40,4 +39,6 @@ dependencies {
     implementation files('libs/activation.jar')
     implementation files('libs/additionnal.jar')
     implementation files('libs/mail.jar')
+    implementation 'com.beardedhen:androidbootstrap:2.3.2'
+    implementation group: 'cz.msebera.android' , name: 'httpclient' , version: '4.4.1.1'
 }

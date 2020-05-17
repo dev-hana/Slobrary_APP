@@ -2,22 +2,22 @@
     <string name="app_name">SLOBRARY</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="idLabel">아이디 :</string>
+    <string name="idLabel">아이디</string>
     <string name="insertID">아이디를 입력하세요.</string>
-    <string name="pwLabel">비밀번호 :</string>
+    <string name="pwLabel">비밀번호</string>
     <string name="insertPW">비밀번호를 입력하세요.</string>
-    <string name="pwReEnterLabel">비밀번호 확인 :</string>
+    <string name="pwReEnterLabel">비밀번호 확인</string>
     <string name="reInsertPW">비밀번호를 다시한번 입력하세요.</string>
     <string name="userName">이름</string>
     <string name="insertName">이름을 입력하세요.</string>
     <string name="male">남</string>
     <string name="female">여</string>
     <string name="gender">성별</string>
-    <string name="phone">핸드폰번호 :</string>
+    <string name="phone">핸드폰번호</string>
     <string name="insertPhone">01012345678</string>
-    <string name="homeAddr">집주소 :</string>
+    <string name="homeAddr">집주소</string>
     <string name="insertHomeAddr">주소를 입력하세요.</string>
-    <string name="mail">이메일주소 :</string>
+    <string name="mail">이메일주소</string>
     <string name="insertMail">이메일 주소를 입력하세요.</string>
 
     <!-- TODO: Remove or change this placeholder text -->
@@ -278,4 +278,7 @@
   ② “Slobrary”과 이용자 간에 제기된 전자상거래 소송에는 한국법을 적용합니다.
 
     </string>
+    <string name="cormfirm">확인</string>
+    <string name="duplicateCheck">중복체크</string>
+    <string name="checkNv">인증번호</string>
 </resources>

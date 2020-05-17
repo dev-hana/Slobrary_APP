@@ -59,13 +59,21 @@
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="0dp"/>
-        <Button
-            android:text="확인"
+<!--        <Button-->
+<!--            android:text="확인"-->
+<!--            android:id="@+id/btnSearch"-->
+<!--            android:background="@drawable/border_btn"-->
+<!--            android:textColor="#ffff"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="40dp"/>-->
+        <com.beardedhen.androidbootstrap.BootstrapLabel
             android:id="@+id/btnSearch"
-            android:background="@drawable/border_btn"
-            android:textColor="#ffff"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"/>
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            app:bootstrapBrand="primary"
+            app:bootstrapHeading="h5"
+            android:text="@string/cormfirm"
+            />
         <View
             android:layout_weight="1"
             android:layout_width="0dp"

@@ -15,6 +15,9 @@ import android.widget.Spinner;
 import android.widget.Toast;
 import androidx.annotation.IdRes;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.beardedhen.androidbootstrap.BootstrapButton;
+import com.beardedhen.androidbootstrap.BootstrapEditText;
 import com.example.autobrary.R;
 import com.example.autobrary.mail.Sender;
 import com.example.autobrary.main.Rpage;
@@ -43,9 +46,9 @@ public class SignUpActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
-        Button signUpBt = (Button) findViewById(R.id.signUp);
-        final Button emailSend = (Button) findViewById(R.id.emailSend);
-        final Button emailChButton = (Button) findViewById(R.id.emailCheck);
+        BootstrapButton signUpBt = (BootstrapButton) findViewById(R.id.signUp);
+        final BootstrapButton emailSend = (BootstrapButton) findViewById(R.id.emailSend);
+        final BootstrapButton emailChButton = (BootstrapButton) findViewById(R.id.emailCheck);
 
 
 
@@ -101,8 +104,8 @@ public class SignUpActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                EditText email= (EditText) findViewById(R.id.entEmail);
-                EditText name = (EditText) findViewById(R.id.entName);
+                BootstrapEditText email= (BootstrapEditText) findViewById(R.id.entEmail);
+                BootstrapEditText name = (BootstrapEditText) findViewById(R.id.entName);
                 try {
                     if(email.getText().toString().getBytes().length <= 0){
                         Toast.makeText(SignUpActivity.this, "이메일을 입력해주세요.", Toast.LENGTH_SHORT).show();
@@ -149,10 +152,10 @@ public class SignUpActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                EditText emailValidate = (EditText) findViewById(R.id.entEmailN);
+                BootstrapEditText emailValidate = (BootstrapEditText) findViewById(R.id.entEmailN);
                 if(emailValidate.getText().toString().equals(randResult)){
-                    EditText email= (EditText) findViewById(R.id.entEmail);
-                    EditText name = (EditText) findViewById(R.id.entName);
+                    BootstrapEditText email= (BootstrapEditText) findViewById(R.id.entEmail);
+                    BootstrapEditText name = (BootstrapEditText) findViewById(R.id.entName);
                     emailSend.setEnabled(false);
                     emailChButton.setEnabled(false);
                     email.setEnabled(false);
@@ -184,13 +187,13 @@ public class SignUpActivity extends AppCompatActivity {
                 }
             }
         };
-        final Button btnIdCheck = findViewById(R.id.btnIdCheck);
+        final BootstrapButton btnIdCheck = findViewById(R.id.btnIdCheck);
         btnIdCheck.setOnClickListener(new Button.OnClickListener(){
 
             @Override
             public void onClick(View v) {
                 ValidateId chkId = new ValidateId();
-                EditText idField = findViewById(R.id.entId);
+                BootstrapEditText idField = findViewById(R.id.entId);
                 if(idField.getText().toString().getBytes().length <= 0) {
                     Toast.makeText(SignUpActivity.this, "아이디를 입력해주세요.", Toast.LENGTH_SHORT).show();
                     return;
@@ -218,16 +221,16 @@ public class SignUpActivity extends AppCompatActivity {
         signUpBt.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Vector<EditText> allField = new Vector<EditText>();
+                Vector<BootstrapEditText> allField = new Vector<BootstrapEditText>();
                 SignUpInfo infoOfUser = new SignUpInfo();
 
-                EditText id = (EditText) findViewById(R.id.entId);
-                EditText entPw = (EditText) findViewById(R.id.entPw);
-                EditText entPw_r = (EditText) findViewById(R.id.entPw_re);
-                EditText name = (EditText) findViewById(R.id.entName);
-                EditText phone = (EditText) findViewById(R.id.entPhone);
-                EditText addr= (EditText) findViewById(R.id.entAddr);
-                EditText email= (EditText) findViewById(R.id.entEmail);
+                BootstrapEditText id = (BootstrapEditText) findViewById(R.id.entId);
+                BootstrapEditText entPw = (BootstrapEditText) findViewById(R.id.entPw);
+                BootstrapEditText entPw_r = (BootstrapEditText) findViewById(R.id.entPw_re);
+                BootstrapEditText name = (BootstrapEditText) findViewById(R.id.entName);
+                BootstrapEditText phone = (BootstrapEditText) findViewById(R.id.entPhone);
+                BootstrapEditText addr= (BootstrapEditText) findViewById(R.id.entAddr);
+                BootstrapEditText email= (BootstrapEditText) findViewById(R.id.entEmail);
 
                 infoOfUser.setMem_birth(birthYear + birthMonth + birthDay);
                 infoOfUser.setMem_gender(gender);

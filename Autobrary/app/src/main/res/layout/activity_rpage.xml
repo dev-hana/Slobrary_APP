@@ -25,7 +25,6 @@
                 android:layout_gravity="center"
                 android:layout_marginLeft="8dp"
                 />
-
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -36,32 +35,6 @@
                 android:textSize="23dp"
                 android:id="@+id/title"
                 android:textStyle="bold" />
-
-            <!--            <TextView-->
-<!--                android:layout_marginRight="5dp"-->
-<!--                android:text="로그인"-->
-<!--                android:id="@+id/signIn"-->
-<!--                android:textSize="15dp"-->
-<!--                android:padding="5dp"-->
-<!--                android:clickable="true"-->
-<!--                android:focusable="true"-->
-<!--                android:foreground="?android:attr/selectableItemBackground"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_gravity="center"-->
-<!--                />-->
-
-<!--            <TextView-->
-<!--                android:layout_marginRight="3dp"-->
-<!--                android:text="회원가입"-->
-<!--                android:id="@+id/signUp"-->
-<!--                android:padding="5dp"-->
-<!--                android:textSize="15dp"-->
-<!--                android:clickable="true"-->
-<!--                android:focusable="true"-->
-<!--                android:foreground="?android:attr/selectableItemBackground"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"/>-->
         </LinearLayout>
     </RelativeLayout>
 
