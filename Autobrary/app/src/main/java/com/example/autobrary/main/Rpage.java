@@ -21,6 +21,7 @@ import androidx.fragment.app.FragmentTransaction;
 import com.example.autobrary.R;
 import com.example.autobrary.auth.LoginActivity;
 import com.example.autobrary.auth.SignUpActivity;
+import com.example.autobrary.mypage.MypageFragment;
 import com.example.autobrary.notice.NoticeFragment;
 import com.example.autobrary.session.SessionManager;
 
@@ -28,7 +29,6 @@ public class Rpage extends AppCompatActivity {
     DrawerLayout drawer;
     TextView signIn, signUp, name, title;
     Button home, myPage, notice, info, reco, wish, qna, slo;
-
     RelativeLayout lay;
     View layout;
     LayoutInflater inflater;
@@ -37,6 +37,7 @@ public class Rpage extends AppCompatActivity {
 
     NoticeFragment noticeFrag;
     HomeFragment MainFrag;
+    MypageFragment mypageFrag;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,11 +52,12 @@ public class Rpage extends AppCompatActivity {
         wish = findViewById(R.id.mWish);
         qna = findViewById(R.id.mQnA);
         slo = findViewById(R.id.mSlo);
-        title = findViewById(R.id.titleBar);
+        title = findViewById(R.id.title);
 
         lay = findViewById(R.id.lay);
         noticeFrag = new NoticeFragment();
         MainFrag = new HomeFragment();
+        mypageFrag = new MypageFragment();
         drawer = (DrawerLayout) findViewById(R.id.drawer);
 
         if(SessionManager.getAttribute("login") == null){
@@ -97,14 +99,17 @@ public class Rpage extends AppCompatActivity {
             }
         });
 
+        title.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getSupportFragmentManager().beginTransaction().replace(R.id.lay, MainFrag).commit();
+            }
+        });
+
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (drawer.isDrawerOpen(Gravity.LEFT)) {
-                    drawer.closeDrawer(Gravity.LEFT);
-                }
-                title.setText("");
-                Toast.makeText(getApplicationContext(), "HOME", Toast.LENGTH_LONG).show();
+                controlDrawer();
                 getSupportFragmentManager().beginTransaction().replace(R.id.lay, MainFrag).commit();
             }
         });
@@ -112,36 +117,23 @@ public class Rpage extends AppCompatActivity {
         myPage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (drawer.isDrawerOpen(Gravity.LEFT)) {
-                    drawer.closeDrawer(Gravity.LEFT);
-                }
-                Toast.makeText(getApplicationContext(), "마이페이지", Toast.LENGTH_LONG).show();
-                inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                layout = inflater.inflate(R.layout.fragment_mypage, null);
-                lay.removeAllViews();
-                lay.addView(layout);
+                controlDrawer();
+                getSupportFragmentManager().beginTransaction().replace(R.id.lay, mypageFrag).commit();
             }
         });
 
         notice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (drawer.isDrawerOpen(Gravity.LEFT)) {
-                    drawer.closeDrawer(Gravity.LEFT);
-                }
-                title.setText("");
-                Toast.makeText(getApplicationContext(), "공지사항", Toast.LENGTH_LONG).show();
+                controlDrawer();
                 getSupportFragmentManager().beginTransaction().replace(R.id.lay, noticeFrag).commit();
-
             }
         });
 
         info.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (drawer.isDrawerOpen(Gravity.LEFT)) {
-                    drawer.closeDrawer(Gravity.LEFT);
-                }
+                controlDrawer();
                 Toast.makeText(getApplicationContext(), "이용안내", Toast.LENGTH_LONG).show();
                 inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 layout = inflater.inflate(R.layout.fragment_info, null);
@@ -153,9 +145,7 @@ public class Rpage extends AppCompatActivity {
         reco.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (drawer.isDrawerOpen(Gravity.LEFT)) {
-                    drawer.closeDrawer(Gravity.LEFT);
-                }
+                controlDrawer();
                 Toast.makeText(getApplicationContext(), "추천도서", Toast.LENGTH_LONG).show();
                 inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 layout = inflater.inflate(R.layout.fragment_reco, null);
@@ -167,9 +157,7 @@ public class Rpage extends AppCompatActivity {
         wish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (drawer.isDrawerOpen(Gravity.LEFT)) {
-                    drawer.closeDrawer(Gravity.LEFT);
-                }
+                controlDrawer();
                 Toast.makeText(getApplicationContext(), "도서 신청", Toast.LENGTH_LONG).show();
                 inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 layout = inflater.inflate(R.layout.fragment_wish, null);
@@ -181,9 +169,7 @@ public class Rpage extends AppCompatActivity {
         qna.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (drawer.isDrawerOpen(Gravity.LEFT)) {
-                    drawer.closeDrawer(Gravity.LEFT);
-                }
+                controlDrawer();
                 Toast.makeText(getApplicationContext(), "QnA", Toast.LENGTH_LONG).show();
                 inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 layout = inflater.inflate(R.layout.fragment_qna, null);
@@ -195,9 +181,7 @@ public class Rpage extends AppCompatActivity {
         slo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (drawer.isDrawerOpen(Gravity.LEFT)) {
-                    drawer.closeDrawer(Gravity.LEFT);
-                }
+                controlDrawer();
                 Toast.makeText(getApplicationContext(), "SLO", Toast.LENGTH_LONG).show();
                 inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 layout = inflater.inflate(R.layout.fragment_slo, null);
@@ -216,5 +200,10 @@ public class Rpage extends AppCompatActivity {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragment.setArguments(bundle);
         fragmentTransaction.replace(R.id.lay, fragment).commit();
+    }
+    private void controlDrawer(){
+        if (drawer.isDrawerOpen(Gravity.LEFT)) {
+            drawer.closeDrawer(Gravity.LEFT);
+        }
     }
 }
