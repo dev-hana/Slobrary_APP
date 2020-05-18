@@ -13,6 +13,7 @@ public class SessionManager {
         boolean result = false;
         if(validSessionTime()) { //세션시간이 유효하면
             if (sessionId.equals(SessionManager.sessionId)) {
+                refreshSession(); //세션시간 갱신
                 result = true;
             }
         }
@@ -36,7 +37,8 @@ public class SessionManager {
     }
 
     public static void invalidSession(){ //세션 무효화
-        SessionManager.sessionId = null;
+        SessionManager.sessionId = "";
+        attribute.clear();
     }
 
     public static void refreshSession(){ //세션시간 갱신

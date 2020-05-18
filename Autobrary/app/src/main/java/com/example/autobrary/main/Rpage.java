@@ -27,7 +27,7 @@ import com.example.autobrary.session.SessionManager;
 
 public class Rpage extends AppCompatActivity {
     DrawerLayout drawer;
-    TextView signIn, signUp, name, title;
+    TextView signIn, signUp, name, title, logout;
     Button home, myPage, notice, info, reco, wish, qna, slo;
     RelativeLayout lay;
     View layout;
@@ -53,6 +53,9 @@ public class Rpage extends AppCompatActivity {
         qna = findViewById(R.id.mQnA);
         slo = findViewById(R.id.mSlo);
         title = findViewById(R.id.title);
+        signIn = findViewById(R.id.signIn);
+        signUp = findViewById(R.id.signUp);
+        logout = findViewById(R.id.logout);
 
         lay = findViewById(R.id.lay);
         noticeFrag = new NoticeFragment();
@@ -61,8 +64,14 @@ public class Rpage extends AppCompatActivity {
         drawer = (DrawerLayout) findViewById(R.id.drawer);
 
         if(SessionManager.getAttribute("login") == null){
-            name.setText("SL:O");
+            name.setText(R.string.appPrettyName);
+            signIn.setVisibility(View.VISIBLE);
+            signUp.setVisibility(View.VISIBLE);
+            logout.setVisibility(View.GONE);
         }else{
+            signIn.setVisibility(View.GONE);
+            signUp.setVisibility(View.GONE);
+            logout.setVisibility(View.VISIBLE);
             name.setText(SessionManager.getAttribute("login") + "님 안녕하세요.");
         }
 
@@ -80,8 +89,19 @@ public class Rpage extends AppCompatActivity {
             }
         });
 
-        signIn = findViewById(R.id.signIn);
-        signUp = findViewById(R.id.signUp);
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                controlDrawer();
+                SessionManager.invalidSession();
+                name.setText(R.string.appPrettyName);
+                signIn.setVisibility(View.VISIBLE);
+                signUp.setVisibility(View.VISIBLE);
+                logout.setVisibility(View.GONE);
+                getSupportFragmentManager().beginTransaction().replace(R.id.lay, MainFrag).commit();
+                Toast.makeText(getApplicationContext(), "로그아웃 되었습니다.", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         signIn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -118,7 +138,13 @@ public class Rpage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 controlDrawer();
-                getSupportFragmentManager().beginTransaction().replace(R.id.lay, mypageFrag).commit();
+                if(SessionManager.getSessionId().equals("")){
+                    Toast.makeText(getApplicationContext(), "로그인후 이용해주세요.", Toast.LENGTH_LONG).show();
+                }else if (SessionManager.validSession(SessionManager.getSessionId())){
+                    getSupportFragmentManager().beginTransaction().replace(R.id.lay, mypageFrag).commit();
+                }else{
+                    Toast.makeText(getApplicationContext(), "로그인 세션이 만료되었습니다. 다시 로그인 해주세요.", Toast.LENGTH_LONG).show();
+                }
             }
         });
 

@@ -281,4 +281,5 @@
     <string name="cormfirm">확인</string>
     <string name="duplicateCheck">중복체크</string>
     <string name="checkNv">인증번호</string>
+    <string name="appPrettyName">SL:O</string>
 </resources>
