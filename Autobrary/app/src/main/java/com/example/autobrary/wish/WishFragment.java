@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment;
 import com.example.autobrary.R;
 import com.example.autobrary.main.BAdapter;
 import com.example.autobrary.main.BItem;
+import com.example.autobrary.mypage.MypageFragment;
 
 
 public class WishFragment extends Fragment {
