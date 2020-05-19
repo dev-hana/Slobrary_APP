@@ -38,6 +38,7 @@
                 android:layout_height="40dp"
                 android:entries="@array/noticeSearchOption"
                 android:layout_weight="2"
+                android:id="@+id/searchType"
                 />
 <!--            <EditText-->
 <!--                android:layout_width="220dp"-->
@@ -56,6 +57,7 @@
                 android:layout_weight="7"
                 app:bootstrapSize="md"
                 app:bootstrapBrand="info"
+                android:id="@+id/searchQuery"
                 />
 
             <ImageView
@@ -64,6 +66,8 @@
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:layout_weight="1"
+                android:clickable="true"
+                android:id="@+id/searchBt"
                 />
         </LinearLayout>
         <LinearLayout

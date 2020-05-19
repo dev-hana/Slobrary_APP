@@ -58,4 +58,7 @@ public class NoticeAdapter extends BaseAdapter {
     public void addItem(NoticeInfo info) {
         listViewItemList.add(info);
     }
+    public void clearItem() {
+        listViewItemList.clear();
+    }
 }

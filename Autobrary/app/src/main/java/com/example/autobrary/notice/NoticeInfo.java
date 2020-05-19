@@ -5,10 +5,6 @@ public class NoticeInfo {
     String date; //날짜
     String name; //작성자
     String id; // 게시글 번호
-
-
-
-
     String contents;
     /* 공지사항 관련 */
 
