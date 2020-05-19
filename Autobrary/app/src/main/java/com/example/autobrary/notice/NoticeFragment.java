@@ -2,10 +2,12 @@ package com.example.autobrary.notice;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Process;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
@@ -58,6 +60,7 @@ public class NoticeFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_notice, container, false);
         context = container.getContext();
+
         adapter = new NoticeAdapter();
         listView = (ListView) rootView.findViewById(R.id.noticeList);
         searchBt = (ImageView) rootView.findViewById(R.id.searchBt);
@@ -77,7 +80,7 @@ public class NoticeFragment extends Fragment {
                 ((Rpage)getActivity()).replaceFragment(Notice2Fragment.newInstance(), bundle);
             }
         });
-        
+
         ArrayAdapter searchAdapter = ArrayAdapter.createFromResource(getActivity().getBaseContext(), R.array.noticeSearchOption, android.R.layout.simple_spinner_item);
         searchAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         searchType.setAdapter(searchAdapter);
@@ -85,6 +88,11 @@ public class NoticeFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 searchString = parent.getItemAtPosition(position).toString();
+                if (searchString.equals("전체")) {
+                    searchQuery.setEnabled(false);
+                } else {
+                    searchQuery.setEnabled(true);
+                }
             }
 
             @Override
@@ -125,32 +133,47 @@ public class NoticeFragment extends Fragment {
     }
 
     private void searchNotice(String searchType, String searchQuery) throws InvalidKeySpecException, NoSuchAlgorithmException, IOException {
-        adapter.clearItem();
-        switch (searchType) {
-            case "전체": //전체 검색
-                for (NoticeInfo info : getNotice) {
-                    adapter.addItem(info);
-                }
-                break;
-            case "제목": //제목 검색
-                for (NoticeInfo info : getNotice) {
-                    if (info.getTitle().contains(searchQuery)) {
+        if (getNotice()) {
+            int noticeVectorSize = getNotice.size();
+            switch (searchType) {
+                case "전체": //전체 검색
+                    for (NoticeInfo info : getNotice) {
                         adapter.addItem(info);
                     }
-                }
-                break;
-            case "작성자": //작성자 검색
-                for (NoticeInfo info : getNotice) {
-                    if (info.getName().contains(searchQuery)) {
-                        adapter.addItem(info);
+                    break;
+                case "제목": //제목 검색
+                    for (int i=0; i < noticeVectorSize; i++){
+                        if (getNotice.get(i).getTitle().contains(searchQuery)) {
+                            adapter.addItem(getNotice.get(i));
+                        } else {
+                            getNotice.remove(i);
+                            i--;
+                            noticeVectorSize--;
+                        }
                     }
-                }
-                break;
-            default: //그 외 검색 (오류 또는 변조 -> 대부분 변조)
-                Toast.makeText(context, "뭐여? 해킹한겨? 바꿔줄 생각 없어. 안돼 돌아가.", Toast.LENGTH_LONG).show();
-                Log.e("OutOfType", "-- Out of search type at notice activity. --");
-                android.os.Process.killProcess(android.os.Process.myPid());
+                    break;
+                case "작성자": //작성자 검색
+                    for (int i=0; i < noticeVectorSize; i++){
+                        if (getNotice.get(i).getName().contains(searchQuery)) {
+                            adapter.addItem(getNotice.get(i));
+                        } else {
+                            getNotice.remove(i);
+                            i--;
+                            noticeVectorSize--;
+                        }
+                    }
+                    break;
+                default: //그 외 검색 (오류 또는 변조 -> 대부분 변조)
+                    Toast.makeText(context, "뭐여? 해킹한겨? 바꿔줄 생각 없어. 안돼 돌아가.", Toast.LENGTH_LONG).show();
+                    Log.e("OutOfType", "-- Out of search type at notice activity. --");
+                    android.os.Process.killProcess(android.os.Process.myPid());
+            }
         }
+        //키보드 내리기
+        InputMethodManager mInputMethodManager = (InputMethodManager) getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+        mInputMethodManager.hideSoftInputFromWindow(this.searchQuery.getWindowToken(), 0);
+
+        //리스트뷰 새로고침
         adapter.notifyDataSetChanged();
     }
 
