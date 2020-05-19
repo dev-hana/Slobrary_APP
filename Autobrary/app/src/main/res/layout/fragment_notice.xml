@@ -70,14 +70,19 @@
                 android:id="@+id/searchBt"
                 />
         </LinearLayout>
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="500dp">
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            >
             <ListView
-                android:layout_marginTop="15dp"
-                android:id="@+id/noticeList"
-                android:layout_width="match_parent"
-                android:layout_height="500dp"/>
-        </LinearLayout>
+            android:layout_marginTop="15dp"
+            android:id="@+id/noticeList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical"
+            />
+        </ScrollView>
+
     </LinearLayout>
 </RelativeLayout>
