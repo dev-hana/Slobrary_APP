@@ -18,6 +18,7 @@ import cz.msebera.android.httpclient.client.entity.UrlEncodedFormEntity;
 import cz.msebera.android.httpclient.client.methods.HttpPost;
 import cz.msebera.android.httpclient.impl.client.DefaultHttpClient;
 import cz.msebera.android.httpclient.message.BasicNameValuePair;
+import cz.msebera.android.httpclient.util.EntityUtils;
 
 
 public class URLConnector extends Thread{
@@ -31,7 +32,7 @@ public class URLConnector extends Thread{
     private HttpResponse result;
     private String URL;
     private HashMap<String, String> param = new HashMap<String, String>();
-
+    private String longData;
     public URLConnector(String url, HashMap param){
         URL = HOST + url;
         this.param = param;
@@ -74,11 +75,15 @@ public class URLConnector extends Thread{
             // Execute HTTP Post Request
 
             reps = httpclient.execute(httppost);
+            longData = EntityUtils.toString(reps.getEntity());
         } catch (ClientProtocolException e) {
             // TODO Auto-generated catch block
         } catch (IOException e) {
             // TODO Auto-generated catch block
         }
         this.result = reps;
+    }
+    public String getData(){
+        return longData;
     }
 }

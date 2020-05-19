@@ -34,9 +34,7 @@ public class Notice {
             URLConnector task = new URLConnector(REQUEST_PAGE, new HashMap());
             task.start();
             task.join();
-            HttpResponse resp = task.getResult();
-            rawData = resp.getEntity();
-            result = EntityUtils.toString(rawData);
+            result = task.getData();
             JSONObject jsonResult = new JSONObject(result);
             if(jsonResult.getString("success").equals("true")) {
                 ArrayList<String> jsonKeyList = new ArrayList<>();

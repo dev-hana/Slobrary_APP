@@ -39,9 +39,7 @@ public class Login  {
             URLConnector task = new URLConnector(REQUEST_PAGE, param);
             task.start();
             task.join();
-            HttpResponse resp = task.getResult();
-            rawData = resp.getEntity();
-            result = EntityUtils.toString(rawData);
+            result = task.getData();
             if (PBKDF2_Encryption.validatePassword(info.getLoginPw(), new JSONObject(result).getString("PASSWD"))) {
                 validateResult = true;
             }
