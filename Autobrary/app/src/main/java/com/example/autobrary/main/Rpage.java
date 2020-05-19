@@ -21,7 +21,6 @@ import androidx.fragment.app.FragmentTransaction;
 import com.example.autobrary.R;
 import com.example.autobrary.auth.LoginActivity;
 import com.example.autobrary.auth.SignUpActivity;
-import com.example.autobrary.mypage.MypageFragment;
 import com.example.autobrary.notice.NoticeFragment;
 import com.example.autobrary.session.SessionManager;
 
