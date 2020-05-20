@@ -23,7 +23,10 @@ import com.example.autobrary.auth.LoginActivity;
 import com.example.autobrary.auth.SignUpActivity;
 import com.example.autobrary.mypage.MypageFragment;
 import com.example.autobrary.notice.NoticeFragment;
+import com.example.autobrary.qna.QnaFragment;
+import com.example.autobrary.reco.RecoFragment;
 import com.example.autobrary.session.SessionManager;
+import com.example.autobrary.wish.WishFragment;
 
 public class Rpage extends AppCompatActivity {
     DrawerLayout drawer;
@@ -38,6 +41,11 @@ public class Rpage extends AppCompatActivity {
     NoticeFragment noticeFrag;
     HomeFragment MainFrag;
     MypageFragment mypageFrag;
+    WishFragment wishFrag;
+    SloFragment sloFrag;
+    QnaFragment qnaFrag;
+    InfoFragment infoFrag;
+    RecoFragment recoFrag;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,6 +69,11 @@ public class Rpage extends AppCompatActivity {
         noticeFrag = new NoticeFragment();
         MainFrag = new HomeFragment();
         mypageFrag = new MypageFragment();
+        wishFrag = new WishFragment();
+        sloFrag = new SloFragment();
+        qnaFrag = new QnaFragment();
+        infoFrag = new InfoFragment();
+        recoFrag = new RecoFragment();
         drawer = (DrawerLayout) findViewById(R.id.drawer);
 
         if(SessionManager.getAttribute("login") == null){
@@ -160,11 +173,7 @@ public class Rpage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 controlDrawer();
-                Toast.makeText(getApplicationContext(), "이용안내", Toast.LENGTH_LONG).show();
-                inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                layout = inflater.inflate(R.layout.fragment_info, null);
-                lay.removeAllViews();
-                lay.addView(layout);
+                getSupportFragmentManager().beginTransaction().replace(R.id.lay, infoFrag).commit();
             }
         });
 
@@ -172,11 +181,7 @@ public class Rpage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 controlDrawer();
-                Toast.makeText(getApplicationContext(), "추천도서", Toast.LENGTH_LONG).show();
-                inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                layout = inflater.inflate(R.layout.fragment_reco, null);
-                lay.removeAllViews();
-                lay.addView(layout);
+                getSupportFragmentManager().beginTransaction().replace(R.id.lay, recoFrag).commit();
             }
         });
 
@@ -184,11 +189,7 @@ public class Rpage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 controlDrawer();
-                Toast.makeText(getApplicationContext(), "도서 신청", Toast.LENGTH_LONG).show();
-                inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                layout = inflater.inflate(R.layout.fragment_wish, null);
-                lay.removeAllViews();
-                lay.addView(layout);
+                getSupportFragmentManager().beginTransaction().replace(R.id.lay, wishFrag).commit();
             }
         });
 
@@ -196,11 +197,7 @@ public class Rpage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 controlDrawer();
-                Toast.makeText(getApplicationContext(), "QnA", Toast.LENGTH_LONG).show();
-                inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                layout = inflater.inflate(R.layout.fragment_qna, null);
-                lay.removeAllViews();
-                lay.addView(layout);
+                getSupportFragmentManager().beginTransaction().replace(R.id.lay, qnaFrag).commit();
             }
         });
 
@@ -208,11 +205,7 @@ public class Rpage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 controlDrawer();
-                Toast.makeText(getApplicationContext(), "SLO", Toast.LENGTH_LONG).show();
-                inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                layout = inflater.inflate(R.layout.fragment_slo, null);
-                lay.removeAllViews();
-                lay.addView(layout);
+                getSupportFragmentManager().beginTransaction().replace(R.id.lay, sloFrag).commit();
             }
         });
     }

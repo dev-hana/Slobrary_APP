@@ -12,35 +12,43 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
-            android:src="@drawable/logo22"
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="100dp"/>
-
         <TextView
-            android:text="희망 도서 신청"
-            android:textSize="15dp"
-            android:layout_marginBottom="15dp"
+            android:layout_marginTop="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="희망도서 신청"
+            android:textSize="25dp"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            />
+        <View
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="2dp"
+            android:layout_centerInParent="true"
+            android:background="#9C9C9C"/>
+
 
         <LinearLayout
+            android:layout_marginTop="30dp"
             android:orientation="horizontal"
             android:layout_marginBottom="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <TextView
+            <com.beardedhen.androidbootstrap.AwesomeTextView
                 android:text="제목"
                 android:textSize="15dp"
                 android:layout_width="70dp"
                 android:layout_height="wrap_content"/>
-            <EditText
+            <com.beardedhen.androidbootstrap.BootstrapEditText
                 android:hint="책 제목"
                 android:id="@+id/book_name"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                app:bootstrapSize="md"
+                app:bootstrapBrand="info"
+                app:roundedCorners="true"
+                />
         </LinearLayout>
 
         <LinearLayout
@@ -48,16 +56,20 @@
             android:layout_marginBottom="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <TextView
+            <com.beardedhen.androidbootstrap.AwesomeTextView
                 android:text="작가"
                 android:textSize="15dp"
                 android:layout_width="70dp"
                 android:layout_height="wrap_content"/>
-            <EditText
+            <com.beardedhen.androidbootstrap.BootstrapEditText
                 android:hint="책 작가"
                 android:id="@+id/book_author"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                app:bootstrapSize="md"
+                app:bootstrapBrand="info"
+                app:roundedCorners="true"
+                />
         </LinearLayout>
 
         <LinearLayout
@@ -65,34 +77,21 @@
             android:layout_marginBottom="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <TextView
+            <com.beardedhen.androidbootstrap.AwesomeTextView
                 android:text="출판사"
                 android:textSize="15dp"
                 android:layout_width="70dp"
                 android:layout_height="wrap_content"/>
-            <EditText
+            <com.beardedhen.androidbootstrap.BootstrapEditText
                 android:hint="출판사"
                 android:id="@+id/publish"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                app:bootstrapSize="md"
+                app:bootstrapBrand="info"
+                app:roundedCorners="true"
+                />
         </LinearLayout>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TextView
-                android:text="출판연도"
-                android:textSize="15dp"
-                android:layout_width="70dp"
-                android:layout_height="wrap_content"/>
-            <EditText
-                android:hint="출판연도"
-                android:id="@+id/publishY"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-        </LinearLayout>
-
         <LinearLayout
             android:orientation="horizontal"
             android:layout_marginTop="20dp"
@@ -104,10 +103,12 @@
                 android:layout_height="0dp"/>
             <Button
                 android:text="신청"
-                android:textColor="@color/colorAccent"
+                android:textColor="#ffff"
+                android:textStyle="bold"
                 android:background="@drawable/border_btn"
                 android:layout_width="150dp"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                />
             <View
                 android:layout_weight="1"
                 android:layout_width="0dp"
