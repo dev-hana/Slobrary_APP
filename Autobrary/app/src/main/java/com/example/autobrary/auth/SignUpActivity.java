@@ -37,11 +37,6 @@ public class SignUpActivity extends AppCompatActivity {
     private String randResult;
     private String gender = "M";
 
-    // 생일 스피너 임시저장 변수
-    private String birthYear = "";
-    private String birthMonth = "";
-    private String birthDay = "";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -233,7 +228,7 @@ public class SignUpActivity extends AppCompatActivity {
                 BootstrapEditText addr= (BootstrapEditText) findViewById(R.id.entAddr);
                 BootstrapEditText email= (BootstrapEditText) findViewById(R.id.entEmail);
 
-                infoOfUser.setMem_birth(birthYear + birthMonth + birthDay);
+                infoOfUser.setMem_birth(birth.getText().toString());
                 infoOfUser.setMem_gender(gender);
                 infoOfUser.setMem_id(id.getText().toString());
                 infoOfUser.setMem_pw(entPw.getText().toString());
@@ -262,6 +257,7 @@ public class SignUpActivity extends AppCompatActivity {
                 allField.add(phone);
                 allField.add(addr);
                 allField.add(email);
+                allField.add(birth);
 
                 //하단의 코드 순서는 바뀌면 안됨.
                 for(int i = 0; i < allField.size(); i++){
@@ -273,6 +269,11 @@ public class SignUpActivity extends AppCompatActivity {
 
                 if(!isValidPhoneNv(phone.getText().toString())){
                     Toast.makeText(SignUpActivity.this, "핸드폰번호가 형식에 맞지 않습니다.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if(!isValidBirth(birth.getText().toString())){
+                    Toast.makeText(SignUpActivity.this, "생년월일이 형식에 맞지 않습니다.", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
