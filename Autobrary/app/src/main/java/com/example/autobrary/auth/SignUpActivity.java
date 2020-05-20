@@ -323,4 +323,7 @@ public class SignUpActivity extends AppCompatActivity {
     private  boolean isValidPhoneNv(String number){
         return Pattern.compile("^\\d{3}\\d{4}\\d{4}$").matcher(number).matches();
     }
+    private  boolean isValidBirth(String number){
+        return Pattern.compile("^\\d{8}$").matcher(number).matches();
+    }
 }
