@@ -2,60 +2,75 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:id="@+id/wishItem"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
         android:layout_margin="5dp"
-        android:paddingTop="20dp"
-        android:paddingBottom="20dp"
-        android:background="@drawable/border"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="200dp">
-
-        <ImageView
-            android:id="@+id/bCover"
-            android:src="@drawable/book"
-            android:layout_width="100dp"
-            android:layout_height="120dp"/>
-
+        android:layout_height="wrap_content">
         <LinearLayout
             android:layout_marginLeft="5dp"
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <TextView
-                android:gravity="center_vertical"
-                android:id="@+id/bTitle"
-                android:hint="도서명입니다."
-                android:textStyle="bold"
-                android:textSize="15dp"
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
-            <TextView
-                android:gravity="center_vertical"
-                android:id="@+id/bAuth"
-                android:hint="저자명입니다."
-                android:textSize="13dp"
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+            android:layout_height="wrap_content"
+            >
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <TextView
+                    android:gravity="center_vertical"
+                    android:id="@+id/bTitle"
+                    android:text="책 제목"
+                    android:textSize="18dp"
+                    android:textColor="#000000"
+                    android:textStyle="bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <com.beardedhen.androidbootstrap.AwesomeTextView
+                    android:gravity="center_vertical"
+                    android:text="저자"
+                    android:layout_weight="5"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+                <com.beardedhen.androidbootstrap.AwesomeTextView
+                    android:gravity="center_vertical"
+                    android:id="@+id/bAuth"
+                    android:text="책 저자입니다"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <com.beardedhen.androidbootstrap.AwesomeTextView
                     android:gravity="center_vertical"
                     android:text="출판사"
-                    android:layout_weight="3.5"
+                    android:layout_weight="5"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>
-                <TextView
+                <com.beardedhen.androidbootstrap.AwesomeTextView
                     android:gravity="center_vertical"
                     android:id="@+id/bPub"
-                    android:hint="출판사"
+                    android:text="책 출판사 입니다"
                     android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>
@@ -65,40 +80,21 @@
                 android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-                <TextView
-                    android:gravity="center_vertical"
-                    android:text="출판연도"
-                    android:layout_weight="3.5"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"/>
-                <TextView
-                    android:gravity="center_vertical"
-                    android:id="@+id/bPubY"
-                    android:hint="출판연도"
-                    android:layout_weight="1"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"/>
-            </LinearLayout>
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="30dp">
-                <TextView
+                <com.beardedhen.androidbootstrap.AwesomeTextView
                     android:gravity="center_vertical"
                     android:text="신청날짜"
-                    android:layout_weight="3.5"
+                    android:layout_weight="5"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>
-                <TextView
+                <com.beardedhen.androidbootstrap.AwesomeTextView
                     android:gravity="center_vertical"
                     android:id="@+id/bDate"
-                    android:hint="도서 신청 날짜입니다."
+                    android:text="도서 신청 날짜입니다."
                     android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>
             </LinearLayout>
         </LinearLayout>
-
     </LinearLayout>
 
 </LinearLayout>
