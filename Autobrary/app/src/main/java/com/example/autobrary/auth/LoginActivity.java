@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.beardedhen.androidbootstrap.BootstrapButton;
+import com.beardedhen.androidbootstrap.BootstrapEditText;
 import com.example.autobrary.R;
 import com.example.autobrary.database.URLConnector;
 import com.example.autobrary.encryption.PBKDF2_Encryption;
@@ -26,13 +28,13 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        Button loginButton = (Button)findViewById(R.id.btnLogIn);
+        BootstrapButton loginButton = (BootstrapButton)findViewById(R.id.btnLogIn);
         loginButton.setOnClickListener(new Button.OnClickListener(){
             @Override
             public void onClick(View v) {
                 LoginInfo info = new LoginInfo();
-                EditText idField = (EditText)findViewById(R.id.edtId);
-                EditText pwField = (EditText)findViewById(R.id.edtPw);
+                BootstrapEditText idField = (BootstrapEditText)findViewById(R.id.entId);
+                BootstrapEditText pwField = (BootstrapEditText)findViewById(R.id.entId);
                 info.setLoginId(idField.getText().toString());
                 info.setLoginPw(pwField.getText().toString());
                 if(info.getLoginId().getBytes().length <= 0 || info.getLoginPw().getBytes().length <= 0){
@@ -57,7 +59,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
-        Button signUp = (Button) findViewById(R.id.btnSUp);
+        BootstrapButton signUp = (BootstrapButton) findViewById(R.id.btnSUp);
         signUp.setOnClickListener(new Button.OnClickListener(){
 
             @Override

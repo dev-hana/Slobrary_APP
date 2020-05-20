@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="150dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -26,18 +31,20 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         >
-        <TextView
+        <com.beardedhen.androidbootstrap.AwesomeTextView
             android:text="@string/idLabel"
             android:layout_width="90dp"
-            android:textSize="20dp"
             android:layout_height="wrap_content"/>
-        <EditText
-            android:id="@+id/edtId"
+        <com.beardedhen.androidbootstrap.BootstrapEditText
+            android:id="@+id/entId"
             android:hint="@string/insertID"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"/>
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            app:bootstrapSize="md"
+            app:bootstrapBrand="info"
+            app:roundedCorners="true"
+            />
     </LinearLayout>
-
 
     <LinearLayout
         android:layout_margin="10dp"
@@ -46,38 +53,54 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         >
-        <TextView
+        <com.beardedhen.androidbootstrap.AwesomeTextView
             android:text="@string/pwLabel"
             android:layout_width="90dp"
-            android:textSize="20dp"
-            android:layout_height="wrap_content"/>
-        <EditText
+            android:layout_height="wrap_content"
+            />
+        <com.beardedhen.androidbootstrap.BootstrapEditText
             android:hint="@string/insertPW"
-            android:id="@+id/edtPw"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"/>
+            android:id="@+id/entPw"
+            android:inputType="textPassword"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            app:bootstrapSize="md"
+            app:bootstrapBrand="info"
+            app:roundedCorners="true"
+            />
     </LinearLayout>
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp">
         <View
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="0dp"/>
 
-        <Button
-            android:text="로그인"
+        <com.beardedhen.androidbootstrap.BootstrapButton
+            android:text="  로그인  "
             android:id="@+id/btnLogIn"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            app:bootstrapBrand="primary"
+            app:buttonMode="regular"
+            app:showOutline="true"
+            app:roundedCorners="true"
+            android:layout_marginRight="20dp"/>
 
-        <Button
+        <com.beardedhen.androidbootstrap.BootstrapButton
             android:text="회원가입"
             android:id="@+id/btnSUp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            app:bootstrapBrand="primary"
+            app:buttonMode="regular"
+            app:showOutline="true"
+            app:roundedCorners="true"
+            />
 
         <View
             android:layout_weight="1"
@@ -90,4 +113,4 @@
         android:layout_weight="1"
         android:layout_width="0dp"
         android:layout_height="0dp"/>
-</LinearLayout>
+</LinearLayout></ScrollView>
