@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.autobrary.R;
@@ -39,11 +40,10 @@ public class MypageFragment extends Fragment {
         activity = null;
     }
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        ViewGroup root = (ViewGroup) inflater.inflate(R.layout.fragment_mypage , container, false);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        ViewGroup root = (ViewGroup) inflater.inflate(R.layout.fragment_mypage, container, false);
 
-        lay = root.findViewById(R.id.lay);
+//        lay = root.findViewById(R.id.lay);
 
 //        getFragmentManager().beginTransaction().add(R.id.mypageF, new MypageFragment()).commit();
 //
