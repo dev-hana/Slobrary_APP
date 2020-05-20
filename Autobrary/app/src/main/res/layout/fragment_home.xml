@@ -73,6 +73,7 @@
             app:bootstrapBrand="primary"
             app:bootstrapHeading="h5"
             android:text="@string/cormfirm"
+
             />
         <View
             android:layout_weight="1"
