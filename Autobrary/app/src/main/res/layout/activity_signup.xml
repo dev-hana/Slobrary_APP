@@ -133,41 +133,19 @@
         android:layout_height="wrap_content">
 
         <com.beardedhen.androidbootstrap.AwesomeTextView
-            android:layout_width="53dp"
+            android:layout_width="90dp"
             android:layout_height="wrap_content"
             app:bootstrapText="생년월일"
             />
-        <Spinner
-            android:id="@+id/spinner_year"
-            android:layout_width="110dp"
+        <com.beardedhen.androidbootstrap.BootstrapEditText
+            android:id="@+id/entBirth"
+            android:layout_width="270dp"
+            android:hint="ex) 19970715"
             android:layout_height="wrap_content"
+            app:bootstrapSize="md"
+            app:bootstrapBrand="info"
+            app:roundedCorners="true"
             />
-        <com.beardedhen.androidbootstrap.AwesomeTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:bootstrapText="년"
-            />
-        <Spinner
-            android:id="@+id/spinner_month"
-            android:layout_width="90dp"
-            android:layout_height="wrap_content"
-           />
-        <com.beardedhen.androidbootstrap.AwesomeTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:bootstrapText="월"
-            />
-        <Spinner
-            android:id="@+id/spinner_day"
-            android:layout_width="90dp"
-            android:layout_height="wrap_content"
-         />
-        <com.beardedhen.androidbootstrap.AwesomeTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:bootstrapText="일"
-            />
-
     </LinearLayout>
     <LinearLayout
         android:layout_marginBottom="10dp"

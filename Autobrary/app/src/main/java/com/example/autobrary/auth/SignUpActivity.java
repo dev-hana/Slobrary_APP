@@ -52,51 +52,51 @@ public class SignUpActivity extends AppCompatActivity {
 
 
 
-        // Spinner
-        Spinner yearSpinner = (Spinner)findViewById(R.id.spinner_year);
-        ArrayAdapter yearAdapter = ArrayAdapter.createFromResource(this, R.array.date_year, android.R.layout.simple_spinner_item);
-        yearAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        yearSpinner.setAdapter(yearAdapter);
-        yearSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                birthYear = parent.getItemAtPosition(position).toString();
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-            }
-        });
-
-        Spinner monthSpinner = (Spinner)findViewById(R.id.spinner_month);
-        ArrayAdapter monthAdapter = ArrayAdapter.createFromResource(this, R.array.date_month, android.R.layout.simple_spinner_item);
-        monthAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        monthSpinner.setAdapter(monthAdapter);
-        monthSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                birthMonth = parent.getItemAtPosition(position).toString();
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-            }
-        });
-
-        Spinner daySpinner = (Spinner)findViewById(R.id.spinner_day);
-        ArrayAdapter dayAdapter = ArrayAdapter.createFromResource(this, R.array.date_day, android.R.layout.simple_spinner_item);
-        dayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        daySpinner.setAdapter(dayAdapter);
-        daySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                birthDay = parent.getItemAtPosition(position).toString();
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-            }
-        });
+//        // Spinner
+//        Spinner yearSpinner = (Spinner)findViewById(R.id.spinner_year);
+//        ArrayAdapter yearAdapter = ArrayAdapter.createFromResource(this, R.array.date_year, android.R.layout.simple_spinner_item);
+//        yearAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        yearSpinner.setAdapter(yearAdapter);
+//        yearSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//                birthYear = parent.getItemAtPosition(position).toString();
+//            }
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> parent) {
+//            }
+//        });
+//
+//        Spinner monthSpinner = (Spinner)findViewById(R.id.spinner_month);
+//        ArrayAdapter monthAdapter = ArrayAdapter.createFromResource(this, R.array.date_month, android.R.layout.simple_spinner_item);
+//        monthAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        monthSpinner.setAdapter(monthAdapter);
+//        monthSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//                birthMonth = parent.getItemAtPosition(position).toString();
+//            }
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> parent) {
+//            }
+//        });
+//
+//        Spinner daySpinner = (Spinner)findViewById(R.id.spinner_day);
+//        ArrayAdapter dayAdapter = ArrayAdapter.createFromResource(this, R.array.date_day, android.R.layout.simple_spinner_item);
+//        dayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        daySpinner.setAdapter(dayAdapter);
+//        daySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//                birthDay = parent.getItemAtPosition(position).toString();
+//            }
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> parent) {
+//            }
+//        });
 
 
 
@@ -228,6 +228,7 @@ public class SignUpActivity extends AppCompatActivity {
                 BootstrapEditText entPw = (BootstrapEditText) findViewById(R.id.entPw);
                 BootstrapEditText entPw_r = (BootstrapEditText) findViewById(R.id.entPw_re);
                 BootstrapEditText name = (BootstrapEditText) findViewById(R.id.entName);
+                BootstrapEditText birth = (BootstrapEditText) findViewById(R.id.entBirth);
                 BootstrapEditText phone = (BootstrapEditText) findViewById(R.id.entPhone);
                 BootstrapEditText addr= (BootstrapEditText) findViewById(R.id.entAddr);
                 BootstrapEditText email= (BootstrapEditText) findViewById(R.id.entEmail);

@@ -6,8 +6,8 @@ android {
 
     defaultConfig {
         applicationId 'com.slo.autobrary'
-        minSdkVersion 28
-        targetSdkVersion 28
+        minSdkVersion 26
+        targetSdkVersion 26
         versionCode 1
         versionName "1.0"
 
