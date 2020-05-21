@@ -33,6 +33,7 @@
                 android:textAlignment="center"
                 android:textColor="#ffff"
                 android:textSize="23dp"
+                android:layout_marginRight="40dp"
                 android:id="@+id/title"
                 android:textStyle="bold" />
         </LinearLayout>

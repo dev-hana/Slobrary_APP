@@ -3,8 +3,9 @@
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
     android:id="@+id/drawer"
-    android:background="#ffff"
+    android:background="#ffffff"
     android:layout_gravity="left"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     >
 <LinearLayout
     android:layout_width="200dp"
@@ -12,10 +13,9 @@
     android:orientation="vertical"
     >
     <LinearLayout
-        android:background="@color/drawerLay"
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="80dp">
+        android:layout_height="wrap_content">
         <View
             android:layout_weight="1"
             android:layout_width="0dp"
@@ -24,6 +24,7 @@
             android:id="@+id/mName"
             android:text="이름이름"
             android:textSize="18dp"
+            android:layout_marginTop="3dp"
             android:layout_marginBottom="10dp"
             android:textAlignment="center"
             android:textColor="@color/colorPrimary"
@@ -57,11 +58,55 @@
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="0dp"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="8dp"
+            >
+            <com.beardedhen.androidbootstrap.BootstrapButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="  로그인  "
+                android:id="@+id/signIn"
+                android:clickable="true"
+                app:bootstrapBrand="primary"
+                app:buttonMode="regular"
+                app:showOutline="true"
+                app:roundedCorners="true"
+                />
+            <com.beardedhen.androidbootstrap.BootstrapButton
+                android:layout_marginLeft="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="회원가입"
+                android:id="@+id/signUp"
+                android:clickable="true"
+                app:bootstrapBrand="primary"
+                app:buttonMode="regular"
+                app:showOutline="true"
+                app:roundedCorners="true"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="로그아웃"
+                android:id="@+id/logout"
+                android:clickable="true"
+                android:visibility="gone"
+                />
+        </LinearLayout>
     </LinearLayout>
-
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorAccent"
+        />
     <Button
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="75dp"
         android:text="HOME"
         android:id="@+id/mHome"
         android:textSize="20dp"
@@ -69,7 +114,7 @@
         android:textAlignment="center" />
     <Button
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="75dp"
         android:text="마이페이지"
         android:id="@+id/mMypage"
         android:textSize="20dp"
@@ -78,28 +123,15 @@
         />
     <Button
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="75dp"
         android:text="공지사항"
         android:id="@+id/mNotice"
         android:textSize="20dp"
         style="?android:attr/borderlessButtonStyle"
         android:textAlignment="center" />
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/colorAccent"
-        />
     <Button
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:text="이용안내"
-        android:id="@+id/mInfo"
-        android:textSize="20dp"
-        style="?android:attr/borderlessButtonStyle"
-        android:textAlignment="center" />
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="75dp"
         android:text="추천도서"
         android:id="@+id/mReco"
         android:textSize="20dp"
@@ -107,7 +139,7 @@
         android:textAlignment="center" />
     <Button
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="75dp"
         android:text="희망도서"
         android:id="@+id/mWish"
         android:textSize="20dp"
@@ -115,7 +147,7 @@
         android:textAlignment="center" />
     <Button
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="75dp"
         android:text="자주하는 질문"
         android:id="@+id/mQnA"
         android:textSize="20dp"
@@ -123,42 +155,20 @@
         android:textAlignment="center" />
     <Button
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="75dp"
+        android:text="이용안내"
+        android:id="@+id/mInfo"
+        android:textSize="20dp"
+        style="?android:attr/borderlessButtonStyle"
+        android:textAlignment="center" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
         android:text="Slobrary"
         android:id="@+id/mSlo"
         android:textSize="20dp"
         style="?android:attr/borderlessButtonStyle"
         android:textAlignment="center" />
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="로그인"
-            android:id="@+id/signIn"
-            android:clickable="true"
-            />
-        <TextView
-            android:layout_marginLeft="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="회원가입"
-            android:id="@+id/signUp"
-            android:clickable="true"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="로그아웃"
-            android:id="@+id/logout"
-            android:clickable="true"
-            android:visibility="gone"
-            />
-    </LinearLayout>
+
     </LinearLayout>
 </ScrollView>
