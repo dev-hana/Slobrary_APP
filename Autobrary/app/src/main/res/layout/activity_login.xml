@@ -43,6 +43,7 @@
             app:bootstrapSize="md"
             app:bootstrapBrand="info"
             app:roundedCorners="true"
+            android:textColor="@color/colorBlack"
             />
     </LinearLayout>
 
@@ -67,6 +68,7 @@
             app:bootstrapSize="md"
             app:bootstrapBrand="info"
             app:roundedCorners="true"
+            android:textColor="@color/colorBlack"
             />
     </LinearLayout>
 
