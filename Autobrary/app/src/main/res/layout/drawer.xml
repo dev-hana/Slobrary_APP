@@ -89,13 +89,17 @@
                 app:showOutline="true"
                 app:roundedCorners="true"
                 />
-            <TextView
+            <com.beardedhen.androidbootstrap.BootstrapButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="로그아웃"
                 android:id="@+id/logout"
                 android:clickable="true"
                 android:visibility="gone"
+                app:bootstrapBrand="primary"
+                app:buttonMode="regular"
+                app:showOutline="true"
+                app:roundedCorners="true"
                 />
         </LinearLayout>
     </LinearLayout>
