@@ -3,6 +3,7 @@ package com.example.autobrary.notice;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -56,7 +57,7 @@ public class Notice2Fragment extends Fragment {
         titleView.setText(title);
         ownerView.setText(owner);
         dateView.setText(date);
-        innerView.setText(contents);
+        innerView.setText(Html.fromHtml(contents));
 
         noLBtn = root.findViewById(R.id.noLBtn);
         noLBtn.setOnClickListener(new View.OnClickListener() {
