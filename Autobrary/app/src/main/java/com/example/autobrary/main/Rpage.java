@@ -151,12 +151,8 @@ public class Rpage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 controlDrawer();
-                if(SessionManager.getSessionId().equals("")){
-                    Toast.makeText(getApplicationContext(), "로그인후 이용해주세요.", Toast.LENGTH_LONG).show();
-                }else if (SessionManager.validSession(SessionManager.getSessionId())){
+                if(sessionCheck()){
                     getSupportFragmentManager().beginTransaction().replace(R.id.lay, mypageFrag).commit();
-                }else{
-                    Toast.makeText(getApplicationContext(), "로그인 세션이 만료되었습니다. 다시 로그인 해주세요.", Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -189,7 +185,9 @@ public class Rpage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 controlDrawer();
-                getSupportFragmentManager().beginTransaction().replace(R.id.lay, wishFrag).commit();
+                if(sessionCheck()){
+                    getSupportFragmentManager().beginTransaction().replace(R.id.lay, wishFrag).commit();
+                }
             }
         });
 
@@ -209,6 +207,18 @@ public class Rpage extends AppCompatActivity {
             }
         });
     }
+    private boolean sessionCheck(){
+        boolean result = false;
+        if(SessionManager.getSessionId().equals("")){
+            Toast.makeText(getApplicationContext(), "로그인후 이용해주세요.", Toast.LENGTH_LONG).show();
+        }else if (SessionManager.validSession(SessionManager.getSessionId())){
+            result = true;
+        }else{
+            Toast.makeText(getApplicationContext(), "로그인 세션이 만료되었습니다. 다시 로그인 해주세요.", Toast.LENGTH_LONG).show();
+        }
+        return result;
+    }
+
     public void replaceFragment(Fragment fragment) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
