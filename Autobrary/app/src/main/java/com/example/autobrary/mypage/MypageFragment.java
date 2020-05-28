@@ -17,13 +17,15 @@ import com.example.autobrary.R;
 import com.example.autobrary.main.Rpage;
 import com.example.autobrary.notice.NoticeFragment;
 
+import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
+
 
 public class MypageFragment extends Fragment {
-    TextView bMore1, bMore2;
-    RelativeLayout lay;
-    View layout;
-    LayoutInflater inf;
+    TextView name, email;
     Rpage activity;
+    private Context context;
     public static MypageFragment newInstance() {
         return new MypageFragment();
     }
@@ -42,8 +44,21 @@ public class MypageFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         ViewGroup root = (ViewGroup) inflater.inflate(R.layout.fragment_mypage, container, false);
-
-//        lay = root.findViewById(R.id.lay);
+        context = container.getContext();
+        name = root.findViewById(R.id.name);
+        email = root.findViewById(R.id.email);
+        try {
+            MypageInfo info = new Mypage().execute();
+            name.setText(info.getName());
+            email.setText(info.getEmail());
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (InvalidKeySpecException e) {
+            e.printStackTrace();
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+        //        lay = root.findViewById(R.id.lay);
 
 //        getFragmentManager().beginTransaction().add(R.id.mypageF, new MypageFragment()).commit();
 //
