@@ -6,6 +6,13 @@ public class WishInfo {
     private String bookOwner;
     private String bookPublish;
 
+    WishInfo(String user, String bookTitle, String bookOwner, String bookPublish){
+        this.user = user;
+        this.bookTitle = bookTitle;
+        this.bookOwner = bookOwner;
+        this.bookPublish = bookPublish;
+    }
+
     public String getUser() {
         return user;
     }

@@ -48,7 +48,7 @@ public class WishFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         ViewGroup root = (ViewGroup) inflater.inflate(R.layout.fragment_wish, container, false);
         context = container.getContext();
-
+    
 
 
         wishbtn = root.findViewById(R.id.wishbtn);

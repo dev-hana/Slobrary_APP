@@ -58,7 +58,7 @@ public class MypageFragment extends Fragment {
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
-        //        lay = root.findViewById(R.id.lay);
+//        lay = root.findViewById(R.id.lay);
 
 //        getFragmentManager().beginTransaction().add(R.id.mypageF, new MypageFragment()).commit();
 //

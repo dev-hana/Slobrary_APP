@@ -22,12 +22,12 @@ public class WishApply {
 
     public boolean execute() throws IOException, InvalidKeySpecException, NoSuchAlgorithmException {
 
-        String REQUEST_PAGE = ""; //TODO : PHP 경로 입력
+        String REQUEST_PAGE = "PutWish.php"; //TODO : PHP 경로 입력
         HashMap<String, String> param = new HashMap<>();
 
         // 파라미터 입력
         param.put("bookTitle", info.getBookTitle());
-        param.put("bookOwner", info.getBookOwner());
+        param.put("bookAuthor", info.getBookOwner());
         param.put("bookPublish", info.getBookPublish());
         param.put("applyUser", info.getUser());
 
