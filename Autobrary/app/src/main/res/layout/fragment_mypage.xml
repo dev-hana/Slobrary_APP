@@ -131,11 +131,11 @@
                     layout="@layout/fragment_mpbook" />
             </LinearLayout>
 
-<!--            <android.support.v7.widget.RecyclerView-->
-<!--                android:id="@+id/mpBookList"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="150dp"-->
-<!--                android:scrollbars="horizontal" />-->
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/mpBookList"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:scrollbars="horizontal" />
 
             <LinearLayout
                 android:layout_marginTop="20dp"

@@ -69,7 +69,7 @@
             <com.beardedhen.androidbootstrap.BootstrapButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="  로그인  "
+                android:text="@string/login"
                 android:id="@+id/signIn"
                 android:clickable="true"
                 app:bootstrapBrand="primary"
@@ -81,7 +81,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="회원가입"
+                android:text="@string/signUp"
                 android:id="@+id/signUp"
                 android:clickable="true"
                 app:bootstrapBrand="primary"
@@ -92,7 +92,7 @@
             <com.beardedhen.androidbootstrap.BootstrapButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="로그아웃"
+                android:text="@string/logout"
                 android:id="@+id/logout"
                 android:clickable="true"
                 android:visibility="gone"
@@ -111,7 +111,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="75dp"
-        android:text="HOME"
+        android:text="@string/home"
         android:id="@+id/mHome"
         android:textSize="20dp"
         style="?android:attr/borderlessButtonStyle"
@@ -119,7 +119,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="75dp"
-        android:text="마이페이지"
+        android:text="@string/mypage"
         android:id="@+id/mMypage"
         android:textSize="20dp"
         style="?android:attr/borderlessButtonStyle"
@@ -128,7 +128,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="75dp"
-        android:text="공지사항"
+        android:text="@string/notice"
         android:id="@+id/mNotice"
         android:textSize="20dp"
         style="?android:attr/borderlessButtonStyle"
@@ -136,7 +136,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="75dp"
-        android:text="추천도서"
+        android:text="@string/reco"
         android:id="@+id/mReco"
         android:textSize="20dp"
         style="?android:attr/borderlessButtonStyle"
@@ -144,7 +144,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="75dp"
-        android:text="희망도서"
+        android:text="@string/hope"
         android:id="@+id/mWish"
         android:textSize="20dp"
         style="?android:attr/borderlessButtonStyle"
@@ -152,7 +152,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="75dp"
-        android:text="자주하는 질문"
+        android:text="@string/qna"
         android:id="@+id/mQnA"
         android:textSize="20dp"
         style="?android:attr/borderlessButtonStyle"
@@ -160,7 +160,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="75dp"
-        android:text="이용안내"
+        android:text="@string/info"
         android:id="@+id/mInfo"
         android:textSize="20dp"
         style="?android:attr/borderlessButtonStyle"
@@ -168,7 +168,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="75dp"
-        android:text="Slobrary"
+        android:text="@string/appPrettyName"
         android:id="@+id/mSlo"
         android:textSize="20dp"
         style="?android:attr/borderlessButtonStyle"

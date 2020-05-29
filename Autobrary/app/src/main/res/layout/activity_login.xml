@@ -83,7 +83,7 @@
             android:layout_height="0dp"/>
 
         <com.beardedhen.androidbootstrap.BootstrapButton
-            android:text="  로그인  "
+            android:text="@string/login"
             android:id="@+id/btnLogIn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -94,7 +94,7 @@
             android:layout_marginRight="20dp"/>
 
         <com.beardedhen.androidbootstrap.BootstrapButton
-            android:text="회원가입"
+            android:text="@string/signUp"
             android:id="@+id/btnSUp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
