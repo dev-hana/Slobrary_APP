@@ -23,7 +23,7 @@
                 android:layout_height="100dp"/>
 
             <TextView
-                android:text="이전 도서 대출 목록"
+                android:text="@string/preloan"
                 android:textSize="15dp"
                 android:paddingBottom="20dp"
                 android:layout_width="match_parent"

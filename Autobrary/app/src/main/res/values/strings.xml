@@ -26,15 +26,26 @@
     <string name="home">HOME</string>
     <string name="mypage">마이페이지</string>
     <string name="notice">공지사항</string>
-    <string name="hope">희망도서</string>
+    <string name="wish">희망도서</string>
+    <string name="wish2">희망도서 신청</string>
     <string name="reco">추천도서</string>
     <string name="qna">자주하는 질문</string>
     <string name="info">이용약관</string>
-    <string name="booksearch">도서검색</string>
+    <string name="booksearch">검색어를 입력하세요</string>
     <string name="bestb">베스트셀러</string>
     <string name="title">제목</string>
+    <string name="author">작가</string>
+    <string name="publisher">출판사</string>
+    <string name="publisherYear">출판연도</string>
     <string name="left">◁</string>
     <string name="right">▷</string>
+    <string name="loan">대출 도서</string>
+    <string name="preloan">반납 도서</string>
+    <string name="more">더보기</string>
+    <string name="list">목록</string>
+    <string name="writer">작성자 :&#160;</string>
+    <string name="dueDate">반납 기한</string>
+    <string name="reqDate">신청 날짜</string>
 
     <string name="info_useGuide">
 제1조(목적) 이 약관은 SLO 가 운영하는 SLOBRARY 앱 (이하 “Slobrary”이라 한다)에서 제공하는 인터넷 관련 서비스(이하 “서비스”라 한다)를 이용함에 있어 사이버 Slobrary과 이용자의 권리․의무 및 책임사항을 규정함을 목적으로 합니다.

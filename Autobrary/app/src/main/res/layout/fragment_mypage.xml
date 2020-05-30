@@ -44,7 +44,7 @@
                     android:layout_height="0dp"/>
                 <TextView
                     android:id="@+id/name"
-                    android:text="이름"
+                    android:text="@string/userName"
                     android:gravity="center|center_vertical"
                     android:paddingTop="5dp"
                     android:paddingBottom="5dp"
@@ -64,7 +64,7 @@
                     android:layout_height="0dp"/>
                 <TextView
                     android:id="@+id/email"
-                    android:text="이메일"
+                    android:text="@string/mail"
                     android:gravity="center|center_vertical"
                     android:paddingTop="5dp"
                     android:paddingBottom="5dp"
@@ -85,7 +85,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
-                    android:text="대출 도서"
+                    android:text="@string/loan"
                     android:textColor="#FFFFFF"
                     android:textSize="20dp"
                     android:layout_width="wrap_content"
@@ -96,7 +96,7 @@
                     android:layout_height="0dp"/>
                 <TextView
                     android:id="@+id/bMore1"
-                    android:text="더보기"
+                    android:text="@string/more"
                     android:textColor="#FFFFFF"
                     android:layout_marginRight="10dp"
                     android:textSize="20dp"
@@ -131,11 +131,11 @@
                     layout="@layout/fragment_mpbook" />
             </LinearLayout>
 
-            <android.support.v7.widget.RecyclerView
+            <!--android.support.v7.widget.RecyclerView
                 android:id="@+id/mpBookList"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
-                android:scrollbars="horizontal" />
+                android:scrollbars="horizontal" -->
 
             <LinearLayout
                 android:layout_marginTop="20dp"
@@ -146,7 +146,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
-                    android:text="이전 대출 기록"
+                    android:text="@string/preloan"
                     android:textColor="#FFFFFF"
                     android:textSize="20dp"
                     android:layout_width="wrap_content"
@@ -157,7 +157,7 @@
                     android:layout_height="0dp"/>
                 <TextView
                     android:id="@+id/bMore2"
-                    android:text="더보기"
+                    android:text="@string/more"
                     android:textColor="#FFFFFF"
                     android:layout_marginRight="10dp"
                     android:textSize="20dp"

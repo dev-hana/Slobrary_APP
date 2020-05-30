@@ -27,7 +27,7 @@
                 <TextView
                     android:gravity="center_vertical"
                     android:id="@+id/bTitle"
-                    android:text="책 제목"
+                    android:text="@string/title"
                     android:textSize="18dp"
                     android:textColor="#000000"
                     android:textStyle="bold"
@@ -44,14 +44,14 @@
                 android:layout_height="match_parent">
                 <com.beardedhen.androidbootstrap.AwesomeTextView
                     android:gravity="center_vertical"
-                    android:text="저자"
+                    android:text="@string/author"
                     android:layout_weight="5"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>
                 <com.beardedhen.androidbootstrap.AwesomeTextView
                     android:gravity="center_vertical"
                     android:id="@+id/bAuth"
-                    android:text="책 저자입니다"
+                    android:text="@string/author"
                     android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>
@@ -63,14 +63,14 @@
                 android:layout_height="match_parent">
                 <com.beardedhen.androidbootstrap.AwesomeTextView
                     android:gravity="center_vertical"
-                    android:text="출판사"
+                    android:text="@string/publisher"
                     android:layout_weight="5"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>
                 <com.beardedhen.androidbootstrap.AwesomeTextView
                     android:gravity="center_vertical"
                     android:id="@+id/bPub"
-                    android:text="책 출판사 입니다"
+                    android:text="@string/publisherYear"
                     android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>
@@ -82,14 +82,14 @@
                 android:layout_height="match_parent">
                 <com.beardedhen.androidbootstrap.AwesomeTextView
                     android:gravity="center_vertical"
-                    android:text="신청날짜"
+                    android:text="@string/reqDate"
                     android:layout_weight="5"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>
                 <com.beardedhen.androidbootstrap.AwesomeTextView
                     android:gravity="center_vertical"
                     android:id="@+id/bDate"
-                    android:text="도서 신청 날짜입니다."
+                    android:text="@string/reqDate"
                     android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>

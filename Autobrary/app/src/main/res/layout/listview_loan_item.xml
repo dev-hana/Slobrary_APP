@@ -27,7 +27,7 @@
             <TextView
                 android:gravity="center_vertical"
                 android:id="@+id/bTitle"
-                android:hint="도서명입니다."
+                android:hint="@string/title"
                 android:textStyle="bold"
                 android:textSize="15dp"
                 android:layout_weight="1"
@@ -36,7 +36,7 @@
             <TextView
                 android:gravity="center_vertical"
                 android:id="@+id/bAuth"
-                android:hint="저자명입니다."
+                android:hint="@string/author"
                 android:textSize="13dp"
                 android:layout_weight="1"
                 android:layout_width="match_parent"
@@ -48,14 +48,14 @@
                 android:layout_height="match_parent">
                 <TextView
                     android:gravity="center_vertical"
-                    android:text="출판사"
+                    android:text="@string/publisher"
                     android:layout_weight="3.5"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>
                 <TextView
                     android:gravity="center_vertical"
                     android:id="@+id/bPub"
-                    android:hint="출판사정보입니다."
+                    android:hint="@string/publisher"
                     android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>
@@ -67,14 +67,14 @@
                 android:layout_height="match_parent">
                 <TextView
                     android:gravity="center_vertical"
-                    android:text="출판연도"
+                    android:text="@string/publisherYear"
                     android:layout_weight="3.5"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>
                 <TextView
                     android:gravity="center_vertical"
                     android:id="@+id/bPubY"
-                    android:hint="출판연도"
+                    android:hint="@string/publisherYear"
                     android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>
@@ -105,14 +105,14 @@
                 android:layout_height="match_parent">
                 <TextView
                     android:gravity="center_vertical"
-                    android:text="반납 기한"
+                    android:text="@string/dueDate"
                     android:layout_weight="3.5"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>
                 <TextView
                     android:gravity="center_vertical"
                     android:id="@+id/bReturn"
-                    android:hint="반납 기한"
+                    android:hint="@string/dueDate"
                     android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>

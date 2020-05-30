@@ -17,7 +17,7 @@
             <TextView
                 android:id="@+id/noTitle"
                 android:padding="10dp"
-                android:text="공지사항 제목"
+                android:text="@string/title"
                 android:textSize="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
@@ -28,7 +28,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
-                    android:text="작성자 : "
+                    android:text="@string/writer"
                     android:layout_marginLeft="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
@@ -74,7 +74,7 @@
                     android:layout_height="0dp"/>
                 <Button
                     android:layout_marginTop="30dp"
-                    android:text="목록"
+                    android:text="@string/list"
                     android:id="@+id/noLBtn"
                     android:textColor="#ffff"
                     android:background="@drawable/border_btn"

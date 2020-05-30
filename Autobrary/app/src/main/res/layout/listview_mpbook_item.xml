@@ -19,7 +19,7 @@
         <TextView
             android:gravity="center"
             android:id="@+id/bTitle"
-            android:hint="도서명입니다."
+            android:hint="@string/title"
             android:textStyle="bold"
             android:textSize="15dp"
             android:layout_weight="1"
@@ -28,7 +28,7 @@
         <TextView
             android:gravity="center"
             android:id="@+id/bAuth"
-            android:hint="저자명입니다."
+            android:hint="@string/author"
             android:textSize="13dp"
             android:layout_weight="1"
             android:layout_width="match_parent"

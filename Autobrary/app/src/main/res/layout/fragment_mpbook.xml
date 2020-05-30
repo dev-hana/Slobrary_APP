@@ -33,7 +33,7 @@
             android:layout_width="10dp"
             android:layout_height="0dp"/>
         <TextView
-            android:text="책 제목"
+            android:text="@string/title"
             android:id="@+id/bTitle"
             android:textAlignment="center"
             android:layout_width="100dp"
@@ -47,7 +47,7 @@
             android:layout_width="10dp"
             android:layout_height="0dp"/>
         <TextView
-            android:text="작가"
+            android:text="@string/author"
             android:id="@+id/bAuth"
             android:textAlignment="center"
             android:layout_width="100dp"

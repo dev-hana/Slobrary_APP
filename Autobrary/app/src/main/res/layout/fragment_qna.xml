@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <TextView
-            android:text="자주하는 질문"
+            android:text="@string/qna"
             android:textSize="30dp"
             android:layout_marginBottom="10dp"
             android:layout_width="wrap_content"
