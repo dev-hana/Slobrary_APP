@@ -46,6 +46,7 @@
     <string name="writer">작성자 :&#160;</string>
     <string name="dueDate">반납 기한</string>
     <string name="reqDate">신청 날짜</string>
+    <string name="back">이전</string>
 
     <string name="info_useGuide">
 제1조(목적) 이 약관은 SLO 가 운영하는 SLOBRARY 앱 (이하 “Slobrary”이라 한다)에서 제공하는 인터넷 관련 서비스(이하 “서비스”라 한다)를 이용함에 있어 사이버 Slobrary과 이용자의 권리․의무 및 책임사항을 규정함을 목적으로 합니다.

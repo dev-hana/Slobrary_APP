@@ -144,7 +144,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="75dp"
-        android:text="@string/hope"
+        android:text="@string/wish"
         android:id="@+id/mWish"
         android:textSize="20dp"
         style="?android:attr/borderlessButtonStyle"

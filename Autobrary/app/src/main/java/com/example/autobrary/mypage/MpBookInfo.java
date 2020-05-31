@@ -1,22 +1,25 @@
 package com.example.autobrary.mypage;
 
+import android.widget.ImageView;
+
 public class MpBookInfo {
-    String imgae; // 책 표지
+    String image; // 책 표지
     String name; // 제목
     String author; // 작가
+    //String userId; // 아이디 넘겨줘야 할 것 같음.
 
     public MpBookInfo(String image, String name, String author){
-        this.imgae = image;
+        this.image = image;
         this.name = name;
         this.author = author;
     }
 
-    public String getImgae() {
-        return imgae;
+    public String getImage() {
+        return image;
     }
 
-    public void setImgae(String imgae) {
-        this.imgae = imgae;
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public String getName() {

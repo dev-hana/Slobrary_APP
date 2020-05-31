@@ -32,6 +32,27 @@
                 android:id="@+id/listview1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <View
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"/>
+                <Button
+                    android:text="@string/back"
+                    android:id="@+id/mpBtn"
+                    android:textColor="@color/colorWhite"
+                    android:background="@drawable/border_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"/>
+                <View
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"/>
+            </LinearLayout>
         </LinearLayout>
 
     </RelativeLayout>
