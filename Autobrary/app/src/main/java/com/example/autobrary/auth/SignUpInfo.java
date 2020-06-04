@@ -2,10 +2,13 @@ package com.example.autobrary.auth;
 
 import com.example.autobrary.encryption.PBKDF2_Encryption;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 
 public class SignUpInfo {
+
     private String RFID;
     private String mem_id;
     private String mem_pw;
@@ -32,8 +35,9 @@ public class SignUpInfo {
     public String getMem_name() {
         return mem_name;
     }
-    public void setMem_name(String mem_name) {
-        this.mem_name = mem_name;
+    public void setMem_name(String mem_name) throws UnsupportedEncodingException {
+//        this.mem_name = mem_name;
+      this.mem_name = URLEncoder.encode(mem_name,"UTF-8");
     }
     public String getMem_gender() {
         return mem_gender;
@@ -56,8 +60,9 @@ public class SignUpInfo {
     public String getMem_address() {
         return mem_address;
     }
-    public void setMem_address(String mem_address) {
-        this.mem_address = mem_address;
+    public void setMem_address(String mem_address) throws UnsupportedEncodingException {
+    this.mem_address = URLEncoder.encode(mem_address,"UTF-8");
+  //      this.mem_address = mem_address;
     }
     public String getMem_email() {
         return mem_mail;
@@ -88,5 +93,4 @@ public class SignUpInfo {
             e.printStackTrace();
         };
     }
-
 }

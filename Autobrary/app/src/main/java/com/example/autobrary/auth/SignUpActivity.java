@@ -23,6 +23,7 @@ import com.example.autobrary.mail.Sender;
 import com.example.autobrary.main.Rpage;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.util.Random;
@@ -232,9 +233,14 @@ public class SignUpActivity extends AppCompatActivity {
                 infoOfUser.setMem_gender(gender);
                 infoOfUser.setMem_id(id.getText().toString());
                 infoOfUser.setMem_pw(entPw.getText().toString());
-                infoOfUser.setMem_name(name.getText().toString());
+                try {
+                    infoOfUser.setMem_name(name.getText().toString());
+                    infoOfUser.setMem_address(addr.getText().toString());
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
+
                 infoOfUser.setMem_phone(phone.getText().toString());
-                infoOfUser.setMem_address(addr.getText().toString());
                 infoOfUser.setMem_email(email.getText().toString());
                 // Log.i("pass", infoOfUser.getMem_birth() + infoOfUser.getMem_gender() + infoOfUser.getMem_id() + infoOfUser.getMem_pw() + infoOfUser.getMem_name() + infoOfUser.getMem_phone() + infoOfUser.getMem_address() + infoOfUser.getMem_email());
                 // Log.i("PBKDF2 RESULT", infoOfUser.getMem_pw());

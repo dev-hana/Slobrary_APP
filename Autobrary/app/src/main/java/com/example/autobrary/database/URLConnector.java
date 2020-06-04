@@ -59,7 +59,6 @@ public class URLConnector extends Thread{
         final HttpClient httpclient = new DefaultHttpClient();
         HttpResponse reps = null;
         final HttpPost httppost = new HttpPost(URL);
-
         try {
             List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(param.size());
 
