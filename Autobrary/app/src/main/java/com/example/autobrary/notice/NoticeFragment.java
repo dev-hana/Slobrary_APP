@@ -88,11 +88,6 @@ public class NoticeFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 searchString = parent.getItemAtPosition(position).toString();
-                if (searchString.equals("전체")) {
-                    searchQuery.setEnabled(false);
-                } else {
-                    searchQuery.setEnabled(true);
-                }
             }
 
             @Override
@@ -137,8 +132,14 @@ public class NoticeFragment extends Fragment {
             int noticeVectorSize = getNotice.size();
             switch (searchType) {
                 case "전체": //전체 검색
-                    for (NoticeInfo info : getNotice) {
-                        adapter.addItem(info);
+                    for (int i=0; i < noticeVectorSize; i++){
+                        if (getNotice.get(i).getTitle().contains(searchQuery) || getNotice.get(i).getName().contains(searchQuery)) {
+                            adapter.addItem(getNotice.get(i));
+                        } else {
+                            getNotice.remove(i);
+                            i--;
+                            noticeVectorSize--;
+                        }
                     }
                     break;
                 case "제목": //제목 검색
