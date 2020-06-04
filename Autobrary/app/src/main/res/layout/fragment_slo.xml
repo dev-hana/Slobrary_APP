@@ -16,6 +16,13 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+        <ImageView
+            android:src="@drawable/logo22"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_gravity="center"
+            android:layout_width="150dp"
+            android:layout_height="70dp"/>
         <TextView
             android:text=" 'Smart Loaning Office liBRARY' "
             android:textSize="20dp"
@@ -28,66 +35,61 @@
             android:src="@drawable/design"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
-            android:layout_marginBottom="50dp"
+            android:layout_marginBottom="30dp"
             android:layout_width="wrap_content"
             android:layout_height="220dp"/>
 
         <TextView
             android:text="'편리한 스마트 무인자동화 도서 서비스'"
             android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_gravity="center"
             android:layout_marginBottom="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <TextView
-            android:text="RFID,센서기술 등 최첨단 IT기술이 적용된 무인 자동화 솔루션"
+            android:text="'RFID,센서기술 등 최첨단 IT기술 적용'"
             android:textSize="20dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:text="'무인 자동화 솔루션'"
+            android:textSize="20dp"
+            android:layout_gravity="center"
             android:layout_marginBottom="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
         <TextView
-            android:text="주식회사 : SLO"
+            android:text="주소지 : 서울특별시 구로구 경인로 445"
             android:textSize="20dp"
+            android:layout_gravity="center"
             android:layout_marginBottom="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
-        <TextView
-            android:text="팀장 : 성용"
-            android:textSize="20dp"
-            android:layout_marginBottom="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-        <TextView
-            android:text="팀원 : 지은 상익 나래 지현 혜림"
-            android:textSize="20dp"
-            android:layout_marginBottom="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-        <TextView
-            android:text="웹페이지 주소 : "
-            android:textSize="20dp"
-            android:layout_marginBottom="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+
         <TextView
             android:text="https://www.slobrary.com"
             android:textSize="20dp"
+            android:layout_gravity="center"
             android:layout_marginBottom="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <TextView
-            android:text="기타 등등 내용 추가 예정!"
+            android:text=" "
             android:textSize="20dp"
             android:layout_marginBottom="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
-
-        <ImageView
-            android:src="@drawable/logo22"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="50dp"
+        <TextView
+            android:text="Copyright ⓒ All Rights Reserved by SL:O"
+            android:textSize="17dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
             android:layout_width="wrap_content"
-            android:layout_height="100dp"/>
+            android:layout_height="wrap_content"/>
 
     </LinearLayout>
 </RelativeLayout>
