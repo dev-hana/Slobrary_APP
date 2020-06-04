@@ -62,8 +62,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
-
-
         <TextView
             android:text="주소지 : 서울특별시 구로구 경인로 445"
             android:textSize="20dp"
