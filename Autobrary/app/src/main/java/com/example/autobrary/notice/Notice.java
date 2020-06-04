@@ -43,12 +43,13 @@ public class Notice {
                     String b = i.next().toString();
                     jsonKeyList.add(b);
                 }
-                for(int j = 1; j < jsonKeyList.size(); j++){
-                    String title = new JSONObject(jsonResult.getString(Integer.toString(j))).getString("name");
-                    String date = new JSONObject(jsonResult.getString(Integer.toString(j))).getString("date");
-                    String owner = new JSONObject(jsonResult.getString(Integer.toString(j))).getString("admin_id");
-                    String content = new JSONObject(jsonResult.getString(Integer.toString(j))).getString("content");
-                    NoticeInfo fetchNotice = new NoticeInfo(Integer.toString(j), title, date, owner, content);
+                jsonKeyList.remove(0); //성공여부 배열 지우기
+                for(String j : jsonKeyList){
+                    String title = new JSONObject(jsonResult.getString(j)).getString("name");
+                    String date = new JSONObject(jsonResult.getString(j)).getString("date");
+                    String owner = new JSONObject(jsonResult.getString(j)).getString("admin_id");
+                    String content = new JSONObject(jsonResult.getString(j)).getString("content");
+                    NoticeInfo fetchNotice = new NoticeInfo(j, title, date, owner, content);
                     notice.add(fetchNotice);
                 }
             }else{
