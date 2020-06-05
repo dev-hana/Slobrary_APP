@@ -38,6 +38,7 @@ public class NoticeFragment extends Fragment {
     private String searchString = "전체";
     private BootstrapEditText searchQuery;
     private Vector<NoticeInfo> getNotice;
+    private Vector<NoticeInfo> originNotice;
     private Context context;
     private Notice notice = new Notice();
 
@@ -126,10 +127,11 @@ public class NoticeFragment extends Fragment {
             }
         }
     }
-
+    @SuppressWarnings("unchecked") //필요없는 경고 제거 어노테이션
     private void searchNotice(String searchType, String searchQuery) throws InvalidKeySpecException, NoSuchAlgorithmException, IOException {
-        if (getNotice()) {
-            int noticeVectorSize = getNotice.size();
+        adapter.clearItem();
+        getNotice = (Vector) originNotice.clone(); //어노테이션 없을경우 경고뜸
+        int noticeVectorSize = getNotice.size();
             switch (searchType) {
                 case "전체": //전체 검색
                     for (int i=0; i < noticeVectorSize; i++){
@@ -169,7 +171,6 @@ public class NoticeFragment extends Fragment {
                     Log.e("OutOfType", "-- Out of search type at notice activity. --");
                     android.os.Process.killProcess(android.os.Process.myPid());
             }
-        }
         //키보드 내리기
         InputMethodManager mInputMethodManager = (InputMethodManager) getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
         mInputMethodManager.hideSoftInputFromWindow(this.searchQuery.getWindowToken(), 0);
@@ -181,12 +182,13 @@ public class NoticeFragment extends Fragment {
     private boolean getNotice() throws InvalidKeySpecException, NoSuchAlgorithmException, IOException {
         boolean result;
         adapter.clearItem();
-        getNotice = notice.execute();
-        if (getNotice.isEmpty()) {
+        originNotice = notice.execute();
+        if (originNotice.isEmpty()) {
             Toast.makeText(context, "공지사항이 없거나 인터넷연결이 불안정합니다.", Toast.LENGTH_LONG).show();
             result = false;
         } else {
             result = true;
+            getNotice = originNotice;
         }
         return result;
     }
