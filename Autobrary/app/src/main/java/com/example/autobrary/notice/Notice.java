@@ -1,11 +1,8 @@
 package com.example.autobrary.notice;
 
-import android.os.Debug;
 import android.util.Log;
 
-import com.example.autobrary.auth.LoginInfo;
-import com.example.autobrary.database.URLConnector;
-import com.example.autobrary.encryption.PBKDF2_Encryption;
+import com.example.autobrary.externalConnecter.URLConnector;
 
 import org.json.JSONObject;
 
@@ -19,8 +16,6 @@ import java.util.Iterator;
 import java.util.Vector;
 
 import cz.msebera.android.httpclient.HttpEntity;
-import cz.msebera.android.httpclient.HttpResponse;
-import cz.msebera.android.httpclient.util.EntityUtils;
 
 public class Notice {
     public Vector<NoticeInfo> execute() throws IOException, InvalidKeySpecException, NoSuchAlgorithmException {

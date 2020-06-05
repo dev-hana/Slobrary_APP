@@ -1,7 +1,6 @@
 package com.example.autobrary.auth;
 
-import com.example.autobrary.database.URLConnector;
-import com.example.autobrary.encryption.PBKDF2_Encryption;
+import com.example.autobrary.externalConnecter.URLConnector;
 
 import org.json.JSONObject;
 import java.io.BufferedInputStream;
@@ -10,8 +9,6 @@ import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.util.HashMap;
 import cz.msebera.android.httpclient.HttpEntity;
-import cz.msebera.android.httpclient.HttpResponse;
-import cz.msebera.android.httpclient.util.EntityUtils;
 
 public class SignUp{
     private SignUpInfo info;

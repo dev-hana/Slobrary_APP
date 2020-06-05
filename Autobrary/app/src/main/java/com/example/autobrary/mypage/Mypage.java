@@ -2,8 +2,7 @@ package com.example.autobrary.mypage;
 
 import android.util.Log;
 
-import com.example.autobrary.database.URLConnector;
-import com.example.autobrary.notice.NoticeInfo;
+import com.example.autobrary.externalConnecter.URLConnector;
 import com.example.autobrary.session.SessionManager;
 
 import org.json.JSONObject;
@@ -12,14 +11,9 @@ import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Vector;
 
 import cz.msebera.android.httpclient.HttpEntity;
-import cz.msebera.android.httpclient.HttpResponse;
-import cz.msebera.android.httpclient.util.EntityUtils;
 
 public class Mypage {
     public MypageInfo execute() throws IOException, InvalidKeySpecException, NoSuchAlgorithmException {

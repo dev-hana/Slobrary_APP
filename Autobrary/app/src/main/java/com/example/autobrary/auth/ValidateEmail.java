@@ -1,6 +1,6 @@
 package com.example.autobrary.auth;
 
-import com.example.autobrary.database.URLConnector;
+import com.example.autobrary.externalConnecter.URLConnector;
 
 import org.json.JSONObject;
 
@@ -11,8 +11,6 @@ import java.security.spec.InvalidKeySpecException;
 import java.util.HashMap;
 
 import cz.msebera.android.httpclient.HttpEntity;
-import cz.msebera.android.httpclient.HttpResponse;
-import cz.msebera.android.httpclient.util.EntityUtils;
 
 public class ValidateEmail {
     private String email;

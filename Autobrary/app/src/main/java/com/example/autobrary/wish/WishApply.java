@@ -1,8 +1,6 @@
 package com.example.autobrary.wish;
 
-import com.example.autobrary.auth.LoginInfo;
-import com.example.autobrary.database.URLConnector;
-import com.example.autobrary.encryption.PBKDF2_Encryption;
+import com.example.autobrary.externalConnecter.URLConnector;
 
 import org.json.JSONObject;
 

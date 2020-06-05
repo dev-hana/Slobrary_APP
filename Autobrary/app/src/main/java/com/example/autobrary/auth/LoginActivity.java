@@ -2,19 +2,15 @@ package com.example.autobrary.auth;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import com.beardedhen.androidbootstrap.BootstrapButton;
 import com.beardedhen.androidbootstrap.BootstrapEditText;
 import com.example.autobrary.R;
-import com.example.autobrary.database.URLConnector;
-import com.example.autobrary.encryption.PBKDF2_Encryption;
 import com.example.autobrary.main.Rpage;
 import com.example.autobrary.session.SessionManager;
 
