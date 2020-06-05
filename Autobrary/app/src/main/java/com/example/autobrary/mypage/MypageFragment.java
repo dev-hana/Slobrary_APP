@@ -74,7 +74,7 @@ public class MypageFragment extends Fragment {
             bucket.join();
             name.setText(info.getName());
             email.setText(info.getEmail());
-            profileImg.setImageBitmap(BitmapFactory.decodeStream(bucket.getStream()));
+            profileImg.setImageBitmap(bucket.getBitmap());
         } catch (IOException e) {
             e.printStackTrace();
         } catch (InvalidKeySpecException e) {
