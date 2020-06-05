@@ -37,7 +37,8 @@ public class Mypage {
             if(jsonResult.getString("success").equals("true")) {
                     String name = jsonResult.getString("name");
                     String email = jsonResult.getString("email");
-                    MypageInfo fetchMypage = new MypageInfo(name, email);
+                    String profileImage = jsonResult.getString("profile_img");
+                    MypageInfo fetchMypage = new MypageInfo(name, email, profileImage);
                     mypage = fetchMypage;
             }else{
                 Log.e("Mypage Error", "Mypage fetch failed");

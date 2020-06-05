@@ -1,13 +1,10 @@
 package com.example.autobrary.externalConnecter;
 
 import android.util.Log;
-
-import java.io.IOException;
 import java.io.InputStream;
-import java.security.InvalidKeyException;
-import java.security.NoSuchAlgorithmException;
-
 import io.minio.MinioClient;
+
+
 
 public class BucketConnector extends Thread {
     //********보안정보 취급 주의**********
@@ -32,7 +29,7 @@ public class BucketConnector extends Thread {
     }
 
     @Override
-    public void run(){
+    public void run() {
         try {
             MinioClient minioClient = new MinioClient(ENDPOINT, PORT, ACCESS_KEY, SECRET_KEY);
             stream = minioClient.getObject(BUCKET_NAME, objectName);
