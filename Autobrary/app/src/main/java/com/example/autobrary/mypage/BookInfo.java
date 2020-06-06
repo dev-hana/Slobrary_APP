@@ -8,6 +8,11 @@ public class BookInfo {
     String id; //도서 번호
     String loanDate; //도서 대출일
     String returnDate; //도서 반납일
+
+    public String getImage() {
+        return image;
+    }
+
     String returnType; //도서 정상반납 여부
 
     public void setImage(String image) {
