@@ -4,13 +4,46 @@ public class BookInfo {
     String name; // 제목
     String author; // 작가
     String publisher; // 출판사
-    Object image; // 표지
+    String image; // 표지
+    String id; //도서 번호
+    String loanDate; //도서 대출일
+    String returnDate; //도서 반납일
+    String returnType; //도서 정상반납 여부
 
-    public BookInfo(String name, String author, String publisher, Object image){
-        this.name = name;
-        this.author = author;
-        this.publisher = publisher;
+    public void setImage(String image) {
         this.image = image;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getLoanDate() {
+        return loanDate;
+    }
+
+    public void setLoanDate(String loanDate) {
+        this.loanDate = loanDate;
+    }
+
+    public String getReturnDate() {
+        return returnDate;
+    }
+
+    public void setReturnDate(String returnDate) {
+        this.returnDate = returnDate;
+    }
+
+    public String getReturnType() {
+        return returnType;
+    }
+
+    public void setReturnType(String returnType) {
+        this.returnType = returnType;
     }
 
     public String getName() {
@@ -35,13 +68,5 @@ public class BookInfo {
 
     public void setPublisher(String publisher) {
         this.publisher = publisher;
-    }
-
-    public Object getImage() {
-        return image;
-    }
-
-    public void setImage(Object image) {
-        this.image = image;
     }
 }

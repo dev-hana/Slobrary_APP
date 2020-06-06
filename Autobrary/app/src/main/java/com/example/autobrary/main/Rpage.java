@@ -27,6 +27,7 @@ import com.example.autobrary.qna.QnaFragment;
 import com.example.autobrary.reco.RecoFragment;
 import com.example.autobrary.session.SessionManager;
 import com.example.autobrary.wish.WishFragment;
+import com.google.android.material.snackbar.Snackbar;
 
 public class Rpage extends AppCompatActivity {
     DrawerLayout drawer;
@@ -112,7 +113,7 @@ public class Rpage extends AppCompatActivity {
                 signUp.setVisibility(View.VISIBLE);
                 logout.setVisibility(View.GONE);
                 getSupportFragmentManager().beginTransaction().replace(R.id.lay, MainFrag).commit();
-                Toast.makeText(getApplicationContext(), "로그아웃 되었습니다.", Toast.LENGTH_SHORT).show();
+                Snackbar.make(lay, "로그아웃 되었습니다.", Snackbar.LENGTH_LONG).show();
             }
         });
 

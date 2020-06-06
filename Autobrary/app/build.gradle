@@ -45,7 +45,6 @@ dependencies {
     implementation files('libs/mail.jar')
     implementation 'com.beardedhen:androidbootstrap:2.3.2'
     implementation 'cz.msebera.android:httpclient:4.4.1.1'
-
     //recyclerview
     //noinspection GradleCompatible
     implementation 'com.android.support:recyclerview-v7:26.+'

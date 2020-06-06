@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -8,7 +9,6 @@
         android:layout_margin="5dp"
         android:paddingTop="20dp"
         android:paddingBottom="20dp"
-        android:background="@drawable/border"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="200dp">
@@ -46,12 +46,7 @@
                 android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-                <TextView
-                    android:gravity="center_vertical"
-                    android:text="@string/publisher"
-                    android:layout_weight="3.5"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"/>
+
                 <TextView
                     android:gravity="center_vertical"
                     android:id="@+id/bPub"
@@ -60,25 +55,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>
             </LinearLayout>
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-                <TextView
-                    android:gravity="center_vertical"
-                    android:text="@string/publisherYear"
-                    android:layout_weight="3.5"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"/>
-                <TextView
-                    android:gravity="center_vertical"
-                    android:id="@+id/bPubY"
-                    android:hint="@string/publisherYear"
-                    android:layout_weight="1"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"/>
-            </LinearLayout>
+
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_weight="1"
@@ -106,7 +83,7 @@
                 <TextView
                     android:gravity="center_vertical"
                     android:text="@string/dueDate"
-                    android:layout_weight="3.5"
+                    android:layout_weight="1.5"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>
                 <TextView
@@ -116,6 +93,17 @@
                     android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>
+                <com.beardedhen.androidbootstrap.BootstrapButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="대출중"
+                    android:layout_marginRight="20dp"
+                    app:bootstrapBrand="primary"
+                    app:bootstrapSize="sm"
+                    app:buttonMode="regular"
+                    app:showOutline="true"
+                    app:roundedCorners="true"
+                    />
             </LinearLayout>
         </LinearLayout>
 

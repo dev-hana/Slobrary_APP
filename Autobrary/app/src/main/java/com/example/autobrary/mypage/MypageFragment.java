@@ -63,8 +63,8 @@ public class MypageFragment extends Fragment {
         email = root.findViewById(R.id.email);
         profileImg = root.findViewById(R.id.profileImg);
 
-        bMore1 = root.findViewById(R.id.bMore1);
-        bMore2 = root.findViewById(R.id.bMore2);
+//        bMore1 = root.findViewById(R.id.bMore1);
+//        bMore2 = root.findViewById(R.id.bMore2);
 
         try {
             MypageInfo info = new Mypage().execute();
@@ -86,21 +86,21 @@ public class MypageFragment extends Fragment {
         }
 
 
-        bMore1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Bundle bundle = new Bundle();
-                ((Rpage)getActivity()).replaceFragment(Mypage2Fragment.newInstance(), bundle);
-            }
-        });
-
-        bMore2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Bundle bundle = new Bundle();
-                ((Rpage)getActivity()).replaceFragment(Mypage3Fragment.newInstance(), bundle);
-            }
-        });
+//        bMore1.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Bundle bundle = new Bundle();
+//                ((Rpage)getActivity()).replaceFragment(Mypage2Fragment.newInstance(), bundle);
+//            }
+//        });
+//
+//        bMore2.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Bundle bundle = new Bundle();
+//                ((Rpage)getActivity()).replaceFragment(Mypage3Fragment.newInstance(), bundle);
+//            }
+//        });
 
         return root;
     }

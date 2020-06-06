@@ -16,7 +16,21 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
+            <TextView
+                android:layout_marginTop="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="내 정보"
+                android:textSize="25dp"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                />
+            <View
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_centerInParent="true"
+                android:background="#9C9C9C"/>
             <LinearLayout
                 android:layout_marginTop="40dp"
                 android:layout_marginBottom="10dp"
@@ -77,123 +91,85 @@
                     android:layout_width="0dp"
                     android:layout_height="0dp"/>
             </LinearLayout>
-
-            <LinearLayout
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="20dp"
-                android:padding="10dp"
-                android:background="@color/colorPrimary"
-                android:orientation="horizontal"
+            <View
+                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_centerInParent="true"
+                android:background="#9C9C9C"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp"
+                >
+                <com.beardedhen.androidbootstrap.BootstrapButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:bootstrapBrand="secondary"
+                    app:bootstrapSize="lg"
+                    app:buttonMode="regular"
+                    app:showOutline="false"
+                    app:roundedCorners="true"
+                    android:text="내 서제"
+                    />
+                <com.beardedhen.androidbootstrap.BootstrapButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    app:bootstrapBrand="secondary"
+                    app:bootstrapSize="lg"
+                    app:buttonMode="regular"
+                    app:showOutline="false"
+                    app:roundedCorners="true"
+                    android:text="연체도서"
+                    />
+                <com.beardedhen.androidbootstrap.BootstrapButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    app:bootstrapBrand="secondary"
+                    app:bootstrapSize="lg"
+                    app:buttonMode="regular"
+                    app:showOutline="false"
+                    app:roundedCorners="true"
+                    android:text="희망도서"
+                    />
+                <com.beardedhen.androidbootstrap.BootstrapButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    app:bootstrapBrand="secondary"
+                    app:bootstrapSize="lg"
+                    app:buttonMode="regular"
+                    app:showOutline="false"
+                    app:roundedCorners="true"
+                    android:text="관심도서"
+                    />
+            </LinearLayout>
+            <TextView
+                android:layout_marginTop="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="대출 도서"
+                android:textSize="25dp"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                />
+            <View
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_centerInParent="true"
+                android:background="#9C9C9C"/>
+            <ScrollView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
-                <TextView
-                    android:text="@string/loan"
-                    android:textColor="#FFFFFF"
-                    android:textSize="20dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-                <View
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"/>
-                <TextView
-                    android:id="@+id/bMore1"
-                    android:text="@string/more"
-                    android:textColor="#FFFFFF"
-                    android:layout_marginRight="10dp"
-                    android:textSize="20dp"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:foreground="?android:attr/selectableItemBackground"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="horizontal"
+            <ListView
                 android:layout_width="match_parent"
-                android:layout_height="150dp">
-                <include
-                    android:id="@+id/mbook1"
-                    android:layout_weight="3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    layout="@layout/fragment_mpbook" />
-                <include
-                    android:id="@+id/mbook2"
-                    android:layout_weight="3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    layout="@layout/fragment_mpbook" />
-                <include
-                    android:id="@+id/mbook3"
-                    android:layout_weight="3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    layout="@layout/fragment_mpbook" />
-            </LinearLayout>
+                android:layout_height="wrap_content"/>
 
-            <!--android.support.v7.widget.RecyclerView
-                android:id="@+id/mpBookList"
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:scrollbars="horizontal" -->
-
-            <LinearLayout
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="20dp"
-                android:padding="10dp"
-                android:background="@color/colorPrimary"
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:text="@string/preloan"
-                    android:textColor="#FFFFFF"
-                    android:textSize="20dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-                <View
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"/>
-                <TextView
-                    android:id="@+id/bMore2"
-                    android:text="@string/more"
-                    android:textColor="#FFFFFF"
-                    android:layout_marginRight="10dp"
-                    android:textSize="20dp"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:foreground="?android:attr/selectableItemBackground"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="150dp">
-                <include
-                    android:id="@+id/mbook4"
-                    android:layout_weight="3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    layout="@layout/fragment_mpbook" />
-                <include
-                    android:id="@+id/mbook5"
-                    android:layout_weight="3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    layout="@layout/fragment_mpbook" />
-                <include
-                    android:id="@+id/mbook6"
-                    android:layout_weight="3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    layout="@layout/fragment_mpbook" />
-            </LinearLayout>
-
+            </ScrollView>
         </LinearLayout>
     </RelativeLayout>
 </ScrollView>
