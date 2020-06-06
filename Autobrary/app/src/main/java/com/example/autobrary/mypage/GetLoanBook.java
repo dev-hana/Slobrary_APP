@@ -51,6 +51,12 @@ public class GetLoanBook {
                     String publisher = new JSONObject(jsonResult.getString(j)).getString("publisher");
                     String loan_date = new JSONObject(jsonResult.getString(j)).getString("loan_date");
                     String image = new JSONObject(jsonResult.getString(j)).getString("image");
+                    fetchBook.setId(id_num);
+                    fetchBook.setName(name);
+                    fetchBook.setAuthor(author);
+                    fetchBook.setPublisher(publisher);
+                    fetchBook.setLoanDate(loan_date);
+                    fetchBook.setImage(image);
                     loanBook.add(fetchBook);
                 }
             }else{
