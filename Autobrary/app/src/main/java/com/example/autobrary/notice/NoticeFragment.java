@@ -18,6 +18,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import com.beardedhen.androidbootstrap.BootstrapEditText;
 import com.example.autobrary.R;
@@ -78,7 +79,7 @@ public class NoticeFragment extends Fragment {
                 bundle.putString("owner", getNotice.get(position).getName());
                 bundle.putString("contents", getNotice.get(position).getContents());
                 bundle.putString("date", getNotice.get(position).getDate());
-                ((Rpage)getActivity()).replaceFragment(Notice2Fragment.newInstance(), bundle);
+                ((Rpage)getActivity()).secondReplaceFragment(Notice2Fragment.newInstance(), bundle);
             }
         });
 

@@ -47,6 +47,35 @@ public class Rpage extends AppCompatActivity {
     QnaFragment qnaFrag;
     InfoFragment infoFrag;
     RecoFragment recoFrag;
+    FragmentManager fragmentManager = getSupportFragmentManager();
+    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+    private final long FINISH_INTERVAL_TIME = 2000;
+    private long backPressedTime = 0;
+
+    @Override
+    public void onBackPressed() {
+        Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.lay);
+        if(fragment.equals(MainFrag)) {
+            long tempTime = System.currentTimeMillis();
+            long intervalTime = tempTime - backPressedTime;
+
+            if (0 <= intervalTime && FINISH_INTERVAL_TIME >= intervalTime)
+            {
+                android.os.Process.killProcess(android.os.Process.myPid());
+               // super.onBackPressed();
+            }
+            else
+            {
+                backPressedTime = tempTime;
+                Snackbar.make(lay, "한번 더 뒤로가기 누르면 확 꺼버릴꺼에요.", Snackbar.LENGTH_LONG).show();
+                // Toast.makeText(getApplicationContext(), "한번 더 뒤로가기 누르면 꺼버린다.", Toast.LENGTH_SHORT).show();
+            }
+        }else{
+            super.onBackPressed();
+        }
+    }
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -112,7 +141,7 @@ public class Rpage extends AppCompatActivity {
                 signIn.setVisibility(View.VISIBLE);
                 signUp.setVisibility(View.VISIBLE);
                 logout.setVisibility(View.GONE);
-                getSupportFragmentManager().beginTransaction().replace(R.id.lay, MainFrag).commit();
+                replaceFragment(MainFrag);
                 Snackbar.make(lay, "로그아웃 되었습니다.", Snackbar.LENGTH_LONG).show();
             }
         });
@@ -136,7 +165,7 @@ public class Rpage extends AppCompatActivity {
         title.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getSupportFragmentManager().beginTransaction().replace(R.id.lay, MainFrag).commit();
+                replaceFragment(MainFrag);
             }
         });
 
@@ -144,7 +173,7 @@ public class Rpage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 controlDrawer();
-                getSupportFragmentManager().beginTransaction().replace(R.id.lay, MainFrag).commit();
+                replaceFragment(MainFrag);
             }
         });
 
@@ -153,7 +182,7 @@ public class Rpage extends AppCompatActivity {
             public void onClick(View v) {
                 controlDrawer();
                 if(sessionCheck()){
-                    getSupportFragmentManager().beginTransaction().replace(R.id.lay, mypageFrag).commit();
+                    replaceFragment(mypageFrag);
                 }
             }
         });
@@ -162,7 +191,7 @@ public class Rpage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 controlDrawer();
-                getSupportFragmentManager().beginTransaction().replace(R.id.lay, noticeFrag).commit();
+                replaceFragment(noticeFrag);
             }
         });
 
@@ -170,7 +199,7 @@ public class Rpage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 controlDrawer();
-                getSupportFragmentManager().beginTransaction().replace(R.id.lay, infoFrag).commit();
+                replaceFragment(infoFrag);
             }
         });
 
@@ -178,7 +207,7 @@ public class Rpage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 controlDrawer();
-                getSupportFragmentManager().beginTransaction().replace(R.id.lay, recoFrag).commit();
+                replaceFragment(recoFrag);
             }
         });
 
@@ -187,7 +216,7 @@ public class Rpage extends AppCompatActivity {
             public void onClick(View v) {
                 controlDrawer();
                 if(sessionCheck()){
-                    getSupportFragmentManager().beginTransaction().replace(R.id.lay, wishFrag).commit();
+                    replaceFragment(wishFrag);
                 }
             }
         });
@@ -196,7 +225,7 @@ public class Rpage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 controlDrawer();
-                getSupportFragmentManager().beginTransaction().replace(R.id.lay, qnaFrag).commit();
+                replaceFragment(sloFrag);
             }
         });
 
@@ -204,7 +233,7 @@ public class Rpage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 controlDrawer();
-                getSupportFragmentManager().beginTransaction().replace(R.id.lay, sloFrag).commit();
+                replaceFragment(sloFrag);
             }
         });
     }
@@ -221,15 +250,27 @@ public class Rpage extends AppCompatActivity {
     }
 
     public void replaceFragment(Fragment fragment) {
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.lay, fragment).commit();
+        getSupportFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+        fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.replace(R.id.lay, fragment);
+        fragmentTransaction.commit();
     }
     public void replaceFragment(Fragment fragment, Bundle bundle) {
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction = fragmentManager.beginTransaction();
         fragment.setArguments(bundle);
-        fragmentTransaction.replace(R.id.lay, fragment).commit();
+        getSupportFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+        fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.replace(R.id.lay, fragment);
+        fragmentTransaction.commit();
+    }
+    public void secondReplaceFragment(Fragment fragment, Bundle bundle) {
+        fragmentTransaction = fragmentManager.beginTransaction();
+        fragment.setArguments(bundle);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.replace(R.id.lay, fragment);
+        fragmentTransaction.commit();
     }
     private void controlDrawer(){
         if (drawer.isDrawerOpen(Gravity.LEFT)) {
