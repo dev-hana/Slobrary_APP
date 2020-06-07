@@ -121,8 +121,6 @@ public class Rpage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent loginAct = new Intent(getApplicationContext(), LoginActivity.class);
-                loginAct.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                loginAct.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(loginAct);
             }
         });
@@ -131,8 +129,6 @@ public class Rpage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent signAct = new Intent(getApplicationContext(), SignUpActivity.class);
-                signAct.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                signAct.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(signAct);
             }
         });
