@@ -225,7 +225,7 @@ public class Rpage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 controlDrawer();
-                replaceFragment(sloFrag);
+                replaceFragment(qnaFrag);
             }
         });
 
