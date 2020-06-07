@@ -1,9 +1,10 @@
-package com.example.autobrary.mypage;
+package com.example.autobrary.mypage.getdata;
 
 import android.util.Log;
 
 import com.example.autobrary.externalConnecter.URLConnector;
-import com.example.autobrary.mypage.BookInfo;
+import com.example.autobrary.mypage.info.BookInfo;
+import com.example.autobrary.mypage.info.ReturnBookInfo;
 import com.example.autobrary.session.SessionManager;
 
 import org.json.JSONObject;
@@ -20,8 +21,8 @@ import java.util.Vector;
 import cz.msebera.android.httpclient.HttpEntity;
 
 public class GetReturnBook {
-    public Vector<BookInfo> execute() throws IOException, InvalidKeySpecException, NoSuchAlgorithmException {
-        Vector<BookInfo> returnBook = new Vector<>();
+    public Vector<ReturnBookInfo> execute() throws IOException, InvalidKeySpecException, NoSuchAlgorithmException {
+        Vector<ReturnBookInfo> returnBook = new Vector<>();
         String REQUEST_PAGE = "ReturnBookInfo.jsp";
 
         HttpEntity rawData = null;
@@ -44,7 +45,7 @@ public class GetReturnBook {
                 }
                 //jsonKeyList.remove(0); //성공여부 배열 지우기
                 for(String j : jsonKeyList){
-                    BookInfo fetchBook = new BookInfo();
+                    ReturnBookInfo fetchBook = new ReturnBookInfo();
                     String id_num = new JSONObject(jsonResult.getString(j)).getString("id_num");
                     String name = new JSONObject(jsonResult.getString(j)).getString("name");
                     String author = new JSONObject(jsonResult.getString(j)).getString("author");
@@ -66,7 +67,7 @@ public class GetReturnBook {
           //  }
         } catch (Exception e) {
             e.printStackTrace();
-            Log.e("Loan Book Error", "fetch failed");
+            Log.e("Return Book Error", "fetch failed");
             returnBook.clear();
         }finally {
             try{

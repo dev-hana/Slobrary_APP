@@ -1,4 +1,4 @@
-package com.example.autobrary.auth;
+package com.example.autobrary.auth.info;
 
 import com.example.autobrary.encryption.PBKDF2_Encryption;
 

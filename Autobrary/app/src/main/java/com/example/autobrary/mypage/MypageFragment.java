@@ -6,14 +6,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -21,6 +19,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.autobrary.R;
 import com.example.autobrary.externalConnecter.BucketConnector;
 import com.example.autobrary.main.Rpage;
+import com.example.autobrary.mypage.adapter.LoanListViewAdapter;
+import com.example.autobrary.mypage.adapter.ReturnListViewAdapter;
+import com.example.autobrary.mypage.getdata.GetLoanBook;
+import com.example.autobrary.mypage.getdata.GetReturnBook;
+import com.example.autobrary.mypage.getdata.Mypage;
+import com.example.autobrary.mypage.info.BookInfo;
+import com.example.autobrary.mypage.info.LoanBookInfo;
+import com.example.autobrary.mypage.info.MypageInfo;
+import com.example.autobrary.mypage.info.ReturnBookInfo;
 
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
@@ -32,8 +39,8 @@ public class MypageFragment extends Fragment {
 
     private LoanListViewAdapter loanadapter;
     private ReturnListViewAdapter returnadapter;
-    private Vector<BookInfo> loanBookInfo;
-    private Vector<BookInfo> returnBookInfo;
+    private Vector<LoanBookInfo> loanBookInfo;
+    private Vector<ReturnBookInfo> returnBookInfo;
     private Context context;
     private GetLoanBook loanBook = new GetLoanBook();
     private GetReturnBook returnBook = new GetReturnBook();
@@ -80,7 +87,7 @@ public class MypageFragment extends Fragment {
         try {
             MypageInfo info = new Mypage().execute();
             BucketConnector bucket = new BucketConnector();
-            bucket.setObjectName(info.profileImg);
+            bucket.setObjectName(info.getProfileImg());
             bucket.start();
             bucket.join();
             name.setText(info.getName());
@@ -101,10 +108,10 @@ public class MypageFragment extends Fragment {
     private void initialize() throws InvalidKeySpecException, NoSuchAlgorithmException, IOException {
         if (getLoanBook() ) {
             if (getReturnBook()) {
-                for (BookInfo info : loanBookInfo) {
+                for (LoanBookInfo info : loanBookInfo) {
                     loanadapter.addItem(info);
                 }
-                for (BookInfo info : returnBookInfo) {
+                for (ReturnBookInfo info : returnBookInfo) {
                     returnadapter.addItem(info);
                 }
                 loanadapter.notifyDataSetChanged();

@@ -1,5 +1,4 @@
-package com.example.autobrary.mypage;
-import android.content.Context;
+package com.example.autobrary.mypage.adapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,11 +10,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.autobrary.R;
 import com.example.autobrary.externalConnecter.BucketConnector;
+import com.example.autobrary.mypage.info.BookInfo;
+import com.example.autobrary.mypage.info.LoanBookInfo;
 
 import java.util.ArrayList;
 
 public class LoanListViewAdapter  extends RecyclerView.Adapter<LoanListViewAdapter.ItemViewHolder> {
-    private ArrayList<BookInfo> listViewItemList = new ArrayList<BookInfo>() ;
+    private ArrayList<LoanBookInfo> listViewItemList = new ArrayList<LoanBookInfo>() ;
 
     @NonNull
     @Override
@@ -41,17 +42,21 @@ public class LoanListViewAdapter  extends RecyclerView.Adapter<LoanListViewAdapt
     }
 
 class ItemViewHolder extends RecyclerView.ViewHolder{
-    TextView title, author, publisher, loan_date;
+    TextView title, author, publisher, loan_date, return_view, return_date;
     ImageView image;
     public ItemViewHolder(@NonNull View itemView) {
         super(itemView);
-         title = (TextView)itemView.findViewById(R.id.bTitle);
+        title = (TextView)itemView.findViewById(R.id.bTitle);
         author = (TextView)itemView.findViewById(R.id.bAuth);
         publisher = (TextView)itemView.findViewById(R.id.bPub);
-         loan_date = (TextView)itemView.findViewById(R.id.bLoan);
-         image = (ImageView)itemView.findViewById(R.id.bCover);
+        loan_date = (TextView)itemView.findViewById(R.id.bLoan);
+        image = (ImageView)itemView.findViewById(R.id.bCover);
+        return_view = (TextView)itemView.findViewById(R.id.returnView);
+        return_date = (TextView)itemView.findViewById(R.id.bReturn);
+        return_date.setVisibility(View.GONE);
+        return_view.setVisibility(View.GONE);
     }
-    void onBind(BookInfo data) {
+    void onBind(LoanBookInfo data) {
         title.setText(data.getName());
         author.setText(data.getAuthor());
         publisher.setText(data.getPublisher());
@@ -67,7 +72,7 @@ class ItemViewHolder extends RecyclerView.ViewHolder{
         image.setImageBitmap(bucket.getBitmap());
     }
 }
-    public void addItem(BookInfo info) {
+    public void addItem(LoanBookInfo info) {
         listViewItemList.add(info);
     }
     public void clearItem() {

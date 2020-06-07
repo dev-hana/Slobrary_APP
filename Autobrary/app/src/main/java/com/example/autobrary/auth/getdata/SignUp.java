@@ -1,5 +1,6 @@
-package com.example.autobrary.auth;
+package com.example.autobrary.auth.getdata;
 
+import com.example.autobrary.auth.info.SignUpInfo;
 import com.example.autobrary.externalConnecter.URLConnector;
 
 import org.json.JSONObject;

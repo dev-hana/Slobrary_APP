@@ -1,4 +1,4 @@
-package com.example.autobrary.mypage;
+package com.example.autobrary.mypage.info;
 
 public class MypageInfo {
     //유저

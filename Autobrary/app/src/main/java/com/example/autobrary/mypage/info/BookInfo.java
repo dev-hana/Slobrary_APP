@@ -1,18 +1,11 @@
-package com.example.autobrary.mypage;
+package com.example.autobrary.mypage.info;
 
-import android.widget.ImageView;
-
-public class MpBookInfo {
-    String image; // 책 표지
+public class BookInfo {
     String name; // 제목
     String author; // 작가
-    //String userId; // 아이디 넘겨줘야 할 것 같음.
-
-    public MpBookInfo(String image, String name, String author){
-        this.image = image;
-        this.name = name;
-        this.author = author;
-    }
+    String publisher; // 출판사
+    String image; // 표지
+    String id; //도서 번호
 
     public String getImage() {
         return image;
@@ -20,6 +13,14 @@ public class MpBookInfo {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -36,5 +37,13 @@ public class MpBookInfo {
 
     public void setAuthor(String author) {
         this.author = author;
+    }
+
+    public String getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(String publisher) {
+        this.publisher = publisher;
     }
 }

@@ -2,16 +2,10 @@ package com.example.autobrary.auth;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Debug;
-import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.Spinner;
 import android.widget.Toast;
 import androidx.annotation.IdRes;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,6 +13,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.beardedhen.androidbootstrap.BootstrapButton;
 import com.beardedhen.androidbootstrap.BootstrapEditText;
 import com.example.autobrary.R;
+import com.example.autobrary.auth.validate.ValidateEmail;
+import com.example.autobrary.auth.validate.ValidateId;
+import com.example.autobrary.auth.getdata.SignUp;
+import com.example.autobrary.auth.info.SignUpInfo;
 import com.example.autobrary.mail.Sender;
 import com.example.autobrary.main.Rpage;
 
@@ -45,56 +43,6 @@ public class SignUpActivity extends AppCompatActivity {
         BootstrapButton signUpBt = (BootstrapButton) findViewById(R.id.signUp);
         final BootstrapButton emailSend = (BootstrapButton) findViewById(R.id.emailSend);
         final BootstrapButton emailChButton = (BootstrapButton) findViewById(R.id.emailCheck);
-
-
-
-//        // Spinner
-//        Spinner yearSpinner = (Spinner)findViewById(R.id.spinner_year);
-//        ArrayAdapter yearAdapter = ArrayAdapter.createFromResource(this, R.array.date_year, android.R.layout.simple_spinner_item);
-//        yearAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        yearSpinner.setAdapter(yearAdapter);
-//        yearSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//                birthYear = parent.getItemAtPosition(position).toString();
-//            }
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> parent) {
-//            }
-//        });
-//
-//        Spinner monthSpinner = (Spinner)findViewById(R.id.spinner_month);
-//        ArrayAdapter monthAdapter = ArrayAdapter.createFromResource(this, R.array.date_month, android.R.layout.simple_spinner_item);
-//        monthAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        monthSpinner.setAdapter(monthAdapter);
-//        monthSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//                birthMonth = parent.getItemAtPosition(position).toString();
-//            }
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> parent) {
-//            }
-//        });
-//
-//        Spinner daySpinner = (Spinner)findViewById(R.id.spinner_day);
-//        ArrayAdapter dayAdapter = ArrayAdapter.createFromResource(this, R.array.date_day, android.R.layout.simple_spinner_item);
-//        dayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        daySpinner.setAdapter(dayAdapter);
-//        daySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//                birthDay = parent.getItemAtPosition(position).toString();
-//            }
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> parent) {
-//            }
-//        });
-
-
 
         emailSend.setOnClickListener(new Button.OnClickListener(){
 
@@ -303,6 +251,8 @@ public class SignUpActivity extends AppCompatActivity {
                         if (register.execute()) {
                             Toast.makeText(SignUpActivity.this, "회원가입이 완료되었습니다.", Toast.LENGTH_SHORT).show();
                             Intent mainAct = new Intent(getApplicationContext(), Rpage.class);
+                            mainAct.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            mainAct.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             startActivity(mainAct);
                         } else {
                             Toast.makeText(SignUpActivity.this, "회원가입 도중 오류가 발생하였습니다. 인터넷 연결상태 확인 및 나중에 다시 시도해주세요.", Toast.LENGTH_SHORT).show();

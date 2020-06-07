@@ -1,8 +1,9 @@
-package com.example.autobrary.mypage;
+package com.example.autobrary.mypage.getdata;
 
 import android.util.Log;
 
 import com.example.autobrary.externalConnecter.URLConnector;
+import com.example.autobrary.mypage.info.MypageInfo;
 import com.example.autobrary.session.SessionManager;
 
 import org.json.JSONObject;

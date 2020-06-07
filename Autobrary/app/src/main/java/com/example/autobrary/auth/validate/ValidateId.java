@@ -1,4 +1,4 @@
-package com.example.autobrary.auth;
+package com.example.autobrary.auth.validate;
 
 import com.example.autobrary.externalConnecter.URLConnector;
 
@@ -12,26 +12,26 @@ import java.util.HashMap;
 
 import cz.msebera.android.httpclient.HttpEntity;
 
-public class ValidateEmail {
-    private String email;
+public class ValidateId {
+    private String id;
 
     /**
      * 아이디의 중복여부를 리턴 합니다.
      *
-     * @param   email   중복 검증할 아이디
+     * @param   id    중복 검증할 아이디
      * @return   boolean    아이디가 존재하면 true, 존재하지 않으면 false를 리턴
      */
-    public boolean ValidateEmail(String email) throws InvalidKeySpecException, NoSuchAlgorithmException, IOException {
-        this.email = email;
+    public boolean IdCheck(String id) throws InvalidKeySpecException, NoSuchAlgorithmException, IOException {
+        this.id = id;
         return execute();
     }
     private boolean execute() {
 
-        String REQUEST_PAGE = "Email_check.php";
+        String REQUEST_PAGE = "Join_check.php";
         HashMap<String, String> param = new HashMap<>();
 
         // 파라미터 입력
-        param.put("email", email);
+        param.put("mem_id", id);
 
         HttpEntity rawData = null;
         BufferedInputStream bis = null;

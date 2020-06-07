@@ -11,6 +11,8 @@ import android.widget.Toast;
 import com.beardedhen.androidbootstrap.BootstrapButton;
 import com.beardedhen.androidbootstrap.BootstrapEditText;
 import com.example.autobrary.R;
+import com.example.autobrary.auth.getdata.Login;
+import com.example.autobrary.auth.info.LoginInfo;
 import com.example.autobrary.main.Rpage;
 import com.example.autobrary.session.SessionManager;
 
@@ -41,6 +43,8 @@ public class LoginActivity extends AppCompatActivity {
                         if(login.execute()){
                             SessionManager.setAttribute("login", info.getLoginId());
                             Intent mainAct = new Intent(getApplicationContext(), Rpage.class);
+                            mainAct.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            mainAct.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             startActivity(mainAct);
                         }else{
                             Toast.makeText(LoginActivity.this, "아이디 혹은 비밀번호가 틀립니다.", Toast.LENGTH_SHORT).show();
@@ -61,6 +65,8 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent signUpAct = new Intent(getApplicationContext(), SignUpActivity.class);
+                signUpAct.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                signUpAct.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(signUpAct);
             }
         });

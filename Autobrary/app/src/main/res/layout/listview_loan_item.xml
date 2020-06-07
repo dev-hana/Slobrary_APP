@@ -67,15 +67,14 @@
                 <TextView
                     android:gravity="center_vertical"
                     android:text="대출일"
-                    android:layout_weight="3.5"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"/>
                 <TextView
+                    android:layout_marginLeft="20dp"
                     android:gravity="center_vertical"
                     android:id="@+id/bLoan"
                     android:hint="대여일"
-                    android:layout_weight="1"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"/>
             </LinearLayout>
             <LinearLayout
@@ -85,20 +84,25 @@
                 android:layout_height="match_parent">
                 <TextView
                     android:gravity="center_vertical"
+                    android:id="@+id/returnView"
                     android:text="@string/dueDate"
-                    android:layout_weight="1.5"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"/>
                 <TextView
+                    android:layout_marginLeft="20dp"
                     android:gravity="center_vertical"
                     android:id="@+id/bReturn"
                     android:hint="@string/dueDate"
-                    android:layout_weight="1"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"/>
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
                 <com.beardedhen.androidbootstrap.BootstrapButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:id="@+id/bookStatus"
                     android:text="대출중"
                     android:layout_marginRight="20dp"
                     app:bootstrapBrand="primary"
@@ -106,6 +110,7 @@
                     app:buttonMode="regular"
                     app:showOutline="true"
                     app:roundedCorners="true"
+                    android:layout_gravity="end"
                     />
             </LinearLayout>
         </LinearLayout>
