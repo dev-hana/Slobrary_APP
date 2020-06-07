@@ -20,7 +20,7 @@ import cz.msebera.android.httpclient.util.EntityUtils;
 
 public class URLConnector extends Thread{
 
-    private final String HOST = "https://www.slobrary.com/android/";
+    private final String HOST = "https://www.slobrary.com/app/";
 
     public HttpResponse getResult() {
         return result;

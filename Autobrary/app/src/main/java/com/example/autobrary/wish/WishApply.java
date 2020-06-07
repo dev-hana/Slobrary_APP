@@ -20,7 +20,7 @@ public class WishApply {
 
     public boolean execute() throws IOException, InvalidKeySpecException, NoSuchAlgorithmException {
 
-        String REQUEST_PAGE = "PutWish.php"; //TODO : PHP 경로 입력
+        String REQUEST_PAGE = "PutWish.php";
         HashMap<String, String> param = new HashMap<>();
 
         // 파라미터 입력

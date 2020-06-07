@@ -3,21 +3,32 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.autobrary.R;
 import com.example.autobrary.externalConnecter.BucketConnector;
 
 import java.util.ArrayList;
 
-public class LoanListViewAdapter  extends BaseAdapter {
+public class LoanListViewAdapter  extends RecyclerView.Adapter<LoanListViewAdapter.ItemViewHolder> {
     private ArrayList<BookInfo> listViewItemList = new ArrayList<BookInfo>() ;
 
+    @NonNull
     @Override
-    public int getCount() {
-        return listViewItemList.size();
+    public ItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view =  LayoutInflater.from(parent.getContext()).inflate(R.layout.listview_loan_item, parent, false);
+        return new ItemViewHolder(view);
     }
+
+    @Override
+    public void onBindViewHolder(@NonNull ItemViewHolder holder, int position) {
+        holder.onBind(listViewItemList.get(position));
+    }
+
 
     @Override
     public long getItemId(int position) {
@@ -25,40 +36,37 @@ public class LoanListViewAdapter  extends BaseAdapter {
     }
 
     @Override
-    public BookInfo getItem(int position) {
-        return listViewItemList.get(position);
+    public int getItemCount() {
+        return listViewItemList.size();
     }
 
-    @Override
-    public View getView(final int position, View convertView, ViewGroup parent) {
-        final int pos = position;
-        final Context context = parent.getContext();
-
-        if (convertView == null) {
-            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.listview_loan_item, parent, false);
-        }
-        TextView title = (TextView)convertView.findViewById(R.id.bTitle);
-        TextView author = (TextView)convertView.findViewById(R.id.bAuth);
-        TextView publisher = (TextView)convertView.findViewById(R.id.bPub);
-        TextView loan_date = (TextView)convertView.findViewById(R.id.bLoan);
-        ImageView image = (ImageView)convertView.findViewById(R.id.bCover);
-
-        title.setText(listViewItemList.get(position).getName());
-        author.setText(listViewItemList.get(position).getAuthor());
-        publisher.setText(listViewItemList.get(position).getPublisher());
-        loan_date.setText(listViewItemList.get(position).getLoanDate());
+class ItemViewHolder extends RecyclerView.ViewHolder{
+    TextView title, author, publisher, loan_date;
+    ImageView image;
+    public ItemViewHolder(@NonNull View itemView) {
+        super(itemView);
+         title = (TextView)itemView.findViewById(R.id.bTitle);
+        author = (TextView)itemView.findViewById(R.id.bAuth);
+        publisher = (TextView)itemView.findViewById(R.id.bPub);
+         loan_date = (TextView)itemView.findViewById(R.id.bLoan);
+         image = (ImageView)itemView.findViewById(R.id.bCover);
+    }
+    void onBind(BookInfo data) {
+        title.setText(data.getName());
+        author.setText(data.getAuthor());
+        publisher.setText(data.getPublisher());
+        loan_date.setText(data.getLoanDate());
         BucketConnector bucket = new BucketConnector();
         try {
-        bucket.setObjectName(listViewItemList.get(position).getImage());
-        bucket.start();
-        bucket.join();
+            bucket.setObjectName(data.getImage());
+            bucket.start();
+            bucket.join();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         image.setImageBitmap(bucket.getBitmap());
-        return convertView;
     }
+}
     public void addItem(BookInfo info) {
         listViewItemList.add(info);
     }
