@@ -25,7 +25,7 @@ public class WishApply {
 
         // 파라미터 입력
         param.put("bookTitle", info.getBookTitle());
-        param.put("bookAuthor", info.getBookOwner());
+        param.put("bookAuthor", info.getBookAuthor());
         param.put("bookPublish", info.getBookPublish());
         param.put("applyUser", info.getUser());
 

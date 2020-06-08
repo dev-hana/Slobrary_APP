@@ -8,19 +8,20 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.example.autobrary.R;
+import com.example.autobrary.wish.WishInfo;
 
 import java.util.ArrayList;
 
 public class BAdapter extends BaseAdapter {
-    private ArrayList<BItem> bItems = new ArrayList<BItem>();
+    private ArrayList<WishInfo> wishInfos = new ArrayList<WishInfo>();
 
     public int getCount(){
-        return bItems.size();
+        return wishInfos.size();
     }
 
     // 지정한 위치(position)에 있는 데이터 리턴 : 필수 구현
-    public BItem getItem(int position){
-        return bItems.get(position);
+    public WishInfo getItem(int position){
+        return wishInfos.get(position);
     }
 
     // 지정한 위치(position)에 있는 데이터와 관계된 아이템(row)의 ID를 리턴. : 필수 구현
@@ -41,34 +42,37 @@ public class BAdapter extends BaseAdapter {
             convertView = inflater.inflate(R.layout.listview_wish_item, parent, false);
         }
 
-        //ImageView bCover = convertView.findViewById(R.id.bCover);
         TextView bTitle = convertView.findViewById(R.id.bTitle);
         TextView bAuth = convertView.findViewById(R.id.bAuth);
         TextView bPub = convertView.findViewById(R.id.bPub);
         TextView bDate = convertView.findViewById(R.id.bDate);
 
-        BItem bItem = bItems.get(position);
+        WishInfo wishInfo = wishInfos.get(position);
 
-        //bCover.setImageDrawable(bItem.getCover());
-        bTitle.setText(bItem.getTitle());
-        bAuth.setText(bItem.getAuth());
-        bPub.setText(bItem.getPublish());
-        bDate.setText(bItem.getDate());
+        bTitle.setText(wishInfo.getBookTitle());
+        bAuth.setText(wishInfo.getBookAuthor());
+        bPub.setText(wishInfo.getBookPublish());
+        bDate.setText(wishInfo.getBookDate());
 
         /*위젯에 대한 이벤트리스너를 지정하려면 여기*/
         return convertView;
     }
 
-    //public void addItem(Drawable cover, String title, String auth, String pub, String wdate){
-    public void addItem(String title, String auth, String pub, String wdate){
-        BItem bItem = new BItem();
+    public void addItem(String user, String title, String auth, String pub, String wdate){
+        WishInfo wishInfo = new WishInfo(user, title, auth, pub, wdate);
+        wishInfo.setUser(user);
+        wishInfo.setBookTitle(title);
+        wishInfo.setBookAuthor(auth);
+        wishInfo.setBookPublish(pub);
+        wishInfo.setBookDate(wdate);
 
-        //bItem.setCover(cover);
-        bItem.setTitle(title);
-        bItem.setAuth(auth);
-        bItem.setPublish(pub);
-        bItem.setDate(wdate);
+        wishInfos.add(wishInfo);
+    }
 
-        bItems.add(bItem);
+    public void addItem(WishInfo info) {
+        wishInfos.add(info);
+    }
+    public void clearItem() {
+        wishInfos.clear();
     }
 }

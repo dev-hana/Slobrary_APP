@@ -3,14 +3,23 @@ package com.example.autobrary.wish;
 public class WishInfo {
     private String user;
     private String bookTitle;
-    private String bookOwner;
+    private String bookAuthor;
     private String bookPublish;
+    private String bookDate;
 
-    WishInfo(String user, String bookTitle, String bookOwner, String bookPublish){
+    public WishInfo(String user, String bookTitle, String bookAuthor, String bookPublish){
         this.user = user;
         this.bookTitle = bookTitle;
-        this.bookOwner = bookOwner;
+        this.bookAuthor = bookAuthor;
         this.bookPublish = bookPublish;
+    }
+
+    public WishInfo(String user, String bookTitle, String bookAuthor, String bookPublish, String bookDate){
+        this.user = user;
+        this.bookTitle = bookTitle;
+        this.bookAuthor = bookAuthor;
+        this.bookPublish = bookPublish;
+        this.bookDate = bookDate;
     }
 
     public String getUser() {
@@ -29,12 +38,12 @@ public class WishInfo {
         this.bookTitle = bookTitle;
     }
 
-    public String getBookOwner() {
-        return bookOwner;
+    public String getBookAuthor() {
+        return bookAuthor;
     }
 
-    public void setBookOwner(String bookOwner) {
-        this.bookOwner = bookOwner;
+    public void setBookAuthor(String bookAuthor) {
+        this.bookAuthor = bookAuthor;
     }
 
     public String getBookPublish() {
@@ -45,4 +54,11 @@ public class WishInfo {
         this.bookPublish = bookPublish;
     }
 
+    public String getBookDate() {
+        return bookDate;
+    }
+
+    public void setBookDate(String bookDate) {
+        this.bookDate = bookDate;
+    }
 }

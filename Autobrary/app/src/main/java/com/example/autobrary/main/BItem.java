@@ -1,51 +1,64 @@
 package com.example.autobrary.main;
 
-import android.graphics.drawable.Drawable;
-
 public class BItem {
-    //private Drawable cover;
-    private String title;
-    private String auth;
-    private String publish;
-    private String date;
+    private String user;
+    private String bookTitle;
+    private String bookAuthor;
+    private String bookPublish;
+    private String bookDate;
 
-//    public Drawable getCover() {
-//        return cover;
-//    }
-//
-//    public void setCover(Drawable cover) {
-//        this.cover = cover;
-//    }
-
-    public String getTitle() {
-        return title;
+    public BItem(String user, String bookTitle, String bookAuthor, String bookPublish){
+        this.user = user;
+        this.bookTitle = bookTitle;
+        this.bookAuthor = bookAuthor;
+        this.bookPublish = bookPublish;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public BItem(String user, String bookTitle, String bookAuthor, String bookPublish, String bookDate){
+        this.user = user;
+        this.bookTitle = bookTitle;
+        this.bookAuthor = bookAuthor;
+        this.bookPublish = bookPublish;
+        this.bookDate = bookDate;
     }
 
-    public String getAuth() {
-        return auth;
+    public String getUser() {
+        return user;
     }
 
-    public void setAuth(String auth) {
-        this.auth = auth;
+    public void setUser(String user) {
+        this.user = user;
     }
 
-    public String getPublish() {
-        return publish;
+    public String getBookTitle() {
+        return bookTitle;
     }
 
-    public void setPublish(String publish) {
-        this.publish = publish;
+    public void setBookTitle(String bookTitle) {
+        this.bookTitle = bookTitle;
     }
 
-    public String getDate() {
-        return date;
+    public String getBookAuthor() {
+        return bookAuthor;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setBookAuthor(String bookAuthor) {
+        this.bookAuthor = bookAuthor;
+    }
+
+    public String getBookPublish() {
+        return bookPublish;
+    }
+
+    public void setBookPublish(String bookPublish) {
+        this.bookPublish = bookPublish;
+    }
+
+    public String getBookDate() {
+        return bookDate;
+    }
+
+    public void setBookDate(String bookDate) {
+        this.bookDate = bookDate;
     }
 }
