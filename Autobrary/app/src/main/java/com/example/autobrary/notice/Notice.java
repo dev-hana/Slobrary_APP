@@ -44,6 +44,7 @@ public class Notice {
                     String date = new JSONObject(jsonResult.getString(j)).getString("date");
                     String owner = new JSONObject(jsonResult.getString(j)).getString("admin_id");
                     String content = new JSONObject(jsonResult.getString(j)).getString("content");
+                    date = date.substring(0,  date.length()-3);
                     NoticeInfo fetchNotice = new NoticeInfo(j, title, date, owner, content);
                     notice.add(fetchNotice);
                 }
