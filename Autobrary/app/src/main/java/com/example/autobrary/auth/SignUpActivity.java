@@ -44,6 +44,17 @@ public class SignUpActivity extends AppCompatActivity {
         final BootstrapButton emailSend = (BootstrapButton) findViewById(R.id.emailSend);
         final BootstrapButton emailChButton = (BootstrapButton) findViewById(R.id.emailCheck);
 
+        BootstrapButton searchAddress = (BootstrapButton) findViewById(R.id.search_address);
+        searchAddress.setOnClickListener(new Button.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent addressAct = new Intent(getApplicationContext(), AdressSearchActivity.class);
+                addressAct.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                addressAct.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(addressAct);
+            }
+        });
+
         emailSend.setOnClickListener(new Button.OnClickListener(){
 
             @Override
@@ -284,4 +295,5 @@ public class SignUpActivity extends AppCompatActivity {
     private  boolean isValidBirth(String number){
         return Pattern.compile("^\\d{8}$").matcher(number).matches();
     }
+
 }

@@ -319,7 +319,17 @@
         app:roundedCorners="true"
         android:layout_gravity="center"
         />
-
+    <com.beardedhen.androidbootstrap.BootstrapButton
+        android:layout_marginLeft="10dp"
+        android:text="주소검색"
+        android:id="@+id/search_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:bootstrapBrand="primary"
+        app:buttonMode="regular"
+        app:showOutline="true"
+        app:roundedCorners="true"
+        />
 
     <LinearLayout
         android:layout_weight="1"
