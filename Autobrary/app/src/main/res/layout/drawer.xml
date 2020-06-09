@@ -31,7 +31,7 @@
             android:layout_height="wrap_content"/>
         <TextView
             android:id="@+id/mName"
-            android:text="SL:O 입니다!"
+            android:text="SL:O입니다!"
             android:textSize="18dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="50dp"
@@ -128,7 +128,7 @@
         android:gravity="left" />
     <View
         android:layout_width="match_parent"
-        android:layout_height="90dp"
+        android:layout_height="130dp"
         android:background="@color/colorWhite"
         />
 
@@ -140,40 +140,33 @@
         android:layout_marginTop="10dp"
         android:layout_marginBottom="8dp"
         >
-        <com.beardedhen.androidbootstrap.BootstrapButton
+        <Button
+            android:layout_marginRight="-20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/login"
             android:id="@+id/signIn"
-            android:clickable="true"
-            app:bootstrapBrand="primary"
-            app:buttonMode="regular"
-            app:showOutline="true"
-            app:roundedCorners="true"
             />
-        <com.beardedhen.androidbootstrap.BootstrapButton
-            android:layout_marginLeft="10dp"
+
+        <View
+            android:layout_width="20dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="23dp"
+            android:background="#9C9C9C"
+            android:rotation="90" />
+
+        <Button
+            android:layout_marginLeft="-20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/signUp"
             android:id="@+id/signUp"
-            android:clickable="true"
-            app:bootstrapBrand="primary"
-            app:buttonMode="regular"
-            app:showOutline="true"
-            app:roundedCorners="true"
             />
-        <com.beardedhen.androidbootstrap.BootstrapButton
+        <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/logout"
             android:id="@+id/logout"
-            android:clickable="true"
-            android:visibility="gone"
-            app:bootstrapBrand="primary"
-            app:buttonMode="regular"
-            app:showOutline="true"
-            app:roundedCorners="true"
             />
     </LinearLayout>
 
