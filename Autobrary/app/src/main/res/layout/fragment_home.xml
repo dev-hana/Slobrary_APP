@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content" >
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" >
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -67,31 +67,270 @@
 <!--            android:textColor="#ffff"-->
 <!--            android:layout_width="wrap_content"-->
 <!--            android:layout_height="40dp"/>-->
-        <com.beardedhen.androidbootstrap.BootstrapButton
-            android:theme="@style/customButtonFontStyle"
-            android:layout_marginLeft="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
+        <Button
+            android:layout_marginTop="20dp"
             android:id="@+id/btnSearch"
             android:text="@string/cormfirm"
-            app:bootstrapBrand="primary"
-            app:buttonMode="regular"
-            app:showOutline="true"
-            app:roundedCorners="true"
-            />
+            android:textColor="#ffff"
+            android:background="@drawable/border_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"/>
+
         <View
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="0dp"/>
     </LinearLayout>
-
-    <TextView
-        android:text="@string/bestb"
-        android:textSize="25dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginBottom="20dp"
+    <LinearLayout
+        android:layout_marginBottom="30dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="22dp"
+        android:layout_marginRight="22dp"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:text="FOR YOU!"
+                android:textSize="25dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:layout_marginLeft="-50dp"
+                android:src="@drawable/btnplus"
+                android:layout_gravity="center"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:id="@+id/plusBt_foryou" />
+
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_centerInParent="true"
+            android:background="#9C9C9C"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="15dp">
+            <View
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="0dp"/>
+
+            <ImageView
+                android:id="@+id/foryouBook1"
+                android:layout_width="102dp"
+                android:layout_height="160dp"
+                android:clickable="true"
+                android:src="@drawable/samplebook" />
+            <View
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="0dp"/>
+
+            <ImageView
+                android:src="@drawable/samplebook"
+                android:layout_width="102dp"
+                android:layout_height="160dp"
+                android:clickable="true"
+                android:id="@+id/foryouBook2" />
+            <View
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="0dp"/>
+            <ImageView
+                android:src="@drawable/samplebook"
+                android:layout_width="102dp"
+                android:layout_height="160dp"
+                android:clickable="true"
+                android:id="@+id/foryouBook3" />
+            <View
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="0dp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginBottom="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="22dp"
+        android:layout_marginRight="22dp"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:text="NEW"
+                android:textSize="25dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:layout_marginLeft="-50dp"
+                android:src="@drawable/btnplus"
+                android:layout_gravity="center"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:id="@+id/plusBt_new" />
+
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_centerInParent="true"
+            android:background="#9C9C9C"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="15dp">
+            <View
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="0dp"/>
+
+            <ImageView
+                android:id="@+id/newBook1"
+                android:layout_width="102dp"
+                android:layout_height="160dp"
+                android:clickable="true"
+                android:src="@drawable/samplebook" />
+            <View
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="0dp"/>
+
+            <ImageView
+                android:src="@drawable/samplebook"
+                android:layout_width="102dp"
+                android:layout_height="160dp"
+                android:clickable="true"
+                android:id="@+id/newBook2" />
+            <View
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="0dp"/>
+            <ImageView
+                android:src="@drawable/samplebook"
+                android:layout_width="102dp"
+                android:layout_height="160dp"
+                android:clickable="true"
+                android:id="@+id/newBook3" />
+            <View
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="0dp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginBottom="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="22dp"
+        android:layout_marginRight="22dp"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:text="BEST"
+                android:textSize="25dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:layout_marginLeft="-50dp"
+                android:src="@drawable/btnplus"
+                android:layout_gravity="center"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:id="@+id/plusBt_best" />
+
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_centerInParent="true"
+            android:background="#9C9C9C"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="15dp">
+            <View
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="0dp"/>
+
+            <ImageView
+                android:id="@+id/bestBook1"
+                android:layout_width="102dp"
+                android:layout_height="160dp"
+                android:clickable="true"
+                android:src="@drawable/samplebook" />
+            <View
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="0dp"/>
+
+            <ImageView
+                android:src="@drawable/samplebook"
+                android:layout_width="102dp"
+                android:layout_height="160dp"
+                android:clickable="true"
+                android:id="@+id/bestBook2" />
+            <View
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="0dp"/>
+            <ImageView
+                android:src="@drawable/samplebook"
+                android:layout_width="102dp"
+                android:layout_height="160dp"
+                android:clickable="true"
+                android:id="@+id/bestBook3" />
+            <View
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="0dp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+
 
 
 
