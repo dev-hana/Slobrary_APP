@@ -13,47 +13,121 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <TextView
-            android:text="@string/qna"
-            android:textSize="30dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="50dp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="35dp"
-                android:orientation="horizontal"
-                android:layout_gravity="center">
-                <com.beardedhen.androidbootstrap.BootstrapButton
-                    android:text="회원문의"
-                    android:id="@+id/btnMemQ"
-                    android:layout_width="120dp"
-                    android:layout_height="32dp"
-                    app:bootstrapBrand="primary"
-                    app:buttonMode="regular"
-                    app:showOutline="true"
-                    app:roundedCorners="true"/>
-                <com.beardedhen.androidbootstrap.BootstrapButton
-                    android:text="자료이용문의"
-                    android:layout_width="120dp"
-                    android:id="@+id/btnBookQ"
-                    android:layout_height="32dp"
-                    app:bootstrapBrand="primary"
-                    app:buttonMode="regular"
-                    app:showOutline="true"
-                    app:roundedCorners="true"/>
+            android:layout_height="wrap_content"
+            android:text="FAQ"
+            android:textSize="25dp"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            />
+        <View
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_centerInParent="true"
+            android:background="#9C9C9C"/>
 
-                <com.beardedhen.androidbootstrap.BootstrapButton
-                    android:text="시설 및 기타"
-                    android:layout_width="120dp"
-                    android:id="@+id/btnFacilityEtcQ"
-                    android:layout_height="32dp"
-                    app:bootstrapBrand="primary"
-                    app:buttonMode="regular"
-                    app:showOutline="true"
-                    app:roundedCorners="true"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="50dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Q "
+                android:textSize="35dp"
+                android:textColor="#000080"
+                android:textStyle="bold"
+                />
 
-            </LinearLayout>
+            <TextView
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="50dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="반납기간은 언제인가요?"
+                android:textSize="30dp"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                />
+
+        </LinearLayout>
+        <View
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_centerInParent="true"
+            android:background="#9C9C9C"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_marginLeft="28dp"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="A "
+                android:textSize="35dp"
+                android:textColor="#000080"
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="20일 까지입니다?"
+                android:textSize="25dp"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                />
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="50dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Q "
+                android:textSize="35dp"
+                android:textColor="#000080"
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="50dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="반납기간은 언제인가요?"
+                android:textSize="30dp"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                />
+
+        </LinearLayout>
+        <View
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_centerInParent="true"
+            android:background="#9C9C9C"/>
+
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
