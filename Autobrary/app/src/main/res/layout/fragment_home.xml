@@ -8,7 +8,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".main.HomeFragment">
+    tools:context=".main.HomeFragment"
+    >
 
     <LinearLayout
         android:orientation="horizontal"
@@ -66,14 +67,17 @@
 <!--            android:textColor="#ffff"-->
 <!--            android:layout_width="wrap_content"-->
 <!--            android:layout_height="40dp"/>-->
-        <com.beardedhen.androidbootstrap.BootstrapLabel
+        <com.beardedhen.androidbootstrap.BootstrapButton
+            android:theme="@style/customButtonFontStyle"
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
             android:id="@+id/btnSearch"
-            android:layout_width="80dp"
-            android:layout_height="40dp"
-            app:bootstrapBrand="primary"
-            app:bootstrapHeading="h5"
             android:text="@string/cormfirm"
-
+            app:bootstrapBrand="primary"
+            app:buttonMode="regular"
+            app:showOutline="true"
+            app:roundedCorners="true"
             />
         <View
             android:layout_weight="1"
@@ -87,70 +91,9 @@
         android:layout_marginLeft="20dp"
         android:layout_marginBottom="20dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content" />
 
-    <LinearLayout
-        android:layout_marginBottom="20dp"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <View
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="0dp"/>
-        <TextView
-            android:id="@+id/prebtn"
-            android:text="@string/left"
-            android:textSize="100dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:foreground="?android:attr/selectableItemBackground"
-            android:gravity="center_vertical"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"/>
 
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <View
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="0dp"/>
-            <ImageView
-                android:id="@+id/bSign"
-                android:src="@drawable/book"
-                android:layout_width="180dp"
-                android:layout_height="190dp"/>
-            <TextView
-                android:padding="5dp"
-                android:id="@+id/bTitle"
-                android:text="@string/title"
-                android:gravity="center|center_vertical"
-                android:textSize="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"/>
-            <View
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="0dp"/>
-        </LinearLayout>
 
-        <TextView
-            android:id="@+id/nextbtn"
-            android:text="@string/right"
-            android:textSize="100dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:foreground="?android:attr/selectableItemBackground"
-            android:gravity="center_vertical"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"/>
-        <View
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="0dp"/>
-    </LinearLayout>
 </LinearLayout>
 </ScrollView>
