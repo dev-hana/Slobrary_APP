@@ -15,6 +15,7 @@
             android:layout_height="match_parent">
 
             <TextView
+                android:layout_marginTop="20dp"
                 android:id="@+id/noTitle"
                 android:padding="10dp"
                 android:text="@string/title"
@@ -87,8 +88,8 @@
                     android:id="@+id/noLBtn"
                     android:textColor="#ffff"
                     android:background="@drawable/border_btn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"/>
+                    android:layout_width="60dp"
+                    android:layout_height="30dp"/>
                 <View
                     android:layout_weight="1"
                     android:layout_width="0dp"
