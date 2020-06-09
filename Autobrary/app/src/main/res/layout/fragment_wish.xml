@@ -8,50 +8,60 @@
     tools:context=".wish.WishFragment">
 
     <LinearLayout
-        android:padding="10dp"
-        android:id="@+id/wishF"
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginLeft="5dp">
 
-        <Button
-            android:text="@string/wish2"
-            android:id="@+id/wishbtn"
-            android:textSize="20dp"
-            android:textColor="@color/colorPrimary"
-            android:layout_margin="20dp"
-            android:background="@drawable/border"
+        <TextView
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="희망 도서"
+            android:textSize="25dp"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            />
+        <View
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="2dp"
+            android:layout_centerInParent="true"
+            android:background="#9C9C9C"/>
 
         <LinearLayout
-            android:orientation="horizontal"
-            android:layout_marginBottom="15dp"
+            android:padding="10dp"
+            android:id="@+id/wishF"
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TextView
-                android:text="@string/wish"
-                android:textSize="15dp"
-                android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <Button
+                android:text="@string/wish2"
+                android:id="@+id/wishbtn"
+                android:textSize="20dp"
+                android:textColor="@color/colorPrimary"
+                android:layout_margin="20dp"
+                android:background="@drawable/border"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
-            <TextView
-                android:id="@+id/wishNum"
-                android:text="x 권"
-                android:paddingLeft="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-        </LinearLayout>
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fillViewport="true"
-            >
-            <ListView
-                android:id="@+id/wishList"
+
+
+            <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:scrollbars="vertical"
-                />
-        </ScrollView>
+                android:fillViewport="true"
+                >
+                <ListView
+                    android:id="@+id/wishList"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scrollbars="vertical"
+                    />
+            </ScrollView>
+        </LinearLayout>
+
+
     </LinearLayout>
 </RelativeLayout>
