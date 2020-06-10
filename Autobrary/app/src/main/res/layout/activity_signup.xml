@@ -32,6 +32,8 @@
         <com.beardedhen.androidbootstrap.BootstrapEditText
             android:id="@+id/entId"
             android:hint="@string/insertID"
+            android:maxLines="1"
+            android:singleLine="true"
             android:layout_width="190dp"
             android:layout_height="wrap_content"
             app:bootstrapSize="md"
@@ -69,6 +71,8 @@
             />
         <com.beardedhen.androidbootstrap.BootstrapEditText
             android:hint="@string/insertPW"
+            android:maxLines="1"
+            android:singleLine="true"
             android:id="@+id/entPw"
             android:inputType="textPassword"
             android:layout_width="270dp"
@@ -95,6 +99,8 @@
             />
         <com.beardedhen.androidbootstrap.BootstrapEditText
             android:hint="@string/reInsertPW"
+            android:maxLines="1"
+            android:singleLine="true"
             android:id="@+id/entPw_re"
             android:inputType="textPassword"
             android:layout_width="270dp"
@@ -122,6 +128,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/entName"
             android:hint="@string/insertName"
+            android:maxLines="1"
+            android:singleLine="true"
             app:bootstrapSize="md"
             app:bootstrapBrand="info"
             app:roundedCorners="true"
@@ -145,6 +153,8 @@
             android:id="@+id/entBirth"
             android:layout_width="270dp"
             android:hint="ex) 19970715"
+            android:maxLines="1"
+            android:singleLine="true"
             android:layout_height="wrap_content"
             app:bootstrapSize="md"
             app:bootstrapBrand="info"
@@ -204,6 +214,8 @@
             />
         <com.beardedhen.androidbootstrap.BootstrapEditText
             android:hint="@string/insertPhone"
+            android:maxLines="1"
+            android:singleLine="true"
             android:id="@+id/entPhone"
             android:layout_width="270dp"
             android:layout_height="wrap_content"
@@ -224,12 +236,16 @@
             android:layout_width="90dp"
             android:layout_height="wrap_content"
             app:bootstrapText="@string/homeAddr"
+            android:enabled="false"
             />
         <com.beardedhen.androidbootstrap.BootstrapEditText
             android:layout_width="180dp"
             android:layout_height="wrap_content"
             android:id="@+id/entAddr"
             android:hint="@string/insertHomeAddr"
+            android:enabled="false"
+            android:maxLines="1"
+            android:singleLine="true"
             app:bootstrapSize="md"
             app:bootstrapBrand="info"
             app:roundedCorners="true"
@@ -265,6 +281,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/entEmail"
             android:hint="@string/insertMail"
+            android:maxLines="1"
+            android:singleLine="true"
             android:inputType="textEmailAddress"
             app:bootstrapSize="md"
             app:bootstrapBrand="info"
@@ -312,6 +330,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/entEmailN"
             android:hint="인증번호를 입력하세요."
+            android:maxLines="1"
+            android:singleLine="true"
             app:bootstrapSize="md"
             app:bootstrapBrand="info"
             app:roundedCorners="true"
