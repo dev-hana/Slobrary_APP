@@ -51,7 +51,7 @@ public class Rpage extends AppCompatActivity {
     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
     private final long FINISH_INTERVAL_TIME = 2000;
     private long backPressedTime = 0;
-
+    Fragment fragment;
     @Override
     public void onBackPressed() {
         Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.lay);
@@ -173,7 +173,10 @@ public class Rpage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 controlDrawer();
-                replaceFragment(MainFrag);
+                fragment = getSupportFragmentManager().findFragmentById(R.id.lay);
+                if(!fragment.equals(MainFrag)) {
+                    replaceFragment(MainFrag);
+                }
             }
         });
 
@@ -181,8 +184,11 @@ public class Rpage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 controlDrawer();
+                fragment = getSupportFragmentManager().findFragmentById(R.id.lay);
+                if(!fragment.equals(mypageFrag)) {
                 if(sessionCheck()){
                     replaceFragment(mypageFrag);
+                }
                 }
             }
         });
@@ -191,7 +197,10 @@ public class Rpage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 controlDrawer();
-                replaceFragment(noticeFrag);
+                fragment = getSupportFragmentManager().findFragmentById(R.id.lay);
+                if(!fragment.equals(noticeFrag)) {
+                    replaceFragment(noticeFrag);
+                }
             }
         });
 
@@ -199,7 +208,10 @@ public class Rpage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 controlDrawer();
-                replaceFragment(infoFrag);
+                fragment = getSupportFragmentManager().findFragmentById(R.id.lay);
+                if(!fragment.equals(infoFrag)) {
+                    replaceFragment(infoFrag);
+                }
             }
         });
 
@@ -207,7 +219,10 @@ public class Rpage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 controlDrawer();
-                replaceFragment(recoFrag);
+                fragment = getSupportFragmentManager().findFragmentById(R.id.lay);
+                if(!fragment.equals(recoFrag)) {
+                    replaceFragment(recoFrag);
+                }
             }
         });
 
@@ -215,9 +230,13 @@ public class Rpage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 controlDrawer();
-                if(sessionCheck()){
-                    replaceFragment(wishFrag);
+                fragment = getSupportFragmentManager().findFragmentById(R.id.lay);
+                if(!fragment.equals(wishFrag)) {
+                    if(sessionCheck()){
+                        replaceFragment(wishFrag);
+                    }
                 }
+
             }
         });
 
@@ -225,7 +244,10 @@ public class Rpage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 controlDrawer();
-                replaceFragment(qnaFrag);
+                fragment = getSupportFragmentManager().findFragmentById(R.id.lay);
+                if(!fragment.equals(qnaFrag)) {
+                    replaceFragment(qnaFrag);
+                }
             }
         });
 
@@ -233,7 +255,10 @@ public class Rpage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 controlDrawer();
-                replaceFragment(sloFrag);
+                fragment = getSupportFragmentManager().findFragmentById(R.id.lay);
+                if(!fragment.equals(sloFrag)) {
+                    replaceFragment(sloFrag);
+                }
             }
         });
     }
