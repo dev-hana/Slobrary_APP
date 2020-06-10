@@ -1,5 +1,13 @@
 package com.example.autobrary.externalConnecter;
 
+import android.os.Handler;
+
+import androidx.fragment.app.Fragment;
+
+import com.example.autobrary.main.Rpage;
+import com.example.autobrary.notice.Notice2Fragment;
+import com.example.autobrary.notice.NoticeFragment;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -25,7 +33,7 @@ public class URLConnector extends Thread{
     public HttpResponse getResult() {
         return result;
     }
-
+    Handler handler = new Handler();
     private HttpResponse result;
     private String URL;
     private HashMap<String, String> param = new HashMap<String, String>();
@@ -57,8 +65,8 @@ public class URLConnector extends Thread{
         HttpResponse reps = null;
         final HttpPost httppost = new HttpPost(URL);
         try {
-            List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(param.size());
 
+            List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(param.size());
             // 파라미터 추가
             Set key = param.keySet();
             for (Iterator it = key.iterator(); it.hasNext(); ) {

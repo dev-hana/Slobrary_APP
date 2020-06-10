@@ -6,8 +6,10 @@ import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,6 +23,7 @@ import androidx.fragment.app.FragmentTransaction;
 import com.example.autobrary.R;
 import com.example.autobrary.auth.LoginActivity;
 import com.example.autobrary.auth.SignUpActivity;
+import com.example.autobrary.common.LoadingFragment;
 import com.example.autobrary.mypage.MypageFragment;
 import com.example.autobrary.notice.NoticeFragment;
 import com.example.autobrary.qna.QnaFragment;
@@ -47,6 +50,7 @@ public class Rpage extends AppCompatActivity {
     QnaFragment qnaFrag;
     InfoFragment infoFrag;
     RecoFragment recoFrag;
+    LoadingFragment loadFrag;
     FragmentManager fragmentManager = getSupportFragmentManager();
     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
     private final long FINISH_INTERVAL_TIME = 2000;
@@ -104,6 +108,7 @@ public class Rpage extends AppCompatActivity {
         qnaFrag = new QnaFragment();
         infoFrag = new InfoFragment();
         recoFrag = new RecoFragment();
+        loadFrag = new LoadingFragment();
         drawer = (DrawerLayout) findViewById(R.id.drawer);
 
         if(SessionManager.getAttribute("login") == null){

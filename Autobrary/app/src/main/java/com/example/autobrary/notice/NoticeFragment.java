@@ -1,16 +1,19 @@
 package com.example.autobrary.notice;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Process;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -120,6 +123,7 @@ public class NoticeFragment extends Fragment {
         adapter.notifyDataSetChanged();
         return rootView;
     }
+
 
     private void initialize() throws InvalidKeySpecException, NoSuchAlgorithmException, IOException {
         if (getNotice()) {
