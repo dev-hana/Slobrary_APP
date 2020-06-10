@@ -111,7 +111,7 @@
                 app:buttonMode="regular"
                 app:showOutline="false"
                 app:roundedCorners="true"
-                android:text="내 서제"
+                android:text="내 서재"
                 />
             <com.beardedhen.androidbootstrap.BootstrapButton
                 android:layout_width="match_parent"

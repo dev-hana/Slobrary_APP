@@ -41,6 +41,8 @@
             android:layout_height="0dp"/>
         <EditText
             android:hint="@string/booksearch"
+            android:maxLines="1"
+            android:singleLine="true"
             android:padding="15dp"
             android:background="@drawable/border_gray"
             android:layout_width="350dp"

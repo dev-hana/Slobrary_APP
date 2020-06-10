@@ -42,6 +42,8 @@
                 android:layout_height="wrap_content"/>
             <com.beardedhen.androidbootstrap.BootstrapEditText
                 android:hint="@string/title"
+                android:maxLines="1"
+                android:singleLine="true"
                 android:id="@+id/book_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -63,6 +65,8 @@
                 android:layout_height="wrap_content"/>
             <com.beardedhen.androidbootstrap.BootstrapEditText
                 android:hint="@string/author"
+                android:maxLines="1"
+                android:singleLine="true"
                 android:id="@+id/book_author"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -84,6 +88,8 @@
                 android:layout_height="wrap_content"/>
             <com.beardedhen.androidbootstrap.BootstrapEditText
                 android:hint="@string/publisher"
+                android:maxLines="1"
+                android:singleLine="true"
                 android:id="@+id/publish"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -35,6 +36,7 @@ public class LoginActivity extends AppCompatActivity {
                 BootstrapEditText pwField = (BootstrapEditText)findViewById(R.id.entPw);
                 info.setLoginId(idField.getText().toString());
                 info.setLoginPw(pwField.getText().toString());
+
                 if(info.getLoginId().getBytes().length <= 0 || info.getLoginPw().getBytes().length <= 0){
                     Toast.makeText(LoginActivity.this, "아이디와 비밀번호 모두 입력해주세요.", Toast.LENGTH_SHORT).show();
                 }else{

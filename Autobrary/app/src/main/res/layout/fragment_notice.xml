@@ -56,6 +56,8 @@
                 android:layout_height="40dp"
                 android:layout_marginRight="5dp"
                 android:hint="@string/booksearch"
+                android:maxLines="1"
+                android:singleLine="true"
                 android:layout_weight="7"
                 app:bootstrapSize="md"
                 app:bootstrapBrand="info"

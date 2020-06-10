@@ -38,6 +38,8 @@
         <com.beardedhen.androidbootstrap.BootstrapEditText
             android:id="@+id/entId"
             android:hint="@string/insertID"
+            android:maxLines="1"
+            android:singleLine="true"
             android:layout_width="220dp"
             android:layout_height="wrap_content"
             android:textStyle="normal"
@@ -57,11 +59,14 @@
         >
         <com.beardedhen.androidbootstrap.AwesomeTextView
             android:text="@string/pwLabel"
+            android:enabled="false"
             android:layout_width="90dp"
             android:layout_height="wrap_content"
             />
         <com.beardedhen.androidbootstrap.BootstrapEditText
             android:hint="@string/insertPW"
+            android:maxLines="1"
+            android:singleLine="true"
             android:id="@+id/entPw"
             android:inputType="textPassword"
             android:layout_width="220dp"
