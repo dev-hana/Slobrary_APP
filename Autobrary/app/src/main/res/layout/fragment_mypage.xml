@@ -239,11 +239,15 @@
                     android:scrollbars="vertical"
                     android:nestedScrollingEnabled="true"
                 />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:orientation="horizontal">
-
                 <TextView
                     android:layout_marginLeft="8dp"
                     android:layout_marginTop="30dp"
@@ -254,31 +258,31 @@
                     android:textColor="#000000"
                     android:textStyle="bold"
                     />
-
-                <ImageView
-                    android:layout_marginLeft="243dp"
-                    android:layout_marginTop="36dp"
-                    android:src="@drawable/arrow_down"
-                    android:layout_width="35dp"
-                    android:layout_height="21dp"
-                    android:clickable="true"
-                    android:id="@+id/arrow_down_interest"
-                    />
-                <View
-                    android:layout_marginTop="10dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="2dp"
-                    android:background="#9C9C9C"/>
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/interestBookList"
-                    android:layout_width="match_parent"
-                    android:layout_height="300dp"
-                    android:layout_gravity="center"
-                    android:scrollbars="vertical"
-                    android:nestedScrollingEnabled="true"
-                    />
-
+                    <ImageView
+                        android:layout_marginLeft="243dp"
+                        android:layout_marginTop="36dp"
+                        android:src="@drawable/arrow_down"
+                        android:layout_width="35dp"
+                        android:layout_height="21dp"
+                        android:clickable="true"
+                        android:id="@+id/arrow_down_interest"
+                        />
             </LinearLayout>
-        </LinearLayout>
+            <View
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#9C9C9C"/>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/interestBookList"
+                        android:layout_width="match_parent"
+                        android:layout_height="300dp"
+                        android:layout_gravity="center"
+                        android:scrollbars="vertical"
+                        android:nestedScrollingEnabled="true"
+                        />
+
+                </LinearLayout>
+
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>
