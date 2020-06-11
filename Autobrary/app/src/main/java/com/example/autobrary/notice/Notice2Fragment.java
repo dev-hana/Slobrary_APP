@@ -68,4 +68,5 @@ public class Notice2Fragment extends Fragment {
         });
         return root;
     }
+
 }

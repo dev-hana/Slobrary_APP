@@ -25,6 +25,7 @@ import com.example.autobrary.auth.LoginActivity;
 import com.example.autobrary.auth.SignUpActivity;
 import com.example.autobrary.common.LoadingFragment;
 import com.example.autobrary.mypage.MypageFragment;
+import com.example.autobrary.notice.Notice2Fragment;
 import com.example.autobrary.notice.NoticeFragment;
 import com.example.autobrary.qna.QnaFragment;
 import com.example.autobrary.reco.RecoFragment;
@@ -43,6 +44,7 @@ public class Rpage extends AppCompatActivity {
     ImageView open;
 
     NoticeFragment noticeFrag;
+    Notice2Fragment notice2Frag;
     HomeFragment MainFrag;
     MypageFragment mypageFrag;
     WishFragment wishFrag;
@@ -101,6 +103,7 @@ public class Rpage extends AppCompatActivity {
 
         lay = findViewById(R.id.lay);
         noticeFrag = new NoticeFragment();
+        notice2Frag = new Notice2Fragment();
         MainFrag = new HomeFragment();
         mypageFrag = new MypageFragment();
         wishFrag = new WishFragment();
@@ -203,7 +206,9 @@ public class Rpage extends AppCompatActivity {
             public void onClick(View v) {
                 controlDrawer();
                 fragment = getSupportFragmentManager().findFragmentById(R.id.lay);
-                if(!fragment.equals(noticeFrag)) {
+                if(fragment instanceof Notice2Fragment) {
+                    onBackPressed();
+                }else if(!fragment.equals(noticeFrag)) {
                     replaceFragment(noticeFrag);
                 }
             }
