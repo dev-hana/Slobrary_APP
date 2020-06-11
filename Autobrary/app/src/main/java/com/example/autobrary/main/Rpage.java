@@ -23,7 +23,7 @@ import androidx.fragment.app.FragmentTransaction;
 import com.example.autobrary.R;
 import com.example.autobrary.auth.LoginActivity;
 import com.example.autobrary.auth.SignUpActivity;
-import com.example.autobrary.common.LoadingFragment;
+//import com.example.autobrary.common.LoadingFragment;
 import com.example.autobrary.mypage.MypageFragment;
 import com.example.autobrary.notice.Notice2Fragment;
 import com.example.autobrary.notice.NoticeFragment;
@@ -52,7 +52,7 @@ public class Rpage extends AppCompatActivity {
     QnaFragment qnaFrag;
     InfoFragment infoFrag;
     RecoFragment recoFrag;
-    LoadingFragment loadFrag;
+    //LoadingFragment loadFrag;
     FragmentManager fragmentManager = getSupportFragmentManager();
     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
     private final long FINISH_INTERVAL_TIME = 2000;
@@ -111,7 +111,7 @@ public class Rpage extends AppCompatActivity {
         qnaFrag = new QnaFragment();
         infoFrag = new InfoFragment();
         recoFrag = new RecoFragment();
-        loadFrag = new LoadingFragment();
+        //loadFrag = new LoadingFragment();
         drawer = (DrawerLayout) findViewById(R.id.drawer);
 
         if(SessionManager.getAttribute("login") == null){

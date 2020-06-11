@@ -32,8 +32,10 @@ import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.util.Vector;
 
+import pl.droidsonroids.gif.GifTextView;
 
-public class NoticeFragment extends Fragment {
+
+public class NoticeFragment extends Fragment{
     private NoticeAdapter adapter;
     private Rpage activity;
     private ListView listView;
@@ -44,6 +46,7 @@ public class NoticeFragment extends Fragment {
     private Vector<NoticeInfo> getNotice;
     private Vector<NoticeInfo> originNotice;
     private Context context;
+    private ViewGroup rootView;
     private Notice notice = new Notice();
 
     public static NoticeFragment newInstance() {
@@ -65,7 +68,7 @@ public class NoticeFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_notice, container, false);
         context = container.getContext();
-
+      //  new UiControl().start();
         adapter = new NoticeAdapter();
         listView = (ListView) rootView.findViewById(R.id.noticeList);
         searchBt = (ImageView) rootView.findViewById(R.id.searchBt);
@@ -196,5 +199,13 @@ public class NoticeFragment extends Fragment {
             getNotice = originNotice;
         }
         return result;
+    }
+    class UiControl extends Thread{
+        @Override
+        public void run() {
+            GifTextView gifTextView = rootView.findViewById(R.id.gif_image);
+            gifTextView.setVisibility(View.VISIBLE);
+            super.run();
+        }
     }
 }

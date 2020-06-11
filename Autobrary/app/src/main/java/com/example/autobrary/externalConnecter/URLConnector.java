@@ -1,8 +1,12 @@
 package com.example.autobrary.externalConnecter;
 
+import android.content.Context;
 import android.os.Handler;
+import android.os.Looper;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 
 import com.example.autobrary.main.Rpage;
 import com.example.autobrary.notice.Notice2Fragment;
@@ -64,6 +68,13 @@ public class URLConnector extends Thread{
         final HttpClient httpclient = new DefaultHttpClient();
         HttpResponse reps = null;
         final HttpPost httppost = new HttpPost(URL);
+
+        new Handler(Looper.getMainLooper()).post(new Runnable() {
+            public void run() {
+
+            }
+        });
+
         try {
 
             List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(param.size());
