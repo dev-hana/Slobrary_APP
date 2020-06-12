@@ -63,7 +63,7 @@ public class AddressSearchActivity extends AppCompatActivity {
         webView.loadUrl("https://slobrary.com/app/getAddress.php");
     }
 
-    public class AndroidBridge {
+    private class AndroidBridge {
         @JavascriptInterface
         public void setAddress(final String arg1, final String arg2, final String arg3) {
             handler.post(new Runnable() {
