@@ -149,6 +149,7 @@
             />
 
         <View
+            android:id="@+id/loginSplitBar"
             android:layout_width="20dp"
             android:layout_height="1dp"
             android:layout_marginTop="23dp"
@@ -163,6 +164,7 @@
             android:id="@+id/signUp"
             />
         <Button
+            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/logout"

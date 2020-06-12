@@ -38,7 +38,7 @@ public class Rpage extends AppCompatActivity {
     TextView signIn, signUp, name, title, logout;
     Button home, myPage, notice, info, reco, wish, qna, slo;
     RelativeLayout lay;
-    View layout;
+    View layout, loginSplitBar;
     LayoutInflater inflater;
 
     ImageView open;
@@ -100,6 +100,7 @@ public class Rpage extends AppCompatActivity {
         signIn = findViewById(R.id.signIn);
         signUp = findViewById(R.id.signUp);
         logout = findViewById(R.id.logout);
+        loginSplitBar = findViewById(R.id.loginSplitBar);
 
         lay = findViewById(R.id.lay);
         noticeFrag = new NoticeFragment();
@@ -119,10 +120,12 @@ public class Rpage extends AppCompatActivity {
             signIn.setVisibility(View.VISIBLE);
             signUp.setVisibility(View.VISIBLE);
             logout.setVisibility(View.GONE);
+            loginSplitBar.setVisibility(View.VISIBLE);
         }else{
             signIn.setVisibility(View.GONE);
             signUp.setVisibility(View.GONE);
             logout.setVisibility(View.VISIBLE);
+            loginSplitBar.setVisibility(View.GONE);
             name.setText(SessionManager.getAttribute("login") + "님 안녕하세요.");
         }
 
