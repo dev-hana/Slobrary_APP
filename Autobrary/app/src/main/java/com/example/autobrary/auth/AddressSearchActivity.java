@@ -1,15 +1,19 @@
 package com.example.autobrary.auth;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.PersistableBundle;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.View;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -24,16 +28,29 @@ public class AddressSearchActivity extends AppCompatActivity {
     private WebView webView;
     private TextView result;
     private Handler handler;
-
+    private Button conform;
+    private EditText detailAddr;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_address_search);
         result = (TextView) findViewById(R.id.result);
+        detailAddr = (EditText) findViewById(R.id.detailAddr);
         // WebView 초기화
         init_webView();
         // 핸들러를 통한 JavaScript 이벤트 반응
         handler = new Handler();
+        conform = findViewById(R.id.conform);
+        conform.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.putExtra("result", result.getText().toString() + detailAddr.getText().toString());
+                setResult(RESULT_OK, intent);
+                finish();
+            }
+        });
+
     }
 
     @JavascriptInterface
@@ -53,7 +70,6 @@ public class AddressSearchActivity extends AppCompatActivity {
                 @Override
                 public void run() {
                     result.setText(String.format("(%s) %s %s", arg1, arg2, arg3));
-                    init_webView();
                 }
             });
         }

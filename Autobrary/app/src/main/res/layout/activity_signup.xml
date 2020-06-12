@@ -243,13 +243,14 @@
             android:layout_height="wrap_content"
             android:id="@+id/entAddr"
             android:hint="@string/insertHomeAddr"
-            android:enabled="false"
+            android:editable="false"
             android:maxLines="1"
             android:singleLine="true"
             app:bootstrapSize="md"
             app:bootstrapBrand="info"
             app:roundedCorners="true"
             android:textColor="@color/colorBlack"
+            android:clickable="true"
             />
         <com.beardedhen.androidbootstrap.BootstrapButton
             android:theme="@style/customButtonFontStyle"

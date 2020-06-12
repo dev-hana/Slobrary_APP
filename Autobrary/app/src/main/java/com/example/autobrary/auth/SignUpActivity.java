@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
@@ -35,11 +36,23 @@ public class SignUpActivity extends AppCompatActivity {
     private boolean validateEmailFlag = false;
     private String randResult;
     private String gender = "M";
+    private BootstrapEditText addr;
+    private int REQUEST_TEST = 1;
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_TEST) {
+            if (resultCode == RESULT_OK) {
+                addr = (BootstrapEditText) findViewById(R.id.entAddr);
+                addr.setText(data.getStringExtra("result"));
+            }
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
+        addr = (BootstrapEditText) findViewById(R.id.entAddr);
         BootstrapButton signUpBt = (BootstrapButton) findViewById(R.id.signUp);
         final BootstrapButton emailSend = (BootstrapButton) findViewById(R.id.emailSend);
         final BootstrapButton emailChButton = (BootstrapButton) findViewById(R.id.emailCheck);
@@ -49,9 +62,7 @@ public class SignUpActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent addressAct = new Intent(getApplicationContext(), AddressSearchActivity.class);
-                addressAct.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                addressAct.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(addressAct);
+                startActivityForResult(addressAct, REQUEST_TEST);
             }
         });
 
@@ -99,6 +110,15 @@ public class SignUpActivity extends AppCompatActivity {
                     e.printStackTrace();
                 } catch (IOException e) {
                     e.printStackTrace();
+                }
+            }
+        });
+
+        addr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!(addr.getText().toString().getBytes().length <= 0)){
+                    Toast.makeText(SignUpActivity.this, addr.getText().toString(), Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -185,7 +205,6 @@ public class SignUpActivity extends AppCompatActivity {
                 BootstrapEditText name = (BootstrapEditText) findViewById(R.id.entName);
                 BootstrapEditText birth = (BootstrapEditText) findViewById(R.id.entBirth);
                 BootstrapEditText phone = (BootstrapEditText) findViewById(R.id.entPhone);
-                BootstrapEditText addr= (BootstrapEditText) findViewById(R.id.entAddr);
                 BootstrapEditText email= (BootstrapEditText) findViewById(R.id.entEmail);
 
                 infoOfUser.setMem_birth(birth.getText().toString());
