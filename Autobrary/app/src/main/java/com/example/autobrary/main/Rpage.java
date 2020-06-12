@@ -312,6 +312,7 @@ public class Rpage extends AppCompatActivity {
             result = true;
         }else{
             Toast.makeText(getApplicationContext(), "로그인 세션이 만료되었습니다. 다시 로그인 해주세요.", Toast.LENGTH_LONG).show();
+            replaceFragment(MainFrag);
         }
         return result;
     }
