@@ -19,7 +19,7 @@ import com.example.autobrary.R;
 
 import cz.msebera.android.httpclient.util.EncodingUtils;
 
-public class AdressSearchActivity extends AppCompatActivity {
+public class AddressSearchActivity extends AppCompatActivity {
 
     private WebView webView;
     private TextView result;

@@ -48,7 +48,7 @@ public class SignUpActivity extends AppCompatActivity {
         searchAddress.setOnClickListener(new Button.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent addressAct = new Intent(getApplicationContext(), AdressSearchActivity.class);
+                Intent addressAct = new Intent(getApplicationContext(), AddressSearchActivity.class);
                 addressAct.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 addressAct.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(addressAct);

@@ -31,7 +31,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".auth.AdressSearchActivity"
+            android:name=".auth.AddressSearchActivity"
             android:windowSoftInputMode="stateAlwaysHidden">
 
         </activity>
