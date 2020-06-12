@@ -28,24 +28,44 @@
             android:layout_height="2dp"
             android:layout_centerInParent="true"
             android:background="#9C9C9C"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="hana "
+                android:textSize="25dp"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"
+                />
+            <TextView
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="님을 위한 추천도서!"
+                android:textSize="25dp"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                />
+        </LinearLayout>
         <TextView
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="30dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="hana 님을 위한 추천도서!"
-            android:textSize="25dp"
-            android:textColor="#000000"
-            android:textStyle="bold"
+            android:text="안녕하세요"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/returnBookList"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_gravity="center"
+            android:scrollbars="vertical"
+            android:nestedScrollingEnabled="true"
             />
-        <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content" >
-            <ListView
-                android:id="@+id/listview1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
-        </ScrollView>
     </LinearLayout>
 </RelativeLayout>
