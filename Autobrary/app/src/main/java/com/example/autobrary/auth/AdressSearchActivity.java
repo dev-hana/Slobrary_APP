@@ -1,12 +1,16 @@
 package com.example.autobrary.auth;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.PersistableBundle;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.webkit.JavascriptInterface;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,36 +21,41 @@ import cz.msebera.android.httpclient.util.EncodingUtils;
 
 public class AdressSearchActivity extends AppCompatActivity {
 
-    private WebView mWebView;
-
-    private String myUrl = "http://www.juso.go.kr/addrlink/addrMobileLinkUrl.do";
+    private WebView webView;
+    private TextView result;
+    private Handler handler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_address_search);
-        WebView mWebView;
-        mWebView = (WebView) findViewById(R.id.webView);
-        mWebView.getSettings().setJavaScriptEnabled(true);//자
-        mWebView.setWebChromeClient(new WebChromeClient());
-        mWebView.setWebViewClient(new WebViewClientClass());
-        String postData = "confmKey=devU01TX0FVVEgyMDIwMDYwODE4MzYyNTEwOTg0NTQ=&resultType=4&returnUrl=1";
-        mWebView.postUrl( myUrl , EncodingUtils.getBytes(postData, "BASE64"));
+        result = (TextView) findViewById(R.id.result);
+        // WebView 초기화
+        init_webView();
+        // 핸들러를 통한 JavaScript 이벤트 반응
+        handler = new Handler();
     }
-    private class WebViewClientClass extends WebViewClient {//페이지 이동
-        @Override
-        public boolean shouldOverrideUrlLoading(WebView view, String url) {
-            Log.d("check URL",url);
-            view.loadUrl(url);
-            return true;
-        }
+
+    @JavascriptInterface
+    public void init_webView() {
+        webView = (WebView) findViewById(R.id.webView);
+        webView.getSettings().setJavaScriptEnabled(true);
+        webView.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
+        webView.addJavascriptInterface(new AndroidBridge(), "slo");
+        webView.setWebChromeClient(new WebChromeClient());
+        webView.loadUrl("https://slobrary.com/app/getAddress.php");
     }
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {//뒤로가기 버튼 이벤트
-        if ((keyCode == KeyEvent.KEYCODE_BACK) && mWebView.canGoBack()) {//웹뷰에서 뒤로가기 버튼을 누르면 뒤로가짐
-            mWebView.goBack();
-            return true;
+
+    public class AndroidBridge {
+        @JavascriptInterface
+        public void setAddress(final String arg1, final String arg2, final String arg3) {
+            handler.post(new Runnable() {
+                @Override
+                public void run() {
+                    result.setText(String.format("(%s) %s %s", arg1, arg2, arg3));
+                    init_webView();
+                }
+            });
         }
-        return super.onKeyDown(keyCode, event);
     }
 }
