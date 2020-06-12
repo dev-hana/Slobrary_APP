@@ -24,6 +24,7 @@ import com.example.autobrary.R;
 import com.example.autobrary.auth.LoginActivity;
 import com.example.autobrary.auth.SignUpActivity;
 //import com.example.autobrary.common.LoadingFragment;
+import com.example.autobrary.externalConnecter.BucketConnector;
 import com.example.autobrary.mypage.MypageFragment;
 import com.example.autobrary.notice.Notice2Fragment;
 import com.example.autobrary.notice.NoticeFragment;
@@ -35,10 +36,11 @@ import com.google.android.material.snackbar.Snackbar;
 
 public class Rpage extends AppCompatActivity {
     DrawerLayout drawer;
-    TextView signIn, signUp, name, title, logout;
+    TextView signIn, signUp, name, title, logout, greetWord;
     Button home, myPage, notice, info, reco, wish, qna, slo;
     RelativeLayout lay;
     View layout, loginSplitBar;
+    ImageView profileImg;
     LayoutInflater inflater;
 
     ImageView open;
@@ -100,6 +102,8 @@ public class Rpage extends AppCompatActivity {
         signIn = findViewById(R.id.signIn);
         signUp = findViewById(R.id.signUp);
         logout = findViewById(R.id.logout);
+        profileImg = findViewById(R.id.userPic);
+        greetWord = findViewById(R.id.greetWord);
         loginSplitBar = findViewById(R.id.loginSplitBar);
 
         lay = findViewById(R.id.lay);
@@ -127,11 +131,26 @@ public class Rpage extends AppCompatActivity {
             signUp.setVisibility(View.VISIBLE);
             logout.setVisibility(View.GONE);
             loginSplitBar.setVisibility(View.VISIBLE);
+            profileImg.setVisibility(View.GONE);
+            greetWord.setVisibility(View.VISIBLE);
         }else{
             signIn.setVisibility(View.GONE);
             signUp.setVisibility(View.GONE);
             logout.setVisibility(View.VISIBLE);
             loginSplitBar.setVisibility(View.GONE);
+            profileImg.setVisibility(View.VISIBLE);
+            greetWord.setVisibility(View.GONE);
+
+            BucketConnector bucket = new BucketConnector();
+            bucket.setObjectName(SessionManager.getAttribute("profile_img"));
+            bucket.start();
+            try {
+                bucket.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            profileImg.setImageBitmap(bucket.getBitmap());
+
             name.setText(SessionManager.getAttribute("login") + "님 안녕하세요.");
         }
 
@@ -154,6 +173,8 @@ public class Rpage extends AppCompatActivity {
                 signUp.setVisibility(View.VISIBLE);
                 logout.setVisibility(View.GONE);
                 loginSplitBar.setVisibility(View.VISIBLE);
+                profileImg.setVisibility(View.GONE);
+                greetWord.setVisibility(View.VISIBLE);
                 fragment = getSupportFragmentManager().findFragmentById(R.id.lay);
                 if(fragment instanceof HomeFragment) {
                     fragmentManager.beginTransaction().detach(MainFrag).commitNow();

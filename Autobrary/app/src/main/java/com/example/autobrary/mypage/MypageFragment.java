@@ -23,11 +23,9 @@ import com.example.autobrary.mypage.adapter.LoanListViewAdapter;
 import com.example.autobrary.mypage.adapter.ReturnListViewAdapter;
 import com.example.autobrary.mypage.getdata.GetLoanBook;
 import com.example.autobrary.mypage.getdata.GetReturnBook;
-import com.example.autobrary.mypage.getdata.Mypage;
-import com.example.autobrary.mypage.info.BookInfo;
 import com.example.autobrary.mypage.info.LoanBookInfo;
-import com.example.autobrary.mypage.info.MypageInfo;
 import com.example.autobrary.mypage.info.ReturnBookInfo;
+import com.example.autobrary.session.SessionManager;
 
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
@@ -85,13 +83,12 @@ public class MypageFragment extends Fragment {
         email = root.findViewById(R.id.email);
         profileImg = root.findViewById(R.id.profileImg);
         try {
-            MypageInfo info = new Mypage().execute();
             BucketConnector bucket = new BucketConnector();
-            bucket.setObjectName(info.getProfileImg());
+            bucket.setObjectName(SessionManager.getAttribute("profile_img"));
             bucket.start();
             bucket.join();
-            name.setText(info.getName());
-            email.setText(info.getEmail());
+            name.setText(SessionManager.getAttribute("name"));
+            email.setText(SessionManager.getAttribute("email"));
             profileImg.setImageBitmap(bucket.getBitmap());
             initialize();
         } catch (IOException e) {

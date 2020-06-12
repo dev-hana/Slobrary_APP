@@ -28,7 +28,17 @@
             android:textAlignment="center"
             android:textColor="@color/colorWhite"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:id="@+id/greetWord"
+            />
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/userPic"
+            android:visibility="gone"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            />
         <TextView
             android:id="@+id/mName"
             android:text="SL:O입니다!"

@@ -1,8 +1,11 @@
 package com.example.autobrary.auth.getdata;
 
+import android.util.Log;
+
 import com.example.autobrary.auth.info.LoginInfo;
 import com.example.autobrary.externalConnecter.URLConnector;
 import com.example.autobrary.encryption.PBKDF2_Encryption;
+import com.example.autobrary.session.SessionManager;
 
 import org.json.JSONObject;
 
@@ -40,6 +43,20 @@ public class Login  {
             result = task.getData();
             if (PBKDF2_Encryption.validatePassword(info.getLoginPw(), new JSONObject(result).getString("PASSWD"))) {
                 validateResult = true;
+                param.clear();
+                param.put("mem_id", info.getLoginId());
+                task = new URLConnector("Member_info.php", param);
+                task.start();
+                task.join();
+                result = task.getData();
+                JSONObject jsonResult = new JSONObject(result);
+                if(jsonResult.getString("success").equals("true")) {
+                   SessionManager.setAttribute("name", jsonResult.getString("name"));
+                   SessionManager.setAttribute("email", jsonResult.getString("email"));
+                   SessionManager.setAttribute("profile_img", jsonResult.getString("profile_img"));
+                }else{
+                    Log.e("Mypage Error", "Mypage fetch failed");
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();
