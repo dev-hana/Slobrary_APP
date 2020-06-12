@@ -60,7 +60,7 @@ public class AddressSearchActivity extends AppCompatActivity {
         webView.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
         webView.addJavascriptInterface(new AndroidBridge(), "slo");
         webView.setWebChromeClient(new WebChromeClient());
-        webView.loadUrl("https://slobrary.com/app/getAddress.php");
+        webView.loadUrl("https://slobrary.com/app/getAddress.html");
     }
 
     private class AndroidBridge {
