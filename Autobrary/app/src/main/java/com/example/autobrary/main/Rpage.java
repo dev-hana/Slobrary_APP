@@ -52,7 +52,7 @@ public class Rpage extends AppCompatActivity {
     QnaFragment qnaFrag;
     InfoFragment infoFrag;
     RecoFragment recoFrag;
-    //LoadingFragment loadFrag;
+
     FragmentManager fragmentManager = getSupportFragmentManager();
     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
     private final long FINISH_INTERVAL_TIME = 2000;
@@ -115,6 +115,12 @@ public class Rpage extends AppCompatActivity {
         //loadFrag = new LoadingFragment();
         drawer = (DrawerLayout) findViewById(R.id.drawer);
 
+        //************* 기본 레이아웃 설정 *****************//
+        lay.removeAllViews(); //보이는 레이아웃 초기화
+        getSupportFragmentManager().beginTransaction().replace(R.id.lay, MainFrag).commit(); //기본화면 설정
+        ///////////////////////////////////////////////////////
+
+
         if(SessionManager.getAttribute("login") == null){
             name.setText(R.string.appPrettyName);
             signIn.setVisibility(View.VISIBLE);
@@ -128,11 +134,6 @@ public class Rpage extends AppCompatActivity {
             loginSplitBar.setVisibility(View.GONE);
             name.setText(SessionManager.getAttribute("login") + "님 안녕하세요.");
         }
-
-        //************* 기본 레이아웃 설정 *****************//
-        lay.removeAllViews(); //보이는 레이아웃 초기화
-        getSupportFragmentManager().beginTransaction().replace(R.id.lay, MainFrag).commit(); //기본화면 설정
-        ///////////////////////////////////////////////////////
 
         open.setOnClickListener(new Button.OnClickListener() {
             @Override
@@ -152,7 +153,14 @@ public class Rpage extends AppCompatActivity {
                 signIn.setVisibility(View.VISIBLE);
                 signUp.setVisibility(View.VISIBLE);
                 logout.setVisibility(View.GONE);
-                replaceFragment(MainFrag);
+                loginSplitBar.setVisibility(View.VISIBLE);
+                fragment = getSupportFragmentManager().findFragmentById(R.id.lay);
+                if(fragment instanceof HomeFragment) {
+                    fragmentManager.beginTransaction().detach(MainFrag).commitNow();
+                    fragmentManager.beginTransaction().attach(MainFrag).commitNow();
+                }else {
+                    replaceFragment(MainFrag);
+                }
                 Snackbar.make(lay, "로그아웃 되었습니다.", Snackbar.LENGTH_LONG).show();
             }
         });
