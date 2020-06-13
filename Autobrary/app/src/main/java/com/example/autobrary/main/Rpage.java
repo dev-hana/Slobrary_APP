@@ -2,7 +2,9 @@ package com.example.autobrary.main;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,14 +38,14 @@ import com.google.android.material.snackbar.Snackbar;
 
 public class Rpage extends AppCompatActivity {
     DrawerLayout drawer;
-    TextView signIn, signUp, name, title, logout, greetWord;
+    TextView signIn, signUp, name, title, logout, greetWord, titleName;
     Button home, myPage, notice, info, reco, wish, qna, slo;
     RelativeLayout lay;
     View layout, loginSplitBar;
-    ImageView profileImg;
+    ImageView profileImg, open;
     LayoutInflater inflater;
-
-    ImageView open;
+    LinearLayout topBar;
+    ImageView openDraw;
 
     NoticeFragment noticeFrag;
     Notice2Fragment notice2Frag;
@@ -105,6 +107,9 @@ public class Rpage extends AppCompatActivity {
         profileImg = findViewById(R.id.userPic);
         greetWord = findViewById(R.id.greetWord);
         loginSplitBar = findViewById(R.id.loginSplitBar);
+        openDraw = findViewById(R.id.open);
+        titleName = findViewById(R.id.title);
+        topBar = findViewById(R.id.topBarRpage);
 
         lay = findViewById(R.id.lay);
         noticeFrag = new NoticeFragment();
@@ -122,7 +127,10 @@ public class Rpage extends AppCompatActivity {
         //************* 기본 레이아웃 설정 *****************//
         lay.removeAllViews(); //보이는 레이아웃 초기화
         getSupportFragmentManager().beginTransaction().replace(R.id.lay, MainFrag).commit(); //기본화면 설정
+        //메인화면 디자인 수정
+        changeMainPageDesign(0);
         ///////////////////////////////////////////////////////
+
 
 
         if(SessionManager.getAttribute("login") == null){
@@ -181,6 +189,7 @@ public class Rpage extends AppCompatActivity {
                     fragmentManager.beginTransaction().attach(MainFrag).commitNow();
                 }else {
                     replaceFragment(MainFrag);
+                    changeMainPageDesign(0);
                 }
                 Snackbar.make(lay, "로그아웃 되었습니다.", Snackbar.LENGTH_LONG).show();
             }
@@ -206,6 +215,7 @@ public class Rpage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 replaceFragment(MainFrag);
+                changeMainPageDesign(0);
             }
         });
 
@@ -216,6 +226,7 @@ public class Rpage extends AppCompatActivity {
                 fragment = getSupportFragmentManager().findFragmentById(R.id.lay);
                 if(!fragment.equals(MainFrag)) {
                     replaceFragment(MainFrag);
+                    changeMainPageDesign(0);
                 }
             }
         });
@@ -228,6 +239,7 @@ public class Rpage extends AppCompatActivity {
                 if(!fragment.equals(mypageFrag)) {
                 if(sessionCheck()){
                     replaceFragment(mypageFrag);
+                    changeMainPageDesign(1);
                 }
                 }
             }
@@ -242,6 +254,7 @@ public class Rpage extends AppCompatActivity {
                     onBackPressed();
                 }else if(!fragment.equals(noticeFrag)) {
                     replaceFragment(noticeFrag);
+                    changeMainPageDesign(1);
                 }
             }
         });
@@ -253,6 +266,7 @@ public class Rpage extends AppCompatActivity {
                 fragment = getSupportFragmentManager().findFragmentById(R.id.lay);
                 if(!fragment.equals(infoFrag)) {
                     replaceFragment(infoFrag);
+                    changeMainPageDesign(1);
                 }
             }
         });
@@ -264,6 +278,7 @@ public class Rpage extends AppCompatActivity {
                 fragment = getSupportFragmentManager().findFragmentById(R.id.lay);
                 if(!fragment.equals(recoFrag)) {
                     replaceFragment(recoFrag);
+                    changeMainPageDesign(1);
                 }
             }
         });
@@ -276,6 +291,7 @@ public class Rpage extends AppCompatActivity {
                 if(!fragment.equals(wishFrag)) {
                     if(sessionCheck()){
                         replaceFragment(wishFrag);
+                        changeMainPageDesign(1);
                     }
                 }
 
@@ -289,6 +305,7 @@ public class Rpage extends AppCompatActivity {
                 fragment = getSupportFragmentManager().findFragmentById(R.id.lay);
                 if(!fragment.equals(qnaFrag)) {
                     replaceFragment(qnaFrag);
+                    changeMainPageDesign(1);
                 }
             }
         });
@@ -300,6 +317,7 @@ public class Rpage extends AppCompatActivity {
                 fragment = getSupportFragmentManager().findFragmentById(R.id.lay);
                 if(!fragment.equals(sloFrag)) {
                     replaceFragment(sloFrag);
+                    changeMainPageDesign(1);
                 }
             }
         });
@@ -323,6 +341,18 @@ public class Rpage extends AppCompatActivity {
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.replace(R.id.lay, fragment);
         fragmentTransaction.commit();
+    }
+
+    private void changeMainPageDesign(int point){
+        if(point == 0){
+            openDraw.setImageResource(R.drawable.menu_bt);
+            titleName.setVisibility(View.GONE);
+            topBar.setBackgroundColor(0);
+        }else{
+            openDraw.setImageResource(R.drawable.menu_bt_white);
+            titleName.setVisibility(View.VISIBLE);
+            topBar.setBackgroundResource(R.color.colorAccent);
+        }
     }
     public void replaceFragment(Fragment fragment, Bundle bundle) {
         fragmentTransaction = fragmentManager.beginTransaction();

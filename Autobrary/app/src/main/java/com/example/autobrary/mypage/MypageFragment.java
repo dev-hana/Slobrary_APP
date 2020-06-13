@@ -32,6 +32,8 @@ import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.util.Vector;
 
+import afu.org.checkerframework.checker.oigj.qual.O;
+
 
 public class MypageFragment extends Fragment {
 
@@ -44,7 +46,8 @@ public class MypageFragment extends Fragment {
     private GetReturnBook returnBook = new GetReturnBook();
     private RecyclerView loanlistView;
     private RecyclerView returnlistView;
-
+    private RecyclerView interrestListView;
+    private ImageView loanArrow, returnArrow, foryouArrow;
     TextView name, email;
     ImageView profileImg;
     Rpage activity;
@@ -70,6 +73,15 @@ public class MypageFragment extends Fragment {
         context = container.getContext();
         loanlistView = (RecyclerView) root.findViewById(R.id.loanList);
         returnlistView = (RecyclerView) root.findViewById(R.id.returnBookList);
+        interrestListView = (RecyclerView) root.findViewById(R.id.interestBookList);
+
+        returnlistView.setVisibility(View.GONE);
+        loanlistView.setVisibility(View.GONE);
+        interrestListView.setVisibility(View.GONE);
+
+        loanArrow = (ImageView) root.findViewById(R.id.arrow_down_loan);
+        returnArrow = (ImageView) root.findViewById(R.id.arrow_down_return);
+        foryouArrow = (ImageView) root.findViewById(R.id.arrow_down_interest);
         view.setNestedScrollingEnabled(true);
         LinearLayoutManager loanLayoutManager = new LinearLayoutManager(context);
         LinearLayoutManager returnLayoutManager = new LinearLayoutManager(context);
@@ -82,6 +94,46 @@ public class MypageFragment extends Fragment {
         name = root.findViewById(R.id.name);
         email = root.findViewById(R.id.email);
         profileImg = root.findViewById(R.id.profileImg);
+
+        loanArrow.setOnClickListener(new View.OnClickListener() { //대출 화살표 리스너
+            @Override
+            public void onClick(View v) {
+                if(loanArrow.getRotation() == 0) {
+                    loanArrow.setRotation(180);
+                   loanlistView.setVisibility(View.GONE);
+                }else{
+                    loanArrow.setRotation(0);
+                    loanlistView.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
+        returnArrow.setOnClickListener(new View.OnClickListener() { // 반납 화살표 리스너
+            @Override
+            public void onClick(View v) {
+                if(returnArrow.getRotation() == 0){
+                    returnArrow.setRotation(180);
+                    returnlistView.setVisibility(View.GONE);
+                }else{
+                    returnArrow.setRotation(0);
+                    returnlistView.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
+        foryouArrow.setOnClickListener(new View.OnClickListener() { //추천 화살표 리스너
+            @Override
+            public void onClick(View v) {
+                if(foryouArrow.getRotation() == 0){
+                    foryouArrow.setRotation(180);
+                    interrestListView.setVisibility(View.GONE);
+                }else{
+                    foryouArrow.setRotation(0);
+                    interrestListView.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
         try {
             BucketConnector bucket = new BucketConnector();
             bucket.setObjectName(SessionManager.getAttribute("profile_img"));

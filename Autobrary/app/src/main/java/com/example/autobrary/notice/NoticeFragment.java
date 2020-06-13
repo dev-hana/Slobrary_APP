@@ -32,7 +32,6 @@ import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.util.Vector;
 
-import pl.droidsonroids.gif.GifTextView;
 
 
 public class NoticeFragment extends Fragment{
@@ -199,13 +198,5 @@ public class NoticeFragment extends Fragment{
             getNotice = originNotice;
         }
         return result;
-    }
-    class UiControl extends Thread{
-        @Override
-        public void run() {
-            GifTextView gifTextView = rootView.findViewById(R.id.gif_image);
-            gifTextView.setVisibility(View.VISIBLE);
-            super.run();
-        }
     }
 }
