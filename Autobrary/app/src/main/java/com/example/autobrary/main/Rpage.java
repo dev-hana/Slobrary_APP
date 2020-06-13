@@ -2,6 +2,7 @@ package com.example.autobrary.main;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -26,6 +27,8 @@ import com.example.autobrary.R;
 import com.example.autobrary.auth.LoginActivity;
 import com.example.autobrary.auth.SignUpActivity;
 //import com.example.autobrary.common.LoadingFragment;
+import com.example.autobrary.auth.getdata.Login;
+import com.example.autobrary.auth.info.LoginInfo;
 import com.example.autobrary.externalConnecter.BucketConnector;
 import com.example.autobrary.mypage.MypageFragment;
 import com.example.autobrary.notice.Notice2Fragment;
@@ -35,6 +38,10 @@ import com.example.autobrary.reco.RecoFragment;
 import com.example.autobrary.session.SessionManager;
 import com.example.autobrary.wish.WishFragment;
 import com.google.android.material.snackbar.Snackbar;
+
+import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 
 public class Rpage extends AppCompatActivity {
     DrawerLayout drawer;
@@ -90,6 +97,10 @@ public class Rpage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rpage);
+
+        SharedPreferences pref = getSharedPreferences("slo",0);
+        SharedPreferences.Editor editor = pref.edit();
+
         open = findViewById(R.id.open);
         name = findViewById(R.id.mName);
         home = findViewById(R.id.mHome);
@@ -131,7 +142,18 @@ public class Rpage extends AppCompatActivity {
         changeMainPageDesign(0);
         ///////////////////////////////////////////////////////
 
-
+        if(!pref.getString("login", "").equals("")){
+            SessionManager.setAttribute("login", pref.getString("login",""));
+            try {
+                new Login(SessionManager.getAttribute("login")).autoLogin();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (InvalidKeySpecException e) {
+                e.printStackTrace();
+            } catch (NoSuchAlgorithmException e) {
+                e.printStackTrace();
+            }
+        }
 
         if(SessionManager.getAttribute("login") == null){
             name.setText(R.string.appPrettyName);
@@ -183,6 +205,8 @@ public class Rpage extends AppCompatActivity {
                 loginSplitBar.setVisibility(View.VISIBLE);
                 profileImg.setVisibility(View.GONE);
                 greetWord.setVisibility(View.VISIBLE);
+                editor.putString("login", "");
+                editor.commit();
                 fragment = getSupportFragmentManager().findFragmentById(R.id.lay);
                 if(fragment instanceof HomeFragment) {
                     fragmentManager.beginTransaction().detach(MainFrag).commitNow();

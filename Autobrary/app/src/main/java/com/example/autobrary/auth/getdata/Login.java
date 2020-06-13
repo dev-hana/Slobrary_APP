@@ -23,6 +23,10 @@ public class Login  {
     public Login(LoginInfo info) {
         this.info = info;
     }
+    public Login(String info){
+        this.info = new LoginInfo();
+        this.info.setLoginId(info);
+    }
 
     public boolean execute() throws IOException, InvalidKeySpecException, NoSuchAlgorithmException {
 
@@ -68,5 +72,41 @@ public class Login  {
             }
         }
        return validateResult;
+    }
+    public boolean autoLogin() throws IOException, InvalidKeySpecException, NoSuchAlgorithmException {
+
+        String REQUEST_PAGE = "Member_info.php";
+        HashMap<String, String> param = new HashMap<>();
+
+        // 파라미터 입력
+        param.put("mem_id", info.getLoginId());
+
+        HttpEntity rawData = null;
+        BufferedInputStream bis = null;
+        String result = "false";
+        boolean validateResult = false;
+        try {
+            URLConnector task = new URLConnector(REQUEST_PAGE, param);
+            task.start();
+            task.join();
+            result = task.getData();
+            JSONObject jsonResult = new JSONObject(result);
+            if(jsonResult.getString("success").equals("true")) {
+                SessionManager.setAttribute("name", jsonResult.getString("name"));
+                SessionManager.setAttribute("email", jsonResult.getString("email"));
+                SessionManager.setAttribute("profile_img", jsonResult.getString("profile_img"));
+            }else{
+                Log.e("Mypage Error", "Mypage fetch failed");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            try{
+                if(bis != null) bis.close();
+            }catch (Exception e2){
+                e2.printStackTrace();
+            }
+        }
+        return validateResult;
     }
 }

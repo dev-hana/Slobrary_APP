@@ -78,7 +78,14 @@
             android:textStyle="normal"
             />
     </LinearLayout>
-
+    <CheckBox
+        android:id="@+id/autoLoginChkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="자동로그인"
+        android:layout_gravity="right"
+        android:layout_marginRight="10dp"
+        />
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
