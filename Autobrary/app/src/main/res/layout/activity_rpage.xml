@@ -57,4 +57,10 @@
     <include
         android:id="@+id/nav_view"
         layout="@layout/drawer" />
+    <include
+        android:id="@+id/loading"
+        layout="@layout/fragment_loading"
+        android:visibility="gone"
+        />
+
 </androidx.drawerlayout.widget.DrawerLayout>

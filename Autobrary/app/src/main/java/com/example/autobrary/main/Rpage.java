@@ -44,6 +44,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 
 public class Rpage extends AppCompatActivity {
+    Context context;
     DrawerLayout drawer;
     TextView signIn, signUp, name, title, logout, greetWord, titleName;
     Button home, myPage, notice, info, reco, wish, qna, slo;
@@ -96,7 +97,7 @@ public class Rpage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rpage);
-
+        context = this;
         SharedPreferences pref = getSharedPreferences("slo",0);
         SharedPreferences.Editor editor = pref.edit();
 
@@ -377,6 +378,14 @@ public class Rpage extends AppCompatActivity {
             topBar.setBackgroundResource(R.color.colorAccent);
         }
     }
+    public void loadingGone(){
+        findViewById(R.id.loading).setVisibility(View.GONE);
+    }
+
+    public void loadingVisible(){
+        findViewById(R.id.loading).setVisibility(View.VISIBLE);
+    }
+
     public void replaceFragment(Fragment fragment, Bundle bundle) {
         fragmentTransaction = fragmentManager.beginTransaction();
         fragment.setArguments(bundle);
