@@ -38,6 +38,8 @@ import com.example.autobrary.reco.RecoFragment;
 import com.example.autobrary.session.SessionManager;
 import com.example.autobrary.wish.WishFragment;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.iid.FirebaseInstanceId;
 
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
@@ -97,6 +99,14 @@ public class Rpage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rpage);
+        try {
+            FirebaseApp.initializeApp(this);
+            String token = FirebaseInstanceId.getInstance().getToken();
+            Log.d("IDService","device token : "+token);
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
+
         context = this;
         SharedPreferences pref = getSharedPreferences("slo",0);
         SharedPreferences.Editor editor = pref.edit();

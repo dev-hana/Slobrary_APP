@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">SLOBRARY</string>
-
+    <string name="default_notification_channel_id">Channel ID</string>
+    <string name="default_notification_channel_name" translatable="true">Test</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="idLabel">아이디</string>
     <string name="insertID">아이디를 입력하세요.</string>
