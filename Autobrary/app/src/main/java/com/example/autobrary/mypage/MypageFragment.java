@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -54,6 +55,7 @@ public class MypageFragment extends Fragment {
     private RecyclerView returnlistView;
     private RecyclerView interrestListView;
     private ImageView loanArrow, returnArrow, foryouArrow;
+    private LinearLayout returnTab, loanTab, interestTab;
     TextView name, email;
     ImageView profileImg;
     Rpage activity;
@@ -88,6 +90,10 @@ public class MypageFragment extends Fragment {
         loanArrow = (ImageView) root.findViewById(R.id.arrow_down_loan);
         returnArrow = (ImageView) root.findViewById(R.id.arrow_down_return);
         foryouArrow = (ImageView) root.findViewById(R.id.arrow_down_interest);
+        returnTab = (LinearLayout) root.findViewById(R.id.return_tab);
+        loanTab = (LinearLayout) root.findViewById(R.id.loan_tab);
+        interestTab = (LinearLayout) root.findViewById(R.id.interest_tab);
+
         view.setNestedScrollingEnabled(true);
         LinearLayoutManager loanLayoutManager = new LinearLayoutManager(context);
         LinearLayoutManager returnLayoutManager = new LinearLayoutManager(context);
@@ -112,39 +118,41 @@ public class MypageFragment extends Fragment {
         loanArrow.setOnClickListener(new View.OnClickListener() { //대출 화살표 리스너
             @Override
             public void onClick(View v) {
-                if(loanArrow.getRotation() == 0) {
-                    loanArrow.setRotation(180);
-                   loanlistView.setVisibility(View.GONE);
-                }else{
-                    loanArrow.setRotation(0);
-                    loanlistView.setVisibility(View.VISIBLE);
-                }
+                clickTab(loanArrow, loanlistView);
+            }
+        });
+
+        loanTab.setOnClickListener(new View.OnClickListener() { //대출 뷰 클릭 리스너
+            @Override
+            public void onClick(View view) {
+                clickTab(loanArrow, loanlistView);
             }
         });
 
         returnArrow.setOnClickListener(new View.OnClickListener() { // 반납 화살표 리스너
             @Override
             public void onClick(View v) {
-                if(returnArrow.getRotation() == 0){
-                    returnArrow.setRotation(180);
-                    returnlistView.setVisibility(View.GONE);
-                }else{
-                    returnArrow.setRotation(0);
-                    returnlistView.setVisibility(View.VISIBLE);
-                }
+                clickTab(returnArrow, returnlistView);
             }
         });
 
-        foryouArrow.setOnClickListener(new View.OnClickListener() { //추천 화살표 리스너
+        returnTab.setOnClickListener(new View.OnClickListener() { //반납 뷰 클릭 리스너
+            @Override
+            public void onClick(View view) {
+                clickTab(returnArrow, returnlistView);
+            }
+        });
+
+        foryouArrow.setOnClickListener(new View.OnClickListener() { //관심 화살표 리스너
             @Override
             public void onClick(View v) {
-                if(foryouArrow.getRotation() == 0){
-                    foryouArrow.setRotation(180);
-                    interrestListView.setVisibility(View.GONE);
-                }else{
-                    foryouArrow.setRotation(0);
-                    interrestListView.setVisibility(View.VISIBLE);
-                }
+                clickTab(foryouArrow, interrestListView);
+            }
+        });
+        interestTab.setOnClickListener(new View.OnClickListener() { //관심 뷰 클릭 리스너
+            @Override
+            public void onClick(View view) {
+                clickTab(foryouArrow, interrestListView);
             }
         });
 
@@ -168,6 +176,17 @@ public class MypageFragment extends Fragment {
         }
         return root;
     }
+
+    private void clickTab(ImageView img, RecyclerView view){
+        if(img.getRotation() == 0) {
+            img.setRotation(180);
+            view.setVisibility(View.GONE);
+        }else{
+            img.setRotation(0);
+            view.setVisibility(View.VISIBLE);
+        }
+    }
+
     private void initialize() throws InvalidKeySpecException, NoSuchAlgorithmException, IOException {
         if (getLoanBook() ) {
             if (getReturnBook()) {
