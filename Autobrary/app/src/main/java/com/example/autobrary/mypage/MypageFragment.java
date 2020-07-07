@@ -19,10 +19,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.autobrary.R;
 import com.example.autobrary.externalConnecter.BucketConnector;
 import com.example.autobrary.main.Rpage;
+import com.example.autobrary.mypage.adapter.InterestListViewAdapter;
 import com.example.autobrary.mypage.adapter.LoanListViewAdapter;
 import com.example.autobrary.mypage.adapter.ReturnListViewAdapter;
+import com.example.autobrary.mypage.getdata.GetInterestBook;
 import com.example.autobrary.mypage.getdata.GetLoanBook;
 import com.example.autobrary.mypage.getdata.GetReturnBook;
+import com.example.autobrary.mypage.info.InterestBookInfo;
 import com.example.autobrary.mypage.info.LoanBookInfo;
 import com.example.autobrary.mypage.info.ReturnBookInfo;
 import com.example.autobrary.session.SessionManager;
@@ -39,11 +42,14 @@ public class MypageFragment extends Fragment {
 
     private LoanListViewAdapter loanadapter;
     private ReturnListViewAdapter returnadapter;
+    private InterestListViewAdapter interestListViewAdapter;
     private Vector<LoanBookInfo> loanBookInfo;
     private Vector<ReturnBookInfo> returnBookInfo;
+    private Vector<InterestBookInfo> interestBookInfo;
     private Context context;
     private GetLoanBook loanBook = new GetLoanBook();
     private GetReturnBook returnBook = new GetReturnBook();
+    private GetInterestBook interestBook = new GetInterestBook();
     private RecyclerView loanlistView;
     private RecyclerView returnlistView;
     private RecyclerView interrestListView;
@@ -85,12 +91,20 @@ public class MypageFragment extends Fragment {
         view.setNestedScrollingEnabled(true);
         LinearLayoutManager loanLayoutManager = new LinearLayoutManager(context);
         LinearLayoutManager returnLayoutManager = new LinearLayoutManager(context);
+        LinearLayoutManager interestLayoutManager = new LinearLayoutManager(context);
+
         loanlistView.setLayoutManager(loanLayoutManager);
         returnlistView.setLayoutManager(returnLayoutManager);
+        interrestListView.setLayoutManager(interestLayoutManager);
+
         loanadapter = new LoanListViewAdapter();
         returnadapter = new ReturnListViewAdapter();
+        interestListViewAdapter = new InterestListViewAdapter();
+
         loanlistView.setAdapter(loanadapter);
         returnlistView.setAdapter(returnadapter);
+        interrestListView.setAdapter(interestListViewAdapter);
+
         name = root.findViewById(R.id.name);
         email = root.findViewById(R.id.email);
         profileImg = root.findViewById(R.id.profileImg);
@@ -157,14 +171,20 @@ public class MypageFragment extends Fragment {
     private void initialize() throws InvalidKeySpecException, NoSuchAlgorithmException, IOException {
         if (getLoanBook() ) {
             if (getReturnBook()) {
-                for (LoanBookInfo info : loanBookInfo) {
-                    loanadapter.addItem(info);
+                if(getInterestBook()) {
+                    for (LoanBookInfo info : loanBookInfo) {
+                        loanadapter.addItem(info);
+                    }
+                    for (ReturnBookInfo info : returnBookInfo) {
+                        returnadapter.addItem(info);
+                    }
+                    for (InterestBookInfo info : interestBookInfo) {
+                        interestListViewAdapter.addItem(info);
+                    }
+                    loanadapter.notifyDataSetChanged();
+                    returnadapter.notifyDataSetChanged();
+                    interestListViewAdapter.notifyDataSetChanged();
                 }
-                for (ReturnBookInfo info : returnBookInfo) {
-                    returnadapter.addItem(info);
-                }
-                loanadapter.notifyDataSetChanged();
-                returnadapter.notifyDataSetChanged();
             }
 
         }
@@ -173,12 +193,7 @@ public class MypageFragment extends Fragment {
         boolean result;
         loanadapter.clearItem();
         loanBookInfo = loanBook.execute();
-        if (loanBookInfo.isEmpty()) {
-            Toast.makeText(context, "인터넷연결이 불안정합니다.", Toast.LENGTH_LONG).show();
-            result = false;
-        } else {
-            result = true;
-        }
+        result = !loanBookInfo.isEmpty();
         return result;
     }
     private boolean getReturnBook() throws InvalidKeySpecException, NoSuchAlgorithmException, IOException {
@@ -186,6 +201,13 @@ public class MypageFragment extends Fragment {
         returnadapter.clearItem();
         returnBookInfo = returnBook.execute();
         result = !returnBookInfo.isEmpty();
+        return result;
+    }
+    private boolean getInterestBook() throws InvalidKeySpecException, NoSuchAlgorithmException, IOException {
+        boolean result;
+        interestListViewAdapter.clearItem();
+        interestBookInfo = interestBook.execute();
+        result = !interestBookInfo.isEmpty();
         return result;
     }
 }

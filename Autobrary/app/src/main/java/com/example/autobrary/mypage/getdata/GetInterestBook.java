@@ -7,6 +7,7 @@ import com.example.autobrary.mypage.info.BookInfo;
 import com.example.autobrary.mypage.info.InterestBookInfo;
 import com.example.autobrary.mypage.info.LoanBookInfo;
 import com.example.autobrary.session.SessionManager;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import org.json.JSONObject;
 
@@ -24,7 +25,7 @@ import cz.msebera.android.httpclient.HttpEntity;
 public class GetInterestBook {
     public Vector<InterestBookInfo> execute() throws IOException, InvalidKeySpecException, NoSuchAlgorithmException {
         Vector<InterestBookInfo> interestBook = new Vector<>();
-        String REQUEST_PAGE = ".jsp";//TODO : 서버 경로 넣기.
+        String REQUEST_PAGE = "MypageWatch.jsp";//TODO : 서버 경로 넣기.
 
         HttpEntity rawData = null;
         BufferedInputStream bis = null;
