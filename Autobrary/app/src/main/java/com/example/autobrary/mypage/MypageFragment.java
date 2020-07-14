@@ -189,24 +189,24 @@ public class MypageFragment extends Fragment {
 
     private void initialize() throws InvalidKeySpecException, NoSuchAlgorithmException, IOException {
         if (getLoanBook() ) {
+            for (LoanBookInfo info : loanBookInfo) {
+                loanadapter.addItem(info);
+            }
             if (getReturnBook()) {
+                for (ReturnBookInfo info : returnBookInfo) {
+                    returnadapter.addItem(info);
+                }
                 if(getInterestBook()) {
-                    for (LoanBookInfo info : loanBookInfo) {
-                        loanadapter.addItem(info);
-                    }
-                    for (ReturnBookInfo info : returnBookInfo) {
-                        returnadapter.addItem(info);
-                    }
                     for (InterestBookInfo info : interestBookInfo) {
                         interestListViewAdapter.addItem(info);
                     }
-                    loanadapter.notifyDataSetChanged();
-                    returnadapter.notifyDataSetChanged();
-                    interestListViewAdapter.notifyDataSetChanged();
                 }
             }
 
         }
+        loanadapter.notifyDataSetChanged();
+        returnadapter.notifyDataSetChanged();
+        interestListViewAdapter.notifyDataSetChanged();
     }
     private boolean getLoanBook() throws InvalidKeySpecException, NoSuchAlgorithmException, IOException {
         boolean result;
