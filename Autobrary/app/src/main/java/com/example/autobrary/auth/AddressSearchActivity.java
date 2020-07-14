@@ -26,31 +26,15 @@ import cz.msebera.android.httpclient.util.EncodingUtils;
 public class AddressSearchActivity extends AppCompatActivity {
 
     private WebView webView;
-    private TextView result;
     private Handler handler;
-    private Button conform;
-    private EditText detailAddr;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_address_search);
-        result = (TextView) findViewById(R.id.result);
-        detailAddr = (EditText) findViewById(R.id.detailAddr);
         // WebView 초기화
         init_webView();
         // 핸들러를 통한 JavaScript 이벤트 반응
         handler = new Handler();
-        conform = findViewById(R.id.conform);
-        conform.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.putExtra("result", result.getText().toString() + detailAddr.getText().toString());
-                setResult(RESULT_OK, intent);
-                finish();
-            }
-        });
-
     }
 
     @JavascriptInterface
@@ -69,7 +53,10 @@ public class AddressSearchActivity extends AppCompatActivity {
             handler.post(new Runnable() {
                 @Override
                 public void run() {
-                    result.setText(String.format("(%s) %s %s", arg1, arg2, arg3));
+                    Intent intent = new Intent();
+                    intent.putExtra("result", String.format("%s %s", arg2, arg3));
+                    setResult(RESULT_OK, intent);
+                    finish();
                 }
             });
         }

@@ -18,7 +18,7 @@
     <string name="phone">핸드폰번호</string>
     <string name="insertPhone">01012345678</string>
     <string name="homeAddr">집주소</string>
-    <string name="insertHomeAddr">주소를 입력하세요.</string>
+    <string name="insertHomeAddr">주소를 검색하세요.</string>
     <string name="mail">이메일주소</string>
     <string name="insertMail">이메일 주소를 입력하세요.</string>
     <string name="signUp">회원가입</string>
@@ -295,4 +295,6 @@
     <string name="duplicateCheck">중복체크</string>
     <string name="checkNv">인증번호</string>
     <string name="appPrettyName">SL:O</string>
+    <string name="homeAddrDetail">상세주소</string>
+    <string name="insertDetailAddr">상세주소를 입력하세요.</string>
 </resources>

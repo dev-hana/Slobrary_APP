@@ -206,14 +206,15 @@ public class SignUpActivity extends AppCompatActivity {
                 BootstrapEditText birth = (BootstrapEditText) findViewById(R.id.entBirth);
                 BootstrapEditText phone = (BootstrapEditText) findViewById(R.id.entPhone);
                 BootstrapEditText email= (BootstrapEditText) findViewById(R.id.entEmail);
-
+                BootstrapEditText detailaddr = (BootstrapEditText) findViewById(R.id.entAddrDetail);
+                
                 infoOfUser.setMem_birth(birth.getText().toString());
                 infoOfUser.setMem_gender(gender);
                 infoOfUser.setMem_id(id.getText().toString());
                 infoOfUser.setMem_pw(entPw.getText().toString());
                 try {
                     infoOfUser.setMem_name(name.getText().toString());
-                    infoOfUser.setMem_address(addr.getText().toString());
+                    infoOfUser.setMem_address(String.format("%s %s", addr.getText().toString(), detailaddr.getText().toString()));
                 } catch (UnsupportedEncodingException e) {
                     e.printStackTrace();
                 }
