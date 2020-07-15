@@ -1,19 +1,15 @@
 package com.example.autobrary.notice;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.os.Process;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -21,10 +17,10 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 
 import com.beardedhen.androidbootstrap.BootstrapEditText;
 import com.example.autobrary.R;
+import com.example.autobrary.info.notice.NoticeInfo;
 import com.example.autobrary.main.Rpage;
 
 import java.io.IOException;

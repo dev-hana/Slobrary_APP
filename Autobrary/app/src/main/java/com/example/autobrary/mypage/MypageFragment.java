@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 
 import androidx.annotation.NonNull;
@@ -26,17 +25,15 @@ import com.example.autobrary.mypage.adapter.ReturnListViewAdapter;
 import com.example.autobrary.mypage.getdata.GetInterestBook;
 import com.example.autobrary.mypage.getdata.GetLoanBook;
 import com.example.autobrary.mypage.getdata.GetReturnBook;
-import com.example.autobrary.mypage.info.InterestBookInfo;
-import com.example.autobrary.mypage.info.LoanBookInfo;
-import com.example.autobrary.mypage.info.ReturnBookInfo;
+import com.example.autobrary.info.book.InterestBookInfo;
+import com.example.autobrary.info.book.LoanBookInfo;
+import com.example.autobrary.info.book.ReturnBookInfo;
 import com.example.autobrary.session.SessionManager;
 
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.util.Vector;
-
-import afu.org.checkerframework.checker.oigj.qual.O;
 
 
 public class MypageFragment extends Fragment {

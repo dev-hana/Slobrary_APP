@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment;
 
 import com.beardedhen.androidbootstrap.BootstrapEditText;
 import com.example.autobrary.R;
+import com.example.autobrary.info.wish.WishInfo;
 import com.example.autobrary.main.Rpage;
 import com.example.autobrary.session.SessionManager;
 

@@ -3,6 +3,7 @@ package com.example.autobrary.notice;
 import android.util.Log;
 
 import com.example.autobrary.externalConnecter.URLConnector;
+import com.example.autobrary.info.notice.NoticeInfo;
 
 import org.json.JSONObject;
 

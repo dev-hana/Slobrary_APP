@@ -1,4 +1,4 @@
-package com.example.autobrary.mypage.info;
+package com.example.autobrary.info.book;
 
 public class BookInfo {
     String name; // 제목

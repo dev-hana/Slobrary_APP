@@ -8,13 +8,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import static com.beardedhen.androidbootstrap.api.defaults.DefaultBootstrapBrand.DANGER;
-import com.beardedhen.androidbootstrap.AwesomeTextView;
+
 import com.beardedhen.androidbootstrap.BootstrapButton;
-import com.beardedhen.androidbootstrap.api.attributes.BootstrapBrand;
 import com.example.autobrary.R;
 import com.example.autobrary.externalConnecter.BucketConnector;
-import com.example.autobrary.mypage.info.BookInfo;
-import com.example.autobrary.mypage.info.ReturnBookInfo;
+import com.example.autobrary.info.book.ReturnBookInfo;
 
 import java.util.ArrayList;
 

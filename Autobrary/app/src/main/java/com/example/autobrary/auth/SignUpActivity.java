@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
@@ -17,7 +16,7 @@ import com.example.autobrary.R;
 import com.example.autobrary.auth.validate.ValidateEmail;
 import com.example.autobrary.auth.validate.ValidateId;
 import com.example.autobrary.auth.getdata.SignUp;
-import com.example.autobrary.auth.info.SignUpInfo;
+import com.example.autobrary.info.auth.SignUpInfo;
 import com.example.autobrary.mail.Sender;
 import com.example.autobrary.main.Rpage;
 

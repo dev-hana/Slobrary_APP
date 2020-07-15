@@ -1,6 +1,7 @@
 package com.example.autobrary.wish;
 
 import com.example.autobrary.externalConnecter.URLConnector;
+import com.example.autobrary.info.wish.WishInfo;
 
 import org.json.JSONObject;
 

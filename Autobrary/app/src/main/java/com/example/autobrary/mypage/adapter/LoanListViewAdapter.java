@@ -10,8 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.autobrary.R;
 import com.example.autobrary.externalConnecter.BucketConnector;
-import com.example.autobrary.mypage.info.BookInfo;
-import com.example.autobrary.mypage.info.LoanBookInfo;
+import com.example.autobrary.info.book.LoanBookInfo;
 
 import java.util.ArrayList;
 

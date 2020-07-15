@@ -16,10 +16,10 @@ public class ValidateEmail {
     private String email;
 
     /**
-     * 아이디의 중복여부를 리턴 합니다.
+     * 이메일의 중복여부를 리턴 합니다.
      *
-     * @param   email   중복 검증할 아이디
-     * @return   boolean    아이디가 존재하면 true, 존재하지 않으면 false를 리턴
+     * @param   email   중복 검증할 이메일
+     * @return   boolean    이메일이 존재하면 true, 존재하지 않으면 false를 리턴
      */
     public boolean ValidateEmail(String email) throws InvalidKeySpecException, NoSuchAlgorithmException, IOException {
         this.email = email;

@@ -1,4 +1,4 @@
-package com.example.autobrary.wish;
+package com.example.autobrary.info.wish;
 
 public class WishInfo {
     private String user;

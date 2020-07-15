@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -15,7 +14,7 @@ import com.beardedhen.androidbootstrap.BootstrapButton;
 import com.beardedhen.androidbootstrap.BootstrapEditText;
 import com.example.autobrary.R;
 import com.example.autobrary.auth.getdata.Login;
-import com.example.autobrary.auth.info.LoginInfo;
+import com.example.autobrary.info.auth.LoginInfo;
 import com.example.autobrary.main.Rpage;
 import com.example.autobrary.session.SessionManager;
 

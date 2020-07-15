@@ -1,4 +1,4 @@
-package com.example.autobrary.mypage.info;
+package com.example.autobrary.info.book;
 
 public class InterestBookInfo extends BookInfo {
     public String getStatus() {

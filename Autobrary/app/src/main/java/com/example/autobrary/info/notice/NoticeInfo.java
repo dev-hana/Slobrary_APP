@@ -1,4 +1,4 @@
-package com.example.autobrary.notice;
+package com.example.autobrary.info.notice;
 
 public class NoticeInfo {
     String title; //제목

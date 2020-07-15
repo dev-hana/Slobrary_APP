@@ -2,7 +2,7 @@ package com.example.autobrary.auth.getdata;
 
 import android.util.Log;
 
-import com.example.autobrary.auth.info.LoginInfo;
+import com.example.autobrary.info.auth.LoginInfo;
 import com.example.autobrary.externalConnecter.URLConnector;
 import com.example.autobrary.encryption.PBKDF2_Encryption;
 import com.example.autobrary.session.SessionManager;

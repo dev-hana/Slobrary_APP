@@ -1,6 +1,8 @@
-package com.example.autobrary.mypage.info;
+package com.example.autobrary.info.book;
 
-public class ReturnBookInfo extends BookInfo{
+import com.example.autobrary.info.book.BookInfo;
+
+public class ReturnBookInfo extends BookInfo {
 
     String loanDate;
     String returnDate; //도서 반납일

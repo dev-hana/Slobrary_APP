@@ -11,8 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.beardedhen.androidbootstrap.BootstrapButton;
 import com.example.autobrary.R;
 import com.example.autobrary.externalConnecter.BucketConnector;
-import com.example.autobrary.mypage.info.InterestBookInfo;
-import com.example.autobrary.mypage.info.LoanBookInfo;
+import com.example.autobrary.info.book.InterestBookInfo;
 
 import java.util.ArrayList;
 

@@ -8,6 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.example.autobrary.R;
+import com.example.autobrary.info.wish.WishInfo;
 
 import java.util.ArrayList;
 

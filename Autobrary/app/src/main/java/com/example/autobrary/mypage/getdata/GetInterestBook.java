@@ -3,11 +3,8 @@ package com.example.autobrary.mypage.getdata;
 import android.util.Log;
 
 import com.example.autobrary.externalConnecter.URLConnector;
-import com.example.autobrary.mypage.info.BookInfo;
-import com.example.autobrary.mypage.info.InterestBookInfo;
-import com.example.autobrary.mypage.info.LoanBookInfo;
+import com.example.autobrary.info.book.InterestBookInfo;
 import com.example.autobrary.session.SessionManager;
-import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import org.json.JSONObject;
 

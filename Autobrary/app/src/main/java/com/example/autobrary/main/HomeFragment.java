@@ -1,10 +1,12 @@
 package com.example.autobrary.main;
 
 import android.content.Context;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
@@ -13,6 +15,8 @@ import androidx.fragment.app.Fragment;
 
 import com.example.autobrary.R;
 import com.example.autobrary.session.SessionManager;
+
+import java.util.Vector;
 
 public class HomeFragment extends Fragment {
     Rpage activity;
@@ -38,6 +42,15 @@ public class HomeFragment extends Fragment {
         }else{
             forYouLayout.setVisibility(View.VISIBLE);
         }
+        Vector<ImageView> bestBookListObject = new Vector<>();
+        bestBookListObject.add(rootView.findViewById(R.id.bestBook1));
+        bestBookListObject.add(rootView.findViewById(R.id.bestBook2));
+        bestBookListObject.add(rootView.findViewById(R.id.bestBook3));
+
+        for(ImageView image : bestBookListObject){
+
+        }
+
         return rootView;
     }
 

@@ -3,6 +3,7 @@ package com.example.autobrary.wish;
 import android.util.Log;
 
 import com.example.autobrary.externalConnecter.URLConnector;
+import com.example.autobrary.info.wish.WishInfo;
 import com.example.autobrary.session.SessionManager;
 
 import org.json.JSONObject;
