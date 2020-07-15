@@ -61,10 +61,6 @@ public class WishFragment extends Fragment {
         listView.setAdapter(adapter);
 
         try {
-            Vector<WishInfo> info = new WishList().execute();
-            BucketConnector bucket = new BucketConnector();
-            bucket.start();
-            bucket.join();
             initialize();
         } catch (IOException e) {
             e.printStackTrace();

@@ -22,7 +22,7 @@ import cz.msebera.android.httpclient.HttpEntity;
 public class WishList {
     public Vector<WishInfo> execute() throws IOException, InvalidKeySpecException, NoSuchAlgorithmException {
         Vector<WishInfo> wish = new Vector<>();
-        String REQUEST_PAGE = "PullWish.jsp";
+        String REQUEST_PAGE = "Wishlist.jsp";
 
         HttpEntity rawData = null;
         BufferedInputStream bis = null;
@@ -30,12 +30,12 @@ public class WishList {
         try {
             HashMap param = new HashMap();
             param.put("mem_id", SessionManager.getAttribute("login"));
-            URLConnector task = new URLConnector(REQUEST_PAGE, new HashMap());
+            URLConnector task = new URLConnector(REQUEST_PAGE, param);
             task.start();
             task.join();
             result = task.getData();
             JSONObject jsonResult = new JSONObject(result);
-            if(jsonResult.getString("success").equals("true")) {
+           // if(jsonResult.getString("success").equals("true")) {
                 ArrayList<String> jsonKeyList = new ArrayList<>();
                 Iterator i = jsonResult.keys();
                 while (i.hasNext()) {
@@ -43,18 +43,18 @@ public class WishList {
                     jsonKeyList.add(b);
                 }
 
-                jsonKeyList.remove(0); //성공여부 배열 지우기
+               // jsonKeyList.remove(0); //성공여부 배열 지우기
                 for(String j : jsonKeyList){
-                    String title = new JSONObject(jsonResult.getString(j)).getString("bookTitle");
-                    String author = new JSONObject(jsonResult.getString(j)).getString("bookAuthor");
-                    String publish = new JSONObject(jsonResult.getString(j)).getString("bookPublish");
-                    String bDate = new JSONObject(jsonResult.getString(j)).getString("bookDate");
+                    String title = new JSONObject(jsonResult.getString(j)).getString("book_name");
+                    String author = new JSONObject(jsonResult.getString(j)).getString("book_author");
+                    String publish = new JSONObject(jsonResult.getString(j)).getString("publish");
+                    String bDate = new JSONObject(jsonResult.getString(j)).getString("wish_date");
                     WishInfo fetchWish = new WishInfo(j, title, author, publish, bDate);
                     wish.add(fetchWish);
                 }
-            }else{
-                Log.e("Wish Error", "Wish fetch failed");
-            }
+           // }else{
+           //     Log.e("Wish Error", "Wish fetch failed");
+           // }
         } catch (Exception e) {
             e.printStackTrace();
             Log.e("Wish Error", "Wish fetch failed");
