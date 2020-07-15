@@ -1,5 +1,6 @@
 package com.example.autobrary.mypage;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -156,18 +157,11 @@ public class MypageFragment extends Fragment {
         try {
             BucketConnector bucket = new BucketConnector();
             bucket.setObjectName(SessionManager.getAttribute("profile_img"));
-            bucket.start();
-            bucket.join();
+            bucket.execute().get();
             name.setText(SessionManager.getAttribute("name"));
             email.setText(SessionManager.getAttribute("email"));
             profileImg.setImageBitmap(bucket.getBitmap());
             initialize();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (InvalidKeySpecException e) {
-            e.printStackTrace();
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
         }catch (Exception e){
             e.printStackTrace();
         }

@@ -15,6 +15,7 @@ import com.example.autobrary.externalConnecter.BucketConnector;
 import com.example.autobrary.info.book.ReturnBookInfo;
 
 import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
 
 public class ReturnListViewAdapter  extends RecyclerView.Adapter<ReturnListViewAdapter.ItemViewHolder> {
     private ArrayList<ReturnBookInfo> listViewItemList = new ArrayList<ReturnBookInfo>() ;
@@ -28,7 +29,13 @@ public class ReturnListViewAdapter  extends RecyclerView.Adapter<ReturnListViewA
 
     @Override
     public void onBindViewHolder(@NonNull ItemViewHolder holder, int position) {
-        holder.onBind(listViewItemList.get(position));
+        try {
+            holder.onBind(listViewItemList.get(position));
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
 
@@ -56,7 +63,7 @@ public class ReturnListViewAdapter  extends RecyclerView.Adapter<ReturnListViewA
             bookStatus = (BootstrapButton) itemView.findViewById(R.id.bookStatus);
             image = (ImageView)itemView.findViewById(R.id.bCover);
         }
-        void onBind(ReturnBookInfo data) {
+        void onBind(ReturnBookInfo data) throws ExecutionException, InterruptedException {
             title.setText(data.getName());
             author.setText(data.getAuthor());
             publisher.setText(data.getPublisher());
@@ -65,13 +72,8 @@ public class ReturnListViewAdapter  extends RecyclerView.Adapter<ReturnListViewA
             bookStatus.setText("반납");
             bookStatus.setBootstrapBrand(DANGER);
             BucketConnector bucket = new BucketConnector();
-            try {
                 bucket.setObjectName(data.getImage());
-                bucket.start();
-                bucket.join();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+                bucket.execute().get();
             image.setImageBitmap(bucket.getBitmap());
         }
     }

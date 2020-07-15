@@ -29,8 +29,7 @@ public class GetBestBook {
         String result = "false";
         try {
             URLConnector task = new URLConnector(REQUEST_PAGE, new HashMap());
-            task.start();
-            task.join();
+            task.execute().get();
             result = task.getData();
             JSONObject jsonResult = new JSONObject(result);
             // if(jsonResult.getString("success").equals("true")) {

@@ -31,8 +31,7 @@ public class GetLoanBook {
             HashMap param = new HashMap();
             param.put("mem_id", SessionManager.getAttribute("login"));
             URLConnector task = new URLConnector(REQUEST_PAGE, param);
-            task.start();
-            task.join();
+            task.execute().get();
             result = task.getData();
             JSONObject jsonResult = new JSONObject(result);
            // if(jsonResult.getString("success").equals("true")) {

@@ -1,9 +1,14 @@
 package com.example.autobrary.main;
 
+import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.drawable.AnimationDrawable;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -16,6 +21,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDialog;
+import androidx.appcompat.app.AppCompatDialogFragment;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -41,9 +48,10 @@ import com.google.firebase.iid.FirebaseInstanceId;
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
+import java.util.concurrent.ExecutionException;
 
 public class Rpage extends AppCompatActivity {
-    Context context;
+    public static Context context;
     DrawerLayout drawer;
     TextView signIn, signUp, name, title, logout, greetWord, titleName;
     Button home, myPage, notice, info, reco, wish, qna, slo;
@@ -63,6 +71,8 @@ public class Rpage extends AppCompatActivity {
     QnaFragment qnaFrag;
     InfoFragment infoFrag;
     RecoFragment recoFrag;
+
+    ProgressDialog progressDialog;
 
     FragmentManager fragmentManager = getSupportFragmentManager();
     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -107,6 +117,12 @@ public class Rpage extends AppCompatActivity {
         context = this;
         SharedPreferences pref = getSharedPreferences("slo",0);
         SharedPreferences.Editor editor = pref.edit();
+
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("ProgressDialog running...");
+        progressDialog.setCancelable(true);
+        progressDialog.setProgressStyle(android.R.style.Widget_ProgressBar_Horizontal);
+
 
         open = findViewById(R.id.open);
         name = findViewById(R.id.mName);
@@ -180,9 +196,10 @@ public class Rpage extends AppCompatActivity {
 
             BucketConnector bucket = new BucketConnector();
             bucket.setObjectName(SessionManager.getAttribute("profile_img"));
-            bucket.start();
             try {
-                bucket.join();
+                bucket.execute().get();
+            } catch (ExecutionException e) {
+                e.printStackTrace();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -330,7 +347,6 @@ public class Rpage extends AppCompatActivity {
 
             }
         });
-
         qna.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -354,6 +370,7 @@ public class Rpage extends AppCompatActivity {
                 }
             }
         });
+
     }
     private boolean sessionCheck(){
         boolean result = false;
@@ -415,5 +432,9 @@ public class Rpage extends AppCompatActivity {
         if (drawer.isDrawerOpen(Gravity.LEFT)) {
             drawer.closeDrawer(Gravity.LEFT);
         }
+    }
+
+    public void progressON(String message) {
+
     }
 }

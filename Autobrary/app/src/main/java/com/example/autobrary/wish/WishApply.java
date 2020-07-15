@@ -36,8 +36,7 @@ public class WishApply {
         boolean validateResult = false;
         try {
             URLConnector task = new URLConnector(REQUEST_PAGE, param);
-            task.start();
-            task.join();
+            task.execute().get();
             result = task.getData();
             if (new JSONObject(result).getString("success").equals("true")) {
                 validateResult = true;

@@ -14,6 +14,7 @@ import com.example.autobrary.externalConnecter.BucketConnector;
 import com.example.autobrary.info.book.InterestBookInfo;
 
 import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
 
 import static com.beardedhen.androidbootstrap.api.defaults.DefaultBootstrapBrand.DANGER;
 import static com.beardedhen.androidbootstrap.api.defaults.DefaultBootstrapBrand.WARNING;
@@ -30,7 +31,13 @@ public class InterestListViewAdapter extends RecyclerView.Adapter<InterestListVi
 
     @Override
     public void onBindViewHolder(@NonNull ItemViewHolder holder, int position) {
-        holder.onBind(listViewItemList.get(position));
+        try {
+            holder.onBind(listViewItemList.get(position));
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
     @Override
     public long getItemId(int position) {
@@ -54,7 +61,7 @@ class ItemViewHolder extends RecyclerView.ViewHolder{
         publisher = (TextView)itemView.findViewById(R.id.bPub);
         image = (ImageView)itemView.findViewById(R.id.bCover);
     }
-    void onBind(InterestBookInfo data) {
+    void onBind(InterestBookInfo data) throws ExecutionException, InterruptedException {
         title.setText(data.getName());
         author.setText(data.getAuthor());
         publisher.setText(data.getPublisher());
@@ -65,13 +72,8 @@ class ItemViewHolder extends RecyclerView.ViewHolder{
             bookStatus.setBootstrapBrand(WARNING);
         }
         BucketConnector bucket = new BucketConnector();
-        try {
             bucket.setObjectName(data.getImage());
-            bucket.start();
-            bucket.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+            bucket.execute().get();
         image.setImageBitmap(bucket.getBitmap());
     }
 }

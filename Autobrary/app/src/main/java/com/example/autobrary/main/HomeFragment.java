@@ -23,6 +23,7 @@ import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.util.Vector;
+import java.util.concurrent.ExecutionException;
 
 public class HomeFragment extends Fragment {
     Rpage activity;
@@ -65,15 +66,16 @@ public class HomeFragment extends Fragment {
         }
 
         for(int i = 0; i < bestBookListObject.size(); i++){
-            try {
                 bucket = new BucketConnector();
                 bucket.setObjectName(getData.get(i).getImage());
-                bucket.start();
-                bucket.join();
-                bestBookListObject.get(i).setImageBitmap(bucket.getBitmap());
+            try {
+                bucket.execute().get();
+            } catch (ExecutionException e) {
+                e.printStackTrace();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+            bestBookListObject.get(i).setImageBitmap(bucket.getBitmap());
         }
         return rootView;
     }

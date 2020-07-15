@@ -13,6 +13,7 @@ import com.example.autobrary.externalConnecter.BucketConnector;
 import com.example.autobrary.info.book.LoanBookInfo;
 
 import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
 
 public class LoanListViewAdapter  extends RecyclerView.Adapter<LoanListViewAdapter.ItemViewHolder> {
     private ArrayList<LoanBookInfo> listViewItemList = new ArrayList<LoanBookInfo>() ;
@@ -26,7 +27,13 @@ public class LoanListViewAdapter  extends RecyclerView.Adapter<LoanListViewAdapt
 
     @Override
     public void onBindViewHolder(@NonNull ItemViewHolder holder, int position) {
-        holder.onBind(listViewItemList.get(position));
+        try {
+            holder.onBind(listViewItemList.get(position));
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
 
@@ -55,19 +62,14 @@ class ItemViewHolder extends RecyclerView.ViewHolder{
         return_date.setVisibility(View.GONE);
         return_view.setVisibility(View.GONE);
     }
-    void onBind(LoanBookInfo data) {
+    void onBind(LoanBookInfo data) throws ExecutionException, InterruptedException {
         title.setText(data.getName());
         author.setText(data.getAuthor());
         publisher.setText(data.getPublisher());
         loan_date.setText(data.getLoanDate());
         BucketConnector bucket = new BucketConnector();
-        try {
             bucket.setObjectName(data.getImage());
-            bucket.start();
-            bucket.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+            bucket.execute().get();
         image.setImageBitmap(bucket.getBitmap());
     }
 }

@@ -42,16 +42,14 @@ public class Login  {
         boolean validateResult = false;
         try {
             URLConnector task = new URLConnector(REQUEST_PAGE, param);
-            task.start();
-            task.join();
+            task.execute().get();
             result = task.getData();
             if (PBKDF2_Encryption.validatePassword(info.getLoginPw(), new JSONObject(result).getString("PASSWD"))) {
                 validateResult = true;
                 param.clear();
                 param.put("mem_id", info.getLoginId());
                 task = new URLConnector("Member_info.php", param);
-                task.start();
-                task.join();
+                task.execute().get();
                 result = task.getData();
                 JSONObject jsonResult = new JSONObject(result);
                 if(jsonResult.getString("success").equals("true")) {
@@ -87,8 +85,7 @@ public class Login  {
         boolean validateResult = false;
         try {
             URLConnector task = new URLConnector(REQUEST_PAGE, param);
-            task.start();
-            task.join();
+            task.execute().get();
             result = task.getData();
             JSONObject jsonResult = new JSONObject(result);
             if(jsonResult.getString("success").equals("true")) {

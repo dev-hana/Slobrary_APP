@@ -1,6 +1,8 @@
 package com.example.autobrary.externalConnecter;
 
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.os.AsyncTask;
 import android.os.Handler;
 import android.os.Looper;
 import android.widget.Toast;
@@ -30,7 +32,7 @@ import cz.msebera.android.httpclient.message.BasicNameValuePair;
 import cz.msebera.android.httpclient.util.EntityUtils;
 
 
-public class URLConnector extends Thread{
+public class URLConnector extends AsyncTask<Void, Integer, Boolean> {
 
     private final String HOST = "https://www.slobrary.com/app/";
 
@@ -39,6 +41,7 @@ public class URLConnector extends Thread{
     }
     Handler handler = new Handler();
     private HttpResponse result;
+    ProgressDialog progressDialog = new ProgressDialog(Rpage.context);
     private String URL;
     private HashMap<String, String> param = new HashMap<String, String>();
     private String longData;
@@ -64,7 +67,31 @@ public class URLConnector extends Thread{
     }
 
 
-    public void run() {
+    public String getData(){
+        return longData;
+    }
+    @Override
+    protected void onPreExecute() {
+        progressDialog.setMessage("ProgressDialog running...");
+        progressDialog.setCancelable(false);
+        progressDialog.setProgressStyle(android.R.style.Widget_ProgressBar_Horizontal);
+        progressDialog.show();
+        super.onPreExecute();
+    }
+
+    @Override
+    protected void onPostExecute(Boolean aBoolean) {
+        progressDialog.dismiss();
+    }
+
+    @Override
+    protected void onCancelled() {
+        progressDialog.dismiss();
+        super.onCancelled();
+    }
+
+    @Override
+    protected Boolean doInBackground(Void... voids) {
         final HttpClient httpclient = new DefaultHttpClient();
         HttpResponse reps = null;
         final HttpPost httppost = new HttpPost(URL);
@@ -97,8 +124,6 @@ public class URLConnector extends Thread{
             // TODO Auto-generated catch block
         }
         this.result = reps;
-    }
-    public String getData(){
-        return longData;
+        return null;
     }
 }
