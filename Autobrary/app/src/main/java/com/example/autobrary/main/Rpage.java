@@ -310,9 +310,11 @@ public class Rpage extends AppCompatActivity {
             public void onClick(View v) {
                 controlDrawer();
                 fragment = getSupportFragmentManager().findFragmentById(R.id.lay);
-                if(!fragment.equals(recoFrag)) {
-                    replaceFragment(recoFrag);
-                    changeMainPageDesign(1);
+                if(sessionCheck()) {
+                    if (!fragment.equals(recoFrag)) {
+                        replaceFragment(recoFrag);
+                        changeMainPageDesign(1);
+                    }
                 }
             }
         });
