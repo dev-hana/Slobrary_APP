@@ -14,8 +14,14 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.autobrary.R;
+import com.example.autobrary.externalConnecter.BucketConnector;
+import com.example.autobrary.info.book.BookInfo;
+import com.example.autobrary.main.getdata.GetBestBook;
 import com.example.autobrary.session.SessionManager;
 
+import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 import java.util.Vector;
 
 public class HomeFragment extends Fragment {
@@ -46,11 +52,29 @@ public class HomeFragment extends Fragment {
         bestBookListObject.add(rootView.findViewById(R.id.bestBook1));
         bestBookListObject.add(rootView.findViewById(R.id.bestBook2));
         bestBookListObject.add(rootView.findViewById(R.id.bestBook3));
-
-        for(ImageView image : bestBookListObject){
-
+        Vector<BookInfo> getData = null;
+        BucketConnector bucket = null;
+        try {
+            getData = new GetBestBook().execute();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (InvalidKeySpecException e) {
+            e.printStackTrace();
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
         }
 
+        for(int i = 0; i < bestBookListObject.size(); i++){
+            try {
+                bucket = new BucketConnector();
+                bucket.setObjectName(getData.get(i).getImage());
+                bucket.start();
+                bucket.join();
+                bestBookListObject.get(i).setImageBitmap(bucket.getBitmap());
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
         return rootView;
     }
 
