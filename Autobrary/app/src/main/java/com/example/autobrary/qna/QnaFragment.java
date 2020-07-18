@@ -21,8 +21,8 @@ public class QnaFragment extends Fragment {
     public static QnaFragment newInstance() {
         return new  QnaFragment();
     }
-    LinearLayout qna1, qna2, qna3;
-    LinearLayout answer1, answer2, answer3;
+    LinearLayout qna1, qna2, qna3, qna4;
+    LinearLayout answer1, answer2, answer3, answer4;
 
     @Override
     public void onAttach(Context context) {
@@ -45,6 +45,8 @@ public class QnaFragment extends Fragment {
         answer2 = root.findViewById(R.id.answer2);
         qna3 = root.findViewById(R.id.qna3);
         answer3 = root.findViewById(R.id.answer3);
+        qna4 = root.findViewById(R.id.qna4);
+        answer4 = root.findViewById(R.id.answer4);
 
 
         qna1.setOnClickListener(new View.OnClickListener() {
@@ -65,6 +67,13 @@ public class QnaFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 answer3.setVisibility(answer3.getVisibility() == View.VISIBLE ? View.GONE : View.VISIBLE);
+            }
+        });
+
+        qna4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                answer4.setVisibility(answer4.getVisibility() == View.VISIBLE ? View.GONE : View.VISIBLE);
             }
         });
 
