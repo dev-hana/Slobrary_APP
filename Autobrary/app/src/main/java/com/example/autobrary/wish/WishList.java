@@ -48,7 +48,8 @@ public class WishList {
                     String author = new JSONObject(jsonResult.getString(j)).getString("book_author");
                     String publish = new JSONObject(jsonResult.getString(j)).getString("publish");
                     String bDate = new JSONObject(jsonResult.getString(j)).getString("wish_date");
-                    WishInfo fetchWish = new WishInfo(j, title, author, publish, bDate);
+                    String applyStatus = new JSONObject(jsonResult.getString(j)).getString("status");
+                    WishInfo fetchWish = new WishInfo(j, title, author, publish, bDate, applyStatus);
                     wish.add(fetchWish);
                 }
            // }else{

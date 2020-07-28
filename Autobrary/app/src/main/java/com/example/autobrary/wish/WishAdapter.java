@@ -43,7 +43,9 @@ public class WishAdapter extends BaseAdapter {
         TextView wishAuthor = (TextView)convertView.findViewById(R.id.bAuth);
         TextView wishPublish = (TextView)convertView.findViewById(R.id.bPub);
         TextView wishDate = (TextView)convertView.findViewById(R.id.bDate);
+        TextView applyStatus = (TextView)convertView.findViewById(R.id.applyStatus);
 
+        applyStatus.setText(listViewItemList.get(position).getStatus());
         wishTitle.setText(listViewItemList.get(position).getBookTitle());
         wishAuthor.setText(listViewItemList.get(position).getBookAuthor());
         wishPublish.setText(listViewItemList.get(position).getBookPublish());

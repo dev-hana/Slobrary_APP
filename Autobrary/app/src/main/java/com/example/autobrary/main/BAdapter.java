@@ -46,6 +46,7 @@ public class BAdapter extends BaseAdapter {
         TextView bAuth = convertView.findViewById(R.id.bAuth);
         TextView bPub = convertView.findViewById(R.id.bPub);
         TextView bDate = convertView.findViewById(R.id.bDate);
+        TextView status = convertView.findViewById(R.id.applyStatus);
 
         WishInfo wishInfo = wishInfos.get(position);
 
@@ -53,18 +54,19 @@ public class BAdapter extends BaseAdapter {
         bAuth.setText(wishInfo.getBookAuthor());
         bPub.setText(wishInfo.getBookPublish());
         bDate.setText(wishInfo.getBookDate());
-
+        status.setText(wishInfo.getStatus());
         /*위젯에 대한 이벤트리스너를 지정하려면 여기*/
         return convertView;
     }
 
-    public void addItem(String user, String title, String auth, String pub, String wdate){
-        WishInfo wishInfo = new WishInfo(user, title, auth, pub, wdate);
+    public void addItem(String user, String title, String auth, String pub, String wdate, String applyStatus){
+        WishInfo wishInfo = new WishInfo(user, title, auth, pub, wdate, applyStatus);
         wishInfo.setUser(user);
         wishInfo.setBookTitle(title);
         wishInfo.setBookAuthor(auth);
         wishInfo.setBookPublish(pub);
         wishInfo.setBookDate(wdate);
+        wishInfo.setStatus(applyStatus);
 
         wishInfos.add(wishInfo);
     }

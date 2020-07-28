@@ -94,6 +94,25 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>
             </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <com.beardedhen.androidbootstrap.AwesomeTextView
+                    android:gravity="center_vertical"
+                    android:text="@string/applyStatus"
+                    android:layout_weight="5"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+                <com.beardedhen.androidbootstrap.AwesomeTextView
+                    android:gravity="center_vertical"
+                    android:id="@+id/applyStatus"
+                    android:text="@string/applyStatus"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 
