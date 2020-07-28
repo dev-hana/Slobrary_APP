@@ -23,7 +23,7 @@ public class MainLoadActivity extends Activity {
                 startActivity(intent);   // Intent 시작
                 finish();
             }
-        }, 2000);  // 로딩화면 시간
+        }, 1400);  // 로딩화면 시간
     }
 
 

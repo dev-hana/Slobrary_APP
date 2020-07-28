@@ -44,21 +44,21 @@ public class BucketConnector  extends AsyncTask<Void, Integer, Boolean>{
 
     @Override
     protected void onPreExecute() {
-        progressDialog.setMessage("ProgressDialog running...");
-        progressDialog.setCancelable(false);
-        progressDialog.setProgressStyle(android.R.style.Widget_ProgressBar_Horizontal);
-        progressDialog.show();
+//        progressDialog.setMessage("ProgressDialog running...");
+//        progressDialog.setCancelable(false);
+//        progressDialog.setProgressStyle(android.R.style.Widget_ProgressBar_Horizontal);
+//        progressDialog.show();
         super.onPreExecute();
     }
 
     @Override
     protected void onPostExecute(Boolean aBoolean) {
-        progressDialog.dismiss();
+//        progressDialog.dismiss();
     }
 
     @Override
     protected void onCancelled() {
-        progressDialog.dismiss();
+//        progressDialog.dismiss();
         super.onCancelled();
     }
 
