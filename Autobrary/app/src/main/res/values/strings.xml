@@ -314,4 +314,10 @@
     <string name="homeAddrDetail">상세주소</string>
     <string name="insertDetailAddr">상세주소를 입력하세요.</string>
     <string name="applyStatus">신청상태</string>
+    <string name="review">review</string>
+    <string name="all_records">모두의 기록</string>
+    <string name="meRecord">나의 기록</string>
+    <string name="book_name">Book name</string>
+    <string name="book_type">자료유형</string>
+    <string name="book_author">저자</string>
 </resources>
