@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/wishItem"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="13dp"
+        >
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:id="@+id/id_num"
+            android:text="등록번호" />
+        <TextView
+            android:layout_marginLeft="20dp"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:id="@+id/book_symbol"
+            android:text="청구기호" />
+        <TextView
+            android:layout_marginLeft="30dp"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:id="@+id/collector"
+            android:text="소장처" />
+        <TextView
+            android:layout_marginLeft="20dp"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:id="@+id/status"
+            android:text="도서상태" />
+        <TextView
+            android:layout_marginLeft="20dp"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:id="@+id/return_date"
+            android:text="반납예정일" />
+    </LinearLayout>
+
+</LinearLayout>

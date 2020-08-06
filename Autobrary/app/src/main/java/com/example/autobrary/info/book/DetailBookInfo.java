@@ -3,17 +3,18 @@ package com.example.autobrary.info.book;
 public class DetailBookInfo extends BookInfo {
     private String bookType; //자료유형
     private String objectInfo; //형태사항
-    private String isbnNv; //ISBN 번호
+    private String isbnInfo; //ISBN 번호
     private String sortSign; //분류기호
-    private String language; //언어
-    private int recommentScore; //평점
+    private String languageInfo; //언어
+    private String recommentScore; //평점
 
-    public DetailBookInfo(String bookType, String objectInfo, String isbnNv, String sortSign, String language, int recommentScore){
+    public DetailBookInfo(String id, String bookType, String objectInfo, String isbnInfo, String sortSign, String languageInfo, String recommentScore){
+        this.id = id;
         this.bookType = bookType;
         this.objectInfo = objectInfo;
-        this.isbnNv = isbnNv;
+        this.isbnInfo = isbnInfo;
         this.sortSign = sortSign;
-        this.language = language;
+        this.languageInfo = languageInfo;
         this.recommentScore = recommentScore;
     }
 
@@ -36,12 +37,12 @@ public class DetailBookInfo extends BookInfo {
         this.objectInfo = objectInfo;
     }
 
-    public String getIsbnNv() {
-        return isbnNv;
+    public String getIsbnInfo() {
+        return isbnInfo;
     }
 
-    public void setIsbnNv(String isbnNv) {
-        this.isbnNv = isbnNv;
+    public void setIsbnInfo(String isbnInfo) {
+        this.isbnInfo = isbnInfo;
     }
 
     public String getSortSign() {
@@ -52,19 +53,19 @@ public class DetailBookInfo extends BookInfo {
         this.sortSign = sortSign;
     }
 
-    public String getLanguage() {
-        return language;
+    public String getLanguageInfo() {
+        return languageInfo;
     }
 
-    public void setLanguage(String language) {
-        this.language = language;
+    public void setLanguageInfo(String languageInfo) {
+        this.languageInfo = languageInfo;
     }
 
-    public int getRecommentScore() {
+    public String getRecommentScore() {
         return recommentScore;
     }
 
-    public void setRecommentScore(int recommentScore) {
+    public void setRecommentScore(String recommentScore) {
         this.recommentScore = recommentScore;
     }
 }

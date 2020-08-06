@@ -9,7 +9,6 @@ import android.widget.TextView;
 
 import com.example.autobrary.R;
 import com.example.autobrary.info.book.BookMoreInfo;
-import com.example.autobrary.info.notice.NoticeInfo;
 
 import java.util.ArrayList;
 
@@ -38,7 +37,7 @@ public class BookMoreAdapter extends BaseAdapter {
 
         if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.listview_book_detail, parent, false);
+            convertView = inflater.inflate(R.layout.listview_book_more, parent, false);
         }
         TextView id_num = (TextView)convertView.findViewById(R.id.id_num); // 등록번호
         TextView book_symbol = (TextView)convertView.findViewById(R.id.book_symbol); // 청구기호

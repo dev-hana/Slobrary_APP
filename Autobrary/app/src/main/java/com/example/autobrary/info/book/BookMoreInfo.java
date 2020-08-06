@@ -15,6 +15,8 @@ public class BookMoreInfo extends BookInfo{
         this.return_date = return_date;
     }
 
+    BookMoreInfo(){}
+
     public String getId_num() {
         return id_num;
     }
