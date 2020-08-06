@@ -6,8 +6,10 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 
 
@@ -18,9 +20,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.autobrary.R;
+import com.example.autobrary.book.BookDetailFragment;
 import com.example.autobrary.externalConnecter.BucketConnector;
+import com.example.autobrary.info.book.BookInfo;
 import com.example.autobrary.main.Rpage;
 import com.example.autobrary.mypage.adapter.InterestListViewAdapter;
+import com.example.autobrary.mypage.adapter.LoanViewAdapter;
 import com.example.autobrary.mypage.adapter.LoanListViewAdapter;
 import com.example.autobrary.mypage.adapter.ReturnListViewAdapter;
 import com.example.autobrary.mypage.getdata.GetInterestBook;
@@ -29,6 +34,7 @@ import com.example.autobrary.mypage.getdata.GetReturnBook;
 import com.example.autobrary.info.book.InterestBookInfo;
 import com.example.autobrary.info.book.LoanBookInfo;
 import com.example.autobrary.info.book.ReturnBookInfo;
+import com.example.autobrary.notice.Notice2Fragment;
 import com.example.autobrary.session.SessionManager;
 
 import java.io.IOException;
@@ -39,7 +45,8 @@ import java.util.Vector;
 
 public class MypageFragment extends Fragment {
 
-    private LoanListViewAdapter loanadapter;
+    //private LoanListViewAdapter loanadapter;
+    private LoanViewAdapter loanadapter;
     private ReturnListViewAdapter returnadapter;
     private InterestListViewAdapter interestListViewAdapter;
     private Vector<LoanBookInfo> loanBookInfo;
@@ -49,9 +56,12 @@ public class MypageFragment extends Fragment {
     private GetLoanBook loanBook = new GetLoanBook();
     private GetReturnBook returnBook = new GetReturnBook();
     private GetInterestBook interestBook = new GetInterestBook();
-    private RecyclerView loanlistView;
+
+    //private ListView loanlistView; // 수정
+    private RecyclerView loanlistView; // 수정
     private RecyclerView returnlistView;
     private RecyclerView interrestListView;
+
     private ImageView loanArrow, returnArrow, foryouArrow;
     private LinearLayout returnTab, loanTab, interestTab;
     TextView name, email;
@@ -101,9 +111,39 @@ public class MypageFragment extends Fragment {
         returnlistView.setLayoutManager(returnLayoutManager);
         interrestListView.setLayoutManager(interestLayoutManager);
 
-        loanadapter = new LoanListViewAdapter();
+        loanadapter = new LoanViewAdapter();
         returnadapter = new ReturnListViewAdapter();
         interestListViewAdapter = new InterestListViewAdapter();
+
+        loanadapter.setOnItemClickListener(new LoanViewAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View v, int position) {
+                Bundle bundle = new Bundle();
+                bundle.putString("title", loanBookInfo.get(position).getName());
+                bundle.putString("author", loanBookInfo.get(position).getAuthor());
+                ((Rpage)getActivity()).secondReplaceFragment(BookDetailFragment.newInstance(), bundle);
+            }
+        });
+
+        returnadapter.setOnItemClickListener(new LoanViewAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View v, int position) {
+                Bundle bundle = new Bundle();
+                bundle.putString("title", returnBookInfo.get(position).getName());
+                bundle.putString("author", returnBookInfo.get(position).getAuthor());
+                ((Rpage)getActivity()).secondReplaceFragment(BookDetailFragment.newInstance(), bundle);
+            }
+        });
+
+        interestListViewAdapter.setOnItemClickListener(new LoanViewAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View v, int position) {
+                Bundle bundle = new Bundle();
+                bundle.putString("title", interestBookInfo.get(position).getName());
+                bundle.putString("author", interestBookInfo.get(position).getAuthor());
+                ((Rpage)getActivity()).secondReplaceFragment(BookDetailFragment.newInstance(), bundle);
+            }
+        });
 
         loanlistView.setAdapter(loanadapter);
         returnlistView.setAdapter(returnadapter);
@@ -112,6 +152,10 @@ public class MypageFragment extends Fragment {
         name = root.findViewById(R.id.name);
         email = root.findViewById(R.id.email);
         profileImg = root.findViewById(R.id.profileImg);
+
+        returnlistView.setVisibility(View.GONE);
+        loanlistView.setVisibility(View.GONE);
+        interrestListView.setVisibility(View.GONE);
 
         loanArrow.setOnClickListener(new View.OnClickListener() { //대출 화살표 리스너
             @Override

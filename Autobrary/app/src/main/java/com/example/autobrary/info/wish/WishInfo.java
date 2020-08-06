@@ -15,14 +15,6 @@ public class WishInfo {
         this.bookPublish = bookPublish;
     }
 
-    public WishInfo(String user, String bookTitle, String bookAuthor, String bookPublish, String bookDate, String status){
-        this.user = user;
-        this.bookTitle = bookTitle;
-        this.bookAuthor = bookAuthor;
-        this.bookPublish = bookPublish;
-        this.bookDate = bookDate;
-        this.status = status;
-    }
 
     public String getStatus() {
         return status;

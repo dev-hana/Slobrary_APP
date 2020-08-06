@@ -2,30 +2,27 @@ package com.example.autobrary.mypage.adapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.beardedhen.androidbootstrap.BootstrapButton;
 import com.example.autobrary.R;
 import com.example.autobrary.externalConnecter.BucketConnector;
-import com.example.autobrary.info.book.InterestBookInfo;
+import com.example.autobrary.info.book.LoanBookInfo;
 
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 
-import static com.beardedhen.androidbootstrap.api.defaults.DefaultBootstrapBrand.DANGER;
-import static com.beardedhen.androidbootstrap.api.defaults.DefaultBootstrapBrand.WARNING;
-
-public class InterestListViewAdapter extends RecyclerView.Adapter<InterestListViewAdapter.ItemViewHolder> {
-    private ArrayList<InterestBookInfo> listViewItemList = new ArrayList<>();
+public class LoanViewAdapter extends RecyclerView.Adapter<LoanViewAdapter.ItemViewHolder> {
+    private ArrayList<LoanBookInfo> listViewItemList = new ArrayList<LoanBookInfo>() ;
 
     @NonNull
     @Override
     public ItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view =  LayoutInflater.from(parent.getContext()).inflate(R.layout.listview_interest_item, parent, false);
+        View view =  LayoutInflater.from(parent.getContext()).inflate(R.layout.listview_loan_item, parent, false);
         return new ItemViewHolder(view);
     }
 
@@ -39,6 +36,8 @@ public class InterestListViewAdapter extends RecyclerView.Adapter<InterestListVi
             e.printStackTrace();
         }
     }
+
+
     @Override
     public long getItemId(int position) {
         return position;
@@ -50,16 +49,19 @@ public class InterestListViewAdapter extends RecyclerView.Adapter<InterestListVi
     }
 
 class ItemViewHolder extends RecyclerView.ViewHolder{
-    TextView title, author, publisher;
+    TextView title, author, publisher, loan_date, return_view, return_date;
     ImageView image;
-    BootstrapButton bookStatus;
     public ItemViewHolder(@NonNull View itemView) {
         super(itemView);
-        bookStatus = (BootstrapButton) itemView.findViewById(R.id.bookStatus);
         title = (TextView)itemView.findViewById(R.id.bTitle);
         author = (TextView)itemView.findViewById(R.id.bAuth);
         publisher = (TextView)itemView.findViewById(R.id.bPub);
+        loan_date = (TextView)itemView.findViewById(R.id.bLoan);
         image = (ImageView)itemView.findViewById(R.id.bCover);
+        return_view = (TextView)itemView.findViewById(R.id.returnView);
+        return_date = (TextView)itemView.findViewById(R.id.bReturn);
+        return_date.setVisibility(View.GONE);
+        return_view.setVisibility(View.GONE);
 
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,37 +76,34 @@ class ItemViewHolder extends RecyclerView.ViewHolder{
             }
         });
     }
-    void onBind(InterestBookInfo data) throws ExecutionException, InterruptedException {
+
+    void onBind(LoanBookInfo data) throws ExecutionException, InterruptedException {
         title.setText(data.getName());
         author.setText(data.getAuthor());
         publisher.setText(data.getPublisher());
-        bookStatus.setText(data.getStatus());
-        if(data.getStatus().equals("대출중")){
-            bookStatus.setBootstrapBrand(DANGER);
-        }else if(data.getStatus().equals("예약중")){
-            bookStatus.setBootstrapBrand(WARNING);
-        }
+        loan_date.setText(data.getLoanDate());
         BucketConnector bucket = new BucketConnector();
             bucket.setObjectName(data.getImage());
             bucket.execute().get();
         image.setImageBitmap(bucket.getBitmap());
     }
 }
-    public void addItem(InterestBookInfo info) {
+    public void addItem(LoanBookInfo info) {
         listViewItemList.add(info);
     }
     public void clearItem() {
         listViewItemList.clear();
     }
 
-    private LoanViewAdapter.OnItemClickListener mListener = null ;
+    private OnItemClickListener mListener = null ;
 
     public interface OnItemClickListener {
         void onItemClick(View v, int position) ;
     }
 
     // OnItemClickListener 리스너 객체 참조를 어댑터에 전달하는 메서드
-    public void setOnItemClickListener(LoanViewAdapter.OnItemClickListener listener) {
+    public void setOnItemClickListener(OnItemClickListener listener) {
         this.mListener = listener ;
     }
+
 }

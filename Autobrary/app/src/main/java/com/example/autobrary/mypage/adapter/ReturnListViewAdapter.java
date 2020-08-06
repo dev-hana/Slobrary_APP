@@ -62,6 +62,19 @@ public class ReturnListViewAdapter  extends RecyclerView.Adapter<ReturnListViewA
             return_date = (TextView)itemView.findViewById(R.id.bReturn);
             bookStatus = (BootstrapButton) itemView.findViewById(R.id.bookStatus);
             image = (ImageView)itemView.findViewById(R.id.bCover);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int position = getAdapterPosition();
+
+                    if(position != RecyclerView.NO_POSITION){
+                        if(mListener !=null){
+                            mListener.onItemClick(v,position);
+                        }
+                    }
+                }
+            });
         }
         void onBind(ReturnBookInfo data) throws ExecutionException, InterruptedException {
             title.setText(data.getName());
@@ -82,5 +95,16 @@ public class ReturnListViewAdapter  extends RecyclerView.Adapter<ReturnListViewA
     }
     public void clearItem() {
         listViewItemList.clear();
+    }
+
+    private LoanViewAdapter.OnItemClickListener mListener = null ;
+
+    public interface OnItemClickListener {
+        void onItemClick(View v, int position) ;
+    }
+
+    // OnItemClickListener 리스너 객체 참조를 어댑터에 전달하는 메서드
+    public void setOnItemClickListener(LoanViewAdapter.OnItemClickListener listener) {
+        this.mListener = listener ;
     }
 }

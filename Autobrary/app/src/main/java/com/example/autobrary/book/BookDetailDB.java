@@ -1,8 +1,9 @@
-package com.example.autobrary.wish;
+package com.example.autobrary.book;
 
 import android.util.Log;
 
 import com.example.autobrary.externalConnecter.URLConnector;
+import com.example.autobrary.info.book.DetailBookInfo;
 import com.example.autobrary.info.wish.WishInfo;
 import com.example.autobrary.session.SessionManager;
 
@@ -19,17 +20,17 @@ import java.util.Vector;
 
 import cz.msebera.android.httpclient.HttpEntity;
 
-public class WishList {
-    public Vector<WishInfo> execute() throws IOException, InvalidKeySpecException, NoSuchAlgorithmException {
-        Vector<WishInfo> wish = new Vector<>();
-        String REQUEST_PAGE = "Wishlist.jsp";
+public class BookDetailDB {
+    public Vector<DetailBookInfo> execute() throws IOException, InvalidKeySpecException, NoSuchAlgorithmException {
+        Vector<DetailBookInfo> bookdb = new Vector<>();
+        String REQUEST_PAGE = "Wishlist.jsp"; // 수정하기
 
         HttpEntity rawData = null;
         BufferedInputStream bis = null;
         String result = "false";
         try {
             HashMap param = new HashMap();
-            param.put("mem_id", SessionManager.getAttribute("login"));
+            param.put("mem_id", SessionManager.getAttribute("login")); // 수정하기 - 책 id로
             URLConnector task = new URLConnector(REQUEST_PAGE, param);
             task.execute().get();
             result = task.getData();
@@ -43,23 +44,24 @@ public class WishList {
                 }
 
                // jsonKeyList.remove(0); //성공여부 배열 지우기
-                for(String j : jsonKeyList){
-                    String title = new JSONObject(jsonResult.getString(j)).getString("book_name");
-                    String author = new JSONObject(jsonResult.getString(j)).getString("book_author");
-                    String publish = new JSONObject(jsonResult.getString(j)).getString("publish");
-                    String bDate = new JSONObject(jsonResult.getString(j)).getString("wish_date");
-                    String applyStatus = new JSONObject(jsonResult.getString(j)).getString("status");
-                    WishInfo fetchWish = new WishInfo(title, author, publish, bDate, applyStatus);
-//                    WishInfo fetchWish = new WishInfo(j, title, author, publish, bDate, applyStatus);
-                    wish.add(fetchWish);
+                for(String j : jsonKeyList){ // 수정하기 책 상세페이지 정보로
+                    String bookType = new JSONObject(jsonResult.getString(j)).getString("bookType");
+                    String publishInfo = new JSONObject(jsonResult.getString(j)).getString("publishInfo");
+                    String objectInfo = new JSONObject(jsonResult.getString(j)).getString("objectInfo");
+                    String isbnNv = new JSONObject(jsonResult.getString(j)).getString("isbnNv");
+                    String sortSign = new JSONObject(jsonResult.getString(j)).getString("sortSign");
+                    String language = new JSONObject(jsonResult.getString(j)).getString("language");
+                    int recommentScore = new JSONObject(jsonResult.getString(j)).getInt("recommentScore");
+                    DetailBookInfo fetchBookDB = new DetailBookInfo(bookType, publishInfo, objectInfo, isbnNv, sortSign, language, recommentScore);
+                    bookdb.add(fetchBookDB);
                 }
            // }else{
            //     Log.e("Wish Error", "Wish fetch failed");
            // }
         } catch (Exception e) {
             e.printStackTrace();
-            Log.e("Wish Error", "Wish fetch failed");
-            wish.clear();
+            Log.e("Error", "fetch failed");
+            bookdb.clear();
         }finally {
             try{
                 if(bis != null) bis.close();
@@ -67,6 +69,6 @@ public class WishList {
                 e2.printStackTrace();
             }
         }
-        return wish;
+        return bookdb;
     }
 }

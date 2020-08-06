@@ -97,56 +97,56 @@
             android:layout_height="2dp"
             android:layout_centerInParent="true"
             android:background="#9C9C9C"/>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="10dp"
-            >
-            <com.beardedhen.androidbootstrap.BootstrapButton
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:bootstrapBrand="secondary"
-                app:bootstrapSize="lg"
-                app:buttonMode="regular"
-                app:showOutline="false"
-                app:roundedCorners="true"
-                android:text="내 서재"
-                />
-            <com.beardedhen.androidbootstrap.BootstrapButton
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                app:bootstrapBrand="secondary"
-                app:bootstrapSize="lg"
-                app:buttonMode="regular"
-                app:showOutline="false"
-                app:roundedCorners="true"
-                android:text="연체도서"
-                />
-            <com.beardedhen.androidbootstrap.BootstrapButton
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                app:bootstrapBrand="secondary"
-                app:bootstrapSize="lg"
-                app:buttonMode="regular"
-                app:showOutline="false"
-                app:roundedCorners="true"
-                android:text="희망도서"
-                />
-            <com.beardedhen.androidbootstrap.BootstrapButton
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                app:bootstrapBrand="secondary"
-                app:bootstrapSize="lg"
-                app:buttonMode="regular"
-                app:showOutline="false"
-                app:roundedCorners="true"
-                android:text="관심도서"
-                />
-        </LinearLayout>
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="vertical"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            >-->
+<!--            <com.beardedhen.androidbootstrap.BootstrapButton-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                app:bootstrapBrand="secondary"-->
+<!--                app:bootstrapSize="lg"-->
+<!--                app:buttonMode="regular"-->
+<!--                app:showOutline="false"-->
+<!--                app:roundedCorners="true"-->
+<!--                android:text="내 서재"-->
+<!--                />-->
+<!--            <com.beardedhen.androidbootstrap.BootstrapButton-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                app:bootstrapBrand="secondary"-->
+<!--                app:bootstrapSize="lg"-->
+<!--                app:buttonMode="regular"-->
+<!--                app:showOutline="false"-->
+<!--                app:roundedCorners="true"-->
+<!--                android:text="연체도서"-->
+<!--                />-->
+<!--            <com.beardedhen.androidbootstrap.BootstrapButton-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                app:bootstrapBrand="secondary"-->
+<!--                app:bootstrapSize="lg"-->
+<!--                app:buttonMode="regular"-->
+<!--                app:showOutline="false"-->
+<!--                app:roundedCorners="true"-->
+<!--                android:text="희망도서"-->
+<!--                />-->
+<!--            <com.beardedhen.androidbootstrap.BootstrapButton-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                app:bootstrapBrand="secondary"-->
+<!--                app:bootstrapSize="lg"-->
+<!--                app:buttonMode="regular"-->
+<!--                app:showOutline="false"-->
+<!--                app:roundedCorners="true"-->
+<!--                android:text="관심도서"-->
+<!--                />-->
+<!--        </LinearLayout>-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -173,15 +173,15 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     />
+
             <ImageView
-                android:rotation="180"
-                android:layout_marginTop="36dp"
-                android:src="@drawable/arrow_down"
-                android:layout_width="35dp"
-                android:layout_height="21dp"
-                android:clickable="true"
                 android:id="@+id/arrow_down_loan"
-                />
+                android:layout_width="35dp"
+                android:layout_height="18dp"
+                android:layout_marginTop="36dp"
+                android:clickable="true"
+                android:rotation="180"
+                android:src="@drawable/arrow_down" />
 
         </LinearLayout>
         <View
@@ -198,6 +198,20 @@
                 android:scrollbars="vertical"
                 android:nestedScrollingEnabled="true"
                 />
+
+<!--        <ScrollView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:fillViewport="true"-->
+<!--            >-->
+<!--            <ListView-->
+<!--                android:visibility="gone"-->
+<!--                android:id="@+id/loanList"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:scrollbars="vertical"-->
+<!--                />-->
+<!--        </ScrollView>-->
     </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"

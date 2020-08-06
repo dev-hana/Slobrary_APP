@@ -8,6 +8,18 @@ public class DetailBookInfo extends BookInfo {
     private String language; //언어
     private int recommentScore; //평점
 
+    public DetailBookInfo(String bookType, String objectInfo, String isbnNv, String sortSign, String language, int recommentScore){
+        this.bookType = bookType;
+        this.objectInfo = objectInfo;
+        this.isbnNv = isbnNv;
+        this.sortSign = sortSign;
+        this.language = language;
+        this.recommentScore = recommentScore;
+    }
+
+    public DetailBookInfo(){}
+
+
     public String getBookType() {
         return bookType;
     }
