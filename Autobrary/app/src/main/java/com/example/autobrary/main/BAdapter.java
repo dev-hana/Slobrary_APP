@@ -60,7 +60,7 @@ public class BAdapter extends BaseAdapter {
     }
 
     public void addItem(String user, String title, String auth, String pub, String wdate, String applyStatus){
-        WishInfo wishInfo = new WishInfo(user, title, auth, pub, wdate, applyStatus);
+        WishInfo wishInfo = new WishInfo(user, title, auth, pub);
         wishInfo.setUser(user);
         wishInfo.setBookTitle(title);
         wishInfo.setBookAuthor(auth);

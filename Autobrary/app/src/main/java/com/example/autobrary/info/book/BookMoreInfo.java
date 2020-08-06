@@ -7,6 +7,14 @@ public class BookMoreInfo extends BookInfo{
     String stauts; // 도서상태
     String return_date; // 반납예정일
 
+    public BookMoreInfo(String id_num, String book_symbol, String collector, String stauts, String return_date){
+        this.id_num = id_num;
+        this.book_symbol = book_symbol;
+        this.collector = collector;
+        this.stauts = stauts;
+        this.return_date = return_date;
+    }
+
     public String getId_num() {
         return id_num;
     }
