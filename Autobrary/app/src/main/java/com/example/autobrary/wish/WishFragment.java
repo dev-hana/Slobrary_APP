@@ -6,12 +6,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import com.beardedhen.androidbootstrap.BootstrapButton;
 import com.example.autobrary.R;
 import com.example.autobrary.externalConnecter.BucketConnector;
 import com.example.autobrary.info.wish.WishInfo;
@@ -29,7 +31,7 @@ public class WishFragment extends Fragment {
     private Vector<WishInfo> getWish;
     private WishList wishList = new WishList();
     // private BItem BItem;
-    Button wishbtn;
+    BootstrapButton wishbtn;
     private Rpage activity;
     private Context context;
 
