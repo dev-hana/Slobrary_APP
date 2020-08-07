@@ -1,9 +1,11 @@
 package com.example.autobrary.mypage.adapter;
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -20,12 +22,56 @@ import static com.beardedhen.androidbootstrap.api.defaults.DefaultBootstrapBrand
 import static com.beardedhen.androidbootstrap.api.defaults.DefaultBootstrapBrand.WARNING;
 
 public class InterestListViewAdapter extends RecyclerView.Adapter<InterestListViewAdapter.ItemViewHolder> {
+    // 버튼 관련 //
+    Context context;
+    LayoutInflater layoutInflater;
+    ArrayList<InterestBookInfo> data;
+    /////
+
+    //버튼 클릭//
+    public InterestListViewAdapter(Context context, ArrayList<InterestBookInfo> data){
+        this.context = context;
+        this.layoutInflater = LayoutInflater.from(context);
+        this.data = data;
+    }
+
+
     private ArrayList<InterestBookInfo> listViewItemList = new ArrayList<>();
+
+    public InterestListViewAdapter() {
+
+    }
 
     @NonNull
     @Override
     public ItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view =  LayoutInflater.from(parent.getContext()).inflate(R.layout.listview_interest_item, parent, false);
+
+        BootstrapButton revBtn = view.findViewById(R.id.revBtn);
+        BootstrapButton recoBtn = view.findViewById(R.id.recoBtn);
+        BootstrapButton delBtn = view.findViewById(R.id.delBtn);
+
+        revBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context, "리뷰", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        recoBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context, "기록", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        delBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context, "삭제", Toast.LENGTH_LONG).show();
+            }
+        });
+
         return new ItemViewHolder(view);
     }
 

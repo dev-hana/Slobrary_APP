@@ -1,9 +1,11 @@
 package com.example.autobrary.mypage.adapter;
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,6 +15,9 @@ import com.beardedhen.androidbootstrap.BootstrapButton;
 import com.example.autobrary.R;
 import com.example.autobrary.externalConnecter.BucketConnector;
 import com.example.autobrary.info.book.ReturnBookInfo;
+import com.example.autobrary.info.wish.WishInfo;
+import com.example.autobrary.main.Rpage;
+import com.example.autobrary.wish.Wish2Fragment;
 
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
@@ -20,10 +25,45 @@ import java.util.concurrent.ExecutionException;
 public class ReturnListViewAdapter  extends RecyclerView.Adapter<ReturnListViewAdapter.ItemViewHolder> {
     private ArrayList<ReturnBookInfo> listViewItemList = new ArrayList<ReturnBookInfo>() ;
 
+    // 버튼 관련 //
+    Context context;
+    LayoutInflater layoutInflater;
+    ArrayList<ReturnBookInfo> data;
+    /////
+
+    //버튼 클릭//
+    public ReturnListViewAdapter(Context context, ArrayList<ReturnBookInfo> data){
+        this.context = context;
+        this.layoutInflater = LayoutInflater.from(context);
+        this.data = data;
+    }
+
+    public ReturnListViewAdapter() {
+
+    }
+
     @NonNull
     @Override
     public ItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view =  LayoutInflater.from(parent.getContext()).inflate(R.layout.listview_loan_item, parent, false);
+        View view =  LayoutInflater.from(parent.getContext()).inflate(R.layout.listview_return_item, parent, false);
+
+        BootstrapButton revBtn = view.findViewById(R.id.revBtn);
+        BootstrapButton diBtn = view.findViewById(R.id.diBtn);
+
+        revBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context, "리뷰", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        diBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                
+            }
+        });
+
         return new ItemViewHolder(view);
     }
 

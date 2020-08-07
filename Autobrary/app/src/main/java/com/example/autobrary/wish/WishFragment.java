@@ -25,9 +25,10 @@ import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.util.Vector;
 
-public class WishFragment extends Fragment {
+public class WishFragment extends Fragment{// implements WishAdapter.ListBtnClickListener
     ListView listView;
-    BAdapter adapter;
+//    BAdapter adapter;
+    WishAdapter adapter;
     private Vector<WishInfo> getWish;
     private WishList wishList = new WishList();
     // private BItem BItem;
@@ -59,7 +60,8 @@ public class WishFragment extends Fragment {
         //////////// 리스트 연결 /////////
 
         listView = root.findViewById(R.id.wishList);
-        adapter = new BAdapter();
+//        adapter = new BAdapter();
+        adapter = new WishAdapter();
         listView.setAdapter(adapter);
 
         try {
@@ -109,5 +111,10 @@ public class WishFragment extends Fragment {
         }
         return result;
     }
+
+//    @Override
+//    public void onListBtnClick(int position) {
+//        Toast.makeText(context, "취소", Toast.LENGTH_LONG).show();
+//    }
 }
 

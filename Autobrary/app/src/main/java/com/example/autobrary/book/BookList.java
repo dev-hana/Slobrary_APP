@@ -30,7 +30,7 @@ public class BookList {
         String result = "false";
         try {
             HashMap param = new HashMap();
-            param.put("id_num", SessionManager.getAttribute(null)); //param.put("mem_id", SessionManager.getAttribute("login"));
+            param.put("id_num", SessionManager.getAttribute("login")); //param.put("mem_id", SessionManager.getAttribute("login"));
             URLConnector task = new URLConnector(REQUEST_PAGE, param);
             task.execute().get();
             result = task.getData();

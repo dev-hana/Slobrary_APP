@@ -34,22 +34,33 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:maxLength="20"/>
-            <TextView
-                android:gravity="center_vertical"
-                android:id="@+id/bAuth"
-                android:hint="@string/author"
-                android:textSize="13dp"
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:maxLength="20"
-                />
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+                <TextView
+                    android:gravity="center_vertical"
+                    android:id="@+id/bAuth"
+                    android:hint="@string/author"
+                    android:layout_weight="1"
+                    android:maxLength="20"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
 
+                <com.beardedhen.androidbootstrap.BootstrapButton
+                    android:text="리뷰"
+                    android:id="@+id/revBtn"
+                    android:layout_marginRight="10dp"
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
                 <TextView
                     android:gravity="center_vertical"
                     android:id="@+id/bPub"
@@ -57,6 +68,13 @@
                     android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>
+
+                <com.beardedhen.androidbootstrap.BootstrapButton
+                    android:text="내 일기"
+                    android:id="@+id/diBtn"
+                    android:layout_marginRight="10dp"
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"/>
             </LinearLayout>
 
             <LinearLayout

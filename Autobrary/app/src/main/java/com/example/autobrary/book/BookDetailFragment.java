@@ -103,6 +103,8 @@ public class BookDetailFragment  extends Fragment {
         bookDetailList.add(language);
         bookDetailList.add(recoScore);
 
+        // 안되면 visible = gone으로 해서 리스트뷰 만들고 그 값을 따로 저장해서 대입하기. String s = x.getText().toString();
+
         try {
             initialize();
         } catch (IOException e) {
@@ -127,19 +129,19 @@ public class BookDetailFragment  extends Fragment {
             e.printStackTrace();
         }
 
-        for(int i = 0; i < bookDetailList.size(); i++){
-            bucket = new BucketConnector();
-            bucket.setObjectName(getData.get(i).getImage());
-            try {
-                bucket.execute().get();
-            } catch (ExecutionException e) {
-                e.printStackTrace();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            bookDetailList.get(i);
-            //            bookDetailList.get(i).setImageBitmap(bucket.getBitmap());
-        }
+//        for(int i = 0; i < bookDetailList.size(); i++){
+//            bucket = new BucketConnector();
+//            bucket.setObjectName(getData.get(i).getImage());
+//            try {
+//                bucket.execute().get();
+//            } catch (ExecutionException e) {
+//                e.printStackTrace();
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
+//            bookDetailList.get(i);
+//            //            bookDetailList.get(i).setImageBitmap(bucket.getBitmap());
+//        }
 
         //////////// 리스트 연결 /////////
 

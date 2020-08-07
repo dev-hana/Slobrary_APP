@@ -2,6 +2,7 @@ package com.example.autobrary.wish;
 
 import android.util.Log;
 
+import com.beardedhen.androidbootstrap.BootstrapButton;
 import com.example.autobrary.externalConnecter.URLConnector;
 import com.example.autobrary.info.wish.WishInfo;
 import com.example.autobrary.session.SessionManager;
@@ -23,6 +24,9 @@ public class WishList {
     public Vector<WishInfo> execute() throws IOException, InvalidKeySpecException, NoSuchAlgorithmException {
         Vector<WishInfo> wish = new Vector<>();
         String REQUEST_PAGE = "Wishlist.jsp";
+
+        ////버튼 ////
+        BootstrapButton canBtn;
 
         HttpEntity rawData = null;
         BufferedInputStream bis = null;
@@ -49,12 +53,14 @@ public class WishList {
                     String publish = new JSONObject(jsonResult.getString(j)).getString("publish");
                     String bDate = new JSONObject(jsonResult.getString(j)).getString("wish_date");
                     String applyStatus = new JSONObject(jsonResult.getString(j)).getString("status");
-                    WishInfo fetchWish = new WishInfo(j, title, author, publish);
+                    WishInfo fetchWish = new WishInfo(j, title, author, publish, applyStatus);
                     wish.add(fetchWish);
                 }
            // }else{
            //     Log.e("Wish Error", "Wish fetch failed");
-           // }
+           //
+
+
         } catch (Exception e) {
             e.printStackTrace();
             Log.e("Wish Error", "Wish fetch failed");

@@ -25,10 +25,10 @@ public class WishApply {
         HashMap<String, String> param = new HashMap<>();
 
         // 파라미터 입력
+        param.put("applyUser", info.getUser());
         param.put("bookTitle", info.getBookTitle());
         param.put("bookAuthor", info.getBookAuthor());
         param.put("bookPublish", info.getBookPublish());
-        param.put("applyUser", info.getUser());
 
         HttpEntity rawData = null;
         BufferedInputStream bis = null;

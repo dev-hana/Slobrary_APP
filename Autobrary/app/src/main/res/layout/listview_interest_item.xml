@@ -24,32 +24,58 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <TextView
-                android:gravity="center_vertical"
-                android:id="@+id/bTitle"
-                android:hint="@string/title"
-                android:textStyle="bold"
-                android:textSize="15dp"
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:maxLength="20"/>
-            <TextView
-                android:gravity="center_vertical"
-                android:id="@+id/bAuth"
-                android:hint="@string/author"
-                android:textSize="13dp"
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:maxLength="20"
-                />
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+                <TextView
+                    android:gravity="center_vertical"
+                    android:id="@+id/bTitle"
+                    android:hint="@string/title"
+                    android:textStyle="bold"
+                    android:textSize="15dp"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:maxLength="20"/>
 
+                <com.beardedhen.androidbootstrap.BootstrapButton
+                    android:text="리뷰"
+                    android:id="@+id/revBtn"
+                    android:layout_marginRight="10dp"
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:gravity="center_vertical"
+                    android:id="@+id/bAuth"
+                    android:hint="@string/author"
+                    android:textSize="13dp"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:maxLength="20"
+                    />
+
+                <com.beardedhen.androidbootstrap.BootstrapButton
+                    android:text="기록"
+                    android:id="@+id/recoBtn"
+                    android:layout_marginRight="10dp"
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
                 <TextView
                     android:gravity="center_vertical"
                     android:id="@+id/bPub"
@@ -57,6 +83,13 @@
                     android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>
+
+                <com.beardedhen.androidbootstrap.BootstrapButton
+                    android:text="삭제"
+                    android:id="@+id/delBtn"
+                    android:layout_marginRight="10dp"
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"/>
             </LinearLayout>
             <LinearLayout
                 android:orientation="horizontal"
