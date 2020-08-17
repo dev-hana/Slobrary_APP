@@ -17,6 +17,7 @@ import com.example.autobrary.R;
 import com.example.autobrary.externalConnecter.BucketConnector;
 import com.example.autobrary.info.book.BookInfo;
 import com.example.autobrary.main.getdata.GetBestBook;
+import com.example.autobrary.main.getdata.GetNewBook;
 import com.example.autobrary.session.SessionManager;
 
 import java.io.IOException;
@@ -53,10 +54,31 @@ public class HomeFragment extends Fragment {
         bestBookListObject.add(rootView.findViewById(R.id.bestBook1));
         bestBookListObject.add(rootView.findViewById(R.id.bestBook2));
         bestBookListObject.add(rootView.findViewById(R.id.bestBook3));
-        Vector<BookInfo> getData = null;
-        BucketConnector bucket = null;
+
+        Vector<ImageView> newBookListObject = new Vector<>();
+        newBookListObject.add(rootView.findViewById(R.id.newBook1));
+        newBookListObject.add(rootView.findViewById(R.id.newBook2));
+        newBookListObject.add(rootView.findViewById(R.id.newBook3));
+
+        Vector<BookInfo> getData1 = null;
+        BucketConnector bucket1 = null;
+
+        Vector<BookInfo> getData2 = null;
+        BucketConnector bucket2 = null;
+
+
         try {
-            getData = new GetBestBook().execute();
+            getData1 = new GetBestBook().execute();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (InvalidKeySpecException e) {
+            e.printStackTrace();
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            getData2 = new GetNewBook().execute();
         } catch (IOException e) {
             e.printStackTrace();
         } catch (InvalidKeySpecException e) {
@@ -66,16 +88,29 @@ public class HomeFragment extends Fragment {
         }
 
         for(int i = 0; i < bestBookListObject.size(); i++){
-                bucket = new BucketConnector();
-                bucket.setObjectName(getData.get(i).getImage());
+                bucket1 = new BucketConnector();
+                bucket1.setObjectName(getData1.get(i).getImage());
             try {
-                bucket.execute().get();
+                bucket1.execute().get();
             } catch (ExecutionException e) {
                 e.printStackTrace();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            bestBookListObject.get(i).setImageBitmap(bucket.getBitmap());
+            bestBookListObject.get(i).setImageBitmap(bucket1.getBitmap());
+        }
+
+        for(int i = 0; i < newBookListObject.size(); i++){
+            bucket2 = new BucketConnector();
+            bucket2.setObjectName(getData2.get(i).getImage());
+            try {
+                bucket2.execute().get();
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            newBookListObject.get(i).setImageBitmap(bucket2.getBitmap());
         }
         return rootView;
     }
